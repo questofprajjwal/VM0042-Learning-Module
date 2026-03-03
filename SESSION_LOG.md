@@ -1,8 +1,8 @@
 # VM0042 Learning Module — Session Log
 
 **Project:** VM0042 v2.2 Interactive Learning Module
-**Repo:** https://github.com/questofprajjwal/VM0042-Learning-Module
-**Live URL:** https://vm0042-learning-module.vercel.app
+**Repo:** https://github.com/questofprajjwal/sustainabilityacademy
+**Live URL:** https://sa-gray-tau.vercel.app
 **Dedicated to:** Muskan 💚
 
 ---
@@ -96,10 +96,10 @@ Created two new lessons:
 
 ### Phase 5 — Git & Deployment (earlier sessions)
 - Initialized git repo in `/Users/knowprajjwal/Verra/`
-- Created GitHub repo via `gh repo create questofprajjwal/VM0042-Learning-Module --public`
+- Created GitHub repo via `gh repo create questofprajjwal/sustainabilityacademy --public`
 - Installed Vercel CLI; fixed npm cache ownership issue
 - Fixed 404 (entry point was `VM0042_Learning_Module.html` not `index.html`) by copying to `index.html`
-- Final live URL: **https://vm0042-learning-module.vercel.app**
+- Final live URL: **https://sa-gray-tau.vercel.app**
 
 ### Phase 6 — Footer (earlier sessions)
 Added footer at bottom of page:
@@ -238,7 +238,7 @@ All three new modules were reviewed against original PDFs using both Gemini CLI 
 **Final deployment after verification passes:**
 - Commit: `5880bd1`
 - All 33 lessons present; 92 backticks (even); file size 373KB
-- Live: https://vm0042-learning-module.vercel.app
+- Live: https://sa-gray-tau.vercel.app
 
 ---
 
