@@ -2859,7 +2859,7 @@ LESSONS["7.1"] = {
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
   <div class="bg-blue-50 border border-blue-200 rounded p-4 text-sm">
     <h4 class="font-bold text-blue-800 mb-2">Step 2a: Identify Barriers</h4>
-    <p class="text-blue-900 mb-2">List all realistic and credible barriers. VT0008 recognizes three types:</p>
+    <p class="text-blue-900 mb-2">List all realistic and credible barriers. Unless the applicable methodology specifies additional barrier types (e.g., technological barriers), barriers are limited to three types:</p>
     <ul class="space-y-1 text-blue-900">
       <li><strong>Financial barriers:</strong> No access to capital; similar projects only viable with grants</li>
       <li><strong>Information barriers:</strong> Lack of awareness; new practices not accepted due to knowledge gaps</li>
@@ -3050,11 +3050,11 @@ LESSONS["7.2"] = {
 </div>
 
 <h3 class="text-xl font-bold mt-6 mb-3">Investment Analysis: What Must Go in the Excel Spreadsheet</h3>
-<p class="mb-3 text-sm">VT0008 Appendix 2 requires a public Excel file with:</p>
+<p class="mb-3 text-sm">VT0008 Appendix 2 requires a transparent Excel model published alongside the project description on the Verra website. Commercially sensitive information may be protected where justified under the VCS Standard. Key requirements:</p>
 <ul class="list-disc ml-6 text-sm space-y-1 mb-4">
-  <li>All formulas visible and traceable — no protected or hidden cells</li>
+  <li>All formulas readable and all relevant cells viewable and unprotected (except where commercially sensitive — must be justified to Verra's satisfaction)</li>
   <li>Assessment period = expected project lifetime (minimum 10 years)</li>
-  <li>ALL cash flows: investment costs, O&amp;M, revenues, subsidies, tax depreciation, asset salvage value at end</li>
+  <li>ALL relevant cash flows: investment costs, O&amp;M, revenues (including subsidies/incentives), end-of-period fair value of assets; <strong>depreciation and other non-cash items are NOT cash flows — they are added back when calculating financial indicators</strong></li>
   <li>Post-tax cash flows (WACC and cost of equity are post-tax benchmarks)</li>
   <li>Sunk costs excluded (expenditures before investment decision date)</li>
   <li>Sensitivity analysis on all variables constituting >20% of total costs or revenues — variations of at least ±10%</li>
@@ -3078,7 +3078,7 @@ LESSONS["7.2"] = {
   <div class="bg-slate-50 border border-slate-200 rounded p-4 text-sm">
     <h4 class="font-bold text-slate-800 mb-2">Step 4b — For Listed Measure Types</h4>
     <p class="text-slate-700 mb-2">Applied to: fuel/feedstock switch, technology switch, methane destruction, methane avoidance, CCS.</p>
-    <p class="text-slate-700"><strong>Process:</strong> Count similar projects (N_all) NOT under VCS; identify those with essential distinctions (N_diff); calculate Factor F.</p>
+    <p class="text-slate-700"><strong>Process:</strong> Define a ±50% capacity/output range; identify all similar projects (both VCS and non-VCS) that started commercial operation before the project; exclude those under VCS, then define N_all. Identify those with essential distinctions as N_diff; calculate Factor F.</p>
     <p class="font-mono text-sm bg-white p-2 rounded mt-2">F = 1 − N_diff / N_all</p>
     <p class="font-bold text-red-700 mt-2">Common practice if: F &gt; 20% AND (N_all − N_diff) &gt; 3</p>
   </div>
@@ -3156,12 +3156,12 @@ LESSONS["7.2"] = {
       q: "VT0008 requires an Excel spreadsheet for investment analysis. Which of these requirements applies?",
       options: [
         "The spreadsheet must be kept confidential to protect proprietary financial data",
-        "The spreadsheet must be published on the Verra website with all formulas readable and no protected cells",
+        "The spreadsheet must be published with formulas readable and relevant cells viewable/unprotected; commercially sensitive information may be protected where justified under the VCS Standard",
         "Only a PDF summary of the analysis is required for the Verra registry",
         "The spreadsheet is only required for benchmark analysis, not investment comparison analysis"
       ],
       answer: 1,
-      explanation: "VT0008 Appendix 2 requires the Excel spreadsheet to be published on the Verra website alongside the project description. All formulas must be readable, all cells unprotected and viewable, and all equations traceable to their sources."
+      explanation: "VT0008 Appendix 2 requires the Excel spreadsheet to be published on the Verra website alongside the project description. All formulas must be readable and relevant cells viewable/unprotected. However, commercially sensitive information may be protected where the project proponent demonstrates to Verra's satisfaction that such information is commercially sensitive."
     },
     {
       q: "In the WACC formula (WACC = r_e × W_e + r_d × (1 − T_c) × W_d), why is the cost of debt multiplied by (1 − T_c)?",
@@ -3319,7 +3319,11 @@ LESSONS["8.1"] = {
 </ul>
 
 <h3 class="text-xl font-bold mt-6 mb-3">Substitution for Missing Crop Types (Section 5.3)</h3>
-<p class="mb-3 text-sm">What if no validation data exist for a specific crop in the project? VMD0053 permits substitution under strict rules:</p>
+<p class="mb-3 text-sm">What if no validation data exist for a specific crop in the project? VMD0053 permits substitution under a two-tier hierarchy:</p>
+<div class="bg-amber-50 border border-amber-200 rounded p-3 mb-3 text-sm">
+  <p class="font-semibold text-amber-800">Hierarchy: Same CFG first, then different CFG</p>
+  <p class="mt-1 text-amber-900">If no data exist for a specific crop, first try to substitute with another validated crop <em>within the same CFG</em> (e.g., substitute one C4 annual non-N-fixing crop for another). Only if that is not possible should you substitute with a crop from a different CFG.</p>
+</div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
   <div class="bg-blue-50 border border-blue-200 rounded p-3 text-sm">
     <h4 class="font-bold text-blue-800 mb-1">Baseline Substitution</h4>
@@ -3410,7 +3414,7 @@ LESSONS["8.2"] = {
     <div>n = number of observations in the study</div>
     <div>i = index of current observation</div>
   </div>
-  <p class="text-slate-300 text-sm mt-2">Mean bias = unweighted mean of all per-study biases</p>
+  <p class="text-slate-300 text-sm mt-2">Mean bias = unweighted mean of all per-study biases <em>(unweighted so that one large study with many observations does not automatically dominate model acceptance)</em></p>
 </div>
 
 <div class="formula-box p-4 mb-6">
@@ -3434,9 +3438,9 @@ LESSONS["8.2"] = {
     <tr><td>Study 2</td><td>(0.6 vs 1.2)</td><td>(0.6−1.2) / 1 = −0.60</td></tr>
     <tr><td>Study 3</td><td>(−3.3 vs 3.5) and (4.5 vs 4.0)</td><td>((−3.3−3.5) + (4.5−4.0)) / 2 = −3.15</td></tr>
   </table>
-  <p class="font-mono text-sm bg-slate-100 p-2 rounded mt-2">Mean bias = (2.85 + (−0.60) + (−3.15)) / 3 = 0 / 3 = −0.10</p>
+  <p class="font-mono text-sm bg-slate-100 p-2 rounded mt-2">Mean bias = (2.85 + (−0.60) + (−3.15)) / 3 = (−0.90) / 3 = −0.30</p>
   <p class="text-sm mt-2">PMU calculated from all study standard errors = <strong>1.6 tCO₂e</strong></p>
-  <p class="text-sm font-bold text-amber-800 mt-1">Bias test: |−0.10| = 0.10 ≤ 1.6 (PMU) → Model PASSES bias test ✓</p>
+  <p class="text-sm font-bold text-amber-800 mt-1">Bias test: |−0.30| = 0.30 ≤ 1.6 (PMU) → Model PASSES bias test ✓</p>
 </div>
 
 <div class="bg-slate-50 border border-slate-200 rounded p-4 mb-6 text-sm">
@@ -3464,6 +3468,7 @@ LESSONS["8.2"] = {
     <p class="mt-1">1.64 = z-score for 90% confidence under standard normal distribution</p>
   </div>
   <p class="text-slate-300 text-sm mt-2"><strong>Confidence coverage test:</strong> At least 90% of observed validation data values must fall within these intervals → model PASSES</p>
+  <p class="text-slate-400 text-xs mt-1"><em>Note: A prediction interval tells you where a future individual observation is expected to fall. A confidence interval tells you uncertainty in an estimated mean. VMD0053 uses prediction intervals — the harder test — because it is checking individual data points, not just the average.</em></p>
 </div>
 
 <div class="example-box p-4 rounded mb-6">
@@ -3551,6 +3556,7 @@ LESSONS["8.2"] = {
 <ul class="list-disc ml-6 text-sm space-y-1 mb-4">
   <li>Project area expands to include new PCs, CFGs, or emission sources not covered in the original MVR</li>
   <li>Model is changed in a way that substantially affects model runs and estimated emission reductions/removals</li>
+  <li>The MVR must be submitted alongside each monitoring report — the existing MVR continues to apply as long as the project remains within the already validated domain</li>
 </ul>
 
 <div class="bg-green-50 border border-green-200 rounded p-4 text-sm">
@@ -3765,10 +3771,10 @@ LESSONS["9.1"] = {
 <p class="mb-3 text-sm">Applies where local populations within the project area OR within 20 km of the boundary rely on the project area for food, fuel, medicines, or building materials.</p>
 <table class="mb-4 text-sm">
   <tr><th>Factor</th><th>Score</th></tr>
-  <tr><td>&lt;50% of stakeholders living <em>within</em> the project area and reliant on it have been consulted</td><td>+10</td></tr>
-  <tr><td>≥50% of stakeholders living within the project area and reliant on it have been consulted</td><td>0</td></tr>
-  <tr><td>&lt;20% of stakeholders living outside but within 20 km and reliant have been consulted</td><td>+5</td></tr>
-  <tr><td>≥20% of stakeholders living outside but within 20 km and reliant have been consulted</td><td>0</td></tr>
+  <tr><td>NOT more than 50% of stakeholders living <em>within</em> the project area and reliant on it have been consulted</td><td>+10</td></tr>
+  <tr><td>More than 50% of stakeholders living within the project area and reliant on it have been consulted</td><td>0</td></tr>
+  <tr><td>NOT more than 20% of stakeholders living outside but within 20 km and reliant have been consulted</td><td>+5</td></tr>
+  <tr><td>More than 20% of stakeholders living outside but within 20 km and reliant have been consulted</td><td>0</td></tr>
 </table>
 
 <h3 class="text-xl font-bold mt-6 mb-3">External Risk 3: Political Risk (PC)</h3>
@@ -3791,7 +3797,7 @@ LESSONS["9.1"] = {
     <tr><td>PM</td><td>Training plan in place (−2), experienced team on-site (no +2), ALM farmer training plan in place (−2). Two risk factors apply (+2+2). Net = 4−4 = 0</td><td>0</td></tr>
     <tr><td>FV</td><td>Payback 8 years (+2), 55% funding secured (+1), no callable resources</td><td>3</td></tr>
     <tr><td>OC</td><td>Alternative NPV 60% higher than project NPV (+6), legally binding 60-year agreement (−4)</td><td>2</td></tr>
-    <tr><td>PL</td><td>50-year project, with legal agreement: 25 − (50/4) = 25 − 12.5 ≈ 12.5 → rounded down = 12</td><td>12</td></tr>
+    <tr><td>PL</td><td>50-year project, with legal agreement: 25 − (50/4) = 25 − 12.5 = 12.5</td><td>12.5</td></tr>
     <tr><td><strong>Total Internal</strong></td><td></td><td><strong>17</strong></td></tr>
     <tr><td>LT</td><td>Same entity holds all rights (0), no government intervention in 20 years (0), no tenure disputes (0), no access disputes (0). Binding agreement mitigation (−2). Net = −2 → 0 minimum</td><td>0</td></tr>
     <tr><td>SE</td><td>65% of within-project stakeholders consulted (0), 25% of adjacent stakeholders consulted (0)</td><td>0</td></tr>
@@ -3807,7 +3813,7 @@ LESSONS["9.1"] = {
     <li>✓ Three "FAIL" gateways: no management plan (PM), no binding legal agreement for land (LT), payback >20 years (FV)</li>
     <li>✓ Opportunity cost is the most volatile internal factor — land with high alternative value can add up to 8 points</li>
     <li>✓ Project longevity contributes most to internal risk — only a 100-year project with legal backing scores zero</li>
-    <li>✓ Land tenure is the most complex external factor — disputed ownership or government history can add up to 32 points</li>
+    <li>✓ Land tenure is the most complex external factor — disputed ownership or government history can add up to 37 points (including the WRC upstream/sea-impact factor)</li>
     <li>✓ Mitigation measures (training, legal agreements, binding covenants) directly and significantly reduce scores</li>
   </ul>
 </div>
@@ -3826,9 +3832,9 @@ LESSONS["9.1"] = {
     },
     {
       q: "A VM0042 project has a 50-year term WITH a legally binding agreement securing management for the full period. What is the Project Longevity (PL) score?",
-      options: ["25 − (50/5) = 15", "25 − (50/4) = 12.5 → scored as 12 or 13", "0 — a 50-year legally bound project has zero longevity risk", "25 − (50/4) = 12.5 → scored as 12 (round down minimum 0)"],
-      answer: 3,
-      explanation: "With a legal agreement: PL = 25 − (longevity/4) = 25 − (50/4) = 25 − 12.5 = 12.5. The tool rounds results, and the minimum is zero. In practice this is scored as 12 (rounded down). Note that only a 100-year project with legal backing achieves PL = 0."
+      options: ["25 − (50/5) = 15 (wrong formula — no legal agreement)", "25 − (50/4) = 12.5 (correct formula; only overall risk rating is rounded, not sub-scores)", "0 — a 50-year legally bound project has zero longevity risk", "25 − (50/5) = 15 (without legal agreement formula)"],
+      answer: 1,
+      explanation: "With a legal agreement: PL = 25 − (longevity/4) = 25 − (50/4) = 12.5. The risk tool only specifies rounding UP to the nearest whole percent for the overall risk rating (Section 2.5.1); PL sub-scores retain their calculated value. Only a 100-year project with legal backing achieves PL = 0."
     },
     {
       q: "On the Political Risk (PC) scoring, what three conditions must ALL be true for the −2 mitigation to apply?",
@@ -3881,11 +3887,11 @@ LESSONS["9.2"] = {
 
 <h3 class="text-xl font-bold mt-6 mb-3">Table 10: Historic Natural Risk Scores (LS Values)</h3>
 <table class="mb-6 text-sm">
-  <tr><th>Significance (loss per event)</th><th>&gt;once/10yr</th><th>10–25yr</th><th>25–50yr</th><th>50–100yr</th><th>≤100yr or N/A</th></tr>
+  <tr><th>Significance (loss per event)</th><th>&gt;once/10yr</th><th>10–&lt;25yr</th><th>25–&lt;50yr</th><th>50–&lt;100yr</th><th>Once per 100yr or less / Not applicable</th></tr>
   <tr><td><strong>Catastrophic (≥70%)</strong></td><td class="bg-red-200 text-red-900 font-bold">FAIL</td><td>30</td><td>20</td><td>5</td><td>4</td></tr>
-  <tr><td><strong>Devastating (50–70%)</strong></td><td>30</td><td>20</td><td>5</td><td>4</td><td>3</td></tr>
-  <tr><td><strong>Major (25–50%)</strong></td><td>20</td><td>5</td><td>4</td><td>3</td><td>2</td></tr>
-  <tr><td><strong>Minor (5–25%)</strong></td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
+  <tr><td><strong>Devastating (50% to &lt;70%)</strong></td><td>30</td><td>20</td><td>5</td><td>4</td><td>3</td></tr>
+  <tr><td><strong>Major (25% to &lt;50%)</strong></td><td>20</td><td>5</td><td>4</td><td>3</td><td>2</td></tr>
+  <tr><td><strong>Minor (5% to &lt;25%)</strong></td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
   <tr><td><strong>Insignificant (&lt;5%) or transient</strong></td><td>4</td><td>3</td><td>2</td><td>1</td><td>1</td></tr>
   <tr><td><strong>Not applicable</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 </table>
