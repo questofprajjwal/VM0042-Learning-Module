@@ -40,7 +40,14 @@ export function getCourse(courseId: string): Course {
 }
 
 export function getAllCourses(): Course[] {
-  return getAllCourseIds().map(getCourse);
+  return getAllCourseIds().reduce<Course[]>((acc, id) => {
+    try {
+      acc.push(getCourse(id));
+    } catch {
+      // Skip courses that fail validation (e.g. incomplete drafts)
+    }
+    return acc;
+  }, []);
 }
 
 // ─── Lesson helpers ───────────────────────────────────────────────────────────
@@ -105,14 +112,13 @@ export function getQuiz(courseId: string, lessonId: string): QuizQuestion[] {
 // ─── Static params helpers (for Next.js generateStaticParams) ─────────────────
 
 export function getCourseStaticParams(): Array<{ courseId: string }> {
-  return getAllCourseIds().map(courseId => ({ courseId }));
+  return getAllCourses().map(course => ({ courseId: course.id }));
 }
 
 export function getLessonStaticParams(): Array<{ courseId: string; lessonId: string }> {
-  return getAllCourseIds().flatMap(courseId => {
-    const course = getCourse(courseId);
+  return getAllCourses().flatMap(course => {
     return getAllLessons(course).map(l => ({
-      courseId,
+      courseId: course.id,
       lessonId: l.id.replace('.', '_'),  // dots not valid in URL segments on some systems
     }));
   });
