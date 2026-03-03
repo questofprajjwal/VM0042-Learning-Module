@@ -4264,6 +4264,7 @@ const colorMap = {
   purple:  { bg: "bg-purple-100",  text: "text-purple-800",  border: "border-purple-500",  btn: "bg-purple-700 hover:bg-purple-800",  active: "bg-purple-50 border-l-4 border-purple-600" },
   cyan:    { bg: "bg-cyan-100",    text: "text-cyan-800",    border: "border-cyan-500",    btn: "bg-cyan-700 hover:bg-cyan-800",    active: "bg-cyan-50 border-l-4 border-cyan-600" },
   rose:    { bg: "bg-rose-100",    text: "text-rose-800",    border: "border-rose-500",    btn: "bg-rose-700 hover:bg-rose-800",    active: "bg-rose-50 border-l-4 border-rose-600" },
+  indigo:  { bg: "bg-indigo-100",  text: "text-indigo-800",  border: "border-indigo-500",  btn: "bg-indigo-700 hover:bg-indigo-800",  active: "bg-indigo-50 border-l-4 border-indigo-600" },
 };
 
 // ============================================================
@@ -4275,19 +4276,28 @@ function Quiz({ questions }) {
 
   if (!questions || questions.length === 0) return null;
 
+  const allSubmitted = questions.every((_, qi) => submitted[qi]);
+  const correctCount = allSubmitted ? questions.filter((q, qi) => answers[qi] === q.answer).length : 0;
+
+  const selectAnswer = (qi, oi) => {
+    if (!submitted[qi]) setAnswers(a => ({...a, [qi]: oi}));
+  };
+
   return (
     <div className="mt-8 border-t pt-6">
       <h3 className="text-lg font-bold text-gray-800 mb-4">🧠 Knowledge Check</h3>
       {questions.map((q, qi) => (
         <div key={qi} className="mb-6 bg-white border rounded-lg p-4 shadow-sm">
           <p className="font-semibold text-gray-800 mb-3">{qi + 1}. {q.q}</p>
-          <div className="space-y-2">
+          <div className="space-y-2" role="radiogroup" aria-label={`Question ${qi + 1}`}>
             {q.options.map((opt, oi) => {
               const sel = answers[qi];
               const isSelected = sel === oi;
               const isCorrect = oi === q.answer;
-              let cls = "quiz-option p-3 rounded border cursor-pointer text-sm ";
-              if (submitted[qi]) {
+              const isLocked = !!submitted[qi];
+              let cls = "quiz-option p-3 rounded border text-sm ";
+              cls += isLocked ? "cursor-default " : "cursor-pointer ";
+              if (isLocked) {
                 if (isCorrect) cls += "bg-green-50 border-green-400 text-green-800 font-medium";
                 else if (isSelected) cls += "bg-red-50 border-red-400 text-red-800";
                 else cls += "border-gray-200 text-gray-500";
@@ -4295,8 +4305,11 @@ function Quiz({ questions }) {
                 cls += isSelected ? "bg-blue-50 border-blue-400 text-blue-800" : "border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-700";
               }
               return (
-                <div key={oi} className={cls}
-                  onClick={() => !submitted[qi] && setAnswers(a => ({...a, [qi]: oi}))}>
+                <div key={oi} role="radio" aria-checked={isSelected}
+                  tabIndex={isLocked ? -1 : 0}
+                  className={cls}
+                  onClick={() => selectAnswer(qi, oi)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectAnswer(qi, oi); } }}>
                   <span className="mr-2 font-mono">{["A","B","C","D"][oi]}.</span>{opt}
                 </div>
               );
@@ -4315,6 +4328,12 @@ function Quiz({ questions }) {
           )}
         </div>
       ))}
+      {allSubmitted && (
+        <div className={`p-4 rounded-lg text-center font-semibold text-sm ${correctCount === questions.length ? "bg-green-100 text-green-800" : correctCount >= questions.length / 2 ? "bg-amber-50 text-amber-800" : "bg-red-50 text-red-800"}`}>
+          {correctCount === questions.length ? "🎉 Perfect score! " : correctCount >= questions.length / 2 ? "👍 Good effort! " : "📖 Keep studying! "}
+          You got {correctCount} of {questions.length} correct.
+        </div>
+      )}
     </div>
   );
 }
@@ -4322,18 +4341,33 @@ function Quiz({ questions }) {
 // ============================================================
 // LESSON VIEW
 // ============================================================
-function LessonView({ lessonId, onComplete, completed, moduleColor }) {
+function LessonView({ lessonId, onComplete, completed, moduleColor, onPrev, onNext }) {
   const lesson = LESSONS[lessonId];
   if (!lesson) return <div className="p-8 text-gray-500">Lesson not found.</div>;
   const c = colorMap[moduleColor] || colorMap.green;
+  const mod = MODULES.find(m => m.lessons.some(l => l.id === lessonId));
+  const lessonIndexInMod = mod ? mod.lessons.findIndex(l => l.id === lessonId) : -1;
   return (
     <div className="fade-in max-w-3xl mx-auto px-6 py-8">
-      <div className="flex items-center gap-2 mb-2">
+      {/* Prev / Next nav row */}
+      <div className="flex items-center justify-between mb-4">
+        {onPrev
+          ? <button onClick={onPrev} className="text-sm text-gray-500 hover:text-gray-800 flex items-center gap-1 transition">← Previous</button>
+          : <div />}
+        {onNext
+          ? <button onClick={onNext} className="text-sm text-gray-500 hover:text-gray-800 flex items-center gap-1 transition">Next →</button>
+          : <div />}
+      </div>
+      {/* Lesson meta row */}
+      <div className="flex items-center gap-2 mb-2 flex-wrap">
         <span className={`text-xs font-mono px-2 py-0.5 rounded ${c.bg} ${c.text}`}>
           Lesson {lessonId}
         </span>
-        <span className="text-xs text-gray-500">VM0042 ref: {lesson.vmRef}</span>
-        <span className="text-xs text-gray-400 ml-auto">⏱ {lesson.duration}</span>
+        {mod && lessonIndexInMod >= 0 && (
+          <span className="text-xs text-gray-500">{lessonIndexInMod + 1} of {mod.lessons.length} in {mod.title}</span>
+        )}
+        <span className="text-xs text-gray-500">· VM0042 ref: {lesson.vmRef}</span>
+        <span className="text-xs text-gray-500 ml-auto">⏱ {lesson.duration}</span>
       </div>
       <div className="prose max-w-none" dangerouslySetInnerHTML={{__html: lesson.content}} />
       <Quiz questions={lesson.quiz} />
@@ -4352,6 +4386,15 @@ function LessonView({ lessonId, onComplete, completed, moduleColor }) {
           </span>
         </div>
       )}
+      {/* Bottom prev/next nav */}
+      <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100">
+        {onPrev
+          ? <button onClick={onPrev} className="text-sm text-gray-500 hover:text-gray-800 flex items-center gap-1 transition">← Previous</button>
+          : <div />}
+        {onNext
+          ? <button onClick={onNext} className="text-sm text-gray-500 hover:text-gray-800 flex items-center gap-1 transition">Next →</button>
+          : <div />}
+      </div>
     </div>
   );
 }
@@ -4361,8 +4404,18 @@ function LessonView({ lessonId, onComplete, completed, moduleColor }) {
 // ============================================================
 function Sidebar({ currentLesson, onSelect, completed, collapsed, setCollapsed }) {
   const [expanded, setExpanded] = React.useState({ 0: true });
+
+  // Auto-expand the module containing the active lesson
+  React.useEffect(() => {
+    if (currentLesson) {
+      const mod = MODULES.find(m => m.lessons.some(l => l.id === currentLesson));
+      if (mod) setExpanded(e => ({...e, [mod.id]: true}));
+    }
+  }, [currentLesson]);
+
   return (
-    <div className={`bg-white border-r flex flex-col transition-all ${collapsed ? "w-14" : "w-64"}`}>
+    <>
+    <div className={`bg-white border-r flex flex-col transition-all flex-shrink-0 ${collapsed ? "w-0 md:w-14 overflow-hidden" : "w-64 absolute md:relative inset-y-0 left-0 z-50 h-full shadow-xl md:shadow-none"}`}>
       <div className="flex items-center justify-between px-3 py-3 border-b bg-green-800">
         {!collapsed && <span className="text-white font-bold text-sm truncate">VM0042 Course</span>}
         <button onClick={() => setCollapsed(c => !c)} className="text-white hover:text-green-200 ml-auto">
@@ -4385,9 +4438,9 @@ function Sidebar({ currentLesson, onSelect, completed, collapsed, setCollapsed }
                   <>
                     <div className="flex-1 text-left min-w-0">
                       <div className="text-xs font-semibold text-gray-700 truncate">{mod.title}</div>
-                      <div className="text-xs text-gray-400">{doneCount}/{totalLessons} done</div>
+                      <div className="text-xs text-gray-500">{doneCount}/{totalLessons} done</div>
                     </div>
-                    <span className="text-gray-400 text-xs">{isExp ? "▾" : "▸"}</span>
+                    <span className="text-gray-500 text-xs">{isExp ? "▾" : "▸"}</span>
                   </>
                 )}
               </button>
@@ -4410,6 +4463,9 @@ function Sidebar({ currentLesson, onSelect, completed, collapsed, setCollapsed }
         })}
       </div>
     </div>
+    {/* Mobile overlay — tap outside to close sidebar */}
+    {!collapsed && <div className="md:hidden fixed inset-0 bg-black bg-opacity-40 z-40" onClick={() => setCollapsed(true)} />}
+    </>
   );
 }
 
@@ -4435,6 +4491,20 @@ function HomeView({ completed, onSelect }) {
           </div>
         </div>
       </div>
+      {/* Resume Course CTA — shown only when in progress */}
+      {done > 0 && done < total && (() => {
+        const allLessonIds = MODULES.flatMap(m => m.lessons.map(l => l.id));
+        const nextId = allLessonIds.find(id => !completed[id]);
+        return nextId ? (
+          <div className="mb-6 text-center">
+            <button onClick={() => onSelect(nextId)}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-green-700 hover:bg-green-800 text-white rounded-lg font-medium shadow transition">
+              <span>▶ Resume Course</span>
+              <span className="text-sm text-green-200 max-w-xs truncate">{LESSONS[nextId]?.title}</span>
+            </button>
+          </div>
+        ) : null;
+      })()}
       <div className="grid gap-4 md:grid-cols-2">
         {MODULES.map(mod => {
           const c = colorMap[mod.color] || colorMap.green;
@@ -4447,7 +4517,7 @@ function HomeView({ completed, onSelect }) {
                 <span className="text-3xl">{mod.icon}</span>
                 <div className="flex-1 min-w-0">
                   <div className={`text-xs font-mono px-2 py-0.5 rounded inline-block mb-1 ${c.bg} ${c.text}`}>
-                    Module {mod.id}
+                    Module {mod.id + 1}
                   </div>
                   <h3 className="font-bold text-gray-800">{mod.title}</h3>
                   <p className="text-sm text-gray-500 mt-0.5">{mod.subtitle}</p>
@@ -4475,6 +4545,9 @@ function HomeView({ completed, onSelect }) {
       <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800">
         <strong>📚 How to use this course:</strong> Work through modules in order. Each lesson has explanations with real-world analogies, worked examples with actual numbers, and knowledge-check quizzes. Mark each lesson complete when done.
       </div>
+      <footer className="mt-8 text-center text-xs text-gray-400 py-4 border-t border-gray-100">
+        Made with 💚 for Muskan — She said she will read it. 🌱
+      </footer>
     </div>
   );
 }
@@ -4490,15 +4563,20 @@ function App() {
   const [currentLesson, setCurrentLesson] = React.useState(null);
   const [collapsed, setCollapsed] = React.useState(false);
 
+  const allLessons = MODULES.flatMap(m => m.lessons.map(l => l.id));
+
   const saveComplete = (id) => {
     const updated = {...completed, [id]: true};
     setCompleted(updated);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     // Auto-advance to next lesson
-    const allLessons = MODULES.flatMap(m => m.lessons.map(l => l.id));
     const idx = allLessons.indexOf(id);
     if (idx < allLessons.length - 1) setCurrentLesson(allLessons[idx + 1]);
   };
+
+  const currentIdx = currentLesson ? allLessons.indexOf(currentLesson) : -1;
+  const prevLesson = currentIdx > 0 ? allLessons[currentIdx - 1] : null;
+  const nextLesson = currentIdx >= 0 && currentIdx < allLessons.length - 1 ? allLessons[currentIdx + 1] : null;
 
   const getModuleColor = (lessonId) => {
     for (const mod of MODULES) {
@@ -4514,6 +4592,10 @@ function App() {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top bar */}
         <div className="bg-green-800 text-white px-4 py-2 flex items-center gap-3 text-sm flex-shrink-0">
+          {/* Hamburger — visible only on mobile when sidebar is collapsed */}
+          {collapsed && (
+            <button onClick={() => setCollapsed(false)} className="md:hidden text-white hover:text-green-200 mr-1" aria-label="Open menu">☰</button>
+          )}
           <button onClick={() => setCurrentLesson(null)} className="hover:text-green-200 font-medium">
             🌾 VM0042
           </button>
@@ -4523,7 +4605,7 @@ function App() {
               <span className="text-green-200 truncate">{LESSONS[currentLesson]?.title}</span>
             </>
           )}
-          <div className="ml-auto text-xs text-green-300">
+          <div className="ml-auto text-xs text-green-100">
             {Object.values(completed).filter(Boolean).length}/{Object.keys(LESSONS).length} lessons complete
           </div>
         </div>
@@ -4531,7 +4613,9 @@ function App() {
         <div className="content-scroll flex-1">
           {currentLesson
             ? <LessonView lessonId={currentLesson} onComplete={() => saveComplete(currentLesson)}
-                completed={completed[currentLesson]} moduleColor={getModuleColor(currentLesson)} />
+                completed={completed[currentLesson]} moduleColor={getModuleColor(currentLesson)}
+                onPrev={prevLesson ? () => setCurrentLesson(prevLesson) : null}
+                onNext={nextLesson ? () => setCurrentLesson(nextLesson) : null} />
             : <HomeView completed={completed} onSelect={setCurrentLesson} />
           }
         </div>
@@ -4542,8 +4626,5 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 </script>
-<footer style="text-align:center;padding:18px;background:#1e293b;color:#94a3b8;font-size:0.85rem;font-family:'Segoe UI',system-ui,sans-serif;">
-  Made with 💚 for Muskan — She said she will read it. 🌱
-</footer>
 </body>
 </html>
