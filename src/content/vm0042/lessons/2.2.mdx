@@ -7,6 +7,7 @@
 </HighlightBox>
 
 <h3 class="text-xl font-bold mt-6 mb-3">How the Baseline Is Built</h3>
+<p class="mb-3">Before you can measure improvement, you need to establish a starting point. The baseline asks: "What would this land have done if no one had intervened?"</p>
 <p class="mb-4">For each quantification unit, the baseline is constructed by documenting farming practices over the <strong>historical look-back period</strong> (minimum 3 years, must include at least one complete crop rotation).</p>
 
 <div class="bg-gray-50 border rounded p-4 mb-6">
@@ -19,6 +20,82 @@
     <div class="flex gap-3"><span class="bg-green-700 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 font-bold">5</span><div><strong>Reassess baseline</strong> every 10 years (or every 5 years if regional practices change rapidly).</div></div>
   </div>
 </div>
+
+<div class="bg-indigo-50 border-2 border-indigo-300 rounded-lg p-5 mb-6">
+  <h4 class="font-bold text-indigo-900 text-lg mb-2">📋 What Exactly Is the "Schedule of Activities"?</h4>
+  <p class="text-sm text-indigo-900 mb-3">This term comes up repeatedly in VM0042. Think of it as a <strong>detailed farming calendar</strong> — a month-by-month (or season-by-season) record of everything a farmer does on their land in a typical year. It is the foundation of the entire baseline: without it, you cannot model or measure what emissions <em>would have been</em>.</p>
+
+  <p class="text-sm font-semibold text-indigo-800 mb-2">What the schedule must cover:</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm mb-4">
+    <div class="bg-white rounded p-3 border border-indigo-200">
+      <p class="font-semibold text-indigo-800 mb-1">🌾 Crops &amp; Planting</p>
+      <ul class="text-indigo-900 space-y-1 list-disc pl-4">
+        <li>What crop is planted and when (e.g., "wheat sown in November")</li>
+        <li>Crop varieties used</li>
+        <li>Harvest date and what happens to the residue (burned, retained, removed)</li>
+        <li>Any fallow periods — and how long the land sits empty</li>
+      </ul>
+    </div>
+    <div class="bg-white rounded p-3 border border-indigo-200">
+      <p class="font-semibold text-indigo-800 mb-1">🚜 Tillage &amp; Soil Work</p>
+      <ul class="text-indigo-900 space-y-1 list-disc pl-4">
+        <li>Type of tillage (conventional plough, disc, chisel, or none)</li>
+        <li>Number of passes per season</li>
+        <li>Depth of tillage (e.g., 15 cm, 25 cm)</li>
+        <li>Timing of each pass (e.g., "disc after harvest in April, plough before sowing in October")</li>
+      </ul>
+    </div>
+    <div class="bg-white rounded p-3 border border-indigo-200">
+      <p class="font-semibold text-indigo-800 mb-1">🧪 Fertilizers &amp; Amendments</p>
+      <ul class="text-indigo-900 space-y-1 list-disc pl-4">
+        <li>Type of fertilizer (urea, DAP, compost, manure)</li>
+        <li>Application rate (kg/ha) and timing</li>
+        <li>Whether lime is applied, and how much</li>
+        <li>Any organic amendments (compost, biochar, crop residue incorporation)</li>
+      </ul>
+    </div>
+    <div class="bg-white rounded p-3 border border-indigo-200">
+      <p class="font-semibold text-indigo-800 mb-1">💧 Water &amp; Livestock</p>
+      <ul class="text-indigo-900 space-y-1 list-disc pl-4">
+        <li>Irrigation method (flood, drip, rainfed) and schedule</li>
+        <li>For rice: flooding duration and drainage events</li>
+        <li>If livestock graze the land: stocking rate (heads/ha), grazing pattern, and season</li>
+        <li>Manure management (left on field, collected, composted)</li>
+      </ul>
+    </div>
+  </div>
+
+  <AnalogyBox>
+    <p class="font-semibold text-blue-800">📅 Analogy: A Cooking Recipe for the Farm</p>
+    <p class="mt-1 text-sm text-blue-900">Imagine you want to know how many calories someone ate last year. You would not just ask "what do you eat?" — you would need a week-by-week meal plan: <em>what</em> was eaten, <em>how much</em>, and <em>when</em>. The schedule of activities is exactly that, but for the farm. It tells the model: "In January, the field was fallow. In March, the farmer ploughed at 20 cm depth. In April, 120 kg/ha urea was applied. In May, wheat was sown..." and so on through the year. This level of detail is what allows the biogeochemical model (Approach 1) or the IPCC calculations (Approach 3) to estimate emissions accurately.</p>
+  </AnalogyBox>
+
+  <p class="text-sm text-indigo-900 mt-3"><strong>Key point:</strong> The schedule is built from the look-back period (the 3–5 years before the project started). If the farmer grew rice–wheat in rotation, the schedule captures <em>both</em> seasons. This schedule then <strong>repeats on loop</strong> for the entire baseline period — the assumption being that without the project, the farmer would have kept doing the same thing year after year.</p>
+
+  <ExampleBox>
+    <p class="font-semibold text-amber-800">📐 Sample Schedule: Rice–Wheat Farm in Uttar Pradesh</p>
+    <ResponsiveTable>
+<table class="mt-2 text-sm">
+      <tr><th>Month</th><th>Activity</th><th>Details</th></tr>
+      <tr><td>Jun</td><td>Rice transplanting</td><td>Paddy flooded, variety: Pusa Basmati 1121</td></tr>
+      <tr><td>Jun–Oct</td><td>Continuous flooding</td><td>Field stays waterlogged for ~120 days</td></tr>
+      <tr><td>Jul</td><td>Urea top-dress</td><td>60 kg N/ha applied</td></tr>
+      <tr><td>Oct</td><td>Rice harvest</td><td>Stubble burned on field</td></tr>
+      <tr><td>Nov</td><td>Tillage for wheat</td><td>2 passes — disc + cultivator at 15 cm</td></tr>
+      <tr><td>Nov</td><td>Wheat sowing + DAP</td><td>Variety: HD-2967; 60 kg N/ha as DAP at sowing</td></tr>
+      <tr><td>Jan</td><td>Urea top-dress</td><td>60 kg N/ha applied to wheat</td></tr>
+      <tr><td>Apr</td><td>Wheat harvest</td><td>Straw removed for animal feed</td></tr>
+      <tr><td>May</td><td>Fallow + tillage</td><td>1 plough pass at 20 cm before rice season</td></tr>
+    </table>
+</ResponsiveTable>
+    <p class="mt-2 text-sm text-amber-700">This schedule tells the model everything it needs: <strong>total N applied</strong> (180 kg/ha/yr across both crops), <strong>flooding duration</strong> (120 days — needed for CH₄ calculation), <strong>tillage intensity</strong> (3 passes/yr — needed for SOC and fossil fuel calculations), and <strong>residue fate</strong> (rice stubble burned, wheat straw removed). Without any one of these details, the baseline estimate would be incomplete.</p>
+  </ExampleBox>
+</div>
+
+<AnalogyBox>
+  <p class="font-semibold text-blue-800">🏛️ Analogy: Evidence in a Court of Law</p>
+  <p class="mt-2 text-blue-900">The data hierarchy works like evidence quality in a courtroom. Tier 1 (actual farm records) is like having a signed contract — ironclad. Tier 2 (written management plan) is like a credible witness statement. Tier 3 (farmer attestation) is like a sworn declaration. Tier 4 (regional statistics) is like saying "most people around here do it this way." A jury (the VVB) will give far more weight to Tier 1 evidence. The stronger your evidence, the lower your uncertainty deduction — and the more credits you keep.</p>
+</AnalogyBox>
 
 <h3 class="text-xl font-bold mt-6 mb-3">The Data Hierarchy (Box 1 of VM0042)</h3>
 <p class="mb-4">VM0042 specifies a ranked hierarchy for data used to establish baseline practices. Higher-tier data = less uncertainty = more credits. Auditors will scrutinise which tier was used and may require you to justify why higher-tier data was unavailable:</p>
