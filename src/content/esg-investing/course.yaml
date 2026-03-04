@@ -4,8 +4,8 @@ subtitle: "Integrating sustainability into investment decisions"
 description: "A comprehensive course on ESG investing — covering the E, S, and G pillars, engagement and stewardship, ESG analysis and valuation techniques, portfolio construction, and client mandate design."
 icon: "📈"
 color: indigo
-status: draft
-category: esg
+status: published
+category: green-finance
 estimatedHours: 24
 modules:
   - id: 0
