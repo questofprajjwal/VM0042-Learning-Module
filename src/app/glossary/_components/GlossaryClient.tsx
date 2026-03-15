@@ -23,6 +23,10 @@ const categoryLabels: Record<string, string> = {
   'reporting-standards': 'Reporting Standards',
   'sustainability': 'Sustainability',
   'governance': 'Governance',
+  'biodiversity': 'Biodiversity',
+  'human-rights': 'Human Rights',
+  'social-safeguards': 'Social Safeguards',
+  'eu-taxonomy': 'EU Taxonomy',
 };
 
 const categoryColors: Record<string, string> = {
@@ -34,6 +38,10 @@ const categoryColors: Record<string, string> = {
   'reporting-standards': 'bg-rose-100 text-rose-700',
   'sustainability': 'bg-teal-100 text-teal-700',
   'governance': 'bg-orange-100 text-orange-700',
+  'biodiversity': 'bg-emerald-100 text-emerald-700',
+  'human-rights': 'bg-red-100 text-red-700',
+  'social-safeguards': 'bg-pink-100 text-pink-700',
+  'eu-taxonomy': 'bg-cyan-100 text-cyan-700',
 };
 
 export default function GlossaryClient({ entries }: Props) {

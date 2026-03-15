@@ -15,11 +15,23 @@ interface SearchEntry {
   headings: string[];
 }
 
+interface GlossaryEntry {
+  term: string;
+  slug: string;
+  definition: string;
+  category: string;
+}
+
+type SearchResult =
+  | { type: 'lesson'; entry: SearchEntry }
+  | { type: 'glossary'; entry: GlossaryEntry };
+
 interface Props {
   onClose: () => void;
 }
 
 let cachedIndex: SearchEntry[] | null = null;
+let cachedGlossary: GlossaryEntry[] | null = null;
 
 function lessonIdToUrl(id: string): string {
   return id.replace('.', '_');
@@ -27,13 +39,14 @@ function lessonIdToUrl(id: string): string {
 
 export default function SearchModal({ onClose }: Props) {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<SearchEntry[]>([]);
+  const [results, setResults] = useState<SearchResult[]>([]);
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const [fuse, setFuse] = useState<Fuse<SearchEntry> | null>(null);
+  const [lessonFuse, setLessonFuse] = useState<Fuse<SearchEntry> | null>(null);
+  const [glossaryFuse, setGlossaryFuse] = useState<Fuse<GlossaryEntry> | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  // Load index on mount
+  // Load both indices on mount
   useEffect(() => {
     async function load() {
       if (!cachedIndex) {
@@ -44,7 +57,15 @@ export default function SearchModal({ onClose }: Props) {
           cachedIndex = [];
         }
       }
-      setFuse(
+      if (!cachedGlossary) {
+        try {
+          const res = await fetch('/glossary.json');
+          cachedGlossary = await res.json();
+        } catch {
+          cachedGlossary = [];
+        }
+      }
+      setLessonFuse(
         new Fuse(cachedIndex!, {
           keys: [
             { name: 'lessonTitle', weight: 0.4 },
@@ -54,6 +75,15 @@ export default function SearchModal({ onClose }: Props) {
           ],
           threshold: 0.4,
           includeMatches: true,
+        })
+      );
+      setGlossaryFuse(
+        new Fuse(cachedGlossary!, {
+          keys: [
+            { name: 'term', weight: 0.6 },
+            { name: 'definition', weight: 0.4 },
+          ],
+          threshold: 0.3,
         })
       );
     }
@@ -72,21 +102,43 @@ export default function SearchModal({ onClose }: Props) {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  // Search on query change
+  // Search on query change (lessons + glossary)
   useEffect(() => {
-    if (!fuse || !query.trim()) {
+    if ((!lessonFuse && !glossaryFuse) || !query.trim()) {
       setResults([]);
       setSelectedIdx(0);
       return;
     }
-    const hits = fuse.search(query, { limit: 10 }).map(r => r.item);
-    setResults(hits);
-    setSelectedIdx(0);
-  }, [query, fuse]);
 
-  const navigate = useCallback(
-    (entry: SearchEntry) => {
-      router.push(`/courses/${entry.courseId}/${lessonIdToUrl(entry.lessonId)}`);
+    const combined: SearchResult[] = [];
+
+    // Glossary results first (up to 3)
+    if (glossaryFuse) {
+      const glossaryHits = glossaryFuse.search(query, { limit: 3 });
+      for (const hit of glossaryHits) {
+        combined.push({ type: 'glossary', entry: hit.item });
+      }
+    }
+
+    // Lesson results (up to 8)
+    if (lessonFuse) {
+      const lessonHits = lessonFuse.search(query, { limit: 8 });
+      for (const hit of lessonHits) {
+        combined.push({ type: 'lesson', entry: hit.item });
+      }
+    }
+
+    setResults(combined);
+    setSelectedIdx(0);
+  }, [query, lessonFuse, glossaryFuse]);
+
+  const navigateToResult = useCallback(
+    (result: SearchResult) => {
+      if (result.type === 'glossary') {
+        router.push(`/glossary#term-${result.entry.slug}`);
+      } else {
+        router.push(`/courses/${result.entry.courseId}/${lessonIdToUrl(result.entry.lessonId)}`);
+      }
       onClose();
     },
     [router, onClose]
@@ -100,15 +152,19 @@ export default function SearchModal({ onClose }: Props) {
       e.preventDefault();
       setSelectedIdx(i => Math.max(i - 1, 0));
     } else if (e.key === 'Enter' && results[selectedIdx]) {
-      navigate(results[selectedIdx]);
+      navigateToResult(results[selectedIdx]);
     }
   }
 
-  // Group results by course
+  // Separate glossary and lesson results for grouped rendering
+  const glossaryResults = results.filter((r): r is Extract<SearchResult, { type: 'glossary' }> => r.type === 'glossary');
+  const lessonResults = results.filter((r): r is Extract<SearchResult, { type: 'lesson' }> => r.type === 'lesson');
+
+  // Group lesson results by course
   const grouped: Record<string, SearchEntry[]> = {};
-  for (const r of results) {
-    if (!grouped[r.courseId]) grouped[r.courseId] = [];
-    grouped[r.courseId].push(r);
+  for (const r of lessonResults) {
+    if (!grouped[r.entry.courseId]) grouped[r.entry.courseId] = [];
+    grouped[r.entry.courseId].push(r.entry);
   }
 
   let flatIdx = 0;
@@ -127,7 +183,7 @@ export default function SearchModal({ onClose }: Props) {
         onClick={e => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-label="Search lessons"
+        aria-label="Search lessons and glossary"
       >
         {/* Search input */}
         <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200">
@@ -137,7 +193,7 @@ export default function SearchModal({ onClose }: Props) {
           <input
             ref={inputRef}
             type="text"
-            placeholder="Search all lessons..."
+            placeholder="Search lessons and glossary..."
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -149,12 +205,45 @@ export default function SearchModal({ onClose }: Props) {
 
         {/* Results */}
         <div className="max-h-80 overflow-y-auto">
-          {query.trim() && results.length === 0 && fuse && (
+          {query.trim() && results.length === 0 && lessonFuse && (
             <div className="px-4 py-8 text-center text-sm text-gray-500">
               No results for &ldquo;{query}&rdquo;
             </div>
           )}
 
+          {/* Glossary results */}
+          {glossaryResults.length > 0 && (
+            <div>
+              <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wide bg-gray-50">
+                📖 Glossary
+              </div>
+              {glossaryResults.map(r => {
+                const idx = flatIdx++;
+                return (
+                  <button
+                    key={`glossary-${r.entry.slug}`}
+                    onClick={() => navigateToResult(r)}
+                    onMouseEnter={() => setSelectedIdx(idx)}
+                    className={`w-full text-left px-4 py-3 flex items-start gap-3 transition-colors ${
+                      idx === selectedIdx ? 'bg-green-50' : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium text-gray-900">
+                        {r.entry.term}
+                      </p>
+                      <p className="text-xs text-gray-500 line-clamp-2 mt-0.5">
+                        {r.entry.definition}
+                      </p>
+                    </div>
+                    <span className="text-xs text-gray-400 flex-shrink-0 mt-1">definition</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Lesson results */}
           {Object.entries(grouped).map(([courseId, entries]) => (
             <div key={courseId}>
               <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wide bg-gray-50">
@@ -165,7 +254,7 @@ export default function SearchModal({ onClose }: Props) {
                 return (
                   <button
                     key={`${entry.courseId}-${entry.lessonId}`}
-                    onClick={() => navigate(entry)}
+                    onClick={() => navigateToResult({ type: 'lesson', entry })}
                     onMouseEnter={() => setSelectedIdx(idx)}
                     className={`w-full text-left px-4 py-3 flex items-start gap-3 transition-colors ${
                       idx === selectedIdx ? 'bg-green-50' : 'hover:bg-gray-50'
