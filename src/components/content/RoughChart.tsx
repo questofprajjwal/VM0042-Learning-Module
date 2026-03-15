@@ -205,7 +205,7 @@ export default function RoughChart({ type, title, data, xKey, yKey, seriesKeys, 
             const textEl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
             textEl.setAttribute('x', String(labelX + 6));
             textEl.setAttribute('y', String(labelY + 4));
-            textEl.setAttribute('text-anchor', textAnchor);
+            textEl.setAttribute('text-anchor', 'start');
             textEl.setAttribute('font-size', '12');
             textEl.setAttribute('font-weight', 'bold');
             textEl.setAttribute('font-family', "'Comic Neue', 'Comic Sans MS', cursive, sans-serif");
