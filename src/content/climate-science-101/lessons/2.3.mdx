@@ -22,6 +22,16 @@
 
 <p class="mb-3">The IPCC AR6 WGIII reports the following sectoral breakdown of global net anthropogenic GHG emissions in 2019. These figures use direct emissions accounting, meaning emissions are attributed to the sector where they physically occur rather than allocated to the sector that consumes the energy:</p>
 
+<RoughChart
+  type="pie"
+  title="Global GHG Emissions by Sector (2019, Direct Accounting)"
+  data='[{"name":"Energy Supply (34%)","value":20},{"name":"Industry (24%)","value":14},{"name":"AFOLU (22%)","value":13},{"name":"Transport (15%)","value":8.7},{"name":"Buildings (6%)","value":3.3}]'
+  xKey="name"
+  yKey="value"
+  unit="Gt"
+  height="380"
+/>
+
 <ResponsiveTable>
 <table class="mb-6">
   <thead>
@@ -36,31 +46,31 @@
     <tr>
       <td>Energy Supply</td>
       <td>34%</td>
-      <td>~20 Gt</td>
+      <td>20 Gt</td>
       <td>CO<sub>2</sub>, CH<sub>4</sub></td>
     </tr>
     <tr>
       <td>Industry</td>
       <td>24%</td>
-      <td>~14 Gt</td>
+      <td>14 Gt</td>
       <td>CO<sub>2</sub>, F-gases</td>
     </tr>
     <tr>
       <td>Agriculture, Forestry and Other Land Use (AFOLU)</td>
       <td>22%</td>
-      <td>~13 Gt</td>
+      <td>13 Gt</td>
       <td>CH<sub>4</sub>, N<sub>2</sub>O, CO<sub>2</sub></td>
     </tr>
     <tr>
       <td>Transport</td>
       <td>15%</td>
-      <td>~8.7 Gt</td>
+      <td>8.7 Gt</td>
       <td>CO<sub>2</sub></td>
     </tr>
     <tr>
       <td>Buildings</td>
       <td>6%</td>
-      <td>~3.3 Gt</td>
+      <td>3.3 Gt</td>
       <td>CO<sub>2</sub>, CH<sub>4</sub></td>
     </tr>
   </tbody>
@@ -89,6 +99,16 @@
 <h3 class="text-xl font-bold mt-6 mb-3">Regional and Per Capita Inequalities</h3>
 
 <p class="mb-3">Emissions are distributed highly unequally across countries and populations. The IPCC AR6 WGIII reports that average global per capita net anthropogenic GHG emissions were approximately 7.8 tCO<sub>2</sub>-eq in 2019, but regional averages ranged from 2.6 to 19 tCO<sub>2</sub>-eq per person. Least Developed Countries (LDCs) had per capita emissions of only 1.7 tCO<sub>2</sub>-eq, while some high-income countries exceeded 15-20 tCO<sub>2</sub>-eq per person.</p>
+
+<RoughChart
+  type="bar"
+  title="Per Capita GHG Emissions by Region (2019, tCO2-eq/person)"
+  data='[{"name":"N. America","value":19},{"name":"Europe","value":10.5},{"name":"E. Asia","value":9.7},{"name":"Mid East","value":9.2},{"name":"World Avg","value":7.8},{"name":"Lat. America","value":5.7},{"name":"S. Asia","value":2.8},{"name":"Sub-Sah. Africa","value":2.6},{"name":"LDCs","value":1.7}]'
+  xKey="name"
+  yKey="value"
+  unit="t"
+  height="380"
+/>
 
 <p class="mb-4">Even more striking is the household-level inequality within countries: the top 10% of households globally contribute 34-45% of consumption-based household GHG emissions, while the bottom 50% contribute only 13-15%. This inequity has profound implications for climate justice and for designing effective and fair mitigation policies.</p>
 

@@ -19,6 +19,9 @@ import EquationBreakdown from './EquationBreakdown';
 import GlossaryTerm from './GlossaryTerm';
 import CaseStudy from './CaseStudy';
 import KeyTakeaways from './KeyTakeaways';
+import dynamic from 'next/dynamic';
+const Chart = dynamic(() => import('./Chart'), { ssr: false });
+const RoughChart = dynamic(() => import('./RoughChart'), { ssr: false });
 
 /** Extract raw text from React children (handles MDX wrapping) */
 function extractText(node: ReactNode): string {
@@ -44,6 +47,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     GlossaryTerm,
     CaseStudy,
     KeyTakeaways,
+    Chart,
+    RoughChart,
 
     // Fenced code blocks: intercept ```mermaid to render flowcharts
     pre: ({ children, ...props }: ComponentPropsWithoutRef<'pre'> & { children?: ReactNode }) => {
