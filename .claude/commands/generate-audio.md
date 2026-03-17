@@ -77,9 +77,9 @@ Call `studio_create` with:
 
 **Minimize tool calls during polling.** Audio generation typically takes 90-120 seconds for short format.
 
-1. First, run a single `sleep 90` via Bash (one tool call covers the initial wait).
-2. Then call `studio_status`. If completed, proceed. If still in progress:
-3. Run `sleep 30` + `studio_status`. Repeat up to 6 more times (max ~5 minutes total).
+1. First, run a single `sleep 120` via Bash (one tool call covers the initial wait). Audio generation takes 90-120s, but the status transitions from "unknown" to "completed" with a delay. Downloading while status is "unknown" will fail even if the audio URL is present.
+2. Then call `studio_status`. Only proceed to download if `status` is `"completed"` (not `"unknown"`).
+3. If still in progress or "unknown", run `sleep 30` + `studio_status`. Repeat up to 6 more times (max ~5 minutes total).
 4. If it times out after all polls, skip this lesson.
 
 ### 2e. Download audio (with retry-after-reauth)
