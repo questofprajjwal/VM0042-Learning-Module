@@ -71,15 +71,16 @@ Call `studio_create` with:
 - `artifact_type`: `"audio"`
 - `audio_format`: `"deep_dive"`
 - `audio_length`: `"short"`
+- `focus_prompt`: `"You are teachers at Green Tryst Academy. Begin with a concise 30-second summary of the lesson. Then guide the listener through the lesson content using a clear, teacher-like tone — use analogies and real-world examples to make concepts stick. Stay strictly within the lesson content; do not introduce outside topics. Keep the audio short and focused."`
 - `confirm`: `true`
 
 ### 2d. Poll for completion (single Bash sleep, then MCP check)
 
-**Minimize tool calls during polling.** Audio generation typically takes 90-120 seconds for short format.
+**Minimize tool calls during polling.** Audio generation with a focus_prompt typically takes 200-350 seconds.
 
-1. First, run a single `sleep 120` via Bash (one tool call covers the initial wait). Audio generation takes 90-120s, but the status transitions from "unknown" to "completed" with a delay. Downloading while status is "unknown" will fail even if the audio URL is present.
+1. First, run a single `sleep 350` via Bash (one tool call covers the initial wait). The status transitions from "unknown" to "completed" with a delay. Downloading while status is "unknown" will fail even if the audio URL is present.
 2. Then call `studio_status`. Only proceed to download if `status` is `"completed"` (not `"unknown"`).
-3. If still in progress or "unknown", run `sleep 30` + `studio_status`. Repeat up to 6 more times (max ~5 minutes total).
+3. If still in progress or "unknown", run `sleep 60` + `studio_status`. Repeat up to 6 more times (max ~10 minutes total).
 4. If it times out after all polls, skip this lesson.
 
 ### 2e. Download audio (with retry-after-reauth)
@@ -133,7 +134,7 @@ Target: ~7-8 tool calls per lesson (down from ~14+ in v1):
 2. MCP: notebook_create
 3. MCP: source_add (file upload, no context read)
 4. MCP: studio_create
-5. Bash: sleep 90
+5. Bash: sleep 350
 6. MCP: studio_status (+ possibly 1-2 more poll rounds)
 7. MCP: download_artifact
 8. MCP: notebook_delete (parallel with ffmpeg below)

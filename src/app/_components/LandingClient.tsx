@@ -117,21 +117,24 @@ export default function LandingClient({ courseData }: Props) {
               )}
             </div>
 
-            {/* Topic pills */}
-            <div className="flex flex-wrap gap-2 mt-8">
-              {['Climate Science', 'Carbon Markets', 'ESG Reporting', 'Green Finance', 'GHG Protocol'].map(topic => (
-                <span
-                  key={topic}
-                  className="px-3 py-1 text-xs font-medium bg-white/10 text-emerald-100 rounded-full border border-white/10 backdrop-blur-sm"
-                >
-                  {topic}
-                </span>
+            {/* Feature highlights */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10">
+              {[
+                { label: 'Audio Lessons', desc: 'Podcast-style narration for every lesson' },
+                { label: 'Quizzes', desc: 'Test your understanding as you go' },
+                { label: 'Glossary', desc: '190+ sustainability terms explained' },
+                { label: 'Practitioner Tips', desc: 'Real-world examples and analogies' },
+              ].map(f => (
+                <div key={f.label} className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/10 px-4 py-3">
+                  <p className="text-sm font-semibold text-white">{f.label}</p>
+                  <p className="text-xs text-emerald-200/70 mt-0.5 leading-snug">{f.desc}</p>
+                </div>
               ))}
             </div>
 
             {/* Stats bar */}
             {mounted && (
-              <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap gap-8">
+              <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap gap-8">
                 <div>
                   <p className="text-2xl font-bold text-white">{courseData.length}</p>
                   <p className="text-xs text-emerald-200/70 mt-0.5">Courses</p>
