@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code when working in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
@@ -47,6 +47,7 @@ LearningPlatform/
 │   │   │   ├── Flowchart.tsx         # Mermaid flowchart renderer (client-side)
 │   │   │   ├── EquationBreakdown.tsx # Interactive color-coded equation explainer
 │   │   │   ├── ResponsiveTable.tsx   # Horizontal-scroll table wrapper
+│   │   │   ├── AudioPlayer.tsx      # Waveform audio player (R2-hosted or Spotify)
 │   │   │   ├── GlossaryTerm.tsx     # Inline tooltip for glossary terms
 │   │   │   └── CaseStudy.tsx        # Multi-step decision scenario
 │   │   ├── learning/
@@ -74,7 +75,7 @@ LearningPlatform/
 │   │   └── glossary.ts               # Server-only: loads glossary.yaml
 │   │
 │   └── content/                      # All course content lives here
-│       ├── glossary.yaml             # Platform-wide glossary (106 terms)
+│       ├── glossary.yaml             # Platform-wide glossary (190+ terms)
 │       └── <course-id>/              # One folder per course
 │           ├── course.yaml           # Course + module + lesson metadata
 │           ├── SOURCES.md            # Which PDFs informed which modules
@@ -87,7 +88,8 @@ LearningPlatform/
 │
 ├── scripts/
 │   ├── migrate-content.ts            # One-time: HTML → MDX migration
-│   └── validate-content.ts           # Validates all content against Zod schemas
+│   ├── validate-content.ts           # Validates all content against Zod schemas
+│   └── audio-pipeline.ts             # Audio generation pipeline CLI helper
 │
 ├── mdx-components.tsx                # Root MDX component map (Next.js convention)
 ├── next.config.mjs                   # output: 'export', MDX support
@@ -101,9 +103,17 @@ LearningPlatform/
 
 ```bash
 npm run dev        # Dev server on http://localhost:5001
-npm run build      # Production SSG build (outputs to /out)
+npm run build      # Production SSG build (outputs to /out), also regenerates search-index.json + glossary.json
 npm run validate   # Validate all course content against Zod schemas
-npm run migrate    # Re-run content migration (legacy HTML → MDX)
+npx tsx scripts/generate-search-index.ts   # Regenerate search index + glossary JSON manually
+
+# Audio pipeline (generates podcast-style lesson audio via NotebookLM)
+npx tsx scripts/audio-pipeline.ts status                    # Dashboard: audio coverage per course + daily usage
+npx tsx scripts/audio-pipeline.ts next-batch [--limit N]    # JSON list of next lessons needing audio
+npx tsx scripts/audio-pipeline.ts extract <course> <lesson> # Strip MDX to plain text for NotebookLM
+npx tsx scripts/audio-pipeline.ts insert <course> <lesson> <r2Url>  # Insert AudioPlayer tag into MDX
+npx tsx scripts/audio-pipeline.ts log <course> <lesson>     # Record generation in daily log
+/generate-audio [--limit N] [--course X] [status]           # Full pipeline skill (uses NotebookLM MCP)
 ```
 
 ---
@@ -131,7 +141,7 @@ description: "A comprehensive introduction to ESG frameworks, disclosure standar
 icon: "📊"
 color: blue            # must exist in src/lib/colors.ts colorMap
 status: published      # published | draft | coming-soon
-category: esg          # methodologies | esg | markets | fundamentals
+category: esg          # fundamentals | esg | markets | green-finance | sustainability-standards
 estimatedHours: 12
 modules:
   - id: 0
@@ -189,7 +199,52 @@ Available MDX components:
 | `<DeepDive>` | Blue collapsible section | Optional deep-dive content |
 | `<EquationBreakdown>` | Interactive color-coded equation | Visual formula explainers with hover |
 | ` ```mermaid ` code block | Styled flowchart/diagram | Process flows, decision trees |
+| `<RoughChart>` | Hand-drawn interactive chart (rough.js) | Data visualizations: pie, bar, horizontal-bar, line |
+| `<AudioPlayer>` | Orange waveform player | Podcast-style lesson audio (hosted on Cloudflare R2) |
 | `![alt](/images/...)` | Static diagram image | Draw.io exported diagrams (complex visuals) |
+
+**RoughChart (Hand-Drawn Data Visualization):**
+
+Renders interactive charts with a hand-drawn aesthetic using rough.js. Lazy-loaded via `next/dynamic` (zero bundle cost for pages without charts). Supports hover tooltips and annotations.
+
+- **Props are strings** for MDX compatibility. Data is a JSON string.
+- **`type`**: `pie` | `bar` | `horizontal-bar` | `line`
+- **`data`**: JSON stringified array, e.g. `'[{"name":"A","value":10},{"name":"B","value":20}]'`
+- **`xKey`**: Key for labels/x-axis
+- **`yKey`**: Key for values/y-axis
+- **`unit`**: Unit label (e.g. `"%"`, `"Gt"`, `"°C"`)
+- **`height`**: Chart height in pixels (default `"380"`)
+- **`annotations`**: JSON string for callouts. Bar: `'[{"target":"barName","text":"label"}]'`. Connector: `'[{"from":"bar1","to":"bar2","text":"label"}]'`. Pie: `'[{"targets":"slice1,slice2","text":"label"}]'`
+- **`seriesKeys`** / **`seriesLabels`**: For multi-series line charts. Comma-separated keys and labels.
+- **Do NOT use `~` in data** (triggers MDX strikethrough). Use "approx." instead.
+
+```mdx
+<RoughChart
+  type="pie"
+  title="Global GHG Emissions by Sector"
+  data='[{"name":"Energy (34%)","value":20},{"name":"Industry (24%)","value":14},{"name":"AFOLU (22%)","value":13}]'
+  xKey="name"
+  yKey="value"
+  unit="Gt"
+  height="380"
+/>
+```
+
+```mdx
+<RoughChart
+  type="line"
+  title="Projected Warming Under SSP Scenarios"
+  data='[{"year":"2020","ssp1":1.1,"ssp5":1.1},{"year":"2060","ssp1":1.3,"ssp5":3.1},{"year":"2100","ssp1":1.4,"ssp5":4.4}]'
+  xKey="year"
+  yKey="ssp1"
+  seriesKeys="ssp1,ssp5"
+  seriesLabels="SSP1-1.9,SSP5-8.5"
+  unit="°C"
+  height="400"
+/>
+```
+
+Key file: `src/components/content/RoughChart.tsx`
 
 **CalculationExercise props:**
 
@@ -266,6 +321,7 @@ For complex visual diagrams - multi-step processes, organizational structures, v
 - **File convention:** Save exported PNGs to `public/images/<course-id>/<descriptive-name>.png` (e.g., `public/images/ghg-scope-3/six-step-accounting-process.png`).
 - **In MDX:** Reference with a standard Markdown image: `![Alt text](/images/<course-id>/<descriptive-name>.png)`
 - **When to create diagrams:** Proactively create Draw.io diagrams for multi-step processes, frameworks, hierarchies, and visual overviews that help learners grasp structure at a glance - especially in introductory or summary lessons.
+- **No HTML tags in draw.io labels:** Never use `<br>`, `<b>`, `<i>`, `<font>` in node `value` attributes. They render as literal tag text in exported PNGs. Use `&#10;` for line breaks and `fontStyle=1` (bold) / `fontStyle=2` (italic) in the `style` attribute instead.
 - **Avoid arrow/label overlaps:** When routing edges between nodes, verify that the arrow path and its label do not pass through or overlap any box. Use explicit entry/exit points (`entryX`, `entryY`, `exitX`, `exitY`) and waypoints to route arrows around boxes, not through them. For example, if two nodes are at the same vertical center, connect them side-to-side (`exitX=1;exitY=0.5` to `entryX=0;entryY=0.5`) rather than routing through intermediate coordinates that land inside another node. After export, visually inspect the PNG for overlaps before committing.
 
 ```mdx
@@ -292,6 +348,32 @@ Renders equations as interactive, color-coded visual breakdowns. Each variable g
 ```
 
 Key file: `src/components/content/EquationBreakdown.tsx`
+
+**AudioPlayer (Lesson Audio Narration):**
+
+Custom audio player with animated waveform visualization, play/pause, skip 15s forward/back, speed control (0.5x to 2x), and clickable seek bar. Supports two modes: self-hosted audio via `src` prop, or Spotify embed via `spotifyId` prop.
+
+Audio files are hosted on **Cloudflare R2** (zero egress cost). Bucket: `greentryst-audios`, public URL: `https://pub-033ee478bfa542229216e3781c99cb96.r2.dev`.
+
+- **`src`**: URL to audio file (MP3 on R2)
+- **`spotifyId`**: Spotify episode ID (renders Spotify iframe embed instead)
+- **`title`**: Label shown above the player (default: "Listen to this lesson")
+- **File naming**: `/<course-id>/<lesson_id>.mp3` (e.g., `/vm0042/0_1.mp3`)
+
+```mdx
+<AudioPlayer src="https://pub-033ee478bfa542229216e3781c99cb96.r2.dev/vm0042/0_1.mp3" title="Listen to this lesson (podcast-style overview)" />
+```
+
+**Audio generation pipeline:**
+1. Strip lesson MDX to plain text
+2. Create NotebookLM notebook and add text as source (via NotebookLM MCP)
+3. Generate audio: `studio_create` with `artifact_type="audio"`, `audio_format="deep_dive"`, `audio_length="short"`
+4. Download the generated file (comes as MP4)
+5. Convert to MP3: `ffmpeg -i input.mp4 -codec:a libmp3lame -b:a 128k output.mp3`
+6. Upload to R2: `wrangler r2 object put greentryst-audios/<course-id>/<lesson_id>.mp3 --file <local-file> --remote`
+7. Add `<AudioPlayer>` tag at the top of the lesson MDX (before the h2 title)
+
+Key file: `src/components/content/AudioPlayer.tsx`
 
 ### 4. Write quiz YAML files (optional per lesson)
 
@@ -378,6 +460,10 @@ Both CLIs can read PDFs directly from the `sources/` path.
 - **`explanation` is optional** in quiz YAML — omit the field entirely if not needed.
 - **MDX self-closing tags required** — use `<br />` not `<br>`. Unescaped `<` before numbers must be `&lt;`.
 - **Source PDFs** live in `src/content/<course-id>/sources/` and are gitignored. Never commit PDFs to git.
+- **SEO structured data** is auto-generated per page: `LearningResource` + `FAQPage` (from quiz Q&As) + `BreadcrumbList` JSON-LD on lesson pages; `Course` + `BreadcrumbList` on course overview pages. Unique meta descriptions are extracted from lesson content via `stripMdx()`.
+- **Search modal** (Cmd+K) searches both lessons (`search-index.json`) and glossary terms (`glossary.json`). Glossary results appear first, linking to `/glossary#term-{slug}`.
+- **Never use em dashes** in any content, code, or commit messages. Use hyphens (-) instead.
+- **Never use `~` in MDX content** (triggers strikethrough parsing). Use "approx." or "approximately" instead.
 
 ---
 
