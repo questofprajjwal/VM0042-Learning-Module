@@ -1,10 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { exportProgress } from '@/lib/progress-export';
-import { useRef, useState } from 'react';
-import { importProgress } from '@/lib/progress-export';
-import { usePlatformProgress } from '@/lib/progress';
+import { usePlatformProgress } from '@/lib/progress-cloud';
+import { useAuth, UserButton } from '@clerk/nextjs';
 import SearchButton from './SearchButton';
 import XPBadge from './XPBadge';
 import StreakCounter from './StreakCounter';
@@ -14,18 +12,8 @@ interface Props {
 }
 
 export default function PlatformNav({ lastLessonHref }: Props) {
-  const fileRef = useRef<HTMLInputElement>(null);
-  const [importMsg, setImportMsg] = useState<string | null>(null);
   const { mounted, xp, streak } = usePlatformProgress();
-
-  async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const result = await importProgress(file);
-    setImportMsg(result.message);
-    setTimeout(() => setImportMsg(null), 4000);
-    if (result.success) window.location.reload();
-  }
+  const { isSignedIn, isLoaded } = useAuth();
 
   return (
     <>
@@ -77,66 +65,30 @@ export default function PlatformNav({ lastLessonHref }: Props) {
               </Link>
             )}
 
-            {/* Progress export/import dropdown */}
-            <div className="relative group">
-              <button
-                className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300"
-                aria-label="Progress settings"
-                aria-haspopup="true"
+            {/* Auth */}
+            {isLoaded && isSignedIn && (
+              <Link
+                href="/dashboard"
+                className="text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors hidden sm:inline"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <circle cx="12" cy="5" r="1" fill="currentColor" />
-                  <circle cx="12" cy="12" r="1" fill="currentColor" />
-                  <circle cx="12" cy="19" r="1" fill="currentColor" />
-                </svg>
-              </button>
-              <div
-                className="absolute right-0 top-full mt-1.5 w-48 bg-white border border-gray-200 rounded-xl shadow-lg hidden group-focus-within:block group-hover:block z-10 overflow-hidden"
-                role="menu"
+                Dashboard
+              </Link>
+            )}
+            {isLoaded && isSignedIn && (
+              <UserButton afterSignOutUrl="/" />
+            )}
+            {isLoaded && !isSignedIn && (
+              <Link
+                href="/sign-in"
+                className="text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
               >
-                <button
-                  onClick={exportProgress}
-                  className="w-full text-left px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2"
-                  role="menuitem"
-                >
-                  <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                  </svg>
-                  Export progress
-                </button>
-                <button
-                  onClick={() => fileRef.current?.click()}
-                  className="w-full text-left px-4 py-2.5 text-sm text-gray-600 hover:bg-gray-50 transition-colors flex items-center gap-2"
-                  role="menuitem"
-                >
-                  <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                  </svg>
-                  Import progress
-                </button>
-                <input
-                  ref={fileRef}
-                  type="file"
-                  accept=".json"
-                  className="sr-only"
-                  aria-hidden
-                  onChange={handleImport}
-                />
-              </div>
-            </div>
+                Sign in
+              </Link>
+            )}
           </div>
         </div>
       </header>
 
-      {importMsg && (
-        <div
-          className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm shadow-lg z-50"
-          role="status"
-          aria-live="polite"
-        >
-          {importMsg}
-        </div>
-      )}
     </>
   );
 }

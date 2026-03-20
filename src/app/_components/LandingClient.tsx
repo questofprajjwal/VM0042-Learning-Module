@@ -1,6 +1,6 @@
 'use client';
 
-import { usePlatformProgress } from '@/lib/progress';
+import { usePlatformProgress } from '@/lib/progress-cloud';
 import type { Course } from '@/lib/types';
 import CourseCard from '@/components/platform/CourseCard';
 import PlatformNav from '@/components/platform/PlatformNav';

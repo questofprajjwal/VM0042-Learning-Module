@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useProgress } from '@/lib/progress';
+import { useProgress } from '@/lib/progress-cloud';
 import type { Course } from '@/lib/types';
 import { getColor } from '@/lib/colors';
 import { lessonIdToUrl } from '@/lib/url-helpers';

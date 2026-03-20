@@ -3,7 +3,7 @@
 import { useEffect, useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useProgress } from '@/lib/progress';
+import { useProgress } from '@/lib/progress-cloud';
 import type { LessonMeta, LessonNavContext, QuizQuestion } from '@/lib/types';
 import { getColor } from '@/lib/colors';
 import { lessonIdToUrl } from '@/lib/url-helpers';
@@ -16,6 +16,7 @@ import Breadcrumb from '@/components/platform/Breadcrumb';
 import BackToTop from '@/components/learning/BackToTop';
 import Confetti from '@/components/platform/Confetti';
 import XPToast from '@/components/platform/XPToast';
+import LessonMeter from '@/components/platform/LessonMeter';
 
 interface Props {
   courseId: string;
@@ -126,6 +127,7 @@ export default function LessonClient({
 
   return (
     <div className="max-w-4xl mx-auto px-4 min-[400px]:px-5 sm:px-6 py-8 pb-20 md:pb-8">
+      <LessonMeter lessonSlug={`${courseId}/${lessonId}`} />
       <Confetti trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
       <XPToast
         xp={xpToast.amount}

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import PlatformNav from '@/components/platform/PlatformNav';
 import Sidebar from '@/components/learning/Sidebar';
-import { useProgress } from '@/lib/progress';
+import { useProgress } from '@/lib/progress-cloud';
 import { lessonIdToUrl, urlToLessonId } from '@/lib/url-helpers';
 import type { Course } from '@/lib/types';
 
