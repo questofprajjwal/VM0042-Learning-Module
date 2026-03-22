@@ -65,6 +65,13 @@ export default function PlatformNav({ lastLessonHref }: Props) {
               </Link>
             )}
 
+            <Link
+              href="/jobs"
+              className="text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors hidden sm:inline"
+            >
+              Jobs
+            </Link>
+
             {/* Auth */}
             {isLoaded && isSignedIn && (
               <Link

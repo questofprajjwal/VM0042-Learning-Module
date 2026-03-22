@@ -29,9 +29,11 @@
     "remark-gfm": "^4.0.1",
     "rough": "^3.0.1",
     "roughjs": "^4.6.6",
+    "xlsx": "^0.18.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@google/stitch-sdk": "^0.0.3",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
