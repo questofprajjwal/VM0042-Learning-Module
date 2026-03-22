@@ -1,3 +1,6 @@
+# reference docs (local only)
+AUTH_SETUP_REFERENCE.md
+
 # dependencies
 /node_modules
 /.pnp
