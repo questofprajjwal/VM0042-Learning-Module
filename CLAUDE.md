@@ -229,10 +229,9 @@ Available MDX components:
 | `<CalculationExercise>` | Violet card, interactive | Practice calculations with hints |
 | `<DeepDive>` | Blue collapsible section | Optional deep-dive content |
 | `<EquationBreakdown>` | Interactive color-coded equation | Visual formula explainers with hover |
-| ` ```mermaid ` code block | Styled flowchart/diagram | Process flows, decision trees |
+| `![alt](/images/...)` | Draw.io exported diagram | Process flows, decision trees, org charts |
 | `<RoughChart>` | Hand-drawn interactive chart (rough.js) | Data visualizations: pie, bar, horizontal-bar, line |
 | `<AudioPlayer>` | Orange waveform player | Podcast-style lesson audio (hosted on Cloudflare R2) |
-| `![alt](/images/...)` | Static diagram image | Draw.io exported diagrams (complex visuals) |
 
 **RoughChart (Hand-Drawn Data Visualization):**
 
@@ -311,43 +310,9 @@ Key file: `src/components/content/RoughChart.tsx`
 </DeepDive>
 ```
 
-**Flowchart / Diagram (Mermaid):**
+**Diagrams (via `/drawio` skill only, no Mermaid):**
 
-Flowcharts use standard fenced ` ```mermaid ` code blocks — no imports or special components needed. The `pre` override in `mdx-components.tsx` detects `language-mermaid` code blocks and routes them to the `Flowchart` client component, which renders via Mermaid.js with SVG style injection.
-
-- **Why fenced code blocks?** MDX parses HTML-like syntax (`<br/>`, `<i>`) inside JSX props/children, breaking multi-line Mermaid definitions. Fenced code blocks are opaque to MDX — content passes through untouched.
-- **Styling:** The `Flowchart` component applies a base Mermaid theme, then injects a `<style>` block into the rendered SVG for edge labels (dark text, pill background), rounded node corners, and drop shadows.
-- **Per-chart colors:** Use Mermaid `style` directives inside the code block (e.g., `style A fill:#eff6ff,stroke:#3b82f6`). Keep to a cohesive palette — pastel fills with matching saturated borders.
-- **Edge labels:** Use `-->  |"label text"|` pipe syntax for visible edge labels. Avoid `-- "text" -->` syntax as labels may render invisible depending on theme.
-- **Node shapes:** Use `(["text"])` for stadium/pill shapes (modern look), `{"text"}` for diamond decisions.
-- **No HTML tags needed in nodes:** Use `<br/>` for line breaks inside node labels (this is Mermaid HTML, not MDX — safe inside code blocks).
-
-````mdx
-```mermaid
-graph TD
-    A(["<b>Step One</b><br/>Description here"])
-    B(["<b>Step Two</b><br/>More detail"])
-    C{"Decision?"}
-    D(["<b>Outcome</b>"])
-
-    A --> B --> C
-    C --> |"Yes"| D
-    C --> |"No"| A
-
-    style A fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e40af
-    style B fill:#ecfdf5,stroke:#059669,stroke-width:1.5px,color:#065f46
-    style C fill:#fff7ed,stroke:#ea580c,stroke-width:1.5px,color:#9a3412
-    style D fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#166534
-```
-````
-
-Key files: `src/components/content/Flowchart.tsx` (renderer), `src/components/content/mdx-components.tsx` (pre override that intercepts mermaid blocks).
-
-**Draw.io Diagrams (via `/drawio` skill):**
-
-For complex visual diagrams - multi-step processes, organizational structures, value chain maps, decision frameworks - use the `/drawio` skill to create professional `.drawio` files and export them as PNG images. These are more visually polished than Mermaid and better suited for diagrams that benefit from precise layout, color-coded steps, and custom styling.
-
-- **When to use Draw.io over Mermaid:** Use Draw.io when the diagram needs precise spatial layout (e.g., a U-shaped six-step process with iterative arrows), multiple colors per node, or when Mermaid syntax becomes unwieldy. Use Mermaid for simpler linear flows and decision trees.
+All diagrams must be created using the `/drawio` skill to produce professional `.drawio` files and export them as PNG images. Do not use Mermaid code blocks. The Mermaid/Flowchart component exists in the codebase for legacy content only; all new diagrams must use Draw.io.
 - **Workflow:** Use the `/drawio` skill to create the `.drawio` file in the project root, export to PNG, then place the PNG in `public/images/<course-id>/`.
 - **File convention:** Save exported PNGs to `public/images/<course-id>/<descriptive-name>.png` (e.g., `public/images/ghg-scope-3/six-step-accounting-process.png`).
 - **In MDX:** Reference with a standard Markdown image: `![Alt text](/images/<course-id>/<descriptive-name>.png)`
