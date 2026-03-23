@@ -35,7 +35,10 @@ export async function GET() {
   const sheet = workbook.Sheets[workbook.SheetNames[0]];
   const raw = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet);
 
-  const jobs: JobRow[] = raw.map((row) => ({
+  const jobs: JobRow[] = raw.filter((row) => {
+    const title = String(row['Title'] ?? '').trim();
+    return title.length > 0;
+  }).map((row) => ({
     datePosted: row['Date Posted'] ? String(row['Date Posted']) : null,
     profile: String(row['Profile'] ?? ''),
     title: String(row['Title'] ?? ''),

@@ -11,6 +11,7 @@ const PROFILE_LABELS: Record<string, string> = {
   sustainable_finance: 'Sustainable Finance',
   eu_taxonomy_sfdr: 'EU Taxonomy / SFDR',
   carbon_markets: 'Carbon Markets',
+  clean_energy_adjacent: 'Clean Energy',
 };
 
 const PROFILE_PILL: Record<string, string> = {
@@ -18,6 +19,7 @@ const PROFILE_PILL: Record<string, string> = {
   sustainable_finance: 'bg-emerald-100 text-emerald-700',
   eu_taxonomy_sfdr: 'bg-violet-100 text-violet-700',
   carbon_markets: 'bg-amber-100 text-amber-700',
+  clean_energy_adjacent: 'bg-cyan-100 text-cyan-700',
 };
 
 const CITY_TO_COUNTRY: Record<string, string> = {
