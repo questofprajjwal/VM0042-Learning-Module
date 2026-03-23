@@ -115,7 +115,17 @@ function formatDate(d: string | null) {
   if (d.includes('week') || d.includes('day') || d.includes('hour')) return d;
   const date = new Date(d);
   if (isNaN(date.getTime())) return d;
-  return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  if (diffDays < 0) return 'Today';
+  if (diffDays === 0) return 'Today';
+  if (diffDays === 1) return '1 day ago';
+  if (diffDays < 30) return `${diffDays} days ago`;
+  const diffWeeks = Math.floor(diffDays / 7);
+  if (diffDays < 60) return `${diffWeeks} weeks ago`;
+  const diffMonths = Math.floor(diffDays / 30);
+  return `${diffMonths} months ago`;
 }
 
 function capitalize(s: string) {
@@ -144,6 +154,73 @@ function highlightText(text: string): React.ReactNode[] {
     pattern.test(part)
       ? <span key={i} className="font-semibold text-gray-800 bg-emerald-50 px-0.5 rounded">{part}</span>
       : part
+  );
+}
+
+function splitIntoBullets(text: string): string[] {
+  // 1. Explicit bullet markers: "* Item" or "- Item" or "• Item"
+  if (/[*\-•]\s+\S/.test(text)) {
+    // Split the preamble (text before first bullet) from the bullet items
+    const firstBullet = text.search(/[*\-•]\s+\S/);
+    const preamble = text.slice(0, firstBullet).trim();
+    const bulletSection = text.slice(firstBullet);
+    const items = bulletSection.split(/\s*[*\-•]\s+/).filter(s => s.trim());
+    // If there's a preamble, split it into sentences too
+    if (preamble) {
+      const preambleSentences = preamble.split(/(?<=\.)\s+(?=[A-Z])/).filter(s => s.trim());
+      return [...preambleSentences, ...items];
+    }
+    return items;
+  }
+
+  // 2. Numbered items: "1. Item" or "1) Item"
+  if (/\d+[.)]\s+\S/.test(text)) {
+    const items = text.split(/\s*\d+[.)]\s+/).filter(s => s.trim());
+    if (items.length >= 3) return items;
+  }
+
+  // 3. Labeled sub-sections like "Climate Risk Assessment:" or "Project Leadership & Delivery:"
+  const labelPattern = /(?<=\.)\s+(?=[A-Z][a-zA-Z&,/ ]{5,}:)/g;
+  let chunks = text.split(labelPattern).filter(s => s.trim());
+
+  // Further split long chunks on sentence boundaries (period + space + capital letter)
+  const result: string[] = [];
+  for (const chunk of chunks) {
+    const sentences = chunk.split(/(?<=\.)\s+(?=[A-Z])/).filter(s => s.trim());
+    result.push(...sentences);
+  }
+
+  // 4. Comma-separated lists (skills): 3+ commas, few periods
+  if (result.length === 1) {
+    const commaCount = (result[0].match(/,/g) || []).length;
+    const periodCount = (result[0].match(/\./g) || []).length;
+    if (commaCount >= 3 && periodCount <= 1) {
+      const items = result[0].split(/,\s*/).filter(s => s.trim());
+      if (items.length >= 3) return items;
+    }
+  }
+
+  return result;
+}
+
+function BulletedText({ text }: { text: string }) {
+  const bullets = splitIntoBullets(text);
+
+  if (bullets.length <= 1) {
+    return <p className="text-[13px] text-slate-600 leading-relaxed">{highlightText(text)}</p>;
+  }
+
+  return (
+    <ul className="text-[13px] text-slate-600 leading-relaxed space-y-1.5 list-none pl-0">
+      {bullets.map((item, i) => (
+        <li key={i} className="flex gap-2">
+          <span className="text-green-400 mt-[3px] shrink-0">
+            <svg className="w-3 h-3" viewBox="0 0 12 12" fill="currentColor"><circle cx="3" cy="6" r="2.5" /></svg>
+          </span>
+          <span>{highlightText(item.trim())}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -184,7 +261,7 @@ function DetailPanel({ job }: { job: JobRow }) {
                   </svg>
                   {s.label}
                 </h4>
-                <p className="text-[13px] text-slate-600 leading-relaxed">{highlightText(s.text)}</p>
+                <BulletedText text={s.text} />
               </div>
             ))}
           </div>
@@ -216,6 +293,7 @@ export default function JobsClient() {
   const [countryFilter, setCountryFilter] = useState('all');
   const [remoteFilter, setRemoteFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<'relevance' | 'latest'>('relevance');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(15);
 
@@ -279,10 +357,17 @@ export default function JobsClient() {
           (j.domainContext?.toLowerCase().includes(q))
       );
     }
+    if (sortBy === 'latest') {
+      result = [...result].sort((a, b) => {
+        const da = a.datePosted ? new Date(a.datePosted).getTime() : 0;
+        const db = b.datePosted ? new Date(b.datePosted).getTime() : 0;
+        return db - da;
+      });
+    }
     return result;
-  }, [jobs, activeProfile, companyTypeFilter, countryFilter, remoteFilter, searchQuery]);
+  }, [jobs, activeProfile, companyTypeFilter, countryFilter, remoteFilter, searchQuery, sortBy]);
 
-  useEffect(() => { setExpandedIdx(null); setPage(1); }, [activeProfile, companyTypeFilter, countryFilter, remoteFilter, searchQuery]);
+  useEffect(() => { setExpandedIdx(null); setPage(1); }, [activeProfile, companyTypeFilter, countryFilter, remoteFilter, searchQuery, sortBy]);
 
   const uniqueCompanies = useMemo(() => new Set(jobs.map(j => j.company)).size, [jobs]);
   const remoteCount = useMemo(() => jobs.filter(j => j.remote).length, [jobs]);
@@ -406,6 +491,21 @@ export default function JobsClient() {
           <p className="text-xs text-slate-400">
             Showing <span className="font-semibold text-slate-600">{filteredJobs.length}</span> of {jobs.length} positions
           </p>
+          <div className="flex items-center gap-1 text-xs">
+            <span className="text-slate-400 mr-1">Sort:</span>
+            <button
+              onClick={() => setSortBy('relevance')}
+              className={`px-2.5 py-1 rounded-md font-medium transition-colors ${sortBy === 'relevance' ? 'bg-green-600 text-white' : 'text-slate-500 hover:bg-slate-100'}`}
+            >
+              Relevance
+            </button>
+            <button
+              onClick={() => setSortBy('latest')}
+              className={`px-2.5 py-1 rounded-md font-medium transition-colors ${sortBy === 'latest' ? 'bg-green-600 text-white' : 'text-slate-500 hover:bg-slate-100'}`}
+            >
+              Latest
+            </button>
+          </div>
         </div>
 
         {/* Loading */}
