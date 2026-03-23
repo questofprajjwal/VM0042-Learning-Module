@@ -273,7 +273,10 @@ export default function JobsClient() {
         j =>
           j.title.toLowerCase().includes(q) ||
           j.company.toLowerCase().includes(q) ||
-          (j.location?.toLowerCase().includes(q))
+          (j.location?.toLowerCase().includes(q)) ||
+          (j.roleSummary?.toLowerCase().includes(q)) ||
+          (j.skillsRequired?.toLowerCase().includes(q)) ||
+          (j.domainContext?.toLowerCase().includes(q))
       );
     }
     return result;
