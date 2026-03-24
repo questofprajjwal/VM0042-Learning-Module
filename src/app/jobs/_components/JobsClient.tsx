@@ -520,7 +520,7 @@ export default function JobsClient({ jobs, total, page, perPage, totalPages, met
                 <tbody className="divide-y divide-slate-100">
                   {jobs.map((job, i) => {
                     const isExpanded = expandedIdx === i;
-                    const hasDetails = isAuthenticated;
+                    const hasDetails = true;
                     return (
                       <Fragment key={i}>
                         <tr
