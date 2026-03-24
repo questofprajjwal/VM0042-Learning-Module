@@ -1,10 +1,40 @@
 'use client';
 
-import { useState, useEffect, useMemo, Fragment } from 'react';
+import { useState, useEffect, useRef, useCallback, Fragment } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import PlatformNav from '@/components/platform/PlatformNav';
 import Footer from '@/components/platform/Footer';
-import type { JobRow } from '@/app/api/jobs/route';
+import type { JobSummary, JobDetail, JobsMeta } from '@/lib/jobs';
+import { fetchJobDetail } from '../actions';
+
+function useAntiScrape(containerRef: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const block = (e: Event) => e.preventDefault();
+    el.addEventListener('copy', block);
+    el.addEventListener('cut', block);
+    el.addEventListener('contextmenu', block);
+    el.addEventListener('dragstart', block);
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'x' || e.key === 'u')) {
+        e.preventDefault();
+      }
+    };
+    el.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      el.removeEventListener('copy', block);
+      el.removeEventListener('cut', block);
+      el.removeEventListener('contextmenu', block);
+      el.removeEventListener('dragstart', block);
+      el.removeEventListener('keydown', onKeyDown);
+    };
+  }, [containerRef]);
+}
 
 const PROFILE_LABELS: Record<string, string> = {
   all: 'All Roles',
@@ -45,66 +75,6 @@ const COURSE_SUGGESTIONS: Record<string, { label: string; href: string }[]> = {
     { label: 'TNFD & Biodiversity', href: '/courses/tnfd-biodiversity' },
   ],
 };
-
-const CITY_TO_COUNTRY: Record<string, string> = {
-  mumbai: 'India', delhi: 'India', bengaluru: 'India', gurugram: 'India',
-  pune: 'India', chennai: 'India', hyderabad: 'India', surat: 'India',
-  'ncr': 'India', karur: 'India', thiruvananthapuram: 'India', noida: 'India',
-  haryana: 'India', karnataka: 'India', maharashtra: 'India', telangana: 'India',
-  'tamil nadu': 'India', 'new delhi': 'India',
-  helsinki: 'Finland', espoo: 'Finland', oulu: 'Finland', lappeenranta: 'Finland',
-  stockholm: 'Sweden', lund: 'Sweden', huddinge: 'Sweden', kista: 'Sweden',
-  sandviken: 'Sweden', göteborg: 'Sweden',
-  brussels: 'Belgium', antwerp: 'Belgium', leuven: 'Belgium', diegem: 'Belgium',
-  zaventem: 'Belgium', mol: 'Belgium',
-  auckland: 'New Zealand',
-  praha: 'Czech Republic', brno: 'Czech Republic', ostrava: 'Czech Republic',
-  sydney: 'Australia', melbourne: 'Australia', brisbane: 'Australia',
-  darwin: 'Australia', geelong: 'Australia', inkerman: 'Australia',
-  london: 'UK',
-};
-
-const COUNTRY_ALIASES: Record<string, string> = {
-  'united kingdom': 'UK',
-  'new zealand': 'New Zealand',
-  'india': 'India',
-  'australia': 'Australia',
-  'belgium': 'Belgium',
-  'sweden': 'Sweden',
-  'finland': 'Finland',
-  'germany': 'Germany',
-  'netherlands': 'Netherlands',
-  'switzerland': 'Switzerland',
-  'luxembourg': 'Luxembourg',
-  'portugal': 'Portugal',
-  'uk': 'UK',
-  'czech republic': 'Czech Republic',
-};
-
-function extractCountry(location: string | null): string | null {
-  if (!location) return null;
-  const loc = location.toLowerCase();
-  if (loc === 'remote' || loc.startsWith('remote in')) return 'Remote';
-
-  const parts = location.split(',').map(p => p.trim());
-  const last = parts[parts.length - 1].toLowerCase().replace(/\d+/g, '').trim();
-  if (COUNTRY_ALIASES[last]) return COUNTRY_ALIASES[last];
-
-  if (/\b(nsw|vic|qld|sa|wa|nt|act|tas)\b/i.test(location)) return 'Australia';
-
-  for (const part of parts) {
-    const clean = part.toLowerCase().replace(/\d+/g, '').trim().replace(/\(.*\)/, '').trim();
-    if (CITY_TO_COUNTRY[clean]) return CITY_TO_COUNTRY[clean];
-    for (const city of Object.keys(CITY_TO_COUNTRY)) {
-      if (clean.includes(city)) return CITY_TO_COUNTRY[city];
-    }
-  }
-
-  if (loc.includes('distansjobb') || loc.includes('sverige')) return 'Sweden';
-  if (loc.includes('bruxelles') || loc.includes('etterbeek')) return 'Belgium';
-
-  return null;
-}
 
 function formatProfile(p: string) {
   return PROFILE_LABELS[p] ?? p.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -158,14 +128,11 @@ function highlightText(text: string): React.ReactNode[] {
 }
 
 function splitIntoBullets(text: string): string[] {
-  // 1. Explicit bullet markers: "* Item" or "- Item" or "• Item"
   if (/[*\-•]\s+\S/.test(text)) {
-    // Split the preamble (text before first bullet) from the bullet items
     const firstBullet = text.search(/[*\-•]\s+\S/);
     const preamble = text.slice(0, firstBullet).trim();
     const bulletSection = text.slice(firstBullet);
     const items = bulletSection.split(/\s*[*\-•]\s+/).filter(s => s.trim());
-    // If there's a preamble, split it into sentences too
     if (preamble) {
       const preambleSentences = preamble.split(/(?<=\.)\s+(?=[A-Z])/).filter(s => s.trim());
       return [...preambleSentences, ...items];
@@ -173,24 +140,20 @@ function splitIntoBullets(text: string): string[] {
     return items;
   }
 
-  // 2. Numbered items: "1. Item" or "1) Item"
   if (/\d+[.)]\s+\S/.test(text)) {
     const items = text.split(/\s*\d+[.)]\s+/).filter(s => s.trim());
     if (items.length >= 3) return items;
   }
 
-  // 3. Labeled sub-sections like "Climate Risk Assessment:" or "Project Leadership & Delivery:"
   const labelPattern = /(?<=\.)\s+(?=[A-Z][a-zA-Z&,/ ]{5,}:)/g;
-  let chunks = text.split(labelPattern).filter(s => s.trim());
+  const chunks = text.split(labelPattern).filter(s => s.trim());
 
-  // Further split long chunks on sentence boundaries (period + space + capital letter)
   const result: string[] = [];
   for (const chunk of chunks) {
     const sentences = chunk.split(/(?<=\.)\s+(?=[A-Z])/).filter(s => s.trim());
     result.push(...sentences);
   }
 
-  // 4. Comma-separated lists (skills): 3+ commas, few periods
   if (result.length === 1) {
     const commaCount = (result[0].match(/,/g) || []).length;
     const periodCount = (result[0].match(/\./g) || []).length;
@@ -224,11 +187,24 @@ function BulletedText({ text }: { text: string }) {
   );
 }
 
-function DetailPanel({ job }: { job: JobRow }) {
+function DetailPanel({ job, detail }: { job: JobSummary; detail: JobDetail | null }) {
+  if (!detail) {
+    return (
+      <tr>
+        <td colSpan={5} className="p-0">
+          <div className="bg-slate-50 border-y border-slate-100 px-6 py-8 flex items-center justify-center">
+            <div className="w-5 h-5 border-2 border-green-200 border-t-green-600 rounded-full animate-spin" />
+            <span className="ml-3 text-sm text-slate-400">Loading details...</span>
+          </div>
+        </td>
+      </tr>
+    );
+  }
+
   const sections = [
-    job.roleSummary && { label: 'Role Details', text: job.roleSummary, icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
-    job.skillsRequired && { label: 'Requirements', text: job.skillsRequired, icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' },
-    job.domainContext && { label: 'Domain Context', text: job.domainContext, icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+    detail.roleSummary && { label: 'Role Details', text: detail.roleSummary, icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+    detail.skillsRequired && { label: 'Requirements', text: detail.skillsRequired, icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' },
+    detail.domainContext && { label: 'Domain Context', text: detail.domainContext, icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
   ].filter(Boolean) as { label: string; text: string; icon: string }[];
 
   const meta = [
@@ -282,113 +258,116 @@ function StatCircle({ value, label, borderColor }: { value: string | number; lab
   );
 }
 
-export default function JobsClient() {
-  const [jobs, setJobs] = useState<JobRow[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+interface JobsClientProps {
+  jobs: JobSummary[];
+  total: number;
+  page: number;
+  perPage: number;
+  totalPages: number;
+  meta: JobsMeta;
+  isAuthenticated: boolean;
+  filters: Record<string, string | number | undefined>;
+}
+
+export default function JobsClient({ jobs, total, page, perPage, totalPages, meta, isAuthenticated, filters }: JobsClientProps) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  useAntiScrape(contentRef);
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const [detailCache, setDetailCache] = useState<Record<string, JobDetail>>({});
+  const [loadingDetail, setLoadingDetail] = useState<string | null>(null);
+  const [searchInput, setSearchInput] = useState((filters.search as string) ?? '');
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const [activeProfile, setActiveProfile] = useState('all');
-  const [companyTypeFilter, setCompanyTypeFilter] = useState('all');
-  const [countryFilter, setCountryFilter] = useState('all');
-  const [remoteFilter, setRemoteFilter] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState<'relevance' | 'latest'>('relevance');
-  const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(15);
+  const activeProfile = (filters.profile as string) ?? 'all';
+  const companyTypeFilter = (filters.companyType as string) ?? 'all';
+  const countryFilter = (filters.country as string) ?? 'all';
+  const remoteFilter = (filters.remote as string) ?? 'all';
+  const sortBy = (filters.sort as string) ?? 'relevance';
 
-  useEffect(() => {
-    fetch('/api/jobs')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to load jobs');
-        return res.json();
-      })
-      .then((data: JobRow[]) => {
-        setJobs(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  const companyTypes = useMemo(() => {
-    const types = new Set(jobs.map(j => j.companyType).filter(Boolean));
-    return Array.from(types).sort();
-  }, [jobs]);
-
-  const countries = useMemo(() => {
-    const c = new Set<string>();
-    jobs.forEach(j => {
-      const country = extractCountry(j.location);
-      if (country) c.add(country);
-    });
-    return Array.from(c).sort();
-  }, [jobs]);
-
-  const profiles = useMemo(() => {
-    const p = new Set(jobs.map(j => j.profile));
-    return ['all', ...Array.from(p)];
-  }, [jobs]);
-
-  const profileCounts = useMemo(() => {
-    const counts: Record<string, number> = { all: jobs.length };
-    jobs.forEach(j => { counts[j.profile] = (counts[j.profile] ?? 0) + 1; });
-    return counts;
-  }, [jobs]);
-
-  const filteredJobs = useMemo(() => {
-    let result = jobs;
-    if (activeProfile !== 'all') result = result.filter(j => j.profile === activeProfile);
-    if (companyTypeFilter !== 'all') result = result.filter(j => j.companyType === companyTypeFilter);
-    if (countryFilter !== 'all') result = result.filter(j => extractCountry(j.location) === countryFilter);
-    if (remoteFilter === 'remote') result = result.filter(j => j.remote);
-    else if (remoteFilter === 'onsite') result = result.filter(j => !j.remote);
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      result = result.filter(
-        j =>
-          j.title.toLowerCase().includes(q) ||
-          j.company.toLowerCase().includes(q) ||
-          (j.location?.toLowerCase().includes(q)) ||
-          (j.roleSummary?.toLowerCase().includes(q)) ||
-          (j.skillsRequired?.toLowerCase().includes(q)) ||
-          (j.domainContext?.toLowerCase().includes(q))
-      );
-    }
-    if (sortBy === 'latest') {
-      result = [...result].sort((a, b) => {
-        const da = a.datePosted ? new Date(a.datePosted).getTime() : 0;
-        const db = b.datePosted ? new Date(b.datePosted).getTime() : 0;
-        return db - da;
-      });
-    }
-    return result;
-  }, [jobs, activeProfile, companyTypeFilter, countryFilter, remoteFilter, searchQuery, sortBy]);
-
-  useEffect(() => { setExpandedIdx(null); setPage(1); }, [activeProfile, companyTypeFilter, countryFilter, remoteFilter, searchQuery, sortBy]);
-
-  const uniqueCompanies = useMemo(() => new Set(jobs.map(j => j.company)).size, [jobs]);
-  const remoteCount = useMemo(() => jobs.filter(j => j.remote).length, [jobs]);
+  const profiles = ['all', ...Object.keys(meta.profileCounts).filter(k => k !== 'all')];
 
   const suggestedCourses = COURSE_SUGGESTIONS[activeProfile] || COURSE_SUGGESTIONS.climate_risk!;
 
-  const totalPages = Math.ceil(filteredJobs.length / perPage);
-  const paginatedJobs = filteredJobs.slice((page - 1) * perPage, page * perPage);
+  // Build new URL with updated params, resetting page to 1 on filter changes
+  const updateFilters = useCallback((updates: Record<string, string>, resetPage = true) => {
+    const params = new URLSearchParams(searchParams.toString());
+    for (const [key, value] of Object.entries(updates)) {
+      if (!value || value === 'all' || value === 'relevance') {
+        params.delete(key);
+      } else {
+        params.set(key, value);
+      }
+    }
+    if (resetPage) params.delete('page');
+    const qs = params.toString();
+    router.push(`/jobs${qs ? `?${qs}` : ''}`, { scroll: false });
+    setExpandedIdx(null);
+  }, [router, searchParams]);
+
+  const setPage = useCallback((p: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (p <= 1) { params.delete('page'); } else { params.set('page', String(p)); }
+    const qs = params.toString();
+    router.push(`/jobs${qs ? `?${qs}` : ''}`, { scroll: false });
+    setExpandedIdx(null);
+  }, [router, searchParams]);
+
+  const setPerPageNav = useCallback((pp: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (pp === 15) { params.delete('perPage'); } else { params.set('perPage', String(pp)); }
+    params.delete('page');
+    const qs = params.toString();
+    router.push(`/jobs${qs ? `?${qs}` : ''}`, { scroll: false });
+  }, [router, searchParams]);
+
+  // Debounced search: wait 400ms after last keystroke
+  const onSearchChange = useCallback((value: string) => {
+    setSearchInput(value);
+    if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+    searchTimerRef.current = setTimeout(() => {
+      updateFilters({ search: value });
+    }, 400);
+  }, [updateFilters]);
+
+  const clearAll = useCallback(() => {
+    setSearchInput('');
+    router.push('/jobs', { scroll: false });
+    setExpandedIdx(null);
+  }, [router]);
+
+  const handleExpand = useCallback(async (idx: number, jobUrl: string) => {
+    if (expandedIdx === idx) {
+      setExpandedIdx(null);
+      return;
+    }
+    setExpandedIdx(idx);
+    if (!detailCache[jobUrl]) {
+      setLoadingDetail(jobUrl);
+      const detail = await fetchJobDetail(jobUrl);
+      if (detail) {
+        setDetailCache(prev => ({ ...prev, [jobUrl]: detail }));
+      }
+      setLoadingDetail(null);
+    }
+  }, [expandedIdx, detailCache]);
+
+  const hasActiveFilters = activeProfile !== 'all' || companyTypeFilter !== 'all' || countryFilter !== 'all' || remoteFilter !== 'all' || searchInput;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fafafa]">
+    <div className="min-h-screen flex flex-col bg-[#fafafa] select-none" style={{ WebkitUserSelect: 'none', MozUserSelect: 'none' } as React.CSSProperties}>
       <PlatformNav />
 
-      <main id="main-content" className="flex-1 max-w-[1100px] mx-auto w-full px-4 sm:px-6 py-8 space-y-8">
+      <main id="main-content" ref={contentRef} className="flex-1 max-w-[1100px] mx-auto w-full px-4 sm:px-6 py-8 space-y-8">
         {/* Hero card */}
         <section className="flex flex-col md:flex-row md:items-center justify-between gap-8 p-8 sm:p-10 bg-white rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full -mr-24 -mt-24 pointer-events-none" />
           <div className="space-y-3 relative z-10">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[10px] font-bold text-emerald-600 tracking-widest uppercase">Updated Regularly</span>
+              <span className="text-[10px] font-bold text-emerald-600 tracking-widest uppercase">Updated Regularly{isAuthenticated ? ' · Email alerts on' : ''}</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
               Sustainability <span className="text-green-700">Opportunities.</span>
@@ -397,137 +376,126 @@ export default function JobsClient() {
               Your curated portal for high-impact roles in climate, carbon markets, ESG, and green finance.
             </p>
           </div>
-          {!loading && (
-            <div className="flex gap-6 sm:gap-8 relative z-10">
-              <StatCircle value={jobs.length} label="Active Jobs" borderColor="border-emerald-100" />
-              <StatCircle value={uniqueCompanies} label="Companies" borderColor="border-blue-100" />
-              <StatCircle value={remoteCount} label="Remote" borderColor="border-amber-100" />
-            </div>
-          )}
+          <div className="flex gap-6 sm:gap-8 relative z-10">
+            <StatCircle value={isAuthenticated ? meta.totalJobCount : `${meta.totalJobCount}+`} label="Active Jobs" borderColor="border-emerald-100" />
+            <StatCircle value={isAuthenticated ? meta.totalCompanies : `${meta.totalCompanies}+`} label="Companies" borderColor="border-blue-100" />
+            <StatCircle value={isAuthenticated ? meta.totalRemote : `${meta.totalRemote}+`} label="Remote" borderColor="border-amber-100" />
+          </div>
         </section>
 
-        {/* Filters */}
+        {/* Profile tabs (visible to everyone, interactive only for authenticated) */}
         <section className="space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            {/* Segmented tabs */}
             <div className="flex bg-slate-100 p-1 rounded-xl w-fit flex-wrap gap-0.5">
               {profiles.map(p => (
                 <button
                   key={p}
-                  onClick={() => setActiveProfile(p)}
+                  onClick={() => isAuthenticated && updateFilters({ profile: p })}
                   className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all ${
-                    activeProfile === p
+                    isAuthenticated && activeProfile === p
                       ? 'bg-white text-green-700 shadow-sm'
-                      : 'text-slate-500 hover:text-green-700'
+                      : isAuthenticated
+                        ? 'text-slate-500 hover:text-green-700 cursor-pointer'
+                        : 'text-slate-500 cursor-default'
                   }`}
                 >
                   {formatProfile(p)}
-                  <span className={`ml-1.5 ${activeProfile === p ? 'text-green-500' : 'text-slate-400'}`}>
-                    {profileCounts[p] ?? 0}
-                  </span>
+                  {isAuthenticated && <span className={`ml-1.5 ${activeProfile === p ? 'text-green-500' : 'text-slate-400'}`}>
+                    {meta.profileCounts[p] ?? 0}
+                  </span>}
                 </button>
               ))}
             </div>
 
-            {/* Search */}
-            <div className="relative min-w-0 sm:min-w-[300px]">
-              <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Search roles, companies, keywords..."
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
-              />
-            </div>
+            {/* Search (authenticated only) */}
+            {isAuthenticated && (
+              <div className="relative min-w-0 sm:min-w-[300px]">
+                <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search roles, companies, keywords..."
+                  value={searchInput}
+                  onChange={e => onSearchChange(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+                />
+              </div>
+            )}
           </div>
 
-          {/* Dropdown filters */}
-          <div className="flex flex-wrap gap-2">
+          {/* Dropdown filters (authenticated only) */}
+          {isAuthenticated && <div className="flex flex-wrap gap-2">
             <select
               value={countryFilter}
-              onChange={e => setCountryFilter(e.target.value)}
+              onChange={e => updateFilters({ country: e.target.value })}
               className="text-sm border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm"
             >
               <option value="all">All Countries</option>
-              {countries.map(c => (
+              {meta.countries.map(c => (
                 <option key={c} value={c}>{c}</option>
               ))}
             </select>
             <select
               value={companyTypeFilter}
-              onChange={e => setCompanyTypeFilter(e.target.value)}
+              onChange={e => updateFilters({ companyType: e.target.value })}
               className="text-sm border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm"
             >
               <option value="all">All Company Types</option>
-              {companyTypes.map(ct => (
+              {meta.companyTypes.map(ct => (
                 <option key={ct} value={ct}>{ct}</option>
               ))}
             </select>
             <select
               value={remoteFilter}
-              onChange={e => setRemoteFilter(e.target.value)}
+              onChange={e => updateFilters({ remote: e.target.value })}
               className="text-sm border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm"
             >
               <option value="all">Remote + On-site</option>
               <option value="remote">Remote Only</option>
               <option value="onsite">On-site Only</option>
             </select>
-            {(activeProfile !== 'all' || companyTypeFilter !== 'all' || countryFilter !== 'all' || remoteFilter !== 'all' || searchQuery) && (
+            {hasActiveFilters && (
               <button
-                onClick={() => { setActiveProfile('all'); setCompanyTypeFilter('all'); setCountryFilter('all'); setRemoteFilter('all'); setSearchQuery(''); }}
+                onClick={clearAll}
                 className="text-xs text-green-600 hover:text-green-700 font-semibold px-3 py-2"
               >
                 Clear all
               </button>
             )}
-          </div>
+          </div>}
         </section>
 
         {/* Results info */}
-        <div className="flex items-center justify-between px-1 -mt-4">
+        {isAuthenticated && <div className="flex items-center justify-between px-1 -mt-4">
           <p className="text-xs text-slate-400">
-            Showing <span className="font-semibold text-slate-600">{filteredJobs.length}</span> of {jobs.length} positions
+            Showing <span className="font-semibold text-slate-600">{jobs.length}</span> of {total} positions
           </p>
           <div className="flex items-center gap-1 text-xs">
             <span className="text-slate-400 mr-1">Sort:</span>
             <button
-              onClick={() => setSortBy('relevance')}
+              onClick={() => updateFilters({ sort: 'relevance' })}
               className={`px-2.5 py-1 rounded-md font-medium transition-colors ${sortBy === 'relevance' ? 'bg-green-600 text-white' : 'text-slate-500 hover:bg-slate-100'}`}
             >
               Relevance
             </button>
             <button
-              onClick={() => setSortBy('latest')}
+              onClick={() => updateFilters({ sort: 'latest' })}
               className={`px-2.5 py-1 rounded-md font-medium transition-colors ${sortBy === 'latest' ? 'bg-green-600 text-white' : 'text-slate-500 hover:bg-slate-100'}`}
             >
               Latest
             </button>
           </div>
-        </div>
+        </div>}
 
-        {/* Loading */}
-        {loading && (
-          <div className="flex flex-col items-center justify-center py-24 gap-3">
-            <div className="w-8 h-8 border-2 border-green-200 border-t-green-600 rounded-full animate-spin" />
-            <p className="text-sm text-slate-400">Loading jobs...</p>
-          </div>
-        )}
-
-        {error && (
-          <p className="text-center py-16 text-red-600 font-medium">{error}</p>
-        )}
-
-        {!loading && !error && filteredJobs.length === 0 && (
+        {jobs.length === 0 && isAuthenticated && (
           <div className="text-center py-20 bg-white rounded-2xl border border-slate-200">
             <svg className="w-12 h-12 text-slate-200 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <p className="text-slate-400 mb-2">No jobs match your filters</p>
             <button
-              onClick={() => { setActiveProfile('all'); setCompanyTypeFilter('all'); setCountryFilter('all'); setRemoteFilter('all'); setSearchQuery(''); }}
+              onClick={clearAll}
               className="text-sm text-green-600 hover:text-green-700 font-medium"
             >
               Clear all filters
@@ -536,7 +504,7 @@ export default function JobsClient() {
         )}
 
         {/* Table */}
-        {!loading && !error && filteredJobs.length > 0 && (
+        {jobs.length > 0 && (
           <section className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
@@ -550,14 +518,14 @@ export default function JobsClient() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {paginatedJobs.map((job, i) => {
+                  {jobs.map((job, i) => {
                     const isExpanded = expandedIdx === i;
-                    const hasDetails = job.roleSummary || job.skillsRequired || job.domainContext || job.jobType || job.jobLevel || job.experience;
+                    const hasDetails = isAuthenticated;
                     return (
                       <Fragment key={i}>
                         <tr
                           className={`group transition-colors ${hasDetails ? 'cursor-pointer' : ''} ${isExpanded ? 'bg-green-50/40' : i % 2 === 1 ? 'bg-slate-50/30' : ''} ${!isExpanded ? 'hover:bg-slate-50/50' : ''}`}
-                          onClick={() => hasDetails && setExpandedIdx(isExpanded ? null : i)}
+                          onClick={() => hasDetails && handleExpand(i, job.jobUrl)}
                         >
                           <td className="px-6 py-3.5">
                             <div className="flex items-center gap-2.5">
@@ -623,23 +591,23 @@ export default function JobsClient() {
                             </a>
                           </td>
                         </tr>
-                        {isExpanded && hasDetails && <DetailPanel job={job} />}
+                        {isExpanded && hasDetails && <DetailPanel job={job} detail={detailCache[job.jobUrl] ?? null} />}
                       </Fragment>
                     );
                   })}
                 </tbody>
               </table>
             </div>
-            <div className="px-6 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+            {isAuthenticated && totalPages > 0 && <div className="px-6 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <span className="text-xs text-slate-500">
-                  Showing {(page - 1) * perPage + 1}-{Math.min(page * perPage, filteredJobs.length)} of {filteredJobs.length}
+                  Showing {(page - 1) * perPage + 1}-{Math.min(page * perPage, total)} of {total}
                 </span>
                 <div className="flex items-center gap-1.5">
                   <label className="text-xs text-slate-400">Rows:</label>
                   <select
                     value={perPage}
-                    onChange={e => { setPerPage(Number(e.target.value)); setPage(1); }}
+                    onChange={e => setPerPageNav(Number(e.target.value))}
                     className="text-xs border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700 focus:outline-none focus:ring-1 focus:ring-green-500"
                   >
                     {[10, 15, 25, 50].map(n => (
@@ -651,7 +619,7 @@ export default function JobsClient() {
               {totalPages > 1 && (
                 <div className="flex items-center gap-1">
                   <button
-                    onClick={() => setPage(p => Math.max(1, p - 1))}
+                    onClick={() => setPage(Math.max(1, page - 1))}
                     disabled={page === 1}
                     className="p-1.5 rounded-lg border border-slate-200 bg-white text-slate-400 hover:text-green-700 hover:border-green-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                   >
@@ -682,7 +650,7 @@ export default function JobsClient() {
                       )
                     )}
                   <button
-                    onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                    onClick={() => setPage(Math.min(totalPages, page + 1))}
                     disabled={page === totalPages}
                     className="p-1.5 rounded-lg border border-slate-200 bg-white text-slate-400 hover:text-green-700 hover:border-green-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                   >
@@ -690,59 +658,93 @@ export default function JobsClient() {
                   </button>
                 </div>
               )}
+            </div>}
+          </section>
+        )}
+
+        {/* Auth wall for unauthenticated users */}
+        {!isAuthenticated && (
+          <section className="relative bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white pointer-events-none" />
+            <div className="relative z-10 flex flex-col items-center text-center px-6 py-16 space-y-5">
+              <div className="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center">
+                <svg className="w-7 h-7 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold text-slate-900">
+                  Sign up to see all {meta.totalJobCount}+ jobs
+                </h3>
+                <p className="text-slate-500 text-sm max-w-md">
+                  Create a free account to unlock the full directory with filters, search, and detailed role breakdowns. Get notified over email whenever new jobs are added.
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Link
+                  href="/sign-up"
+                  className="px-6 py-2.5 bg-green-700 text-white text-sm font-bold rounded-lg hover:bg-green-800 transition-colors"
+                >
+                  Create Free Account
+                </Link>
+                <Link
+                  href="/sign-in"
+                  className="px-6 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-lg hover:bg-slate-50 transition-colors"
+                >
+                  Sign In
+                </Link>
+              </div>
             </div>
           </section>
         )}
 
         {/* Start Learning Banner */}
-        {!loading && !error && (
-          <section className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            <div className="md:col-span-3 p-6 sm:p-8 bg-slate-800 rounded-2xl text-white space-y-4">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-                <h3 className="font-bold text-lg">Start Learning</h3>
-              </div>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Build the skills employers are looking for. Our courses cover the frameworks, standards, and domain knowledge mentioned in these job listings.
-              </p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                {suggestedCourses.map((course, i) => (
-                  <Link
-                    key={i}
-                    href={course.href}
-                    className="px-4 py-2 bg-emerald-500 text-slate-900 text-xs font-bold rounded-lg hover:bg-emerald-400 transition-colors"
-                  >
-                    {course.label}
-                  </Link>
-                ))}
-              </div>
+        <section className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <div className="md:col-span-3 p-6 sm:p-8 bg-slate-800 rounded-2xl text-white space-y-4">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <h3 className="font-bold text-lg">Start Learning</h3>
             </div>
-            <div className="md:col-span-2 p-6 sm:p-8 bg-green-700/10 rounded-2xl border border-green-700/20 space-y-3">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-                <h3 className="font-bold text-green-800">In-Demand Skills</h3>
-              </div>
-              <div className="space-y-2">
-                {['Climate Risk Assessment', 'ESG Reporting (GRI, SASB)', 'Carbon Accounting', 'EU Taxonomy Alignment'].map((skill, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-600" />
-                    <span className="text-sm text-slate-700">{skill}</span>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/"
-                className="inline-block mt-2 text-xs font-bold text-green-700 hover:text-green-800 transition-colors"
-              >
-                Browse all courses &rarr;
-              </Link>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Build the skills employers are looking for. Our courses cover the frameworks, standards, and domain knowledge mentioned in these job listings.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-1">
+              {suggestedCourses.map((course, i) => (
+                <Link
+                  key={i}
+                  href={course.href}
+                  className="px-4 py-2 bg-emerald-500 text-slate-900 text-xs font-bold rounded-lg hover:bg-emerald-400 transition-colors"
+                >
+                  {course.label}
+                </Link>
+              ))}
             </div>
-          </section>
-        )}
+          </div>
+          <div className="md:col-span-2 p-6 sm:p-8 bg-green-700/10 rounded-2xl border border-green-700/20 space-y-3">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+              <h3 className="font-bold text-green-800">In-Demand Skills</h3>
+            </div>
+            <div className="space-y-2">
+              {['Climate Risk Assessment', 'ESG Reporting (GRI, SASB)', 'Carbon Accounting', 'EU Taxonomy Alignment'].map((skill, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-600" />
+                  <span className="text-sm text-slate-700">{skill}</span>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/"
+              className="inline-block mt-2 text-xs font-bold text-green-700 hover:text-green-800 transition-colors"
+            >
+              Browse all courses &rarr;
+            </Link>
+          </div>
+        </section>
       </main>
 
       <Footer />
