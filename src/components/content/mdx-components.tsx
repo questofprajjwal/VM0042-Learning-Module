@@ -20,6 +20,7 @@ import GlossaryTerm from './GlossaryTerm';
 import CaseStudy from './CaseStudy';
 import KeyTakeaways from './KeyTakeaways';
 import AudioPlayer from './AudioPlayer';
+import GoDeeper from './GoDeeper';
 import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('./Chart'), { ssr: false });
 const RoughChart = dynamic(() => import('./RoughChart'), { ssr: false });
@@ -51,6 +52,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Chart,
     RoughChart,
     AudioPlayer,
+    GoDeeper,
 
     // Fenced code blocks: intercept ```mermaid to render flowcharts
     pre: ({ children, ...props }: ComponentPropsWithoutRef<'pre'> & { children?: ReactNode }) => {

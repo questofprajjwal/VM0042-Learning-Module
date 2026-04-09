@@ -19,30 +19,11 @@ export default function Footer() {
             <span>Carbon Markets</span>
             <span>ESG</span>
             <span>Green Finance</span>
-            <Link
-              href="/jobs"
-              className="text-gray-500 hover:text-gray-300 transition-colors"
-            >
-              Jobs
-            </Link>
-            <Link
-              href="/glossary"
-              className="text-gray-500 hover:text-gray-300 transition-colors"
-            >
-              Glossary
-            </Link>
-            <Link
-              href="/feedback"
-              className="text-gray-500 hover:text-gray-300 transition-colors"
-            >
-              Feedback
-            </Link>
-            <Link
-              href="/disclaimer"
-              className="text-gray-500 hover:text-gray-300 transition-colors"
-            >
-              Disclaimer
-            </Link>
+            <Link href="/jobs" className="text-gray-500 hover:text-gray-300 transition-colors">Jobs</Link>
+            <Link href="/glossary" className="text-gray-500 hover:text-gray-300 transition-colors">Glossary</Link>
+            <Link href="/guides" className="text-gray-500 hover:text-gray-300 transition-colors">Guides</Link>
+            <Link href="/feedback" className="text-gray-500 hover:text-gray-300 transition-colors">Feedback</Link>
+            <Link href="/disclaimer" className="text-gray-500 hover:text-gray-300 transition-colors">Disclaimer</Link>
           </div>
         </div>
       </div>

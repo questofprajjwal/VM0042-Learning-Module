@@ -51,6 +51,28 @@
   .lesson-content table {
     @apply overflow-x-auto block;
   }
+
+  /* Guide-specific styles */
+  .guide-content h2 {
+    @apply mt-12 mb-4 pt-6 border-t border-gray-100 text-2xl font-bold text-gray-900;
+  }
+
+  .guide-content h2:first-of-type {
+    @apply mt-0 pt-0 border-t-0;
+  }
+
+  .guide-content h3 {
+    @apply mt-8 mb-3 text-lg font-semibold text-gray-800;
+  }
+
+  /* FAQ section styling */
+  .guide-content h2:last-of-type ~ h3 {
+    @apply mt-6 mb-2 pl-4 border-l-2 border-emerald-300 text-base font-semibold text-gray-900;
+  }
+
+  .guide-content h2:last-of-type ~ h3 + p {
+    @apply pl-4 text-gray-600;
+  }
 }
 
 @layer utilities {
