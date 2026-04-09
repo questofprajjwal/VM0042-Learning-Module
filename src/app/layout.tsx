@@ -4,7 +4,7 @@ import Script from 'next/script';
 import MigrationBanner from '@/components/platform/MigrationBanner';
 import './globals.css';
 
-const siteUrl = 'https://sustainabilityacademy.vercel.app';
+const siteUrl = 'https://greentryst.com';
 
 export const viewport: Viewport = {
   width: 'device-width',

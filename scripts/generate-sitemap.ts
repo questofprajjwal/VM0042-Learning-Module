@@ -8,7 +8,7 @@
 import { writeFileSync } from 'fs';
 import { join } from 'path';
 
-const SITE_URL = 'https://sustainabilityacademy.vercel.app';
+const SITE_URL = 'https://greentryst.com';
 const PUBLIC_DIR = join(__dirname, '..', 'public');
 
 // Import course data

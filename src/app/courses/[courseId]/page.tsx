@@ -2,7 +2,7 @@ import { getCourse, getAllLessons, lessonIdToUrl } from '@/lib/courses';
 import CourseOverviewClient from './_components/CourseOverviewClient';
 import type { Metadata } from 'next';
 
-const siteUrl = 'https://sustainabilityacademy.vercel.app';
+const siteUrl = 'https://greentryst.com';
 
 interface Props {
   params: { courseId: string };

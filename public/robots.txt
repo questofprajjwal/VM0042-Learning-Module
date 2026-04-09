@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /jobs
 
-Sitemap: https://sustainabilityacademy.vercel.app/sitemap.xml
+Sitemap: https://greentryst.com/sitemap.xml

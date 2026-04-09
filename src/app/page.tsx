@@ -1,7 +1,7 @@
 import { getAllCourses, getAllLessons } from '@/lib/courses';
 import LandingClient from './_components/LandingClient';
 
-const siteUrl = 'https://sustainabilityacademy.vercel.app';
+const siteUrl = 'https://greentryst.com';
 
 export default function HomePage() {
   const courses = getAllCourses();

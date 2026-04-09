@@ -9,7 +9,7 @@ import { stripMdx } from '@/lib/reading-time';
 import LessonClient from './_components/LessonClient';
 import type { Metadata } from 'next';
 
-const siteUrl = 'https://sustainabilityacademy.vercel.app';
+const siteUrl = 'https://greentryst.com';
 
 interface Props {
   params: { courseId: string; lessonId: string };
