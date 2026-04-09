@@ -74,6 +74,10 @@ export default function LessonPage({ params }: Props) {
   // Strip the MDX comment header line
   const mdxSource = rawContent.replace(/^\{\/\*.*?\*\/\}\n\n/, '');
 
+  // Detect AudioPlayer and extract src URL for AudioObject JSON-LD
+  const audioMatch = rawContent.match(/<AudioPlayer\s+src="([^"]+)"/);
+  const audioUrl = audioMatch ? audioMatch[1] : null;
+
   const quiz = getQuiz(courseId, lessonId);
   const navCtx = getLessonNavContext(course, lessonId);
   const lesson = course.modules.flatMap(m => m.lessons).find(l => l.id === lessonId);
@@ -84,7 +88,10 @@ export default function LessonPage({ params }: Props) {
   const pageUrl = `${siteUrl}/courses/${courseId}/${urlLessonId}`;
   const courseUrl = `${siteUrl}/courses/${courseId}`;
 
-  const articleJsonLd = {
+  // Build keywords from course category + module title
+  const keywords = [course.category, course.title, mod?.title].filter(Boolean);
+
+  const articleJsonLd: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'LearningResource',
     name: lesson?.title ?? lessonId,
@@ -93,6 +100,9 @@ export default function LessonPage({ params }: Props) {
     isAccessibleForFree: true,
     inLanguage: 'en',
     learningResourceType: 'lesson',
+    educationalLevel: 'Professional',
+    teaches: lesson?.title ?? lessonId,
+    keywords: keywords.join(', '),
     timeRequired: lesson?.readingMinutes ? `PT${lesson.readingMinutes}M` : undefined,
     isPartOf: {
       '@type': 'Course',
@@ -111,6 +121,21 @@ export default function LessonPage({ params }: Props) {
       url: siteUrl,
     },
   };
+
+  // ── JSON-LD: AudioObject (if lesson has audio) ──
+  const audioJsonLd = audioUrl ? {
+    '@context': 'https://schema.org',
+    '@type': 'AudioObject',
+    name: `${lesson?.title ?? lessonId} - Audio Overview`,
+    description: `Podcast-style audio overview of ${lesson?.title ?? lessonId} from ${course.title}`,
+    contentUrl: audioUrl,
+    encodingFormat: 'audio/mpeg',
+    isPartOf: {
+      '@type': 'LearningResource',
+      name: lesson?.title ?? lessonId,
+      url: pageUrl,
+    },
+  } : null;
 
   // ── JSON-LD: BreadcrumbList ──
   const breadcrumbJsonLd = {
@@ -173,6 +198,12 @@ export default function LessonPage({ params }: Props) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {audioJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(audioJsonLd) }}
         />
       )}
       <LessonClient
