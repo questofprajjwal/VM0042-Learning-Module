@@ -193,6 +193,7 @@ export default function AudioPlayer({ src, spotifyId, title = 'Listen to this le
                           : 'bg-orange-200/70 group-hover:bg-orange-300/70'
                       } ${isActive ? 'animate-pulse' : ''}`}
                       style={{ height: `${h}%` }}
+                      suppressHydrationWarning
                     />
                   );
                 })}
