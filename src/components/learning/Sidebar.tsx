@@ -128,14 +128,13 @@ export default function Sidebar({ course, currentLessonId, completedLessons, isO
 
           return (
             <div key={mod.id} className="mb-1">
-              {/* Module toggle button */}
-              <button
-                aria-expanded={isExpanded}
-                aria-controls={controlId}
-                onClick={() => toggleModule(mod.id)}
-                className="w-full flex items-center justify-between px-3 py-2.5 min-h-[44px] rounded-lg text-left hover:bg-gray-100 transition-colors group focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
-              >
-                <div className="flex items-center gap-2 min-w-0">
+              {/* Module header: link to module page + chevron toggle */}
+              <div className="flex items-stretch rounded-lg hover:bg-gray-100 transition-colors group">
+                <Link
+                  href={`/courses/${course.id}/modules/${mod.id}`}
+                  onClick={onClose}
+                  className="flex-1 flex items-center gap-2 min-w-0 px-3 py-2.5 min-h-[44px] rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
+                >
                   <span className="text-base flex-shrink-0" aria-hidden>{mod.icon}</span>
                   <div className="min-w-0 flex-1">
                     <p className={`text-xs font-semibold ${colors.text}`}>
@@ -145,19 +144,26 @@ export default function Sidebar({ course, currentLessonId, completedLessons, isO
                       {mod.title}
                     </p>
                   </div>
-                </div>
-                <div className="flex items-center gap-2 flex-shrink-0 ml-2">
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-gray-400 flex-shrink-0">
                     {moduleCompleted}/{mod.lessons.length}
                   </span>
+                </Link>
+                <button
+                  type="button"
+                  aria-expanded={isExpanded}
+                  aria-controls={controlId}
+                  aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${mod.title} lessons`}
+                  onClick={() => toggleModule(mod.id)}
+                  className="flex-shrink-0 px-3 flex items-center rounded-r-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
+                >
                   <span
                     className={`text-gray-400 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
                     aria-hidden
                   >
                     ▾
                   </span>
-                </div>
-              </button>
+                </button>
+              </div>
 
               {/* Lesson list */}
               <div

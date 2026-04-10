@@ -158,6 +158,7 @@ export default function LessonPage({ params }: Props) {
         '@type': 'ListItem',
         position: 3,
         name: mod.title,
+        item: `${siteUrl}/courses/${courseId}/modules/${mod.id}`,
       }] : []),
       {
         '@type': 'ListItem',

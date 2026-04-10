@@ -32,6 +32,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Module landing pages
+  const modulePages: MetadataRoute.Sitemap = courses.flatMap(course =>
+    course.modules.map(mod => ({
+      url: `${siteUrl}/courses/${course.id}/modules/${mod.id}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    }))
+  );
+
   // Lesson pages
   const lessonPages: MetadataRoute.Sitemap = courses.flatMap(course =>
     getAllLessons(course).map(lesson => ({
@@ -41,5 +50,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticPages, ...guidePages, ...coursePages, ...lessonPages];
+  return [...staticPages, ...guidePages, ...coursePages, ...modulePages, ...lessonPages];
 }

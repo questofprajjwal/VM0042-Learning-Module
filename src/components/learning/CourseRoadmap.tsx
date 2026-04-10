@@ -107,7 +107,12 @@ export default function CourseRoadmap({ course, completedLessons, currentLessonI
                     <h3 className={`font-bold leading-snug ${
                       isUnlocked ? 'text-gray-900' : 'text-gray-500'
                     }`}>
-                      {mod.title}
+                      <Link
+                        href={`/courses/${course.id}/modules/${mod.id}`}
+                        className="hover:underline underline-offset-2"
+                      >
+                        {mod.title}
+                      </Link>
                     </h3>
                     <p className="text-sm text-gray-500 mt-0.5">{mod.subtitle}</p>
                   </div>

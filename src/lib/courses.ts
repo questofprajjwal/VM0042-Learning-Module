@@ -103,6 +103,12 @@ export function getModuleForLesson(course: Course, lessonId: string): Module | n
   return course.modules.find(m => m.lessons.some(l => l.id === lessonId)) ?? null;
 }
 
+export function getModuleById(course: Course, moduleId: string): Module | null {
+  const id = Number(moduleId);
+  if (Number.isNaN(id)) return null;
+  return course.modules.find(m => m.id === id) ?? null;
+}
+
 // ─── Quiz loader ──────────────────────────────────────────────────────────────
 
 export function getQuiz(courseId: string, lessonId: string): QuizQuestion[] {
@@ -137,5 +143,14 @@ export function getLessonStaticParams(): Array<{ courseId: string; lessonId: str
       lessonId: l.id.replace('.', '_'),  // dots not valid in URL segments on some systems
     }));
   });
+}
+
+export function getModuleStaticParams(): Array<{ courseId: string; moduleId: string }> {
+  return getAllCourses().flatMap(course =>
+    course.modules.map(mod => ({
+      courseId: course.id,
+      moduleId: String(mod.id),
+    }))
+  );
 }
 
