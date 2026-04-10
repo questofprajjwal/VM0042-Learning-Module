@@ -15,6 +15,51 @@ Covers climate science, carbon markets, ESG, clean energy, biodiversity, circula
 
 > The `VM0042_Learning_Module.html` and `index.html` files in the root are the **legacy single-file app** — kept for reference only. Do not edit them.
 
+## Redesign In Progress (April 2026)
+
+**A major visual redesign + Product Blueprint expansion is currently in progress.** See `brainstorming/REDESIGN_EXECUTION_PLAN.md` for the full plan and `stitch-output/GREENTRYST_DESIGN_BIBLE.md` for the design language specification.
+
+### Branch Discipline (CRITICAL)
+
+- **All redesign work happens on the `redesign` branch.** Never on main.
+- **The `redesign` branch is LOCAL-ONLY.** It exists only on this machine. It is deliberately NOT pushed to any remote to prevent accidental production deployment via Vercel.
+- **Main is production.** Main must not be touched for redesign work. Main continues to deploy to greentryst.com.
+- **Before starting any session**, verify the branch: `git branch --show-current` must return `redesign` (or a feature branch off redesign like `redesign/homepage`).
+- **If the current branch is main and the task is redesign-related**, STOP and switch to the redesign branch first. Do not proceed.
+- **When comparing current vs redesigned UI**, use git: `git stash && git checkout main` to see current, `git checkout redesign` to see new. Do NOT create route groups or parallel file structures for this purpose.
+
+### Redesign Branch Session Checklist
+
+```bash
+git branch --show-current          # must say "redesign" or "redesign/*"
+git status                          # review pending changes
+git log --oneline -5               # confirm recent commits
+```
+
+### Scope of the Redesign
+
+**Pre-cutover (visual only, deferred backend):**
+- All page UI gets the new Greentryst design language
+- New pages for SustainIQ, Tools, Intelligence, Community (UI only, no backend changes)
+- All MDX lesson components rebuilt with new design (HighlightBox, AudioPlayer, Quiz, etc.)
+- Content (470+ MDX lessons, YAML, glossary) is NOT touched. Only the rendering layer changes.
+
+**Post-cutover (deferred to Phases 6-9):**
+- SustainIQ retrieval pipeline upgrade (Docling, hybrid search, re-ranking)
+- Tool functionality (GHG Calculator, Report Drafter, BRSR Screener)
+- Stripe subscriptions + tier gating
+- Community features
+
+### Design Language
+
+See `stitch-output/GREENTRYST_DESIGN_BIBLE.md` for the complete design specification. Key points:
+- Inter + JetBrains Mono fonts only
+- Lucide icons throughout (no emoji, no Material, no illustrations)
+- Teal accents `#005c55` / `#8cd4ca` on dark `#0a1a1a` or light `#f8faf9` backgrounds
+- Dark product UI cards (`#0e1e1e`) as the signature visual element
+- Rounded-2xl (16px) corners, subtle shadows, no borders
+- Every data point in designs uses real sustainability content (VM0042 Section 3.1.2, DEFRA 2024, etc.)
+
 ## Repository Structure
 
 ```
