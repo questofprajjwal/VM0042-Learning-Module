@@ -1,0 +1,174 @@
+/* Greentryst Redesign Stylesheet
+ *
+ * Scoped utilities for the redesign layout and components.
+ *
+ * The Greentryst brand uses a forest-green palette (not teal). The site is
+ * predominantly LIGHT with dark sections used strategically for impact.
+ * The default body is light, not dark.
+ */
+
+/* ==========================================================================
+   Dot grid background texture (used on dark sections)
+   ========================================================================== */
+.gt-dot-grid {
+  background-image: radial-gradient(rgba(149, 213, 178, 0.15) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+.gt-dot-grid-dense {
+  background-image: radial-gradient(rgba(149, 213, 178, 0.18) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Light variant of the dot grid for use on pale backgrounds */
+.gt-dot-grid-light {
+  background-image: radial-gradient(rgba(64, 145, 108, 0.08) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+/* ==========================================================================
+   Glass-dark card effect (used for dark cards over dark sections)
+   ========================================================================== */
+.gt-glass-dark {
+  background: rgba(11, 61, 46, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(64, 145, 108, 0.16);
+}
+
+.gt-glass-dark-hover {
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.gt-glass-dark-hover:hover {
+  box-shadow: 0 0 40px rgba(45, 106, 79, 0.22);
+}
+
+/* ==========================================================================
+   Horizontal connector line (between cards in a flow)
+   ========================================================================== */
+.gt-connector-h {
+  position: relative;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gt-connector-h::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(45,106,79,0.1), rgba(45,106,79,0.5), rgba(45,106,79,0.1));
+}
+
+.gt-connector-h::after {
+  content: '→';
+  position: relative;
+  z-index: 1;
+  color: #2D6A4F;
+  font-size: 14px;
+  background: #F8FAF9;
+  padding: 0 4px;
+}
+
+/* When the connector sits on a dark section, swap the knob background */
+.gt-connector-h.gt-on-dark::after {
+  background: #081C15;
+  color: #95D5B2;
+}
+
+/* ==========================================================================
+   Vertical connector line
+   ========================================================================== */
+.gt-connector-v {
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gt-connector-v::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(45,106,79,0.1), rgba(45,106,79,0.5), rgba(45,106,79,0.1));
+}
+
+.gt-connector-v::after {
+  content: '↓';
+  position: relative;
+  z-index: 1;
+  color: #2D6A4F;
+  font-size: 14px;
+  background: #F8FAF9;
+  padding: 4px 0;
+}
+
+.gt-connector-v.gt-on-dark::after {
+  background: #081C15;
+  color: #95D5B2;
+}
+
+/* ==========================================================================
+   Body styles for redesign routes
+   ==========================================================================
+   The redesign is predominantly LIGHT. Default body is pale green, not dark.
+ */
+.gt-redesign-root {
+  background-color: #F8FAF9;
+  color: #0B1F15;
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gt-redesign-root ::selection {
+  background-color: #2D6A4F;
+  color: #F0FFF4;
+}
+
+/* ==========================================================================
+   Cascade card layout (used in trust identity and similar sections)
+   ========================================================================== */
+.gt-cascade-1 {
+  transform: rotate(-4deg) translateX(40px);
+  z-index: 10;
+}
+
+.gt-cascade-2 {
+  transform: rotate(0deg) translateY(-20px);
+  z-index: 20;
+}
+
+.gt-cascade-3 {
+  transform: rotate(4deg) translateX(-40px);
+  z-index: 10;
+}
+
+/* ==========================================================================
+   Ambient glow effect (used behind cards for depth)
+   ========================================================================== */
+.gt-ambient-glow-dark {
+  position: absolute;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(45, 106, 79, 0.14) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.gt-ambient-glow-light {
+  position: absolute;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(64, 145, 108, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+}

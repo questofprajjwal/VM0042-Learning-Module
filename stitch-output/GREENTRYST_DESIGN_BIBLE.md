@@ -14,36 +14,58 @@
 
 ## 2. Color System
 
+**Source:** Greentryst brand palette, unified with LinkedIn carousel presence. The palette is forest-green, not teal, which ties the web experience to the existing social brand.
+
+**Design rhythm:** The site is predominantly LIGHT (about 60%) with dark sections used strategically for impact. The hero is dark, then alternating light/dark sections through the page, ending with a dark footer. Do NOT default to dark backgrounds.
+
 ### Primary Palette
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `primary` | `#005c55` | CTAs, accent bars, active states, key highlights |
-| `primary-light` | `#8cd4ca` | Text on dark backgrounds, active nav links, highlighted values |
-| `primary-hover` | `#00897b` | Button hover states |
-| `dark` | `#0a1a1a` | Hero backgrounds, dark sections, footer |
-| `dark-card` | `#0e1e1e` | Product UI cards on dark backgrounds |
-| `dark-card-alt` | `#1a2e2e` | Secondary dark elements, dot grid color |
-| `surface` | `#f8faf9` | Light section backgrounds |
-| `white` | `#ffffff` | Cards on light backgrounds, content areas |
+| `deep` | `#0B3D2E` | Dark product UI cards, deep accents |
+| `dark` | `#1B4332` | Secondary dark elements, hover states, dark alt |
+| `medium` | `#2D6A4F` | Primary CTAs, active states, key headings accent |
+| `forest` | `#40916C` | Secondary buttons, mid-tone accents |
+| `leaf` | `#52B788` | "LIVE" badges, success states, progress bars |
+| `mint` | `#95D5B2` | Light accents on dark backgrounds, highlighted values |
+| `pale` | `#D8F3DC` | Primary light section background |
+| `white` | `#FFFFFF` | Cards on light sections, content containers |
+| `text_dark` | `#081C15` | Primary body text on light bg, hero dark bg |
+| `text_light` | `#F0FFF4` | Text on dark backgrounds, alt light bg |
+
+### Section Backgrounds
+
+| Role | Hex | When to use |
+|------|-----|-------------|
+| Light primary | `#D8F3DC` (pale) | Default section background, trust identity, pricing |
+| Light alt | `#F0FFF4` (text_light) | Alternating sections for rhythm, product showcases |
+| White | `#FFFFFF` | Cards, pricing cards, standalone callouts |
+| Dark hero | `#081C15` (text_dark) | Hero, footer, dramatic sections only |
+| Dark card | `#0B3D2E` (deep) | Product UI cards as accents on ANY background |
+| Dark alt | `#1B4332` (dark) | Layered dark elements, glass cards |
 
 ### Text Colors
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `text-on-dark` | `#e0ebe8` | Body text on dark backgrounds |
-| `text-on-dark-muted` | `#889391` | Secondary text on dark backgrounds |
-| `text-on-dark-dim` | `#4a6a6a` | Tertiary text, timestamps, metadata on dark |
-| `text-on-light` | `#1a2e2e` | Body text on light backgrounds |
-| `text-on-light-muted` | `#4a6a6a` | Secondary text on light backgrounds |
+| `text-primary` | `#081C15` | Body text on light backgrounds, headings |
+| `text-secondary` | `#1B4332` | Sub-headings, emphasized body text on light |
+| `text-muted` | `#40916C` at 70-80% opacity | Secondary descriptions, metadata on light |
+| `text-on-dark` | `#F0FFF4` | Body text on dark backgrounds and dark cards |
+| `text-on-dark-muted` | `#95D5B2` at 70% opacity | Secondary text on dark backgrounds |
+| `text-on-dark-dim` | `#52B788` at 50% opacity | Tertiary text, timestamps, mono citations on dark |
 
 ### Accent Colors
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `success` | `#4ae183` | Checkmarks, completed states, "LIVE" badges |
-| `amber` | `#f59e0b` | "Coming Soon" badges, warnings |
-| `error/red` | Used sparingly | Only in comparison contexts (Generic AI vs Greentryst) |
+| `success` (LIVE) | `#52B788` (leaf) | Checkmarks, completed states, "LIVE" badges |
+| `amber` (coming soon) | `#f59e0b` | "Coming Soon" badges, warnings |
+| Primary CTA bg | `#2D6A4F` (medium) | Main CTA buttons |
+| Primary CTA hover | `#1B4332` (dark) | Button hover state |
+| Link / nav active | `#40916C` (forest) on light, `#95D5B2` (mint) on dark | |
+| Subtle borders | `#95D5B2` at 20-30% | Dividers on light bg |
+| Dark borders | `#40916C` at 15-20% | Dividers on dark bg |
 
 ### Badge Styles
 
