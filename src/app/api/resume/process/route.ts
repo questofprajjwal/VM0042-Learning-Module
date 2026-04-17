@@ -255,7 +255,16 @@ export async function POST(req: NextRequest) {
   // ========================================================================
   // 4. Groq extract profile via the LLM Governor
   // ========================================================================
-  let profile: z.infer<typeof profileSchema>;
+  let profile: z.infer<typeof profileSchema> = {
+    skills: [],
+    frameworks: [],
+    seniority: null,
+    domains: [],
+  };
+  // Temporary debug trail — captured when profile ends up empty so we can
+  // inspect what Groq actually returned on prod. Written to user_resumes.error
+  // alongside status='ready' (does not fail the request).
+  let debugTrail: string | null = null;
   try {
     const res = await generate({
       feature: 'resumeUpload',
@@ -270,56 +279,68 @@ export async function POST(req: NextRequest) {
       cacheKey: `resume-extract:${userId}:${row.fileR2Key}`,
     });
     if (res.status !== 'allowed') {
-      // Could be cap-exceeded (unlikely since /upload already reserved)
-      // or an error. Fall back to empty profile so the user still sees
-      // semantic matches.
       console.warn('[resume/process] Governor returned', res.status);
+      debugTrail = `governor_status=${res.status}`;
       profile = { skills: [], frameworks: [], seniority: null, domains: [] };
     } else {
       const raw = res.text.trim();
-      // LLMs sometimes wrap JSON in ```json fences — strip them.
       const jsonText = raw
         .replace(/^```(?:json)?\s*/i, '')
         .replace(/\s*```$/, '')
         .trim();
-      const maybeObj = JSON.parse(jsonText) as Record<string, unknown>;
+      let maybeObj: Record<string, unknown> | null = null;
+      try {
+        maybeObj = JSON.parse(jsonText) as Record<string, unknown>;
+      } catch (parseErr) {
+        debugTrail = `parse_error:${(parseErr as Error).message} | raw[0..800]=${raw.slice(0, 800)}`;
+        profile = { skills: [], frameworks: [], seniority: null, domains: [] };
+      }
 
-      // Defensive field-by-field validation. If the LLM fumbles one
-      // field (most commonly returns "Senior" title-case for seniority
-      // instead of the controlled lowercase enum), we used to wipe the
-      // ENTIRE profile which threw away perfectly good skills and
-      // frameworks. Validate per-field and keep whatever passes.
-      const asStringArray = (v: unknown, max: number): string[] =>
-        Array.isArray(v)
-          ? v
-              .filter((x): x is string => typeof x === 'string' && x.trim().length > 0)
-              .slice(0, max)
-          : [];
+      if (maybeObj) {
+        const asStringArray = (v: unknown, max: number): string[] =>
+          Array.isArray(v)
+            ? v
+                .filter((x): x is string => typeof x === 'string' && x.trim().length > 0)
+                .slice(0, max)
+            : [];
 
-      const allowedSeniority = ['junior', 'mid', 'senior', 'lead', 'director'] as const;
-      type Seniority = (typeof allowedSeniority)[number];
-      const coerceSeniority = (v: unknown): Seniority | null => {
-        if (typeof v !== 'string') return null;
-        const s = v.trim().toLowerCase();
-        if ((allowedSeniority as readonly string[]).includes(s)) return s as Seniority;
-        // Graceful degrades: "senior manager" / "senior consultant" -> "senior", etc.
-        for (const level of allowedSeniority) {
-          if (s.includes(level)) return level;
+        const allowedSeniority = ['junior', 'mid', 'senior', 'lead', 'director'] as const;
+        type Seniority = (typeof allowedSeniority)[number];
+        const coerceSeniority = (v: unknown): Seniority | null => {
+          if (typeof v !== 'string') return null;
+          const s = v.trim().toLowerCase();
+          if ((allowedSeniority as readonly string[]).includes(s)) return s as Seniority;
+          for (const level of allowedSeniority) {
+            if (s.includes(level)) return level;
+          }
+          return null;
+        };
+
+        profile = {
+          skills: asStringArray(maybeObj.skills, 60),
+          frameworks: asStringArray(maybeObj.frameworks, 40),
+          seniority: coerceSeniority(maybeObj.seniority),
+          domains: asStringArray(maybeObj.domains, 20),
+        };
+
+        // If profile is totally empty, record the raw response so we can
+        // diagnose without needing Vercel function logs.
+        if (
+          profile.skills.length === 0 &&
+          profile.frameworks.length === 0 &&
+          profile.domains.length === 0 &&
+          profile.seniority === null
+        ) {
+          debugTrail = `empty_after_parse | keys=${Object.keys(maybeObj).join(',')} | raw[0..600]=${raw.slice(0, 600)}`;
         }
-        return null;
-      };
-
-      profile = {
-        skills: asStringArray(maybeObj.skills, 60),
-        frameworks: asStringArray(maybeObj.frameworks, 40),
-        seniority: coerceSeniority(maybeObj.seniority),
-        domains: asStringArray(maybeObj.domains, 20),
-      };
+      } else {
+        profile = profile ?? { skills: [], frameworks: [], seniority: null, domains: [] };
+      }
     }
   } catch (err) {
+    const msg = (err as Error).message ?? String(err);
     console.error('[resume/process] Groq extract failed', err);
-    // Still mark ready with a skeletal profile; semantic score alone is
-    // useful and keyword scores just become zero.
+    debugTrail = `throw:${msg.slice(0, 400)}`;
     profile = { skills: [], frameworks: [], seniority: null, domains: [] };
   }
 
@@ -335,7 +356,10 @@ export async function POST(req: NextRequest) {
         embedding: JSON.stringify(embedding),
         profile: JSON.stringify(profile),
         processedAt: new Date(),
-        error: null,
+        // Temporary: when extraction yields empty profile, stash a
+        // debug trail in error so we can diagnose without Vercel logs.
+        // Still 'ready' status — matches still work via semantic score.
+        error: debugTrail,
       })
       .where(eq(userResumes.userId, userId));
   } catch (err) {
