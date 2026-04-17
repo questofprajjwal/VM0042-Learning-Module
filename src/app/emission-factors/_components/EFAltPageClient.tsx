@@ -71,7 +71,7 @@ export function EFAltPageClient({
         {supersedingSlug && (
           <div className="mx-auto max-w-6xl px-6 pt-6">
             <Link
-              href={`/emission-factors/${supersedingSlug}/alt`}
+              href={`/emission-factors/${supersedingSlug}`}
               className="inline-flex items-center gap-2 rounded-md bg-amber-500/10 px-3 py-2 text-[12px] text-amber-200 ring-1 ring-amber-400/30 hover:bg-amber-500/15 transition-colors"
             >
               <AlertTriangle className="h-3.5 w-3.5" strokeWidth={2} />
@@ -368,7 +368,7 @@ export function EFAltPageClient({
               {related.map((r) => (
                 <li key={r.id}>
                   <Link
-                    href={`/emission-factors/${r.slug}/alt`}
+                    href={`/emission-factors/${r.slug}`}
                     className="flex w-full items-center gap-3 px-2 py-[11px] font-mono text-[13px] transition-colors hover:bg-white/[0.04]"
                   >
                     <span className="w-[14%] text-white/70 truncate">
