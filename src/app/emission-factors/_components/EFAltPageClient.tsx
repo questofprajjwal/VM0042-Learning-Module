@@ -168,7 +168,9 @@ export function EFAltPageClient({
               <div className="text-[11px] uppercase tracking-[0.18em] text-white/40 mb-3">
                 GHG Breakdown
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              {/* Mobile: stack vertically (three narrow columns clip the
+                  number and break the unit line ugly). Tablet+: 3 columns. */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {factor.value_co2 !== null && factor.value_co2 !== undefined && (
                   <div className="rounded-md bg-white/[0.04] px-3 py-3 ring-1 ring-white/10 hover:ring-[#95D5B2]/40 hover:bg-white/[0.06] transition-all duration-300 hover:scale-[1.02] flex items-center gap-3">
                     {/* CO₂ molecule: O=C=O linear */}
