@@ -2,9 +2,11 @@ import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
 const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
-  '/redesign/dashboard/emission-factors(.*)',
   '/api/progress(.*)',
   '/api/activity(.*)',
+  // Save-factor + cite-list surfaces are cut from v1. The API routes still
+  // exist as dead code; leave them protected so a stray direct POST 401s
+  // rather than silently letting anonymous traffic in.
   '/api/emission-factors/saved(.*)',
   '/api/emission-factors/cite-lists(.*)',
 ]);

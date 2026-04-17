@@ -17,6 +17,9 @@ import { formatUnitDisplay } from './unit-display';
 
 const CONTENT_ROOT = join(process.cwd(), 'src', 'content', 'emission-factors');
 const JSON_INGESTED_PATHS = [
+  // Primary: deployed content path (tracked in git, shipped with Vercel build).
+  join(process.cwd(), 'src', 'content', 'emission-factors', 'defra-2025', 'ingested.json'),
+  // Legacy: local-only working path. Kept for back-compat during dev.
   join(process.cwd(), 'data', 'ef-sources', 'defra', '2025', 'ingested.json'),
 ];
 
@@ -83,6 +86,10 @@ function loadFromJson(): { sources: Source[]; factors: Factor[]; slugs: Map<stri
   const factors: Factor[] = [];
   const slugs = new Map<string, string>();
   const seenSourceIds = new Set<string>();
+  // Dedup factors when the same source appears at multiple ingestion paths
+  // (e.g. the legacy `data/ef-sources/...` path is still present alongside the
+  // new `src/content/emission-factors/.../ingested.json` path during dev).
+  const seenFactorIds = new Set<string>();
 
   for (const path of JSON_INGESTED_PATHS) {
     const data = readIngestedJson(path);
@@ -110,6 +117,8 @@ function loadFromJson(): { sources: Source[]; factors: Factor[]; slugs: Map<stri
       seenSourceIds.add(s.id);
     }
     for (const f of data.factors) {
+      if (seenFactorIds.has(f.id)) continue;
+      seenFactorIds.add(f.id);
       factors.push(f);
       // Parser emits a deterministic public slug on the factor itself via a
       // conventional field name; we reconstruct it here if provided.
