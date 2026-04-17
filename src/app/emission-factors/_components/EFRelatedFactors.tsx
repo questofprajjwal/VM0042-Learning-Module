@@ -22,7 +22,7 @@ export function EFRelatedFactors({ factors }: EFRelatedFactorsProps) {
         {factors.map((f) => (
           <Link
             key={f.id}
-            href={`/tools/emission-factors/${f.slug}`}
+            href={`/emission-factors/${f.slug}`}
             className="group rounded-2xl bg-white border border-gt-border-light shadow-gt-card p-5 hover:shadow-gt-card-hover transition-shadow"
           >
             <div className="text-xs uppercase tracking-[0.08em] text-gt-text-dim">

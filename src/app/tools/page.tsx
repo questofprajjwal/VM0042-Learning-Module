@@ -47,7 +47,7 @@ const TOOLS: ToolCard[] = [
     title: 'Emission Factors',
     description: 'Every emission factor. Sourced, dated, and free.',
     icon: Library,
-    href: '/tools/emission-factors',
+    href: '/emission-factors',
     cta: 'Open tool',
     status: 'live',
   },

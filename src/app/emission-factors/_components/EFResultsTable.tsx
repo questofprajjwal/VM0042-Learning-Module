@@ -198,7 +198,7 @@ export function EFResultsTable({
                         return (
                           <Link
                             key={sib.id}
-                            href={`/tools/emission-factors/${sib.slug}`}
+                            href={`/emission-factors/${sib.slug}`}
                             className={
                               'inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-mono transition-colors ' +
                               (isPrimary
@@ -221,7 +221,7 @@ export function EFResultsTable({
                   </td>
                   <td className="px-3 py-3 align-top">
                     <Link
-                      href={`/tools/emission-factors/${r.slug}`}
+                      href={`/emission-factors/${r.slug}`}
                       className="text-xs font-semibold text-[#2D6A4F] hover:underline inline-flex items-center gap-1"
                     >
                       Open <ExternalLink className="h-3 w-3" aria-hidden />

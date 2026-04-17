@@ -71,7 +71,7 @@ export function EFAltPageClient({
         {supersedingSlug && (
           <div className="mx-auto max-w-6xl px-6 pt-6">
             <Link
-              href={`/tools/emission-factors/${supersedingSlug}/alt`}
+              href={`/emission-factors/${supersedingSlug}/alt`}
               className="inline-flex items-center gap-2 rounded-md bg-amber-500/10 px-3 py-2 text-[12px] text-amber-200 ring-1 ring-amber-400/30 hover:bg-amber-500/15 transition-colors"
             >
               <AlertTriangle className="h-3.5 w-3.5" strokeWidth={2} />
@@ -273,7 +273,7 @@ export function EFAltPageClient({
                 label="Source"
                 value={
                   <Link
-                    href={`/tools/emission-factors/sources/${factor.source.id}`}
+                    href={`/emission-factors/sources/${factor.source.id}`}
                     className="underline underline-offset-2 hover:text-[#95D5B2] transition-colors"
                   >
                     {factor.source.publisher} ({factor.source.publisher_short})
@@ -354,7 +354,7 @@ export function EFAltPageClient({
                 Related records
               </div>
               <Link
-                href="/tools/emission-factors/search"
+                href="/emission-factors/search"
                 className="inline-flex items-center gap-1.5 text-[12px] text-[#95D5B2] hover:text-white transition-colors"
               >
                 Browse full library
@@ -366,7 +366,7 @@ export function EFAltPageClient({
               {related.map((r) => (
                 <li key={r.id}>
                   <Link
-                    href={`/tools/emission-factors/${r.slug}/alt`}
+                    href={`/emission-factors/${r.slug}/alt`}
                     className="flex w-full items-center gap-3 px-2 py-[11px] font-mono text-[13px] transition-colors hover:bg-white/[0.04]"
                   >
                     <span className="w-[14%] text-white/70 truncate">
@@ -398,7 +398,7 @@ export function EFAltPageClient({
             {factor.source.publisher} · {factor.source.vintage_year} · {factor.source.license}
           </span>
           <Link
-            href="/tools/emission-factors"
+            href="/emission-factors"
             className="text-white/60 hover:text-white transition-colors"
           >
             Back to the library

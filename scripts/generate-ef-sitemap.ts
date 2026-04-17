@@ -39,15 +39,15 @@ function main() {
   const urls: UrlEntry[] = [];
 
   // Top-level surfaces
-  urls.push({ loc: '/tools/emission-factors', priority: '0.9', changefreq: 'weekly' });
-  urls.push({ loc: '/tools/emission-factors/sources', priority: '0.8', changefreq: 'monthly' });
-  urls.push({ loc: '/tools/emission-factors/search', priority: '0.8', changefreq: 'weekly' });
-  urls.push({ loc: '/tools/emission-factors/compare', priority: '0.6', changefreq: 'monthly' });
+  urls.push({ loc: '/emission-factors', priority: '0.9', changefreq: 'weekly' });
+  urls.push({ loc: '/emission-factors/sources', priority: '0.8', changefreq: 'monthly' });
+  urls.push({ loc: '/emission-factors/search', priority: '0.8', changefreq: 'weekly' });
+  urls.push({ loc: '/emission-factors/compare', priority: '0.6', changefreq: 'monthly' });
 
   // Factor pages
   for (const f of factors) {
     urls.push({
-      loc: `/tools/emission-factors/${f.slug}`,
+      loc: `/emission-factors/${f.slug}`,
       priority: '0.7',
       changefreq: 'yearly',
     });
@@ -56,7 +56,7 @@ function main() {
   // Source pages
   for (const s of sources) {
     urls.push({
-      loc: `/tools/emission-factors/sources/${s.id}`,
+      loc: `/emission-factors/sources/${s.id}`,
       priority: '0.7',
       changefreq: 'monthly',
     });
@@ -65,7 +65,7 @@ function main() {
   // Category landings
   for (const c of ALL_CATEGORIES) {
     urls.push({
-      loc: `/tools/emission-factors/category/${c}`,
+      loc: `/emission-factors/category/${c}`,
       priority: '0.6',
       changefreq: 'monthly',
     });

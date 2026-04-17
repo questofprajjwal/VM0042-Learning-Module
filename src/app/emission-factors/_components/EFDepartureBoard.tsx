@@ -64,7 +64,7 @@ export function EFDepartureBoard() {
           </div>
 
           <Link
-            href="/tools/emission-factors/search"
+            href="/emission-factors/search"
             className="inline-flex items-center gap-2 rounded-md bg-white/5 hover:bg-white/10 px-3 py-1.5 text-[12px] text-white/80 border border-white/10 transition-colors"
           >
             <Search className="h-3.5 w-3.5" strokeWidth={2} />
@@ -106,7 +106,7 @@ export function EFDepartureBoard() {
         <div className="mt-6 flex items-center justify-between text-[11px] font-mono text-white/40">
           <span>Page 1 of 15,118 · showing 14 of 211,651</span>
           <Link
-            href="/tools/emission-factors/search"
+            href="/emission-factors/search"
             className="inline-flex items-center gap-1.5 text-[#95D5B2] hover:text-white transition-colors"
           >
             Open the full library

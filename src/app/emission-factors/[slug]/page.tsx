@@ -1,8 +1,9 @@
 /**
  * Surface 3 - Single factor page (family-based URL).
  *
- * One URL per factor family (activity + scope + source). All unit variants
- * share this URL; the client component handles unit switching via state.
+ * Dark brutalist design. One URL per factor family (activity + scope +
+ * source); all unit variants share this URL and the client handles unit
+ * switching via state.
  *
  * SSG via generateStaticParams. Unknown slugs handled via ISR (dynamicParams = true).
  * Emits Dataset JSON-LD for the primary (first-ranked) unit.
@@ -18,11 +19,9 @@ import {
 } from '@/lib/emission-factors/loader';
 import { findRelatedFactors } from '@/lib/emission-factors/related';
 import { buildFactorJsonLd } from '@/lib/emission-factors/jsonld';
-import { LightSection } from '@/components/redesign';
-import { EFFactorPageClient } from '../_components/EFFactorPageClient';
+import { EFAltPageClient } from '../_components/EFAltPageClient';
 
-// Cap SSG to the top 200 factors; the rest are generated on first request
-// via ISR. At 200k+ factors pre-rendering everything is infeasible.
+// Cap SSG to the top 200 factors; the rest render on first request via ISR.
 export const dynamicParams = true;
 export const revalidate = 3600;
 
@@ -47,9 +46,9 @@ export async function generateMetadata({
   const description = truncate(
     factor.notes && factor.notes.trim()
       ? factor.notes
-      : `${factor.value} ${factor.unit_numerator}/${factor.unit_denominator} for ${factor.activity} in ${factor.region_display}, from ${factor.source.publisher_short} ${factor.vintage_year}.`
+      : `${factor.value} ${factor.unit_numerator}/${factor.unit_denominator} for ${factor.activity} in ${factor.region_display}, from ${factor.source.publisher_short} ${factor.vintage_year}.`,
   );
-  const canonical = `https://greentryst.com/tools/emission-factors/${factor.slug}`;
+  const canonical = `https://greentryst.com/emission-factors/${factor.slug}`;
   return {
     title,
     description,
@@ -73,15 +72,13 @@ export async function generateMetadata({
 }
 
 export default function FactorPage({ params }: { params: { slug: string } }) {
-  // Load the full unit family (all siblings sharing this slug)
   const family = getFactorFamilyBySlug(params.slug);
   if (family.length === 0) notFound();
 
-  // Primary factor (first by UNIT_RANK) for metadata and JSON-LD
   const primaryFactor = family[0];
 
   const all = loadResolvedFactors();
-  const related = findRelatedFactors(primaryFactor, all, 3);
+  const related = findRelatedFactors(primaryFactor, all, 4);
 
   let supersedingSlug: string | null = null;
   let supersedingLabel = '';
@@ -96,18 +93,24 @@ export default function FactorPage({ params }: { params: { slug: string } }) {
   const jsonLd = buildFactorJsonLd(primaryFactor, primaryFactor.source);
 
   return (
-    <LightSection padding="lg" variant="pale">
+    <div
+      className="relative w-full text-white pt-16"
+      style={{
+        backgroundImage:
+          'linear-gradient(180deg, #18181B 0%, #1A201D 35%, #1B2A25 100%)',
+      }}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <EFFactorPageClient
+      <EFAltPageClient
         family={family}
         related={related}
         supersedingSlug={supersedingSlug}
         supersedingLabel={supersedingLabel}
       />
-    </LightSection>
+    </div>
   );
 }

@@ -17,7 +17,7 @@ export function EFQuickStartChips() {
         return (
           <li key={cat}>
             <Link
-              href={`/tools/emission-factors/category/${cat}`}
+              href={`/emission-factors/category/${cat}`}
               className="group inline-flex items-center gap-2 rounded-full bg-white border border-gt-border-light px-4 py-2 text-sm font-medium text-gt-text hover:border-[#95D5B2] hover:text-[#2D6A4F] transition-colors shadow-gt-card"
             >
               <Icon className="h-4 w-4 text-[#2D6A4F]" aria-hidden />

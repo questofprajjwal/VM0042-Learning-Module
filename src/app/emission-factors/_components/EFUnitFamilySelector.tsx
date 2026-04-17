@@ -62,7 +62,7 @@ export function EFUnitFamilySelector({ factor }: EFUnitFamilySelectorProps) {
           return (
             <Link
               key={sib.id}
-              href={`/tools/emission-factors/${sib.slug}`}
+              href={`/emission-factors/${sib.slug}`}
               aria-current={isActive ? 'page' : undefined}
               className={
                 'inline-flex items-center rounded-full px-3 py-1 text-xs font-mono transition-colors ' +

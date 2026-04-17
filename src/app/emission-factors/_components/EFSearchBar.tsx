@@ -4,7 +4,7 @@
  * EFSearchBar
  *
  * Input + submit button. Navigates to
- * /tools/emission-factors/search?q=... on submit.
+ * /emission-factors/search?q=... on submit.
  * Accepts an optional initial value (for pre-filling on the results page).
  */
 
@@ -99,8 +99,8 @@ export function EFSearchBar({
     e.preventDefault();
     const q = value.trim();
     const target = q
-      ? `/tools/emission-factors/search?q=${encodeURIComponent(q)}`
-      : `/tools/emission-factors/search`;
+      ? `/emission-factors/search?q=${encodeURIComponent(q)}`
+      : `/emission-factors/search`;
     router.push(target);
   }
 

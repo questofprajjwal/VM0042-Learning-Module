@@ -39,7 +39,7 @@ export function EFCiteListPreview() {
 
   return (
     <Link
-      href={`/tools/emission-factors/cite-lists/${list.id}`}
+      href={`/emission-factors/cite-lists/${list.id}`}
       className="inline-flex items-center gap-2 rounded-full border border-gt-border-light bg-white px-3 py-1.5 text-xs font-semibold text-gt-text-muted hover:border-[#95D5B2] hover:text-[#2D6A4F]"
     >
       <FileStack className="h-3.5 w-3.5" aria-hidden />

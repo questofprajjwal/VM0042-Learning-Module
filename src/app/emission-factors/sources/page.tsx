@@ -40,7 +40,7 @@ export default function SourcesIndexPage() {
           return (
             <li key={source.id}>
               <Link
-                href={`/tools/emission-factors/sources/${source.id}`}
+                href={`/emission-factors/sources/${source.id}`}
                 className="group block rounded-2xl bg-white border border-gt-border-light shadow-gt-card p-6 hover:shadow-gt-card-hover transition-shadow h-full"
               >
                 {source.logo_path && (

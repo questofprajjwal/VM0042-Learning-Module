@@ -38,7 +38,7 @@ export function EFFilterSidebar({
       } else {
         params.append(key, value);
       }
-      router.push(`/tools/emission-factors/search?${params.toString()}`);
+      router.push(`/emission-factors/search?${params.toString()}`);
     },
     [router, searchParams]
   );

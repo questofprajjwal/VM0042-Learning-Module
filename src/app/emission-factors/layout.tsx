@@ -1,5 +1,5 @@
 /**
- * /tools/emission-factors layout.
+ * /emission-factors layout.
  *
  * Shares redesign chrome (Nav top, RedesignFooter bottom) with every
  * EF surface. Page-specific metadata lives in each child page.

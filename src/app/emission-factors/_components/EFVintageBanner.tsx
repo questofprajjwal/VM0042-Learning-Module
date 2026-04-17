@@ -33,7 +33,7 @@ export function EFVintageBanner({
           historical reference.
         </div>
         <Link
-          href={`/tools/emission-factors/${supersedingSlug}`}
+          href={`/emission-factors/${supersedingSlug}`}
           className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-amber-900 hover:underline"
         >
           Open {supersedingLabel}

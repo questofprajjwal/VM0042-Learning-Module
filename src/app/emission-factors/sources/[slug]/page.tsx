@@ -60,7 +60,7 @@ export async function generateMetadata({
   if (!source) return { title: 'Source not found' };
   const title = `${source.publisher_short} ${source.vintage_year} - ${source.name}`;
   const description = truncate(source.description);
-  const canonical = `https://greentryst.com/tools/emission-factors/sources/${source.id}`;
+  const canonical = `https://greentryst.com/emission-factors/sources/${source.id}`;
   return {
     title,
     description,
@@ -109,7 +109,7 @@ export default function SourceDetailPage({ params }: { params: { slug: string } 
         <div className="mx-auto max-w-6xl px-6 pt-20 pb-14 md:pt-28 md:pb-20">
           {/* Back link */}
           <Link
-            href="/tools/emission-factors"
+            href="/emission-factors"
             className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-white/40 hover:text-[#95D5B2] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2} />

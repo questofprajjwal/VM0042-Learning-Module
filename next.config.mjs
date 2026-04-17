@@ -14,6 +14,21 @@ const nextConfig = {
         destination: '/courses/:courseId',
         permanent: true,
       },
+      // Emission Factors moved out of the /tools/ namespace on 2026-04-17.
+      // The tool is prominent enough to earn its own root URL; /tools stays
+      // as the directory of current + future tools. Redirects preserve any
+      // inbound links from the brief ~30-minute window the /tools URLs were
+      // live in prod.
+      {
+        source: '/tools/emission-factors',
+        destination: '/emission-factors',
+        permanent: true,
+      },
+      {
+        source: '/tools/emission-factors/:path*',
+        destination: '/emission-factors/:path*',
+        permanent: true,
+      },
     ];
   },
 };

@@ -73,7 +73,7 @@ export function EFSourceCard({ source, linkToSource = true }: EFSourceCardProps)
         </a>
         {linkToSource && (
           <Link
-            href={`/tools/emission-factors/sources/${source.id}`}
+            href={`/emission-factors/sources/${source.id}`}
             className="inline-flex items-center gap-1.5 rounded-full bg-[#2D6A4F] text-white px-3 py-1.5 text-xs font-semibold hover:bg-[#1B4332]"
           >
             View all factors from this source

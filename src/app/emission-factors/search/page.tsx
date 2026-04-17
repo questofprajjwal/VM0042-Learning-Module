@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   description:
     'Search the Greentryst emission factor library by activity, region, source, scope, and vintage.',
   alternates: {
-    canonical: 'https://greentryst.com/tools/emission-factors/search',
+    canonical: 'https://greentryst.com/emission-factors/search',
   },
   openGraph: {
     type: 'website',
-    url: 'https://greentryst.com/tools/emission-factors/search',
+    url: 'https://greentryst.com/emission-factors/search',
     title: 'Search emission factors - Greentryst',
     siteName: 'Greentryst',
     description:

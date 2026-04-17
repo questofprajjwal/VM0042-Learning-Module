@@ -112,7 +112,7 @@ export function EFCompareTable({ factors, onRemove }: EFCompareTableProps) {
               {factors.map((f) => (
                 <td key={f.id} className="px-4 py-3">
                   <Link
-                    href={`/tools/emission-factors/${f.slug}`}
+                    href={`/emission-factors/${f.slug}`}
                     className="text-xs font-semibold text-[#2D6A4F] hover:underline"
                   >
                     View factor

@@ -20,8 +20,8 @@ export function EFAltHeroSearch() {
     const q = value.trim();
     router.push(
       q
-        ? `/tools/emission-factors/search?q=${encodeURIComponent(q)}`
-        : `/tools/emission-factors/search`,
+        ? `/emission-factors/search?q=${encodeURIComponent(q)}`
+        : `/emission-factors/search`,
     );
   }
 
