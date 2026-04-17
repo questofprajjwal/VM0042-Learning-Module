@@ -277,6 +277,10 @@ export async function POST(req: NextRequest) {
         { role: 'user', content: extractedText.slice(0, 8000) },
       ],
       cacheKey: `resume-extract:${userId}:${row.fileR2Key}`,
+      // The user-facing cap was already reserved at /api/resume/upload
+      // via checkAndReserveCap. This background call is service-to-service
+      // and must not re-charge the same upload a second time.
+      bypassCap: true,
     });
     if (res.status !== 'allowed') {
       console.warn('[resume/process] Governor returned', res.status);

@@ -59,6 +59,14 @@ export interface GeneratePayload {
   maxTokens?: number;
   /** When true, bypass the cache on both read and write paths. */
   noCache?: boolean;
+  /** When true, skip the per-subject cap check AND skip the increment
+   *  on success. Use ONLY in internal service-to-service calls where
+   *  the caller has already reserved a slot upstream (e.g. the
+   *  /api/resume/process worker, which runs behind a shared-secret
+   *  token after /api/resume/upload already called checkAndReserveCap).
+   *  Usage reporting still happens; only the user-facing cap is
+   *  bypassed. */
+  bypassCap?: boolean;
 }
 
 export interface CapState {
@@ -135,13 +143,17 @@ const CAPS: Record<
     team: { period: 'daily', limit: Number.POSITIVE_INFINITY },
     enterprise: { period: 'daily', limit: Number.POSITIVE_INFINITY },
   },
-  // resumeUpload caps the "upload a new resume" action. The /matches
-  // endpoint is intentionally not capped here — scoring is pure CPU work
-  // against pre-computed embeddings and costs nothing.
+  // resumeUpload caps the "upload a new resume" user action. The cap
+  // is reserved ONCE at /api/resume/upload via checkAndReserveCap. The
+  // background /api/resume/process worker passes bypassCap:true so it
+  // does not re-charge a second slot for the same upload.
+  //
+  // /api/resume/matches is intentionally not capped here — scoring is
+  // pure CPU work against pre-computed embeddings and costs nothing.
   resumeUpload: {
-    free: { period: 'monthly', limit: 2 },
-    individual: { period: 'monthly', limit: 5 },
-    pro: { period: 'monthly', limit: 20 },
+    free: { period: 'monthly', limit: 20 },
+    individual: { period: 'monthly', limit: 50 },
+    pro: { period: 'monthly', limit: 200 },
     team: { period: 'monthly', limit: Number.POSITIVE_INFINITY },
     enterprise: { period: 'monthly', limit: Number.POSITIVE_INFINITY },
   },
@@ -436,13 +448,18 @@ export async function generate(
     };
   }
 
-  // 2. Cap check (read first; only increment after successful call)
+  // 2. Cap check (read first; only increment after successful call).
+  // Internal service-to-service calls pass bypassCap when a slot was
+  // already reserved upstream (e.g. /api/resume/process running behind
+  // the RESUME_PROCESS_TOKEN bearer, after /api/resume/upload already
+  // called checkAndReserveCap). In that case we skip the gate entirely
+  // so one upload = one cap slot, not two.
   const capStateBefore = readCapState(
     payload.feature,
     payload.subject,
     payload.tier
   );
-  if (capStateBefore.used >= capStateBefore.limit) {
+  if (!payload.bypassCap && capStateBefore.used >= capStateBefore.limit) {
     return {
       status: 'denied',
       reason: 'cap_reached',
@@ -556,7 +573,11 @@ export async function generate(
 
   // 6. Account for it
   if (totalTokens > 0) recordKeyTokens(apiKey, totalTokens);
-  incrementCap(payload.feature, payload.subject, payload.tier);
+  // Do not double-charge the cap when the caller has already reserved
+  // a slot via checkAndReserveCap (see the bypassCap check above).
+  if (!payload.bypassCap) {
+    incrementCap(payload.feature, payload.subject, payload.tier);
+  }
   if (cacheKey && text) {
     cachePut(cacheKey, {
       text,
