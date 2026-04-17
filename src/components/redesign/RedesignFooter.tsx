@@ -27,7 +27,7 @@ const PLATFORM_COLUMN: FooterColumn = {
   links: [
     { label: 'Learn', href: '/courses' },
     { label: 'SustainIQ', href: '/ask' },
-    { label: 'Tools', href: '/guides', badge: 'Soon' },
+    { label: 'Tools', href: '/tools' },
     { label: 'Regulations', href: '/guides', badge: 'Soon' },
     { label: 'Jobs', href: '/jobs' },
     { label: 'Pricing', href: '/pricing' },

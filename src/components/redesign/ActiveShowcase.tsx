@@ -1242,13 +1242,12 @@ const SHOWCASE_PRODUCTS: ShowcaseProduct[] = [
     headline: 'Built by people who actually understand the work.',
     italicTagline:
       "For everything you shouldn't be doing in Excel anymore.",
-    comingSoon: true,
     stats: [
-      { value: '6', label: 'Tools in suite' },
+      { value: '166', label: 'Emission factors live' },
       { value: '100%', label: 'Sourced & auditable' },
-      { value: '1/10th', label: 'Of enterprise pricing' },
+      { value: 'Free', label: 'No sign-up to search' },
     ],
-    cta: { label: 'Get early access', href: '/guides' },
+    cta: { label: 'Open tools', href: '/tools' },
     mockup: <ToolsMockup />,
   },
   {
