@@ -67,33 +67,46 @@ function findDoc(docTitle: string): CatalogDoc | null {
   return null;
 }
 
-/** Find the actual PDF file for a catalog entry. */
-function findPdfPath(doc: CatalogDoc): string | null {
-  // Catalog file path is e.g. "vm0042/VM0042v2.2.json"
-  // PDF lives at src/content/<course>/sources/<stem>.pdf
+/**
+ * Resolve the PDF filename for a catalog entry.
+ *
+ * On Vercel the raw source PDFs are not in the deploy (gitignored under
+ * src/content/**\/sources). They live exclusively in the greentryst-pdfs
+ * R2 bucket, uploaded with filenames matching the catalog stem + ".pdf".
+ *
+ * So the authoritative mapping is catalog stem → R2 filename. No disk
+ * check. In local dev, if the matching PDF is present under
+ * src/content/<course>/sources/, we still prefer it as a fallback via
+ * the exact-or-fuzzy resolver below. In prod we skip this entirely.
+ */
+function resolvePdfFilename(doc: CatalogDoc): string {
+  const stem = doc.file.split("/").pop()!.replace(".json", "");
+  return `${stem}.pdf`;
+}
+
+/**
+ * Dev-only: locate the PDF on disk for the /api/pdfs/[course]/[filename]
+ * fallback URL. Returns null in any deploy where the sources dir is not
+ * present (the typical Vercel case).
+ */
+function findLocalPdfFilename(doc: CatalogDoc): string | null {
   const stem = doc.file.split("/").pop()!.replace(".json", "");
   const sourcesDir = path.join(process.cwd(), "src/content", doc.course, "sources");
-
   if (!fs.existsSync(sourcesDir)) return null;
 
-  // Try exact stem first
-  const direct = path.join(sourcesDir, `${stem}.pdf`);
-  if (fs.existsSync(direct)) return direct;
+  const direct = `${stem}.pdf`;
+  if (fs.existsSync(path.join(sourcesDir, direct))) return direct;
 
-  // Try fuzzy match within the sources dir
   const files = fs.readdirSync(sourcesDir).filter((f) => f.toLowerCase().endsWith(".pdf"));
   const targetStem = normalize(stem);
   const fuzzy = files.find((f) => normalize(f.replace(/\.pdf$/i, "")) === targetStem);
-  if (fuzzy) return path.join(sourcesDir, fuzzy);
+  if (fuzzy) return fuzzy;
 
-  // Try contains match
   const contains = files.find((f) => {
     const fn = normalize(f.replace(/\.pdf$/i, ""));
     return fn.includes(targetStem) || targetStem.includes(fn);
   });
-  if (contains) return path.join(sourcesDir, contains);
-
-  return null;
+  return contains ?? null;
 }
 
 export async function GET(req: NextRequest) {
@@ -113,25 +126,24 @@ export async function GET(req: NextRequest) {
     });
   }
 
-  const pdfPath = findPdfPath(doc);
-  if (!pdfPath) {
-    return Response.json({
-      available: false,
-      reason: "pdf_not_found_on_disk",
-      doc_id: doc.id,
-      course: doc.course,
-    });
-  }
-
   // Parse page (handle "14-15" -> 14, "14‑17" en-dash -> 14)
   const firstPageMatch = pageRaw.match(/(\d+)/);
   const page = firstPageMatch ? parseInt(firstPageMatch[1], 10) : 1;
 
-  // Prefer R2 public URL - browsers stream PDF bytes directly from Cloudflare,
-  // not through our Next.js or Python server. Keep /api/pdfs/... as fallback.
-  const filename = path.basename(pdfPath);
+  // Primary: the R2 public URL. Source PDFs live exclusively in the
+  // greentryst-pdfs bucket in prod (no raw PDFs ship with the Vercel
+  // deploy); filenames match `<catalog-stem>.pdf`.
+  const filename = resolvePdfFilename(doc);
   const r2Url = `${PDF_R2_BASE}/${doc.course}/${encodeURIComponent(filename)}`;
-  const localUrl = `/api/pdfs/${doc.course}/${encodeURIComponent(filename)}`;
+
+  // Dev-only fallback: when running locally, the /api/pdfs/[course]/[filename]
+  // handler streams straight from src/content/<course>/sources/. In prod this
+  // route returns 404 (PDFs are not deployed), so we only emit the fallback
+  // URL if a local file is actually present.
+  const localFilename = findLocalPdfFilename(doc);
+  const localUrl = localFilename
+    ? `/api/pdfs/${doc.course}/${encodeURIComponent(localFilename)}`
+    : null;
 
   return Response.json({
     available: true,
