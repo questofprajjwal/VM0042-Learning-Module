@@ -5,7 +5,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Library, Calculator, FileText, ClipboardCheck, ArrowRight, type LucideIcon } from 'lucide-react';
+import { Library, Calculator, FileText, ClipboardCheck, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
 import { Nav } from '@/components/Nav';
 import {
   RedesignFooter,
@@ -48,6 +48,16 @@ const TOOLS: ToolCard[] = [
     description: 'Every emission factor. Sourced, dated, and free.',
     icon: Library,
     href: '/emission-factors',
+    cta: 'Open tool',
+    status: 'live',
+  },
+  {
+    id: 'prompt-library',
+    title: 'Prompt Library',
+    description:
+      'Detailed prompts for drafting ESG reports, CDP responses, DJSI answers, BRSR indicators. Professional voice, no AI tells.',
+    icon: Sparkles,
+    href: '/prompt-library',
     cta: 'Open tool',
     status: 'live',
   },

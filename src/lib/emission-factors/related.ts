@@ -9,14 +9,22 @@ export function findRelatedFactors(
   all: ResolvedFactor[],
   limit = 3
 ): ResolvedFactor[] {
-  const others = all.filter((f) => f.id !== factor.id);
+  // Exclude every unit-variant that shares the current factor's slug (the
+  // whole family is already on this page). Dedupe the pool so each family
+  // appears only once, keeping the first occurrence per slug.
+  const bySlug = new Map<string, ResolvedFactor>();
+  for (const f of all) {
+    if (f.slug === factor.slug) continue;
+    if (!bySlug.has(f.slug)) bySlug.set(f.slug, f);
+  }
+  const others = Array.from(bySlug.values());
   const seen = new Set<string>();
   const picked: ResolvedFactor[] = [];
 
   const push = (f: ResolvedFactor) => {
     if (picked.length >= limit) return;
-    if (seen.has(f.id)) return;
-    seen.add(f.id);
+    if (seen.has(f.slug)) return;
+    seen.add(f.slug);
     picked.push(f);
   };
 

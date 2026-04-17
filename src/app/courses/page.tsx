@@ -41,7 +41,7 @@ import { CoursesClient, type CatalogueCourse } from './_components/CoursesClient
 export const metadata: Metadata = {
   title: 'Course Catalogue',
   description:
-    '22 courses across climate science, carbon markets, ESG reporting, green finance, and regulations. Structured paths to the frameworks sustainability practitioners actually use.',
+    '23 courses across climate science, carbon markets, ESG reporting, green finance, and regulations. Structured paths to the frameworks sustainability practitioners actually use.',
 };
 
 // Learning path definitions live in the shared module so the

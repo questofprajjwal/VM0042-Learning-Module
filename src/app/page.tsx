@@ -33,6 +33,7 @@ import {
 } from '@/components/redesign';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { getJobsMeta } from '@/lib/jobs';
+import { getAllCourses, getAllLessons } from '@/lib/courses';
 import { HeroClient } from './_components/HeroClient';
 
 export const metadata = {
@@ -48,6 +49,14 @@ export default function HomePage() {
   const jobsCount = `${jobsMeta.totalJobCount}+`;
   const geographiesCount = `${jobsMeta.countries.length}+`;
   const companiesCount = `${jobsMeta.totalCompanies}+`;
+
+  // Pull real counts from the content library so the stats row reflects
+  // what is actually shipped. Runs at build time under SSG.
+  const allCourses = getAllCourses();
+  const coursesCount = String(allCourses.length);
+  const lessonsCount = String(
+    allCourses.reduce((sum, c) => sum + getAllLessons(c).length, 0),
+  );
 
   return (
     <>
@@ -109,8 +118,8 @@ export default function HomePage() {
       <section className="bg-white border-b border-gt-border-light">
         <div className="max-w-[1280px] mx-auto px-8 py-8 flex items-center justify-between gap-4 overflow-x-auto">
           {[
-            { value: '22+', label: 'Courses' },
-            { value: '470+', label: 'Lessons' },
+            { value: coursesCount, label: 'Courses' },
+            { value: lessonsCount, label: 'Lessons' },
             { value: '530+', label: 'Source Docs' },
             { value: '6', label: 'Pro Tools' },
             { value: '120+', label: 'Regulations' },

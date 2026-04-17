@@ -1211,8 +1211,8 @@ const SHOWCASE_PRODUCTS: ShowcaseProduct[] = [
     italicTagline:
       'For when the theory is clear but the actual steps are fuzzy.',
     stats: [
-      { value: '22', label: 'Courses' },
-      { value: '470+', label: 'Lessons & audios' },
+      { value: '23', label: 'Courses' },
+      { value: '552', label: 'Lessons & audios' },
       { value: '10 min', label: 'Per lesson' },
     ],
     cta: { label: 'Start learning', href: '/courses' },

@@ -105,7 +105,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-[16px] font-bold text-gt-text mb-2">Professional Learning</h3>
                 <p className="text-[14px] text-gt-text-muted leading-relaxed">
-                  22+ courses covering climate science, carbon markets, ESG frameworks, sustainable finance, and regulatory compliance. Every lesson is sourced from primary documents and verified by domain experts.
+                  23 courses covering climate science, carbon markets, ESG frameworks, sustainable finance, and regulatory compliance. Every lesson is sourced from primary documents and verified by domain experts.
                 </p>
               </div>
             </div>
