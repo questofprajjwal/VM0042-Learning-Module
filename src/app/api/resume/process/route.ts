@@ -71,9 +71,11 @@ HARD RULES — no exceptions:
    protocols mentioned by name (e.g. the exact strings the resume
    uses, such as "CSRD", "SFDR", "IFRS S2", "GRI Standards").
 
-7. seniority = ONE value inferred from titles and years stated in the
-   resume. If titles are ambiguous or missing, return null. Never guess
-   based on content tone.
+7. seniority = ONE OF EXACTLY these five lowercase values:
+   "junior" | "mid" | "senior" | "lead" | "director"
+   (or null if titles are ambiguous or missing). Infer from stated titles
+   and years of experience. This is the ONLY field where the casing must
+   be lowercase - it is a controlled vocabulary, not free text.
 
 8. domains = industries the candidate explicitly worked in, as the
    resume states them (e.g. "Banking", "Insurance", "Big 4
@@ -280,17 +282,39 @@ export async function POST(req: NextRequest) {
         .replace(/^```(?:json)?\s*/i, '')
         .replace(/\s*```$/, '')
         .trim();
-      const maybeObj = JSON.parse(jsonText);
-      const parsedProfile = profileSchema.safeParse(maybeObj);
-      if (!parsedProfile.success) {
-        console.error(
-          '[resume/process] profile failed validation',
-          parsedProfile.error.flatten(),
-        );
-        profile = { skills: [], frameworks: [], seniority: null, domains: [] };
-      } else {
-        profile = parsedProfile.data;
-      }
+      const maybeObj = JSON.parse(jsonText) as Record<string, unknown>;
+
+      // Defensive field-by-field validation. If the LLM fumbles one
+      // field (most commonly returns "Senior" title-case for seniority
+      // instead of the controlled lowercase enum), we used to wipe the
+      // ENTIRE profile which threw away perfectly good skills and
+      // frameworks. Validate per-field and keep whatever passes.
+      const asStringArray = (v: unknown, max: number): string[] =>
+        Array.isArray(v)
+          ? v
+              .filter((x): x is string => typeof x === 'string' && x.trim().length > 0)
+              .slice(0, max)
+          : [];
+
+      const allowedSeniority = ['junior', 'mid', 'senior', 'lead', 'director'] as const;
+      type Seniority = (typeof allowedSeniority)[number];
+      const coerceSeniority = (v: unknown): Seniority | null => {
+        if (typeof v !== 'string') return null;
+        const s = v.trim().toLowerCase();
+        if ((allowedSeniority as readonly string[]).includes(s)) return s as Seniority;
+        // Graceful degrades: "senior manager" / "senior consultant" -> "senior", etc.
+        for (const level of allowedSeniority) {
+          if (s.includes(level)) return level;
+        }
+        return null;
+      };
+
+      profile = {
+        skills: asStringArray(maybeObj.skills, 60),
+        frameworks: asStringArray(maybeObj.frameworks, 40),
+        seniority: coerceSeniority(maybeObj.seniority),
+        domains: asStringArray(maybeObj.domains, 20),
+      };
     }
   } catch (err) {
     console.error('[resume/process] Groq extract failed', err);
