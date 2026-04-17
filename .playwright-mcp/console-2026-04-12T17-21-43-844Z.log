@@ -1,0 +1,1722 @@
+[     290ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components:0
+[     424ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[     458ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+    at processResult (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:400590)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:402302)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5019)
+    at r.callback (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4039)
+[     459ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[     470ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[     470ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12402ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components:0
+[   12507ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[   12517ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+    at processResult (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:400590)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:402302)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5019)
+    at r.callback (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4039)
+[   12517ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[   12518ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   12518ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13401ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components:0
+[   13499ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[   13508ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+    at processResult (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:400590)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:402302)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5019)
+    at r.callback (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4039)
+[   13506ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[   13506ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   13507ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91397ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[   91917ms] [ERROR] ./src/components/redesign/index.ts:50:1
+Module not found: Can't resolve './Ticker'
+  48 |
+  49 | // Homepage components
+> 50 | export { Ticker } from './Ticker';
+     | ^
+  51 | export { TryItDemo } from './TryItDemo';
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:51:1
+Module not found: Can't resolve './TryItDemo'
+  49 | // Homepage components
+  50 | export { Ticker } from './Ticker';
+> 51 | export { TryItDemo } from './TryItDemo';
+     | ^
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+  54 | export { PricingSection } from './PricingSection';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:53:1
+Module not found: Can't resolve './ActiveShowcase'
+  51 | export { TryItDemo } from './TryItDemo';
+  52 | export type { TryItDemoProps } from './TryItDemo';
+> 53 | export { ActiveShowcase } from './ActiveShowcase';
+     | ^
+  54 | export { PricingSection } from './PricingSection';
+  55 | export { ClosingCTA } from './ClosingCTA';
+  56 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:54:1
+Module not found: Can't resolve './PricingSection'
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+> 54 | export { PricingSection } from './PricingSection';
+     | ^
+  55 | export { ClosingCTA } from './ClosingCTA';
+  56 |
+  57 | // Course page components
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:55:1
+Module not found: Can't resolve './ClosingCTA'
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+  54 | export { PricingSection } from './PricingSection';
+> 55 | export { ClosingCTA } from './ClosingCTA';
+     | ^
+  56 |
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:58:1
+Module not found: Can't resolve './CourseRedesignCard'
+  56 |
+  57 | // Course page components
+> 58 | export { CourseRedesignCard } from './CourseRedesignCard';
+     | ^
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:59:1
+Module not found: Can't resolve './LearningPathShowcase'
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+> 59 | export { LearningPathShowcase } from './LearningPathShowcase';
+     | ^
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:60:1
+Module not found: Can't resolve './SourceLogoCycle'
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+> 60 | export { SourceLogoCycle } from './SourceLogoCycle';
+     | ^
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:61:1
+Module not found: Can't resolve './CourseDetailHero'
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+> 61 | export { CourseDetailHero } from './CourseDetailHero';
+     | ^
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:62:1
+Module not found: Can't resolve './CourseDetailSidebar'
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+> 62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+     | ^
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:63:1
+Module not found: Can't resolve './CourseModuleTimeline'
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+> 63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+     | ^
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:64:1
+Module not found: Can't resolve './RelatedLearningPaths'
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+> 64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+     | ^
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:65:1
+Module not found: Can't resolve './LessonDetailHero'
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+> 65 | export { LessonDetailHero } from './LessonDetailHero';
+     | ^
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:66:1
+Module not found: Can't resolve './course-outcomes'
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+> 66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+     | ^
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/index.ts:67:1
+Module not found: Can't resolve './Logo'
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+> 67 | export { Logo } from './Logo';
+     | ^
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ActiveShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ClosingCTA.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailSidebar.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseModuleTimeline.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseRedesignCard.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LearningPathShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LessonDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Logo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/PricingSection.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/RelatedLearningPaths.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91918ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/SourceLogoCycle.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91919ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Ticker.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91919ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/TryItDemo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   91919ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/course-outcomes.ts
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92373ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/_next/static/webpack/e730b22b990549b9.webpack.hot-update.json:0
+[   92375ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:347
+[   92426ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components:0
+[   92529ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[   92547ms] Error: Module not found: Can't resolve './Ticker'
+  48 |
+  49 | // Homepage components
+> 50 | export { Ticker } from './Ticker';
+     | ^
+  51 | export { TryItDemo } from './TryItDemo';
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at getNotFoundError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.js:124:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getModuleBuildError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/webpackModuleError.js:104:27)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:29:49)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:27:21)
+[   92549ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[   92551ms] [ERROR] ./src/components/redesign/index.ts:50:1
+Module not found: Can't resolve './Ticker'
+  48 |
+  49 | // Homepage components
+> 50 | export { Ticker } from './Ticker';
+     | ^
+  51 | export { TryItDemo } from './TryItDemo';
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:51:1
+Module not found: Can't resolve './TryItDemo'
+  49 | // Homepage components
+  50 | export { Ticker } from './Ticker';
+> 51 | export { TryItDemo } from './TryItDemo';
+     | ^
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+  54 | export { PricingSection } from './PricingSection';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:53:1
+Module not found: Can't resolve './ActiveShowcase'
+  51 | export { TryItDemo } from './TryItDemo';
+  52 | export type { TryItDemoProps } from './TryItDemo';
+> 53 | export { ActiveShowcase } from './ActiveShowcase';
+     | ^
+  54 | export { PricingSection } from './PricingSection';
+  55 | export { ClosingCTA } from './ClosingCTA';
+  56 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:54:1
+Module not found: Can't resolve './PricingSection'
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+> 54 | export { PricingSection } from './PricingSection';
+     | ^
+  55 | export { ClosingCTA } from './ClosingCTA';
+  56 |
+  57 | // Course page components
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:55:1
+Module not found: Can't resolve './ClosingCTA'
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+  54 | export { PricingSection } from './PricingSection';
+> 55 | export { ClosingCTA } from './ClosingCTA';
+     | ^
+  56 |
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:58:1
+Module not found: Can't resolve './CourseRedesignCard'
+  56 |
+  57 | // Course page components
+> 58 | export { CourseRedesignCard } from './CourseRedesignCard';
+     | ^
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:59:1
+Module not found: Can't resolve './LearningPathShowcase'
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+> 59 | export { LearningPathShowcase } from './LearningPathShowcase';
+     | ^
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:60:1
+Module not found: Can't resolve './SourceLogoCycle'
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+> 60 | export { SourceLogoCycle } from './SourceLogoCycle';
+     | ^
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:61:1
+Module not found: Can't resolve './CourseDetailHero'
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+> 61 | export { CourseDetailHero } from './CourseDetailHero';
+     | ^
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:62:1
+Module not found: Can't resolve './CourseDetailSidebar'
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+> 62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+     | ^
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:63:1
+Module not found: Can't resolve './CourseModuleTimeline'
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+> 63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+     | ^
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:64:1
+Module not found: Can't resolve './RelatedLearningPaths'
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+> 64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+     | ^
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:65:1
+Module not found: Can't resolve './LessonDetailHero'
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+> 65 | export { LessonDetailHero } from './LessonDetailHero';
+     | ^
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:66:1
+Module not found: Can't resolve './course-outcomes'
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+> 66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+     | ^
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/index.ts:67:1
+Module not found: Can't resolve './Logo'
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+> 67 | export { Logo } from './Logo';
+     | ^
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[   92552ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144209ms] [ERROR] ./src/components/redesign/index.ts:50:1
+Module not found: Can't resolve './Ticker'
+  48 |
+  49 | // Homepage components
+> 50 | export { Ticker } from './Ticker';
+     | ^
+  51 | export { TryItDemo } from './TryItDemo';
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144209ms] [ERROR] ./src/components/redesign/index.ts:51:1
+Module not found: Can't resolve './TryItDemo'
+  49 | // Homepage components
+  50 | export { Ticker } from './Ticker';
+> 51 | export { TryItDemo } from './TryItDemo';
+     | ^
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+  54 | export { PricingSection } from './PricingSection';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144209ms] [ERROR] ./src/components/redesign/index.ts:53:1
+Module not found: Can't resolve './ActiveShowcase'
+  51 | export { TryItDemo } from './TryItDemo';
+  52 | export type { TryItDemoProps } from './TryItDemo';
+> 53 | export { ActiveShowcase } from './ActiveShowcase';
+     | ^
+  54 | export { PricingSection } from './PricingSection';
+  55 | export { ClosingCTA } from './ClosingCTA';
+  56 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144209ms] [ERROR] ./src/components/redesign/index.ts:54:1
+Module not found: Can't resolve './PricingSection'
+  52 | export type { TryItDemoProps } from './TryItDemo';
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+> 54 | export { PricingSection } from './PricingSection';
+     | ^
+  55 | export { ClosingCTA } from './ClosingCTA';
+  56 |
+  57 | // Course page components
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144209ms] [ERROR] ./src/components/redesign/index.ts:55:1
+Module not found: Can't resolve './ClosingCTA'
+  53 | export { ActiveShowcase } from './ActiveShowcase';
+  54 | export { PricingSection } from './PricingSection';
+> 55 | export { ClosingCTA } from './ClosingCTA';
+     | ^
+  56 |
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144209ms] [ERROR] ./src/components/redesign/index.ts:58:1
+Module not found: Can't resolve './CourseRedesignCard'
+  56 |
+  57 | // Course page components
+> 58 | export { CourseRedesignCard } from './CourseRedesignCard';
+     | ^
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:59:1
+Module not found: Can't resolve './LearningPathShowcase'
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+> 59 | export { LearningPathShowcase } from './LearningPathShowcase';
+     | ^
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:60:1
+Module not found: Can't resolve './SourceLogoCycle'
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+> 60 | export { SourceLogoCycle } from './SourceLogoCycle';
+     | ^
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:61:1
+Module not found: Can't resolve './CourseDetailHero'
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+> 61 | export { CourseDetailHero } from './CourseDetailHero';
+     | ^
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:62:1
+Module not found: Can't resolve './CourseDetailSidebar'
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+> 62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+     | ^
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:63:1
+Module not found: Can't resolve './CourseModuleTimeline'
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+> 63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+     | ^
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:64:1
+Module not found: Can't resolve './RelatedLearningPaths'
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+> 64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+     | ^
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:65:1
+Module not found: Can't resolve './LessonDetailHero'
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+> 65 | export { LessonDetailHero } from './LessonDetailHero';
+     | ^
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:66:1
+Module not found: Can't resolve './course-outcomes'
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+> 66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+     | ^
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144210ms] [ERROR] ./src/components/redesign/index.ts:67:1
+Module not found: Can't resolve './Logo'
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+> 67 | export { Logo } from './Logo';
+     | ^
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:58:1
+Module not found: Can't resolve './CourseRedesignCard'
+  56 |
+  57 | // Course page components
+> 58 | export { CourseRedesignCard } from './CourseRedesignCard';
+     | ^
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:59:1
+Module not found: Can't resolve './LearningPathShowcase'
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+> 59 | export { LearningPathShowcase } from './LearningPathShowcase';
+     | ^
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:60:1
+Module not found: Can't resolve './SourceLogoCycle'
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+> 60 | export { SourceLogoCycle } from './SourceLogoCycle';
+     | ^
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:61:1
+Module not found: Can't resolve './CourseDetailHero'
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+> 61 | export { CourseDetailHero } from './CourseDetailHero';
+     | ^
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:62:1
+Module not found: Can't resolve './CourseDetailSidebar'
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+> 62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+     | ^
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:63:1
+Module not found: Can't resolve './CourseModuleTimeline'
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+> 63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+     | ^
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:64:1
+Module not found: Can't resolve './RelatedLearningPaths'
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+> 64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+     | ^
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:65:1
+Module not found: Can't resolve './LessonDetailHero'
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+> 65 | export { LessonDetailHero } from './LessonDetailHero';
+     | ^
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:66:1
+Module not found: Can't resolve './course-outcomes'
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+> 66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+     | ^
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144702ms] [ERROR] ./src/components/redesign/index.ts:67:1
+Module not found: Can't resolve './Logo'
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+> 67 | export { Logo } from './Logo';
+     | ^
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  144711ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:58:1
+Module not found: Can't resolve './CourseRedesignCard'
+  56 |
+  57 | // Course page components
+> 58 | export { CourseRedesignCard } from './CourseRedesignCard';
+     | ^
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:59:1
+Module not found: Can't resolve './LearningPathShowcase'
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+> 59 | export { LearningPathShowcase } from './LearningPathShowcase';
+     | ^
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:60:1
+Module not found: Can't resolve './SourceLogoCycle'
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+> 60 | export { SourceLogoCycle } from './SourceLogoCycle';
+     | ^
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:61:1
+Module not found: Can't resolve './CourseDetailHero'
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+> 61 | export { CourseDetailHero } from './CourseDetailHero';
+     | ^
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:62:1
+Module not found: Can't resolve './CourseDetailSidebar'
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+> 62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+     | ^
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:63:1
+Module not found: Can't resolve './CourseModuleTimeline'
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+> 63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+     | ^
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:64:1
+Module not found: Can't resolve './RelatedLearningPaths'
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+> 64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+     | ^
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:65:1
+Module not found: Can't resolve './LessonDetailHero'
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+> 65 | export { LessonDetailHero } from './LessonDetailHero';
+     | ^
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:66:1
+Module not found: Can't resolve './course-outcomes'
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+> 66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+     | ^
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/index.ts:67:1
+Module not found: Can't resolve './Logo'
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+> 67 | export { Logo } from './Logo';
+     | ^
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailSidebar.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseModuleTimeline.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseRedesignCard.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LearningPathShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145002ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LessonDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145003ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Logo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145003ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/RelatedLearningPaths.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145003ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/SourceLogoCycle.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  145003ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/course-outcomes.ts
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:58:1
+Module not found: Can't resolve './CourseRedesignCard'
+  56 |
+  57 | // Course page components
+> 58 | export { CourseRedesignCard } from './CourseRedesignCard';
+     | ^
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:59:1
+Module not found: Can't resolve './LearningPathShowcase'
+  57 | // Course page components
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+> 59 | export { LearningPathShowcase } from './LearningPathShowcase';
+     | ^
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:60:1
+Module not found: Can't resolve './SourceLogoCycle'
+  58 | export { CourseRedesignCard } from './CourseRedesignCard';
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+> 60 | export { SourceLogoCycle } from './SourceLogoCycle';
+     | ^
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:61:1
+Module not found: Can't resolve './CourseDetailHero'
+  59 | export { LearningPathShowcase } from './LearningPathShowcase';
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+> 61 | export { CourseDetailHero } from './CourseDetailHero';
+     | ^
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:62:1
+Module not found: Can't resolve './CourseDetailSidebar'
+  60 | export { SourceLogoCycle } from './SourceLogoCycle';
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+> 62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+     | ^
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:63:1
+Module not found: Can't resolve './CourseModuleTimeline'
+  61 | export { CourseDetailHero } from './CourseDetailHero';
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+> 63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+     | ^
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:64:1
+Module not found: Can't resolve './RelatedLearningPaths'
+  62 | export { CourseDetailSidebar } from './CourseDetailSidebar';
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+> 64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+     | ^
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:65:1
+Module not found: Can't resolve './LessonDetailHero'
+  63 | export { CourseModuleTimeline } from './CourseModuleTimeline';
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+> 65 | export { LessonDetailHero } from './LessonDetailHero';
+     | ^
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153560ms] [ERROR] ./src/components/redesign/index.ts:66:1
+Module not found: Can't resolve './course-outcomes'
+  64 | export { RelatedLearningPaths } from './RelatedLearningPaths';
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+> 66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+     | ^
+  67 | export { Logo } from './Logo';
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153561ms] [ERROR] ./src/components/redesign/index.ts:67:1
+Module not found: Can't resolve './Logo'
+  65 | export { LessonDetailHero } from './LessonDetailHero';
+  66 | export { COURSE_OUTCOMES_MAP, DEFAULT_COURSE_OUTCOMES } from './course-outcomes';
+> 67 | export { Logo } from './Logo';
+     | ^
+  68 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  153784ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  154150ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/_next/static/webpack/e730b22b990549b9.webpack.hot-update.json:0
+[  154150ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:349
+[  154457ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  154932ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  154936ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  155349ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  155350ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  162461ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  162896ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  162898ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  163330ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  163331ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  172535ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  172795ms] [LOG] [Fast Refresh] done in 260ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  178208ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  178465ms] [LOG] [Fast Refresh] done in 258ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43

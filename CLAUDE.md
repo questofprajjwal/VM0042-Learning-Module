@@ -27,6 +27,7 @@ Covers climate science, carbon markets, ESG, clean energy, biodiversity, circula
 - **Before starting any session**, verify the branch: `git branch --show-current` must return `redesign` (or a feature branch off redesign like `redesign/homepage`).
 - **If the current branch is main and the task is redesign-related**, STOP and switch to the redesign branch first. Do not proceed.
 - **When comparing current vs redesigned UI**, use git: `git stash && git checkout main` to see current, `git checkout redesign` to see new. Do NOT create route groups or parallel file structures for this purpose.
+- **CRITICAL: NEVER clean, reset, rebase, or remove redesign-related commits from the main branch.** Even if redesign work is primarily on the redesign branch, commits on main may contain component files, dependencies, or references needed for recovery. Cleaning main branch history caused major data loss on 2026-04-12, requiring extensive rework. If redesign commits exist on main, leave them there.
 
 ### Redesign Branch Session Checklist
 

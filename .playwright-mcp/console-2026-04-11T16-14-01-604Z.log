@@ -1,0 +1,215 @@
+[    1019ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[    1501ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    1538ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    1539ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    1915ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    1943ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    1944ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    7153ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[    7868ms] [LOG] [Fast Refresh] done in 715ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[    8680ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/learn?_rsc=4woki:0
+[    8856ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/learn:0
+[    9104ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[    9181ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/learn:0
+[    9211ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/learn:0
+[    9533ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    9559ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    9561ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   10373ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   10374ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   10374ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   11389ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[   11797ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   11839ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   11840ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   12196ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   12263ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   12263ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  142723ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  144041ms] [LOG] [Fast Refresh] done in 1318ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  225645ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  225772ms] [ERROR] Warning: Invalid DOM property `%s`. Did you mean `%s`?%s class className 
+    at h2
+    at MDXContent (Server)
+    at MDXRemote (Server)
+    at div
+    at article
+    at main
+    at div
+    at LessonRedesignPage (Server)
+    at LessonRedesignPage (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at div
+    at RedesignLayout (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at __experimental_CheckoutProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:136:44)
+    at SWRConfig (webpack-internal:///(app-pages-browser)/./node_modules/swr/dist/_internal/config-context-client-BoS53ST9.mjs:554:13)
+    at SWRConfigCompat (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:124:28)
+    at OrganizationProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:148:33)
+    at ClerkContextProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1849:11)
+    at ClerkProviderBase (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1941:11)
+    at Hoc (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/chunk-THNCS7QR.mjs:84:5)
+    at ClerkNextOptionsProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/client-boundary/NextOptionsContext.js:17:11)
+    at NextClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:62:13)
+    at ClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:135:13)
+    at ClerkProvider (Server)
+    at body
+    at html
+    at RootLayout (Server)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at DevRootNotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/dev-root-not-found-boundary.js:33:11)
+    at ReactDevOverlay (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/ReactDevOverlay.js:87:9)
+    at HotReload (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:321:11)
+    at Router (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:207:11)
+    at ErrorBoundaryHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:113:9)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at AppRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:585:13)
+    at ServerRoot (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:112:27)
+    at Root (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:117:11) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  226838ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  226839ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  226840ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  227185ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  227244ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  227245ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  348608ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  349424ms] [LOG] [Fast Refresh] done in 815ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1117399ms] [WARNING] Skipping auto-scroll behavior due to `position: sticky` or `position: fixed` on element: JSHandle@node @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:109
+[ 1135756ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1136956ms] [LOG] [Fast Refresh] done in 1200ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1179279ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1181449ms] [LOG] [Fast Refresh] done in 2171ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1397650ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1401115ms] [LOG] [Fast Refresh] done in 3464ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1427443ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1428339ms] [LOG] [Fast Refresh] done in 896ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1482796ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1483734ms] [LOG] [Fast Refresh] done in 938ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1580085ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1581330ms] [LOG] [Fast Refresh] done in 1245ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1581732ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1585629ms] [LOG] [Fast Refresh] done in 3896ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43

@@ -1,0 +1,803 @@
+[    6202ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[    6326ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/favicon.ico:0
+[    6686ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    6723ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    6725ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    7076ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    7116ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    7116ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   62367ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   63411ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[   63937ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   63939ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   64336ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[   64338ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117291ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  117576ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ActiveShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ClosingCTA.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailSidebar.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseModuleTimeline.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseRedesignCard.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LearningPathShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LessonDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Logo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/PricingSection.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/RelatedLearningPaths.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/SourceLogoCycle.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117576ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Ticker.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117577ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/TryItDemo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  117577ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/course-outcomes.ts
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120058ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  120083ms] [LOG] [Fast Refresh] done in 26ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  120291ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ActiveShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ClosingCTA.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailSidebar.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseModuleTimeline.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseRedesignCard.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LearningPathShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LessonDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Logo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/PricingSection.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/RelatedLearningPaths.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/SourceLogoCycle.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Ticker.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/TryItDemo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120292ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/course-outcomes.ts
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120410ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ActiveShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ClosingCTA.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailSidebar.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseModuleTimeline.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseRedesignCard.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LearningPathShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LessonDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Logo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/PricingSection.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/RelatedLearningPaths.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/SourceLogoCycle.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Ticker.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/TryItDemo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  120411ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/course-outcomes.ts
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121386ms] [LOG] [Fast Refresh] done in 1329ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  121491ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/app/redesign/components/_components/HeroClient.tsx
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121491ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ActiveShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121491ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/ClosingCTA.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121491ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121491ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseDetailSidebar.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121491ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseModuleTimeline.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121491ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/CourseRedesignCard.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LearningPathShowcase.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/LessonDetailHero.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Logo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/PricingSection.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/RelatedLearningPaths.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/SourceLogoCycle.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/Ticker.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/TryItDemo.tsx
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121492ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/components/redesign/course-outcomes.ts
+./src/components/redesign/index.ts
+./src/app/redesign/components/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121589ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121603ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121615ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121626ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121636ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121645ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121655ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121664ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121674ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121682ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121690ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121699ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121706ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121714ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121722ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121729ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121740ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121748ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121756ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121763ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components?_rsc=1dnw8:0
+[  121814ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/components:0
+[  121974ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  122003ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+    at processResult (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:400590)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:402302)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5019)
+    at r.callback (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4039)
+[  122002ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  122004ms] [ERROR] ./src/app/redesign/components/_components/HeroClient.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/ActiveShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ActiveShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/ClosingCTA.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/ClosingCTA.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/CourseDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/CourseDetailSidebar.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseDetailSidebar.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/CourseModuleTimeline.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseModuleTimeline.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/CourseRedesignCard.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/CourseRedesignCard.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/LearningPathShowcase.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LearningPathShowcase.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/LessonDetailHero.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/LessonDetailHero.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/Logo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Logo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/PricingSection.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/PricingSection.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/RelatedLearningPaths.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/RelatedLearningPaths.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/SourceLogoCycle.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/SourceLogoCycle.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/Ticker.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/Ticker.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/TryItDemo.tsx
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/TryItDemo.tsx
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  122004ms] [ERROR] ./src/components/redesign/course-outcomes.ts
+Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/components/redesign/course-outcomes.ts
+
+Caused by:
+    No such file or directory (os error 2) @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62

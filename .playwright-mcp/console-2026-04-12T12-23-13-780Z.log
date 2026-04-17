@@ -1,0 +1,1476 @@
+[    1347ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[    3695ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    3814ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    3818ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    5658ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    5862ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    5863ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   68714ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   70822ms] [LOG] [Fast Refresh] done in 2110ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   82508ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   83437ms] [LOG] [Fast Refresh] done in 929ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   86086ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   87327ms] [LOG] [Fast Refresh] done in 1241ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   93979ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   94449ms] [LOG] [Fast Refresh] done in 471ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   95232ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  111129ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  111321ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  116736ms] [ERROR] Failed to fetch RSC payload for http://localhost:5001/redesign/guides/scope-3-screening. Falling back to browser navigation. TypeError: Failed to fetch
+    at fetchServerResponse (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/router-reducer/fetch-server-response.js:58:27)
+    at fastRefreshReducerImpl (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/router-reducer/reducers/fast-refresh-reducer.js:33:67)
+    at clientReducer (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/router-reducer/router-reducer.js:41:67)
+    at Object.action (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:150:55)
+    at runAction (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:56:38)
+    at dispatchAction (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:113:9)
+    at Object.dispatch (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/router/action-queue.js:145:40)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/use-reducer-with-devtools.js:130:21)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:304:25)
+    at startTransition (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react/cjs/react.development.js:2597:25)
+    at Object.fastRefresh (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:303:48)
+    at eval (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:277:28)
+    at startTransition (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react/cjs/react.development.js:2597:25)
+    at processMessage (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:276:44)
+    at WebSocket.handler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:395:17) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  116751ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  118315ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  118611ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  118642ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  118761ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  118779ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  118780ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  119157ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  119157ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  119158ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  119168ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  119938ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  120416ms] [LOG] [Fast Refresh] done in 1248ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  120589ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  120916ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  121114ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  121154ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  121307ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  121329ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  121330ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  121659ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  121659ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  121659ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  212255ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  213383ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  214650ms] [LOG] [Fast Refresh] done in 1267ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  215393ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  215568ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  215840ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  215979ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  216019ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  216235ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  216253ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  216254ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  216585ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  216599ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  216599ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  226673ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  228286ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  228624ms] [LOG] [Fast Refresh] done in 1951ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  228719ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  228953ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  229071ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  229104ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  229341ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  229342ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  229342ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  229748ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  229749ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  229749ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  233295ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  233911ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  235610ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  235882ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  236445ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  236648ms] Error: Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at getNotFoundError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.js:124:16)
+    at async getModuleBuildError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/webpackModuleError.js:104:27)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:29:49)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:27:21)
+[  236479ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  236493ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  236563ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  236664ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  236745ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  236772ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  236902ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  237176ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  237198ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  237314ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  237365ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  237412ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  238940ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  239449ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  239812ms] Error: Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at getNotFoundError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.js:124:16)
+    at async getModuleBuildError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/webpackModuleError.js:104:27)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:29:49)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:27:21)
+[  239462ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  239463ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  239577ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  239592ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  239709ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  239968ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240045ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240214ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240352ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240468ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  258259ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  258699ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  258884ms] Error: Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at getNotFoundError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.js:124:16)
+    at async getModuleBuildError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/webpackModuleError.js:104:27)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:29:49)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:27:21)
+[  258738ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  258740ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  258809ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  258825ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  258924ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  259105ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  259190ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  259252ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  259294ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  259417ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  263287ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  264998ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  265893ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:347
+[  265894ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  267127ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  268002ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  268142ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  268159ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  268160ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  268198ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  268491ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  268496ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  268496ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  293976ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  294677ms] [LOG] [Fast Refresh] done in 702ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  296277ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  297169ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  297621ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  297741ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  297778ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  298008ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  298012ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  298013ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  298335ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  298345ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  298346ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  302073ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  302873ms] [LOG] [Fast Refresh] done in 801ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  304248ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  304432ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  304688ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  304887ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  304930ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  305072ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  305085ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  305086ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  305413ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  305413ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  305414ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  307136ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  308174ms] [LOG] [Fast Refresh] done in 1038ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  309967ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  310181ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  310401ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  310530ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  310569ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  310787ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  310812ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  310813ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  311154ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  311154ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  311155ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  312015ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  312765ms] [LOG] [Fast Refresh] done in 750ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  313713ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  314860ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  315197ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  315378ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  315423ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  315607ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  315614ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  315615ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  315802ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  315943ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  315953ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  315954ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  316524ms] [LOG] [Fast Refresh] done in 723ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  317338ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  318073ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  318379ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  318591ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  318658ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  318757ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  318778ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  318780ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  319123ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  319126ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  319126ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  320782ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  321951ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  322855ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  323331ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  323507ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  323553ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  323715ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  323728ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  323729ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  324055ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  324070ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  324070ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  328290ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  330005ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  330597ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  330599ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  331209ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  331390ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  331433ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  331608ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  331617ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  331618ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  331946ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  331946ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  331947ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  333405ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  334883ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  335655ms] [LOG] [Fast Refresh] done in 2249ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  335726ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  336105ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  336243ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  336283ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  336483ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  336492ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  336494ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  336824ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  336830ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  336831ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  340003ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  340670ms] [LOG] [Fast Refresh] done in 668ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  341307ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  342131ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  342607ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  342765ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  342807ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  342989ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  343213ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  343214ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  343540ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  343555ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  343555ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  347909ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  348493ms] [LOG] [Fast Refresh] done in 585ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  349968ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  350486ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  350741ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  350854ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  350893ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  351109ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  351122ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  351123ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  351443ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  351462ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  351462ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  369347ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  370072ms] [LOG] [Fast Refresh] done in 726ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  372132ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  372360ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  372603ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  372816ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  372878ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  372994ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  373011ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  373012ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  373339ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  373362ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  373363ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  380912ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  382881ms] [LOG] [Fast Refresh] done in 1971ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  385221ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  385596ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  385955ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  386112ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  386168ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  386352ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  386377ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  386378ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  386704ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  386716ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  386717ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  410850ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  412422ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  412609ms] [LOG] [Fast Refresh] done in 1759ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  412705ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  412976ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  413118ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  413162ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  413352ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  413396ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  413397ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  413724ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  413735ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  413736ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  461162ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  462903ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  463204ms] [LOG] [Fast Refresh] done in 2044ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  463324ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  463650ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  463790ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  463835ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  464043ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  464342ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  464343ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  464687ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  464693ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  464694ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  509117ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  509938ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  511484ms] [LOG] [Fast Refresh] done in 2367ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  511700ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  512597ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  513013ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  513020ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  513021ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  513087ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  513157ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  513724ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  513748ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  513748ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  556086ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  556773ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  557427ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  557428ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  558134ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  558237ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  558274ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  558512ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  558559ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  558560ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  558885ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  558891ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  558891ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  561498ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  562211ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  563300ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  563418ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  563467ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  563984ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  564043ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  564043ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  566072ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  566115ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  566116ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  592676ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  594513ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  596332ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  596339ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  597101ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  597416ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  597472ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  597528ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  597543ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  597544ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  597870ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  597886ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  597887ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  601623ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  603993ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  604831ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  604834ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  605693ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  605961ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  606052ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  606094ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  606095ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  606097ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  606475ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  606475ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  606475ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  622419ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  623984ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  624690ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  624692ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  625179ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  625305ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  625397ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  625557ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  625583ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  625584ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  625930ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  625931ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  625931ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  635360ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  636043ms] [LOG] [Fast Refresh] done in 683ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  639267ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  640297ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  640596ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  640749ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  640795ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  640986ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  640987ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  640987ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  641314ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  641323ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  641324ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  651475ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  653111ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  654408ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  654414ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  655002ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  655188ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  655231ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  655405ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  655449ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  655450ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  655782ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  655794ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  655795ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  656787ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  657832ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  657938ms] [LOG] [Fast Refresh] done in 105ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  658072ms] [ERROR] ./src/app/redesign/guides/[guideId]/page.tsx
+Error: 
+  x Expression expected
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:99:1]
+  99 |     .filter((c): c is NonNullable<typeof c> => c !== null);
+ 100 | 
+ 101 |   return (
+ 102 |     <>
+     :      ^
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     `----
+
+  x Expected ',', got '{'
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:102:1]
+ 102 |     <>
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     :       ^
+ 106 |       <AnimatedHero
+ 107 |         title={guide.title}
+ 108 |         description={guide.description}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/redesign/guides/[guideId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  660738ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  661188ms] [ERROR] ./src/app/redesign/guides/[guideId]/page.tsx
+Error: 
+  x Expression expected
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:99:1]
+  99 |     .filter((c): c is NonNullable<typeof c> => c !== null);
+ 100 | 
+ 101 |   return (
+ 102 |     <>
+     :      ^
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     `----
+
+  x Expected ',', got '{'
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:102:1]
+ 102 |     <>
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     :       ^
+ 106 |       <AnimatedHero
+ 107 |         title={guide.title}
+ 108 |         description={guide.description}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/redesign/guides/[guideId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  663566ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/guides/scope-3-screening?_rsc=uo9by:0
+[  664448ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:112
+[  664451ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  678474ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  678580ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: 
+  x Expression expected
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:99:1]
+  99 |     .filter((c): c is NonNullable<typeof c> => c !== null);
+ 100 | 
+ 101 |   return (
+ 102 |     <>
+     :      ^
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     `----
+
+  x Expected ',', got '{'
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:102:1]
+ 102 |     <>
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     :       ^
+ 106 |       <AnimatedHero
+ 107 |         title={guide.title}
+ 108 |         description={guide.description}
+     `----
+
+
+Caused by:
+    Syntax Error
+    at processResult (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:400590)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/webpack/bundle5.js:28:402302)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5019)
+    at r.callback (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4039)
+[  678536ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  679495ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/_next/static/webpack/e730b22b990549b9.webpack.hot-update.json:0
+[  679496ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:349
+[  680105ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  684236ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  702079ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  709024ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/_next/static/webpack/e730b22b990549b9.webpack.hot-update.json:0
+[  709027ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:349
+[  712605ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  721332ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  721789ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  721876ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5001/redesign/guides/scope-3-screening:0
+[  723018ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  723183ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  723185ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  723681ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  723823ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  723824ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32

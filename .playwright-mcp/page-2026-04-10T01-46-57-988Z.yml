@@ -1,0 +1,352 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to content" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Green Tryst - Sustainability Academy" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: Green Tryst - Sustainability Academy
+        - generic [ref=e9]:
+          - button "Search lessons (Cmd+K)" [ref=e10] [cursor=pointer]:
+            - img [ref=e11]
+            - generic [ref=e13]: Search
+            - generic [ref=e14]:
+              - generic [ref=e15]: ⌘
+              - text: K
+          - link "Jobs" [ref=e16] [cursor=pointer]:
+            - /url: /jobs
+    - generic [ref=e17]:
+      - complementary [ref=e18]:
+        - navigation "Course navigation" [ref=e19]:
+          - generic [ref=e20]:
+            - link "EU Sustainable Finance Disclosure Regulation (SFDR)" [ref=e21] [cursor=pointer]:
+              - /url: /courses/eu-sfdr
+              - generic [ref=e22]: 🇪🇺
+              - generic [ref=e23]: EU Sustainable Finance Disclosure Regulation (SFDR)
+            - paragraph [ref=e24]: 0/30 lessons complete
+          - generic [ref=e26]:
+            - button "Module 1 Introduction to SFDR 0/4" [ref=e28] [cursor=pointer]:
+              - generic [ref=e29]:
+                - generic [ref=e30]: 📋
+                - generic [ref=e31]:
+                  - paragraph [ref=e32]: Module 1
+                  - paragraph [ref=e33]: Introduction to SFDR
+              - generic [ref=e34]:
+                - generic [ref=e35]: 0/4
+                - generic [ref=e36]: ▾
+            - generic [ref=e37]:
+              - button "Module 2 Entity-Level Disclosures 0/4" [expanded] [ref=e38] [cursor=pointer]:
+                - generic [ref=e39]:
+                  - generic [ref=e40]: 🏢
+                  - generic [ref=e41]:
+                    - paragraph [ref=e42]: Module 2
+                    - paragraph [ref=e43]: Entity-Level Disclosures
+                - generic [ref=e44]:
+                  - generic [ref=e45]: 0/4
+                  - generic [ref=e46]: ▾
+              - generic "Entity-Level Disclosures lessons" [ref=e47]:
+                - link "Sustainability Risk Policies (Article 3) 9m" [ref=e48] [cursor=pointer]:
+                  - /url: /courses/eu-sfdr/1_1
+                  - generic [ref=e50]: Sustainability Risk Policies (Article 3)
+                  - generic [ref=e51]: 9m
+                - link "Principal Adverse Impacts at Entity Level (Article 4) 8m" [ref=e52] [cursor=pointer]:
+                  - /url: /courses/eu-sfdr/1_2
+                  - generic [ref=e54]: Principal Adverse Impacts at Entity Level (Article 4)
+                  - generic [ref=e55]: 8m
+                - link "Remuneration Policies (Article 5) 6m" [ref=e56] [cursor=pointer]:
+                  - /url: /courses/eu-sfdr/1_3
+                  - generic [ref=e58]: Remuneration Policies (Article 5)
+                  - generic [ref=e59]: 6m
+                - link "Website Disclosure Requirements 7m" [ref=e60] [cursor=pointer]:
+                  - /url: /courses/eu-sfdr/1_4
+                  - generic [ref=e62]: Website Disclosure Requirements
+                  - generic [ref=e63]: 7m
+            - button "Module 3 Product-Level Classification 0/4" [ref=e65] [cursor=pointer]:
+              - generic [ref=e66]:
+                - generic [ref=e67]: 🏷️
+                - generic [ref=e68]:
+                  - paragraph [ref=e69]: Module 3
+                  - paragraph [ref=e70]: Product-Level Classification
+              - generic [ref=e71]:
+                - generic [ref=e72]: 0/4
+                - generic [ref=e73]: ▾
+            - button "Module 4 Principal Adverse Impacts (PAI) 0/5" [ref=e75] [cursor=pointer]:
+              - generic [ref=e76]:
+                - generic [ref=e77]: 📊
+                - generic [ref=e78]:
+                  - paragraph [ref=e79]: Module 4
+                  - paragraph [ref=e80]: Principal Adverse Impacts (PAI)
+              - generic [ref=e81]:
+                - generic [ref=e82]: 0/5
+                - generic [ref=e83]: ▾
+            - button "Module 5 Regulatory Technical Standards 0/5" [ref=e85] [cursor=pointer]:
+              - generic [ref=e86]:
+                - generic [ref=e87]: 📑
+                - generic [ref=e88]:
+                  - paragraph [ref=e89]: Module 5
+                  - paragraph [ref=e90]: Regulatory Technical Standards
+              - generic [ref=e91]:
+                - generic [ref=e92]: 0/5
+                - generic [ref=e93]: ▾
+            - button "Module 6 Compliance and Supervisory Guidance 0/4" [ref=e95] [cursor=pointer]:
+              - generic [ref=e96]:
+                - generic [ref=e97]: ⚖️
+                - generic [ref=e98]:
+                  - paragraph [ref=e99]: Module 6
+                  - paragraph [ref=e100]: Compliance and Supervisory Guidance
+              - generic [ref=e101]:
+                - generic [ref=e102]: 0/4
+                - generic [ref=e103]: ▾
+            - button "Module 7 SFDR 2.0 — The Proposed Overhaul 0/4" [ref=e105] [cursor=pointer]:
+              - generic [ref=e106]:
+                - generic [ref=e107]: 🔄
+                - generic [ref=e108]:
+                  - paragraph [ref=e109]: Module 7
+                  - paragraph [ref=e110]: SFDR 2.0 — The Proposed Overhaul
+              - generic [ref=e111]:
+                - generic [ref=e112]: 0/4
+                - generic [ref=e113]: ▾
+      - main [ref=e114]:
+        - generic [ref=e115]:
+          - navigation "Breadcrumb" [ref=e118]:
+            - link "Home" [ref=e120] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e121]:
+              - generic [ref=e122]: ›
+              - link "EU-SFDR" [ref=e123] [cursor=pointer]:
+                - /url: /courses/eu-sfdr
+            - generic [ref=e124]:
+              - generic [ref=e125]: ›
+              - link "Entity-Level Disclosures" [ref=e126] [cursor=pointer]:
+                - /url: /courses/eu-sfdr
+            - generic [ref=e127]:
+              - generic [ref=e128]: ›
+              - generic [ref=e129]: Sustainability Risk Policies (Article 3)
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - generic [ref=e132]: Entity-Level Disclosures
+              - generic [ref=e133]: ·
+              - generic [ref=e134]: Lesson 1 of 4
+              - generic [ref=e135]: ·
+              - generic [ref=e136]: 9 min read
+              - generic [ref=e137]: ·
+              - generic [ref=e138]: SFDR Art. 3; EC FAQ Q1-Q5
+            - heading "Sustainability Risk Policies (Article 3)" [level=1] [ref=e139]
+          - article [ref=e140]:
+            - paragraph [ref=e141]:
+              - text: Article 3 of SFDR requires every financial market participant and financial adviser in scope to prominently publish and maintain on their website information about their
+              - strong [ref=e142]: policies on the integration of sustainability risks
+              - text: in their investment decision-making process (or investment advice process for advisers).
+            - paragraph [ref=e143]: This is the foundational entity-level disclosure obligation. It strongly applies to every single firm in scope, regardless of whether any of their products are classified as Article 8 or Article 9.
+            - paragraph [ref=e144]: "In plain English: every firm covered by SFDR must publicly explain exactly what it does (or actively does not do) when it comes to managing real ESG-related risks that could impact investment returns."
+            - generic [ref=e147]:
+              - generic [ref=e148]:
+                - generic [ref=e149]:
+                  - img [ref=e151]
+                  - paragraph [ref=e155]: Listen to this lesson (podcast-style overview)
+                - button "1x" [ref=e156] [cursor=pointer]
+              - generic [ref=e157]:
+                - button "Back 15s" [ref=e158] [cursor=pointer]:
+                  - img [ref=e159]
+                - button "Play" [ref=e162] [cursor=pointer]:
+                  - img [ref=e163]
+                - button "Forward 15s" [ref=e165] [cursor=pointer]:
+                  - img [ref=e166]
+                - slider "Audio progress" [ref=e170] [cursor=pointer]
+              - generic [ref=e220]:
+                - generic [ref=e221]: 0:00
+                - generic [ref=e222]: 5:29
+            - heading "What Is a Sustainability Risk Integration Policy?" [level=2] [ref=e223]
+            - paragraph [ref=e224]:
+              - text: A structured sustainability risk integration policy carefully describes exactly how the firm systematically considers ESG-related events and conditions that could cause a material negative impact on the financial value of investments. The absolute emphasis here is on strict
+              - strong [ref=e225]: financial materiality
+              - text: . Under SFDR, sustainability risks are legally framed strictly as core inputs to traditional investment risk management, not merely as optional ethical commitments.
+            - note "Analogy" [ref=e226]:
+              - generic [ref=e229]:
+                - img [ref=e231]
+                - generic [ref=e234]:
+                  - paragraph [ref=e235]: Think of this practically like a bank formally publishing its strict credit risk management policy. The bank obviously doesn't refuse to lend just because it dislikes default risk in some moral sense; rather, it aggressively manages default risk simply because defaults directly lose money.
+                  - paragraph [ref=e236]: "Similarly, SFDR's Article 3 policy is fundamentally about actively managing real ESG risks that can demonstrably hurt hard investment returns. The central question always remains: exactly how does the firm properly identify, rigorously assess, and decisively respond to those risks?"
+            - note "Key takeaway" [ref=e237]:
+              - generic [ref=e240]:
+                - img [ref=e242]
+                - paragraph [ref=e245]: "The sustainability risk policy mandated under Article 3 is heavily about objective risk management, certainly not subjective values-based investing. A firm must clearly explain exactly how it considers the risk that (for example) sudden new climate change regulation might massively reduce the value of its holdings in carbon-intensive companies, or that a sudden severe governance scandal might instantly destroy immense shareholder value in a core investee. The driving question is always: how precisely does the firm manage these brutal financial risks?"
+            - paragraph [ref=e246]: The formal policy must be visibly published directly on the firm's main website and strictly kept up to date. While it absolutely does not need to be quietly filed with a regulator, it is entirely subject to continuous supervisory review. It must be written extremely clearly and be easily accessible. Keeping it buried in the dark depths of a complex website or written in impenetrable defensive legal language would absolutely fail to meet the clear spirit of the legal requirement.
+            - heading "What Must the Policy Cover?" [level=2] [ref=e247]
+            - paragraph [ref=e248]: "SFDR Article 3 does not exhaustively specify every single content requirement for the policy. The exact details are subsequently developed heavily through the Level 2 framework and ongoing supervisory guidance. However, a competent policy should aggressively address four core pillars at an absolute minimum:"
+            - paragraph [ref=e249]:
+              - strong [ref=e250]: 1. How sustainability risks are identified
+            - paragraph [ref=e251]: The firm must clearly describe the specific ESG factors it actively monitors and exactly how it actually sources information about them. Does it securely rely heavily on its internal ESG research team? Does it completely outsource to global third-party data providers? Does it focus on direct engagement with investee companies? Each distinct approach naturally carries entirely different implications for overall data quality and reliable portfolio coverage.
+            - paragraph [ref=e252]:
+              - strong [ref=e253]: 2. How sustainability risks are assessed
+            - paragraph [ref=e254]: "The firm must comprehensively explain its precise methodology for objectively evaluating the actual materiality of identified sustainability risks. This might frequently include:"
+            - list [ref=e255]:
+              - listitem [ref=e256]: Strict proprietary ESG scoring or external rating systems.
+              - listitem [ref=e257]: Advanced scenario analysis (for example, rigorously testing portfolios against different brutal climate transition scenarios).
+              - listitem [ref=e258]: Highly detailed sector-specific risk assessment frameworks.
+              - listitem [ref=e259]: Deep portfolio-level carbon footprint measurement metrics.
+            - paragraph [ref=e260]:
+              - strong [ref=e261]: 3. How sustainability risks are integrated into investment decisions
+            - paragraph [ref=e262]: "The firm must forcefully describe exactly how identified and formally assessed sustainability risks systematically influence actual hard investment decisions. This is the absolutely critical link: merely identifying a serious risk but taking absolutely no firm action does not in any way constitute genuine integration. The formal policy should definitively describe whether serious sustainability risks actively lead to immediate exclusions, precise portfolio weighting adjustments, structured engagement, or some careful combination of all three."
+            - paragraph [ref=e263]:
+              - strong [ref=e264]: 4. The likely impact of sustainability risks on returns
+            - paragraph [ref=e265]: Article 3 legally requires the firm to publicly describe the directly expected impact of relevant sustainability risks on the actual financial returns of the specific financial products it makes available. While this absolutely does not require impossible precise quantification, the firm absolutely should clearly indicate whether it formally expects sustainability risks to have a high, medium, or low financial impact, and it must completely explain the solid basis for that crucial view.
+            - note "Worked example" [ref=e266]:
+              - generic [ref=e269]:
+                - img [ref=e271]
+                - generic [ref=e273]:
+                  - paragraph [ref=e274]:
+                    - strong [ref=e275]: "Example: Extract from a highly substantive Article 3 policy"
+                  - paragraph [ref=e276]: "\"[Firm X] formally integrates serious sustainability risks (ESG events or conditions that could cause immediate material negative impacts on underlying investment value) heavily through the following structured process:"
+                  - paragraph [ref=e277]:
+                    - emphasis [ref=e278]: Identification
+                    - text: ": Our dedicated ESG research team continuously reviews corporate company disclosures, global third-party ESG ratings provided by [Provider Y], and real-time severe controversy alerts. We actively monitor 12 critical environmental factors (including total carbon emissions, rising water stress, and direct biodiversity impact), 8 core social factors (including detailed labour standards, broader supply chain practices, and fundamental human rights), and 6 vital governance factors (including balanced board composition, fair executive remuneration, and rigorous audit quality)."
+                  - paragraph [ref=e279]:
+                    - emphasis [ref=e280]: Assessment
+                    - text: ": For absolutely every existing holding and prospective new investment, we formally assign a proprietary structured ESG risk score from 1 (lowest risk) to 5 (highest absolute risk). Companies dangerously scoring 4 or 5 are automatically rigorously reviewed by our senior ESG oversight committee. We independently conduct comprehensive annual climate scenario analysis strictly at the broad portfolio level heavily using the established core NGFS scenarios."
+                  - paragraph [ref=e281]:
+                    - emphasis [ref=e282]: Integration
+                    - text: ": Final sustainability risk scores actively feed directly into our core investment case assessments. Our portfolio managers must explicitly formally document exactly how they have carefully considered material sustainability risks explicitly within their final investment memos. Companies dangerously scoring 5 on pure governance risk are instantly strictly excluded from all our equity strategies. For other high-risk combined scores, we may aggressively reduce our total position sizes or promptly initiate structured targeted engagement."
+                  - paragraph [ref=e283]:
+                    - emphasis [ref=e284]: Expected impact on returns
+                    - text: ": We deeply consider severe sustainability risks to hold a massive medium-to-high potential direct impact on long-term total returns heavily across most of our core strategies, particularly specifically in relation to brutal climate transition risks deeply embedded in energy-intensive sectors.\""
+            - heading "The \"Not Relevant\" Option" [level=2] [ref=e285]
+            - paragraph [ref=e286]: Article 3(2) legally allows a given firm to formally state plainly in its policy that it completely deems all sustainability risks "not relevant" to its investment decisions, provided the firm exhaustively explains exactly why. While this option technically remains available, it is increasingly extremely difficult to confidently substantiate heavily under intensifying fierce supervisory scrutiny.
+            - paragraph [ref=e287]: The ESMA Q&As heavily make clear that a firm absolutely cannot cleverly use the Article 6(1) second subparagraph "not relevant" option (the equivalent provision strictly for product-level disclosures) to aggressively override its sustainability risk obligations under entirely other EU law. For example, an AIFM that broadly deems sustainability risks purely "not relevant" exclusively for SFDR purposes absolutely must still completely comply with its explicit obligation to strongly consider sustainability risks as part of its core risk management framework deeply under AIFMD's Commission Delegated Regulation (EU) 231/2013 (specifically Article 18(5)).
+            - note "Key takeaway" [ref=e288]:
+              - generic [ref=e291]:
+                - img [ref=e293]
+                - paragraph [ref=e296]: Regulators and prominent NCAs have collectively become increasingly immensely sceptical of sweeping blanket "not relevant" statements. For essentially most mainstream large investment strategies, at least some subset of heavily investee companies will be demonstrably exposed to major climate transition risks, severe governance risks, or broad social controversies. Ultimately, a deeply credible "not relevant" position absolutely requires a massively documented, heavily evidence-based case thoroughly demonstrating that sustainability risks have demonstrably absolutely no material financial impact on the firm's highly specific investment universe and narrow strategy. This remains an exceptionally difficult position to fiercely maintain for generally diversified asset managers.
+            - heading "Interaction with Article 4 (PAI)" [level=2] [ref=e297]
+            - paragraph [ref=e298]: The Article 3 sustainability risk policy is tightly related to but distinctly separate from the broader Article 4 PAI consideration statement.
+            - paragraph [ref=e299]: "The core risk policy strictly focuses on exactly how broad sustainability risks (the ESG factors that heavily affect core investment value) are aggressively managed internally. The corresponding PAI statement completely focuses purely on exactly how the firm's external investment decisions actively affect vital sustainability factors (the measurable impacts directly on the environment and society). These simply represent two diverse directions of exactly the same broader ESG coin:"
+            - list [ref=e300]:
+              - listitem [ref=e301]:
+                - strong [ref=e302]: Risk Focus
+                - text: ": Exactly how does ESG deeply affect my portfolio?"
+              - listitem [ref=e303]:
+                - strong [ref=e304]: Impact Focus
+                - text: ": Exactly how does my portfolio heavily affect ESG?"
+            - paragraph [ref=e305]: Crucially, firms absolutely should diligently ensure their core Article 3 policy and expansive Article 4 statement are heavily consistent and deeply mutually reinforcing, absolutely not embarrassingly contradictory.
+            - heading "Remuneration Linkage" [level=2] [ref=e306]
+            - paragraph [ref=e307]: Article 5 clearly requires all remuneration policies to be thoroughly consistent entirely with the rigorous integration of major sustainability risks. The core Article 3 policy absolutely should therefore be deeply cross-referenced to, or structurally aligned intimately with, the firm's broader remuneration framework. If the given firm loudly claims in its Article 3 policy that sustainability risk scores actively influence crucial investment decisions, the related remuneration structure definitively should absolutely not actively provide perverse incentives that rapidly undermine this entirely (for example, rewarding purely short-term spectacular performance bonuses that aggressively incentivise completely ignoring looming long-term catastrophic sustainability risks).
+            - heading "Practical Compliance Checklist" [level=2] [ref=e308]
+            - paragraph [ref=e309]: "To confidently ensure robust Article 3 compliance, firms absolutely should rigorously constantly verify:"
+            - list [ref=e310]:
+              - listitem [ref=e311]: The formal policy is firmly published directly on the firm's main website in a prominently visible and easily accessible location.
+              - listitem [ref=e312]: The entire policy is carefully written heavily in very plain language easily understandable to the average target audience.
+              - listitem [ref=e313]: The broad policy deeply covers precise identification, rigorous assessment, active integration, and a clear expected financial impact strictly on future returns.
+              - listitem [ref=e314]: The core policy is regularly comprehensively reviewed and carefully actively updated perfectly at least annually, or much sooner if the firm's broader approach abruptly changes.
+              - listitem [ref=e315]: If the rare "not relevant" position is fiercely taken, it is unquestionably clearly reasoned and heavily documented thoroughly.
+              - listitem [ref=e316]: The fully published policy is totally consistent exclusively with the firm's actual deeply daily investment processes (as carefully described directly in internal control procedures).
+              - listitem [ref=e317]: The overall policy perfectly is totally consistent simultaneously with both Article 4 and strict Article 5 obligations.
+            - paragraph [ref=e318]: Absolute consistency clearly between exactly what is proudly disclosed widely externally and strictly what quietly happens daily internally remains absolutely critical. A bold policy that loudly claims heavily robust sustainability risk integration completely but is certainly not actually reflected daily in actual real-world investment processes essentially forms a massive public misrepresentation. This constitutes one critical failure that aggressive supervisors exactly rapidly thoroughly investigate specifically by quietly reviewing internal private investment memos, formal committee internal minutes, and precise historic portfolio construction explicit records.
+            - note "Key takeaways" [ref=e319]:
+              - paragraph [ref=e321]: Key Takeaways
+              - list [ref=e322]:
+                - listitem [ref=e323]:
+                  - generic [ref=e324]: "1"
+                  - generic [ref=e325]: Article 3 requires every in-scope firm to publish a sustainability risk integration policy on its website, regardless of product classification
+                - listitem [ref=e326]:
+                  - generic [ref=e327]: "2"
+                  - generic [ref=e328]: "The policy must cover four pillars: how sustainability risks are identified, assessed, integrated into decisions, and their expected impact on returns"
+                - listitem [ref=e329]:
+                  - generic [ref=e330]: "3"
+                  - generic [ref=e331]: Sustainability risk under SFDR is framed as financial risk management, not ethical commitment - it addresses how ESG events could hurt investment value
+                - listitem [ref=e332]:
+                  - generic [ref=e333]: "4"
+                  - generic [ref=e334]: The 'not relevant' option under Article 3(2) is increasingly difficult to defend under supervisory scrutiny for diversified asset managers
+                - listitem [ref=e335]:
+                  - generic [ref=e336]: "5"
+                  - generic [ref=e337]: Ensure consistency across Articles 3, 4, and 5 - the sustainability risk policy, PAI statement, and remuneration policy must tell one coherent story
+                - listitem [ref=e338]:
+                  - generic [ref=e339]: "6"
+                  - generic [ref=e340]: Supervisors verify compliance by reviewing internal investment memos, committee minutes, and portfolio records against published disclosures
+          - region "Lesson Quiz" [ref=e341]:
+            - generic [ref=e342]:
+              - heading "Knowledge Check" [level=2] [ref=e343]:
+                - generic [ref=e344]: 📝
+                - text: Knowledge Check
+              - button "↺ Reset Quiz" [disabled] [ref=e345]
+            - generic [ref=e346]:
+              - paragraph [ref=e347]:
+                - generic [ref=e348]: "1."
+                - text: What must a sustainability risk integration policy published under Article 3 of SFDR address?
+              - radiogroup "1.What must a sustainability risk integration policy published under Article 3 of SFDR address?" [ref=e349]:
+                - radio "Only the firm's carbon footprint and net-zero commitment" [ref=e350] [cursor=pointer]:
+                  - generic [ref=e351]: Only the firm's carbon footprint and net-zero commitment
+                - radio "How sustainability risks are identified, assessed, integrated into investment decisions, and their likely impact on returns" [ref=e353] [cursor=pointer]:
+                  - generic [ref=e354]: How sustainability risks are identified, assessed, integrated into investment decisions, and their likely impact on returns
+                - radio "The minimum percentage of sustainable investments across all products" [ref=e356] [cursor=pointer]:
+                  - generic [ref=e357]: The minimum percentage of sustainable investments across all products
+                - radio "The firm's compliance with EU Taxonomy technical screening criteria" [ref=e359] [cursor=pointer]:
+                  - generic [ref=e360]: The firm's compliance with EU Taxonomy technical screening criteria
+              - button "Check Answer" [disabled] [ref=e362]
+            - generic [ref=e363]:
+              - paragraph [ref=e364]:
+                - generic [ref=e365]: "2."
+                - text: Where must the Article 3 sustainability risk integration policy be published?
+              - radiogroup "2.Where must the Article 3 sustainability risk integration policy be published?" [ref=e366]:
+                - radio "Filed with the national competent authority" [ref=e367] [cursor=pointer]:
+                  - generic [ref=e368]: Filed with the national competent authority
+                - radio "Included in every fund prospectus" [ref=e370] [cursor=pointer]:
+                  - generic [ref=e371]: Included in every fund prospectus
+                - radio "On the firm's website, in an accessible location" [ref=e373] [cursor=pointer]:
+                  - generic [ref=e374]: On the firm's website, in an accessible location
+                - radio "In the annual report submitted to investors" [ref=e376] [cursor=pointer]:
+                  - generic [ref=e377]: In the annual report submitted to investors
+              - button "Check Answer" [disabled] [ref=e379]
+            - generic [ref=e380]:
+              - paragraph [ref=e381]:
+                - generic [ref=e382]: "3."
+                - text: Under Article 3(2) of SFDR, when can a firm state that sustainability risks are 'not relevant'?
+              - radiogroup "3.Under Article 3(2) of SFDR, when can a firm state that sustainability risks are 'not relevant'?" [ref=e383]:
+                - radio "Never — sustainability risks must always be considered by entities in scope" [ref=e384] [cursor=pointer]:
+                  - generic [ref=e385]: Never — sustainability risks must always be considered by entities in scope
+                - radio "Only for funds with fewer than 10 holdings" [ref=e387] [cursor=pointer]:
+                  - generic [ref=e388]: Only for funds with fewer than 10 holdings
+                - radio "The firm may state this if it provides a clear explanation of why sustainability risks are not considered relevant — but this position is increasingly difficult to substantiate for diversified managers" [ref=e390] [cursor=pointer]:
+                  - generic [ref=e391]: The firm may state this if it provides a clear explanation of why sustainability risks are not considered relevant — but this position is increasingly difficult to substantiate for diversified managers
+                - radio "When the firm has fewer than 250 employees" [ref=e393] [cursor=pointer]:
+                  - generic [ref=e394]: When the firm has fewer than 250 employees
+              - button "Check Answer" [disabled] [ref=e396]
+            - generic [ref=e397]:
+              - paragraph [ref=e398]:
+                - generic [ref=e399]: "4."
+                - text: How does Article 5 (remuneration) relate to Article 3 (sustainability risk policy)?
+              - radiogroup "4.How does Article 5 (remuneration) relate to Article 3 (sustainability risk policy)?" [ref=e400]:
+                - radio "Article 5 requires firms to pay portfolio managers a bonus based on ESG performance" [ref=e401] [cursor=pointer]:
+                  - generic [ref=e402]: Article 5 requires firms to pay portfolio managers a bonus based on ESG performance
+                - radio "Article 5 requires remuneration policies to be consistent with sustainability risk integration — the incentive structure should not undermine the sustainability risk approach described in Article 3" [ref=e404] [cursor=pointer]:
+                  - generic [ref=e405]: Article 5 requires remuneration policies to be consistent with sustainability risk integration — the incentive structure should not undermine the sustainability risk approach described in Article 3
+                - radio "Article 5 is only relevant for firms managing Article 9 products" [ref=e407] [cursor=pointer]:
+                  - generic [ref=e408]: Article 5 is only relevant for firms managing Article 9 products
+                - radio "Article 5 replaces Article 3 for insurance undertakings" [ref=e410] [cursor=pointer]:
+                  - generic [ref=e411]: Article 5 replaces Article 3 for insurance undertakings
+              - button "Check Answer" [disabled] [ref=e413]
+            - generic [ref=e414]:
+              - paragraph [ref=e415]:
+                - generic [ref=e416]: "5."
+                - text: Article 3 of SFDR is described as being about sustainability risks as a form of 'financial risk.' What does this mean?
+              - radiogroup "5.Article 3 of SFDR is described as being about sustainability risks as a form of 'financial risk.' What does this mean?" [ref=e417]:
+                - radio "Sustainability factors must be converted into financial ratios before they can be considered" [ref=e418] [cursor=pointer]:
+                  - generic [ref=e419]: Sustainability factors must be converted into financial ratios before they can be considered
+                - radio "The policy focuses on how ESG events could cause material negative impacts on investment value — not on ethical or societal concerns as such" [ref=e421] [cursor=pointer]:
+                  - generic [ref=e422]: The policy focuses on how ESG events could cause material negative impacts on investment value — not on ethical or societal concerns as such
+                - radio "The policy only needs to address climate-related financial risks" [ref=e424] [cursor=pointer]:
+                  - generic [ref=e425]: The policy only needs to address climate-related financial risks
+                - radio "Firms must provide financial estimates of the cost of each sustainability risk" [ref=e427] [cursor=pointer]:
+                  - generic [ref=e428]: Firms must provide financial estimates of the cost of each sustainability risk
+              - button "Check Answer" [disabled] [ref=e430]
+          - button "✓ Mark Complete & Continue" [ref=e432] [cursor=pointer]
+          - generic [ref=e434]:
+            - link "The SFDR Ecosystem — Regulators and Key Players" [ref=e435] [cursor=pointer]:
+              - /url: /courses/eu-sfdr/0_4
+              - generic [ref=e436]: ←
+              - generic [ref=e437]: The SFDR Ecosystem — Regulators and Key Players
+            - link "Principal Adverse Impacts at Entity Level (Article 4)" [ref=e438] [cursor=pointer]:
+              - /url: /courses/eu-sfdr/1_2
+              - generic [ref=e439]: Principal Adverse Impacts at Entity Level (Article 4)
+              - generic [ref=e440]: →
+  - alert [ref=e441]

@@ -1,0 +1,468 @@
+[    4021ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[    5554ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    5654ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    5656ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    7823ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    8014ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    8015ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   71552ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   73590ms] [LOG] [Fast Refresh] done in 2039ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   73841ms] [LOG] [Fast Refresh] done in 2291ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   85348ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   86227ms] [LOG] [Fast Refresh] done in 879ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   88925ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   89924ms] [LOG] [Fast Refresh] done in 1000ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   96817ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[   97265ms] [LOG] [Fast Refresh] done in 449ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[   98072ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  113185ms] [LOG] [Fast Refresh] done in 15114ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  114162ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  118269ms] [LOG] [Fast Refresh] done in 4107ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  122008ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  122860ms] [LOG] [Fast Refresh] done in 851ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  215085ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  216223ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  217353ms] [LOG] [Fast Refresh] done in 1129ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  229513ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  231447ms] [LOG] [Fast Refresh] done in 1934ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  236134ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  236756ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  238448ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/sign-in?_rsc=gtzwx:0
+[  238744ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/sign-in:0
+[  239482ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  239773ms] Error: Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at getNotFoundError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.js:124:16)
+    at async getModuleBuildError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/webpackModuleError.js:104:27)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:29:49)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:27:21)
+[  239584ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  239586ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  239615ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  239742ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240015ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240039ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240155ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240206ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  240257ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  241899ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/sign-in:0
+[  242847ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  243006ms] Error: Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at getNotFoundError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.js:124:16)
+    at async getModuleBuildError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/webpackModuleError.js:104:27)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:29:49)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:27:21)
+[  242884ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  242887ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  243056ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  243201ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  243317ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  261125ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/sign-in:0
+[  261980ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom.development.js:29889
+[  262027ms] Error: Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at getNotFoundError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.js:124:16)
+    at async getModuleBuildError (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/webpackModuleError.js:104:27)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:29:49)
+    at async (file:///Users/knowprajjwal/LearningPlatform/node_modules/next/dist/build/webpack/plugins/wellknown-errors-plugin/index.js:27:21)
+[  262027ms] [LOG] [HMR] connected @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:38
+[  262030ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  262096ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  262135ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  262273ms] [ERROR] ./src/app/redesign/guides/page.tsx:11:1
+Module not found: Can't resolve './_components/GuidesClient'
+   9 | import { RedesignNav, RedesignFooter } from '@/components/redesign';
+  10 | import { getAllGuides, type GuideMeta } from '@/lib/guides';
+> 11 | import { GuidesClient } from './_components/GuidesClient';
+     | ^
+  12 |
+  13 | export const metadata: Metadata = {
+  14 |   title: 'Guides',
+
+https://nextjs.org/docs/messages/module-not-found @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/hydration-error-info.js:62
+[  266129ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  267838ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:221
+[  269069ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:347
+[  270495ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  273035ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  273036ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  273039ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  276327ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  276383ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  276384ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  296817ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  297938ms] [LOG] [Fast Refresh] done in 1121ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  304912ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  305656ms] [LOG] [Fast Refresh] done in 744ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  309975ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  311132ms] [LOG] [Fast Refresh] done in 1158ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  314854ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  315591ms] [LOG] [Fast Refresh] done in 736ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  318640ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  319341ms] [LOG] [Fast Refresh] done in 700ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  323621ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  325650ms] [LOG] [Fast Refresh] done in 2029ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  331129ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  333627ms] [LOG] [Fast Refresh] done in 2497ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  336244ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  338700ms] [LOG] [Fast Refresh] done in 2457ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  342842ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  343469ms] [LOG] [Fast Refresh] done in 627ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  350748ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  351423ms] [LOG] [Fast Refresh] done in 674ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  372187ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  372849ms] [LOG] [Fast Refresh] done in 664ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  383746ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  385565ms] [LOG] [Fast Refresh] done in 1821ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  413689ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  415326ms] [LOG] [Fast Refresh] done in 1637ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  463997ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  466014ms] [LOG] [Fast Refresh] done in 2017ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  511955ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  514852ms] [LOG] [Fast Refresh] done in 2897ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  558924ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  560660ms] [LOG] [Fast Refresh] done in 1735ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  595501ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  599094ms] [LOG] [Fast Refresh] done in 3592ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  604451ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  608092ms] [LOG] [Fast Refresh] done in 3640ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  625243ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  627782ms] [LOG] [Fast Refresh] done in 2540ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  638198ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  638813ms] [LOG] [Fast Refresh] done in 616ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  654313ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  657514ms] [LOG] [Fast Refresh] done in 3200ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  659622ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  660529ms] [LOG] [Fast Refresh] done in 906ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  660671ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  660907ms] [ERROR] ./src/app/redesign/guides/[guideId]/page.tsx
+Error: 
+  x Expression expected
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:99:1]
+  99 |     .filter((c): c is NonNullable<typeof c> => c !== null);
+ 100 | 
+ 101 |   return (
+ 102 |     <>
+     :      ^
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     `----
+
+  x Expected ',', got '{'
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:102:1]
+ 102 |     <>
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     :       ^
+ 106 |       <AnimatedHero
+ 107 |         title={guide.title}
+ 108 |         description={guide.description}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/redesign/guides/[guideId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  663572ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  664033ms] [ERROR] ./src/app/redesign/guides/[guideId]/page.tsx
+Error: 
+  x Expression expected
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:99:1]
+  99 |     .filter((c): c is NonNullable<typeof c> => c !== null);
+ 100 | 
+ 101 |   return (
+ 102 |     <>
+     :      ^
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     `----
+
+  x Expected ',', got '{'
+     ,-[/Users/knowprajjwal/LearningPlatform/src/app/redesign/guides/[guideId]/page.tsx:102:1]
+ 102 |     <>
+ 103 |       <RedesignNav />
+ 104 | 
+ 105 |       {/* Animated Hero Header */}
+     :       ^
+ 106 |       <AnimatedHero
+ 107 |         title={guide.title}
+ 108 |         description={guide.description}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/redesign/guides/[guideId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  667903ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  671939ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  672217ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5001/redesign/sign-in?_rsc=gtzwx:0
+[  672844ms] [LOG] [Fast Refresh] done in 905ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  675159ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  675625ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  675640ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  675643ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  675978ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  675986ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[  675987ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  682945ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  687092ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  694246ms] [LOG] [Fast Refresh] done in 7154ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  704919ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  721744ms] [LOG] [Fast Refresh] done in 16829ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43

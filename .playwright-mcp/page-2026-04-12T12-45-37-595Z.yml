@@ -1,0 +1,18 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - link "greentryst" [ref=e6] [cursor=pointer]:
+      - /url: /redesign
+      - generic [ref=e7]: greentryst
+    - generic "Rotating taglines" [ref=e8]:
+      - generic [ref=e9]: Learn any framework.
+      - generic [ref=e10]: Find any answer.
+      - generic [ref=e11]: Run any calculation.
+      - generic [ref=e12]: Land your next role.
+    - heading "The professional home for sustainability." [level=1] [ref=e13]:
+      - text: The professional home
+      - text: for sustainability.
+    - paragraph [ref=e14]: Learn new domains, verify answers with sourced citations, execute work with professional tools, and advance your career.
+  - paragraph [ref=e17]:
+    - text: Don't have an account?
+    - link "Sign up" [ref=e18] [cursor=pointer]:
+      - /url: /redesign/sign-up

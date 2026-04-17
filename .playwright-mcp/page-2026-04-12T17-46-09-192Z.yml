@@ -1,0 +1,199 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to content" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Green Tryst - Sustainability Academy" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: Green Tryst - Sustainability Academy
+        - generic [ref=e9]:
+          - button "Search lessons (Cmd+K)" [ref=e10] [cursor=pointer]:
+            - img [ref=e11]
+            - generic [ref=e13]: Search
+            - generic [ref=e14]:
+              - generic [ref=e15]: ⌘
+              - text: K
+          - link "Jobs" [ref=e16] [cursor=pointer]:
+            - /url: /jobs
+    - main [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e22]: Updated Regularly
+          - heading "Sustainability Opportunities." [level=1] [ref=e23]
+          - paragraph [ref=e24]: Your curated portal for high-impact roles in climate, carbon markets, ESG, and green finance.
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e28]: 487+
+            - generic [ref=e29]: Active Jobs
+          - generic [ref=e30]:
+            - generic [ref=e32]: 361+
+            - generic [ref=e33]: Companies
+          - generic [ref=e34]:
+            - generic [ref=e36]: 58+
+            - generic [ref=e37]: Remote
+      - generic [ref=e40]:
+        - button "All Roles" [ref=e41]
+        - button "Climate Risk" [ref=e42]
+        - button "General Esg" [ref=e43]
+        - button "Sustainable Finance" [ref=e44]
+        - button "Clean Energy" [ref=e45]
+        - button "EU Taxonomy / SFDR" [ref=e46]
+        - button "Carbon Markets" [ref=e47]
+      - table [ref=e50]:
+        - rowgroup [ref=e51]:
+          - row "Position & Company Location Category Posted Action" [ref=e52]:
+            - columnheader "Position & Company" [ref=e53]
+            - columnheader "Location" [ref=e54]
+            - columnheader "Category" [ref=e55]
+            - columnheader "Posted" [ref=e56]
+            - columnheader "Action" [ref=e57]
+        - rowgroup [ref=e58]:
+          - row "Managing Consultant - Climate Risk & Disclosure South Pole Darlinghurst, New South Wales, Australia Climate Risk Apply" [ref=e59] [cursor=pointer]:
+            - cell "Managing Consultant - Climate Risk & Disclosure South Pole" [ref=e60]:
+              - generic [ref=e61]:
+                - img [ref=e62]
+                - generic [ref=e64]:
+                  - paragraph [ref=e65]: Managing Consultant - Climate Risk & Disclosure
+                  - paragraph [ref=e66]: South Pole
+            - cell "Darlinghurst, New South Wales, Australia" [ref=e67]:
+              - generic [ref=e68]:
+                - img [ref=e69]
+                - generic [ref=e72]: Darlinghurst, New South Wales, Australia
+            - cell "Climate Risk" [ref=e73]:
+              - generic [ref=e74]: Climate Risk
+            - cell [ref=e75]
+            - cell "Apply" [ref=e76]:
+              - link "Apply" [ref=e77]:
+                - /url: https://www.linkedin.com/jobs/view/4358419492
+                - text: Apply
+                - img [ref=e78]
+          - row "Director, Physical Risk Howden London Area, United Kingdom Climate Risk 3 days ago Apply" [ref=e80] [cursor=pointer]:
+            - cell "Director, Physical Risk Howden" [ref=e81]:
+              - generic [ref=e82]:
+                - img [ref=e83]
+                - generic [ref=e85]:
+                  - paragraph [ref=e86]: Director, Physical Risk
+                  - paragraph [ref=e87]: Howden
+            - cell "London Area, United Kingdom" [ref=e88]:
+              - generic [ref=e89]:
+                - img [ref=e90]
+                - generic [ref=e93]: London Area, United Kingdom
+            - cell "Climate Risk" [ref=e94]:
+              - generic [ref=e95]: Climate Risk
+            - cell "3 days ago" [ref=e96]
+            - cell "Apply" [ref=e97]:
+              - link "Apply" [ref=e98]:
+                - /url: https://www.linkedin.com/jobs/view/4397228456
+                - text: Apply
+                - img [ref=e99]
+          - row "ESG-Assistant Manager/Manager Pierag Consulting Gurgaon, Haryana, India General Esg 5 weeks ago Apply" [ref=e101] [cursor=pointer]:
+            - cell "ESG-Assistant Manager/Manager Pierag Consulting" [ref=e102]:
+              - generic [ref=e103]:
+                - img [ref=e104]
+                - generic [ref=e106]:
+                  - paragraph [ref=e107]: ESG-Assistant Manager/Manager
+                  - paragraph [ref=e108]: Pierag Consulting
+            - cell "Gurgaon, Haryana, India" [ref=e109]:
+              - generic [ref=e110]:
+                - img [ref=e111]
+                - generic [ref=e114]: Gurgaon, Haryana, India
+            - cell "General Esg" [ref=e115]:
+              - generic [ref=e116]: General Esg
+            - cell "5 weeks ago" [ref=e117]
+            - cell "Apply" [ref=e118]:
+              - link "Apply" [ref=e119]:
+                - /url: https://www.linkedin.com/jobs/view/4387964175
+                - text: Apply
+                - img [ref=e120]
+          - row "Manager ( Risk Specialist - Climate Risk ) State Bank of India (SBI) Mumbai Climate Risk 5 weeks ago Apply" [ref=e122] [cursor=pointer]:
+            - cell "Manager ( Risk Specialist - Climate Risk ) State Bank of India (SBI)" [ref=e123]:
+              - generic [ref=e124]:
+                - img [ref=e125]
+                - generic [ref=e127]:
+                  - paragraph [ref=e128]: Manager ( Risk Specialist - Climate Risk )
+                  - paragraph [ref=e129]: State Bank of India (SBI)
+            - cell "Mumbai" [ref=e130]:
+              - generic [ref=e131]:
+                - img [ref=e132]
+                - generic [ref=e135]: Mumbai
+            - cell "Climate Risk" [ref=e136]:
+              - generic [ref=e137]: Climate Risk
+            - cell "5 weeks ago" [ref=e138]
+            - cell "Apply" [ref=e139]:
+              - link "Apply" [ref=e140]:
+                - /url: https://www.naukri.com/job-listings-manager-risk-specialist-climate-risk-state-bank-of-india-mumbai-3-to-8-years-250226913356
+                - text: Apply
+                - img [ref=e141]
+          - row "Senior Consultant - Sustainability Consulting Crisil Mumbai, Gurugram, Bengaluru Climate Risk 5 weeks ago Apply" [ref=e143] [cursor=pointer]:
+            - cell "Senior Consultant - Sustainability Consulting Crisil" [ref=e144]:
+              - generic [ref=e145]:
+                - img [ref=e146]
+                - generic [ref=e148]:
+                  - paragraph [ref=e149]: Senior Consultant - Sustainability Consulting
+                  - paragraph [ref=e150]: Crisil
+            - cell "Mumbai, Gurugram, Bengaluru" [ref=e151]:
+              - generic [ref=e152]:
+                - img [ref=e153]
+                - generic [ref=e156]: Mumbai, Gurugram, Bengaluru
+            - cell "Climate Risk" [ref=e157]:
+              - generic [ref=e158]: Climate Risk
+            - cell "5 weeks ago" [ref=e159]
+            - cell "Apply" [ref=e160]:
+              - link "Apply" [ref=e161]:
+                - /url: https://www.naukri.com/job-listings-senior-consultant-sustainability-consulting-crisil-limited-mumbai-gurugram-bengaluru-3-to-7-years-180226019201
+                - text: Apply
+                - img [ref=e162]
+      - generic [ref=e165]:
+        - img [ref=e167]
+        - generic [ref=e169]:
+          - heading "Sign up to see all 487+ jobs" [level=3] [ref=e170]
+          - paragraph [ref=e171]: Create a free account to unlock the full directory with filters, search, and detailed role breakdowns. Get notified over email whenever new jobs are added.
+        - generic [ref=e172]:
+          - link "Create Free Account" [ref=e173] [cursor=pointer]:
+            - /url: /sign-up
+          - link "Sign In" [ref=e174] [cursor=pointer]:
+            - /url: /sign-in
+      - generic [ref=e175]:
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - img [ref=e178]
+            - heading "Start Learning" [level=3] [ref=e180]
+          - paragraph [ref=e181]: Build the skills employers are looking for. Our courses cover the frameworks, standards, and domain knowledge mentioned in these job listings.
+          - generic [ref=e182]:
+            - link "Climate Science 101" [ref=e183] [cursor=pointer]:
+              - /url: /courses/climate-science-101
+            - link "IFRS S2 Climate Disclosures" [ref=e184] [cursor=pointer]:
+              - /url: /courses/ifrs-s2
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - img [ref=e187]
+            - heading "In-Demand Skills" [level=3] [ref=e189]
+          - generic [ref=e190]:
+            - generic [ref=e193]: Climate Risk Assessment
+            - generic [ref=e196]: ESG Reporting (GRI, SASB)
+            - generic [ref=e199]: Carbon Accounting
+            - generic [ref=e202]: EU Taxonomy Alignment
+          - link "Browse all courses →" [ref=e203] [cursor=pointer]:
+            - /url: /
+    - contentinfo [ref=e204]:
+      - generic [ref=e206]:
+        - generic [ref=e207]:
+          - generic [ref=e210]: Green Tryst - Sustainability Academy
+          - paragraph [ref=e211]: Open-source sustainability education
+        - generic [ref=e212]:
+          - generic [ref=e213]: Climate
+          - generic [ref=e214]: Carbon Markets
+          - generic [ref=e215]: ESG
+          - generic [ref=e216]: Green Finance
+          - link "Jobs" [ref=e217] [cursor=pointer]:
+            - /url: /jobs
+          - link "Glossary" [ref=e218] [cursor=pointer]:
+            - /url: /glossary
+          - link "Guides" [ref=e219] [cursor=pointer]:
+            - /url: /guides
+          - link "Feedback" [ref=e220] [cursor=pointer]:
+            - /url: /feedback
+          - link "Disclaimer" [ref=e221] [cursor=pointer]:
+            - /url: /disclaimer
+  - alert [ref=e222]

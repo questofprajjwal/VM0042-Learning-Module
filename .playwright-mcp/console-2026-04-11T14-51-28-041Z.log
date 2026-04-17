@@ -1,0 +1,848 @@
+[     238ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[    1292ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    1295ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    1298ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[    2316ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    2318ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[    2319ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   41556ms] [ERROR] Warning: Invalid DOM property `%s`. Did you mean `%s`?%s class className 
+    at h2
+    at MDXContent (Server)
+    at MDXRemote (Server)
+    at article
+    at div
+    at LessonClient (webpack-internal:///(app-pages-browser)/./src/app/courses/[courseId]/[lessonId]/_components/LessonClient.tsx:42:11)
+    at LessonPage (Server)
+    at LessonPage (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at main
+    at div
+    at div
+    at CourseShell (webpack-internal:///(app-pages-browser)/./src/app/courses/[courseId]/_components/CourseShell.tsx:22:11)
+    at CourseLayout (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at __experimental_CheckoutProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:136:44)
+    at SWRConfig (webpack-internal:///(app-pages-browser)/./node_modules/swr/dist/_internal/config-context-client-BoS53ST9.mjs:554:13)
+    at SWRConfigCompat (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:124:28)
+    at OrganizationProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:148:33)
+    at ClerkContextProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1849:11)
+    at ClerkProviderBase (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1941:11)
+    at Hoc (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/chunk-THNCS7QR.mjs:84:5)
+    at ClerkNextOptionsProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/client-boundary/NextOptionsContext.js:17:11)
+    at NextClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:62:13)
+    at ClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:135:13)
+    at ClerkProvider (Server)
+    at body
+    at html
+    at RootLayout (Server)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at DevRootNotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/dev-root-not-found-boundary.js:33:11)
+    at ReactDevOverlay (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/ReactDevOverlay.js:87:9)
+    at HotReload (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:321:11)
+    at Router (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:207:11)
+    at ErrorBoundaryHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:113:9)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at AppRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:585:13)
+    at ServerRoot (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:112:27)
+    at Root (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:117:11) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[   41560ms] [ERROR] Warning: In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <tr> table  Add a <tbody>, <thead> or <tfoot> to your code to match the DOM tree generated by the browser. 
+    at tr
+    at table
+    at div
+    at div
+    at div
+    at ResponsiveTable (webpack-internal:///(app-pages-browser)/./src/components/content/ResponsiveTable.tsx:12:11)
+    at MDXContent (Server)
+    at MDXRemote (Server)
+    at article
+    at div
+    at LessonClient (webpack-internal:///(app-pages-browser)/./src/app/courses/[courseId]/[lessonId]/_components/LessonClient.tsx:42:11)
+    at LessonPage (Server)
+    at LessonPage (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at main
+    at div
+    at div
+    at CourseShell (webpack-internal:///(app-pages-browser)/./src/app/courses/[courseId]/_components/CourseShell.tsx:22:11)
+    at CourseLayout (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at __experimental_CheckoutProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:136:44)
+    at SWRConfig (webpack-internal:///(app-pages-browser)/./node_modules/swr/dist/_internal/config-context-client-BoS53ST9.mjs:554:13)
+    at SWRConfigCompat (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:124:28)
+    at OrganizationProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:148:33)
+    at ClerkContextProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1849:11)
+    at ClerkProviderBase (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1941:11)
+    at Hoc (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/chunk-THNCS7QR.mjs:84:5)
+    at ClerkNextOptionsProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/client-boundary/NextOptionsContext.js:17:11)
+    at NextClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:62:13)
+    at ClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:135:13)
+    at ClerkProvider (Server)
+    at body
+    at html
+    at RootLayout (Server)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at DevRootNotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/dev-root-not-found-boundary.js:33:11)
+    at ReactDevOverlay (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/ReactDevOverlay.js:87:9)
+    at HotReload (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:321:11)
+    at Router (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:207:11)
+    at ErrorBoundaryHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:113:9)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at AppRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:585:13)
+    at ServerRoot (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:112:27)
+    at Root (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:117:11) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  113594ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  114449ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  114723ms] [LOG] [Fast Refresh] done in 274ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  115212ms] [LOG] [Fast Refresh] done in 763ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  929354ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  933468ms] [LOG] [Fast Refresh] done in 4117ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  953433ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  955114ms] [LOG] [Fast Refresh] done in 1681ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1124703ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1125942ms] [LOG] [Fast Refresh] done in 1239ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1243082ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1244643ms] [LOG] [Fast Refresh] done in 1563ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1314258ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1315330ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 1315623ms] [LOG] [Fast Refresh] done in 292ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 1316021ms] [LOG] [Fast Refresh] done in 690ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 2040102ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 2041179ms] [LOG] [Fast Refresh] done in 1078ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 2760175ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 2761484ms] [LOG] [Fast Refresh] done in 1309ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 2830435ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 2831414ms] [LOG] [Fast Refresh] done in 979ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 2988222ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 2989223ms] [LOG] [Fast Refresh] done in 1002ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 3288186ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 3289277ms] [LOG] [Fast Refresh] done in 1093ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 3384237ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 3385193ms] [LOG] [Fast Refresh] done in 957ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 3438996ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 3439944ms] [LOG] [Fast Refresh] done in 949ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 3493889ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 3496588ms] [LOG] [Fast Refresh] done in 2699ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 3658546ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 3659637ms] [LOG] [Fast Refresh] done in 1091ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4021980ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4023243ms] [LOG] [Fast Refresh] done in 1266ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4043840ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4045242ms] [LOG] [Fast Refresh] done in 1401ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4077898ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4079169ms] [LOG] [Fast Refresh] done in 1271ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4079598ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079602ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079603ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079608ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079611ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079611ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079612ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079613ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079617ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079619ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079620ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079620ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079620ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079620ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079621ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079622ms] Error: COURSE_BG_IMAGES is not defined
+    at CourseDetailHero (webpack-internal:///(rsc)/./src/components/redesign/CourseDetailHero.tsx:50:33)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264164)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274748)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at ej (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264992)
+    at e_ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:264034)
+    at e (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268296)
+    at eF (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:268784)
+    at /Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266015
+    at Array.toJSON (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:266479)
+    at stringify (<anonymous>)
+    at eq (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:274847)
+    at eJ (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:275365)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/knowprajjwal/LearningPlatform/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:283454)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+[ 4079600ms] [ERROR] The above error occurred in the <NotFoundErrorBoundary> component:
+
+    at main
+    at div
+    at CourseDetailPage (Server)
+    at CourseDetailPage (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at div
+    at RedesignLayout (Server)
+    at InnerLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:243:11)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:349:11)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at OuterLayoutRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js:370:11)
+    at __experimental_CheckoutProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:136:44)
+    at SWRConfig (webpack-internal:///(app-pages-browser)/./node_modules/swr/dist/_internal/config-context-client-BoS53ST9.mjs:554:13)
+    at SWRConfigCompat (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:124:28)
+    at OrganizationProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/shared/dist/runtime/react/index.mjs:148:33)
+    at ClerkContextProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1849:11)
+    at ClerkProviderBase (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1941:11)
+    at Hoc (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/chunk-THNCS7QR.mjs:84:5)
+    at ClerkNextOptionsProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/client-boundary/NextOptionsContext.js:17:11)
+    at NextClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:62:13)
+    at ClientClerkProvider (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/nextjs/dist/esm/app-router/client/ClerkProvider.js:135:13)
+    at ClerkProvider (Server)
+    at body
+    at html
+    at RootLayout (Server)
+    at RedirectErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:74:9)
+    at RedirectBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/redirect-boundary.js:82:11)
+    at NotFoundErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at DevRootNotFoundBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/dev-root-not-found-boundary.js:33:11)
+    at ReactDevOverlay (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/ReactDevOverlay.js:87:9)
+    at HotReload (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:321:11)
+    at Router (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:207:11)
+    at ErrorBoundaryHandler (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:113:9)
+    at ErrorBoundary (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/error-boundary.js:160:11)
+    at AppRouter (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js:585:13)
+    at ServerRoot (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:112:27)
+    at Root (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:117:11)
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ReactDevOverlay. @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 4082723ms] [WARNING] The resource http://localhost:5001/_next/static/css/app/redesign/layout.css?v=1775923167318 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:5001/redesign/courses/eu-cbam:0
+[ 4082723ms] [WARNING] The resource http://localhost:5001/_next/static/css/app/layout.css?v=1775923167318 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:5001/redesign/courses/eu-cbam:0
+[ 4112719ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4114266ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:114
+[ 4115653ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[ 4116216ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[ 4116265ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[ 4116269ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 4116899ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/environment?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[ 4117055ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://clerk.greentryst.com/v1/client?__clerk_api_version=2025-11-10&_clerk_js_version=5.125.7:0
+[ 4117055ms] [ERROR] e: Clerk: Production Keys are only allowed for domain "greentryst.com". 
+API Error: The Request HTTP Origin header must be equal to or a subdomain of the requesting URL.
+    at https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:7182
+    at u._baseFetch (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:38)
+    at async d.execute (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:2:5226)
+    at async s._baseGet (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:3:567)
+    at async Promise.all (index 1)
+    at async #U (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:73541)
+    at async e5.load (https://clerk.greentryst.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js:5:34322)
+    at async _IsomorphicClerk.loadClerkJS (webpack-internal:///(app-pages-browser)/./node_modules/@clerk/clerk-react/dist/index.mjs:1746:9) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 4210594ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4211689ms] [LOG] [Fast Refresh] done in 1096ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4270263ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4271059ms] [LOG] [Fast Refresh] done in 799ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4298887ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4299728ms] [LOG] [Fast Refresh] done in 841ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4352188ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4353054ms] [LOG] [Fast Refresh] done in 866ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4354805ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4356155ms] [LOG] [Fast Refresh] done in 1350ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4571244ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4573495ms] [LOG] [Fast Refresh] done in 2255ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4599435ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4600498ms] [LOG] [Fast Refresh] done in 1064ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4633181ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4633913ms] [LOG] [Fast Refresh] done in 731ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4894321ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4896211ms] [LOG] [Fast Refresh] done in 1892ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4938867ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4939626ms] [LOG] [Fast Refresh] done in 758ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 4960716ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 4961462ms] [LOG] [Fast Refresh] done in 746ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 5096285ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 5097513ms] [LOG] [Fast Refresh] done in 1225ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 5302171ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 5302942ms] [LOG] [Fast Refresh] done in 772ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 6089319ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 6090506ms] [LOG] [Fast Refresh] done in 1187ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 6132844ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 6134379ms] [LOG] [Fast Refresh] done in 1536ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 6351214ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 6354103ms] [LOG] [Fast Refresh] done in 2889ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 6381006ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 6381945ms] [LOG] [Fast Refresh] done in 940ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 6436359ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 6437278ms] [LOG] [Fast Refresh] done in 920ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 6533648ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 6534871ms] [LOG] [Fast Refresh] done in 1223ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 6535295ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 6538611ms] [LOG] [Fast Refresh] done in 3317ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 7069165ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 7070324ms] [LOG] [Fast Refresh] done in 1163ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 7074798ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 7078989ms] [LOG] [Fast Refresh] done in 4191ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 7687008ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 7689549ms] [LOG] [Fast Refresh] done in 2543ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 7716260ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 7717399ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 7719096ms] [LOG] [Fast Refresh] done in 1697ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 7723027ms] [LOG] [Fast Refresh] done in 5628ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 7772395ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 7774176ms] [LOG] [Fast Refresh] done in 1782ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 7962279ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 7963602ms] [LOG] [Fast Refresh] done in 1323ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 8745103ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 8746780ms] [LOG] [Fast Refresh] done in 1678ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 8788125ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 8789032ms] [LOG] [Fast Refresh] done in 908ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 8828119ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 8828963ms] [LOG] [Fast Refresh] done in 845ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 9052810ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 9054143ms] [LOG] [Fast Refresh] done in 1333ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 9242366ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 9243696ms] [LOG] [Fast Refresh] done in 1329ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 9272163ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 9273025ms] [LOG] [Fast Refresh] done in 862ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 9300642ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 9301608ms] [LOG] [Fast Refresh] done in 966ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 9330842ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 9331690ms] [LOG] [Fast Refresh] done in 849ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 9452992ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 9454347ms] [LOG] [Fast Refresh] done in 1355ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[ 9487641ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[ 9488670ms] [LOG] [Fast Refresh] done in 1029ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43

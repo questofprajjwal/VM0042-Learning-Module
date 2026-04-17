@@ -43,3 +43,34 @@ scripts/.audio-generation-log.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env.sentry-build-plugin
+
+# Emission factor raw vendor source files (keep folder structure via .gitkeep)
+data/ef-sources/**/*.csv
+data/ef-sources/**/*.xlsx
+data/ef-sources/**/*.xls
+data/ef-sources/**/*.json
+data/ef-sources/**/*.pdf
+!data/ef-sources/**/.gitkeep
+!data/ef-sources/**/README.md
+
+# Playwright MCP session logs (runtime artifacts)
+.playwright-mcp/
+
+# Raw emission factor vendor database (145MB, local-only working copy)
+EFDatabase/
+
+# Generated at build time by scripts/embed-jobs.ts; regenerated on every
+# Vercel deploy. Large (~3MB) + volatile (changes whenever jobs.xlsx changes).
+/public/jobs-embeddings.json
+
+# Ingestion-pipeline artifacts for SustainIQ. Vectors (embeddings*.json,
+# section-embeddings.json) already live on the private R2 bucket
+# greentryst-indexes and are downloaded by the HF ASK Space at boot.
+# Per-course subfolders and *-index.json files are regenerable locally.
+# The one exception is catalog.json — read at runtime by Vercel's
+# /api/pdfs/resolve to turn citation titles into PDF URLs — so it stays.
+data/page-indexes/
+data/page-indexes-docling-test/*
+!data/page-indexes-docling-test/catalog.json
+data/page-indexes-docling-backup/

@@ -3,3 +3,4 @@ Allow: /
 Disallow: /jobs
 
 Sitemap: https://greentryst.com/sitemap.xml
+Sitemap: https://greentryst.com/sitemap-emission-factors.xml

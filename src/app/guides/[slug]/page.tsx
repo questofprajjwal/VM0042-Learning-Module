@@ -1,171 +1,191 @@
-import { getGuide, getGuideContent, getGuideStaticParams } from '@/lib/guides';
-import { getCourse } from '@/lib/courses';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
-import { getMDXComponents } from '@/components/content/mdx-components';
-import PlatformNav from '@/components/platform/PlatformNav';
-import Footer from '@/components/platform/Footer';
-import GuideCourseCards from '@/components/platform/GuideCourseCards';
+/**
+ * /guides/[slug] - Individual Guide Page
+ *
+ * Renders MDX guide content with Greentryst design system.
+ * Features animated hero, floating icons, and reading aid sidebar.
+ */
+
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { ArrowLeft, ArrowRight, BookOpen } from 'lucide-react';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import { Nav } from '@/components/Nav';
+import { RedesignFooter } from '@/components/redesign';
+import { getGuide, getGuideContent, getGuideStaticParams } from '@/lib/guides';
+import { getCourse } from '@/lib/courses';
+import { getMDXComponents } from '@/components/content/mdx-components';
+import { AnimatedHero } from './_components/AnimatedHero';
+import { TableOfContents } from './_components/TableOfContents';
 
-const siteUrl = 'https://greentryst.com';
+// Extract headings from MDX content for TOC
+// Must match rehype-slug's algorithm (github-slugger style)
+function extractHeadings(content: string): { id: string; text: string; level: number }[] {
+  const headingRegex = /^(#{2,4})\s+(.+)$/gm;
+  const headings: { id: string; text: string; level: number }[] = [];
+  let match;
+
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length;
+    const text = match[2].trim();
+    // Generate slug matching rehype-slug (github-slugger algorithm)
+    const id = text
+      .toLowerCase()
+      .replace(/<[^>]*>/g, '') // Remove HTML tags
+      .replace(/[^\w\s-]/g, '') // Remove special chars except spaces and hyphens
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Collapse multiple hyphens
+      .replace(/^-|-$/g, ''); // Trim leading/trailing hyphens
+    headings.push({ id, text, level });
+  }
+
+  return headings;
+}
 
 export const dynamicParams = false;
 
-interface Props {
-  params: { slug: string };
+export function generateStaticParams() {
+  return getGuideStaticParams().map(({ slug }) => ({ slug: slug }));
 }
 
-export async function generateStaticParams() {
-  return getGuideStaticParams();
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const guide = getGuide(params.slug);
-  if (!guide) return { title: 'Guide Not Found' };
-
-  const pageUrl = `${siteUrl}/guides/${params.slug}`;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = getGuide(slug);
+  if (!guide) {
+    return { title: 'Guide Not Found' };
+  }
   return {
-    title: `${guide.title} - Green Tryst`,
+    title: guide.title,
     description: guide.description,
-    openGraph: {
-      title: guide.title,
-      description: guide.description,
-      url: pageUrl,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary',
-      title: guide.title,
-      description: guide.description,
-    },
-    alternates: {
-      canonical: pageUrl,
-    },
   };
 }
 
-export default function GuidePage({ params }: Props) {
-  const guide = getGuide(params.slug);
-  if (!guide) return null;
+export default async function GuidePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const guide = getGuide(slug);
 
-  const mdxContent = getGuideContent(params.slug);
-  const pageUrl = `${siteUrl}/guides/${params.slug}`;
+  if (!guide) {
+    return (
+      <>
+        <Nav />
+        <main className="min-h-[60vh] bg-[#fafbfa] pt-24 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-[24px] font-bold text-gt-text mb-4">Guide not found</h1>
+            <Link href="/guides" className="text-gt-medium hover:text-gt-dark">
+              Back to all guides
+            </Link>
+          </div>
+        </main>
+        <RedesignFooter />
+      </>
+    );
+  }
+
+  const mdxContent = getGuideContent(slug);
+  const headings = extractHeadings(mdxContent);
 
   // Load course data for bottom cards
   const courses = guide.courses
-    .map(id => { try { return getCourse(id); } catch { return null; } })
+    .map((id) => {
+      try {
+        return getCourse(id);
+      } catch {
+        return null;
+      }
+    })
     .filter((c): c is NonNullable<typeof c> => c !== null);
-
-  // JSON-LD: Article
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: guide.title,
-    description: guide.description,
-    url: pageUrl,
-    dateModified: guide.lastUpdated || undefined,
-    isAccessibleForFree: true,
-    inLanguage: 'en',
-    author: {
-      '@type': 'Organization',
-      name: 'Green Tryst - Sustainability Academy',
-      url: siteUrl,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Green Tryst - Sustainability Academy',
-      url: siteUrl,
-    },
-  };
-
-  // JSON-LD: BreadcrumbList
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: `${siteUrl}/guides` },
-      { '@type': 'ListItem', position: 3, name: guide.title, item: pageUrl },
-    ],
-  };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      <Nav />
+
+      {/* Animated Hero Header */}
+      <AnimatedHero
+        title={guide.title}
+        description={guide.description}
+        readingMinutes={guide.readingMinutes}
+        lastUpdated={guide.lastUpdated}
+        coursesCount={courses.length}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <PlatformNav />
 
-      {/* Hero section with background */}
-      <div className="bg-gradient-to-b from-emerald-50/60 to-white border-b border-emerald-100/50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-10">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-5" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-gray-600 transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/guides" className="hover:text-gray-600 transition-colors">Guides</Link>
-            <span>/</span>
-            <span className="text-gray-600 truncate">{guide.title}</span>
-          </nav>
+      {/* Content with TOC Sidebar */}
+      <main className="bg-[#fafbfa] py-12">
+        <div className="max-w-[1200px] mx-auto px-8">
+          <div className="flex gap-8">
+            {/* Main Content */}
+            <div className="flex-1 max-w-[900px]">
+              <div className="bg-white rounded-2xl border border-[#e5e7e5] p-8 md:p-12 shadow-sm">
+                {/* MDX Content */}
+                <article className="guide-content lesson-content prose prose-gt max-w-none">
+                  <MDXRemote
+                    source={mdxContent}
+                    components={getMDXComponents()}
+                    options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } }}
+                  />
+                </article>
+              </div>
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-medium mb-4">
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-            Practitioner Guide
-          </div>
+              {/* Related Courses */}
+              {courses.length > 0 && (
+                <div className="mt-10">
+                  <h2 className="text-[20px] font-bold text-gt-text mb-6">
+                    Go deeper with these courses
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {courses.map((course) => (
+                      <Link
+                        key={course.id}
+                        href={`/courses/${course.id}`}
+                        className="flex items-start gap-4 p-5 bg-white rounded-xl border border-[#e5e7e5] hover:border-gt-medium/50 hover:shadow-sm transition-all group"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-gt-medium/10 flex items-center justify-center flex-shrink-0">
+                          <BookOpen className="w-6 h-6 text-gt-medium" strokeWidth={1.5} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-[15px] font-bold text-gt-text group-hover:text-gt-medium transition-colors">
+                            {course.title}
+                          </h3>
+                          <p className="text-[13px] text-gt-text-muted line-clamp-2 mt-1">
+                            {course.subtitle}
+                          </p>
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-gt-text-muted group-hover:text-gt-medium flex-shrink-0 mt-1" strokeWidth={2} />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-3">
-            {guide.title}
-          </h1>
-          <p className="text-lg text-gray-500 leading-relaxed mb-5 max-w-2xl">
-            {guide.description}
-          </p>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
-            <span className="flex items-center gap-1.5">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              {guide.readingMinutes} min read
-            </span>
-            {guide.lastUpdated && (
-              <>
-                <span className="text-gray-300">|</span>
-                <span>Updated {guide.lastUpdated}</span>
-              </>
-            )}
-            {courses.length > 0 && (
-              <>
-                <span className="text-gray-300">|</span>
-                <span>{courses.length} related courses</span>
-              </>
-            )}
+              {/* Back to Guides */}
+              <div className="mt-10 pt-8 border-t border-[#e5e7e5]">
+                <Link
+                  href="/guides"
+                  className="inline-flex items-center gap-2 text-[13px] font-semibold text-gt-medium hover:text-gt-dark"
+                >
+                  <ArrowLeft className="w-4 h-4" strokeWidth={2} />
+                  Back to all guides
+                </Link>
+              </div>
+            </div>
+
+            {/* Table of Contents Sidebar - Hidden on mobile, aligned with content */}
+            <div className="hidden lg:block w-[260px] flex-shrink-0 pt-8 md:pt-12">
+              <TableOfContents headings={headings} />
+            </div>
           </div>
         </div>
-      </div>
-
-      <main className="flex-1 max-w-3xl mx-auto px-4 sm:px-6 py-10">
-        {/* MDX Content */}
-        <article className="guide-content lesson-content">
-          <MDXRemote
-            source={mdxContent}
-            components={getMDXComponents()}
-            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-          />
-        </article>
-
-        {/* Bottom course cards */}
-        <GuideCourseCards courses={courses} />
       </main>
-      <Footer />
+
+      <RedesignFooter />
     </>
   );
 }

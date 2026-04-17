@@ -1,222 +1,325 @@
-import { getCourse, getQuiz, getLessonNavContext, getLessonStaticParams, getModuleForLesson } from '@/lib/courses';
-import { urlToLessonId, lessonIdToUrl } from '@/lib/url-helpers';
+/**
+ * /redesign/courses/[courseId]/[lessonId] - Lesson page
+ *
+ * Server route that loads a lesson's MDX content and renders it
+ * through the redesigned component map. Layout:
+ *
+ *   1. Persistent CourseDetailSidebar on the left (desktop only)
+ *   2. Dark forest LessonDetailHero with image background, breadcrumb,
+ *      module/lesson position, reading time, lesson title
+ *   3. (Conditional) Floating LessonGlassAudio that straddles the
+ *      bottom edge of the dark hero. Triggered when the lesson MDX
+ *      starts with an <AudioPlayer ... /> tag.
+ *   4. Article reading column with the redesigned MDX components
+ *   5. Bottom prev/next lesson nav
+ *   6. Closing CTA + footer
+ *
+ * Audio detection: the page regex-matches a leading <AudioPlayer ... />
+ * tag in the MDX, extracts the `src` and `title`, strips it from the
+ * MDX so it does not render twice, and renders it in the floating
+ * glass position. Any AudioPlayer that appears mid-content (not at
+ * the top) renders inline through the redesigned MDX component map.
+ */
+
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
-import { getMDXComponents } from '@/components/content/mdx-components';
-import { stripMdx } from '@/lib/reading-time';
-import LessonClient from './_components/LessonClient';
-import type { Metadata } from 'next';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Nav } from '@/components/Nav';
+import LessonMeter from '@/components/platform/LessonMeter';
+import {
+  RedesignFooter,
+  CourseDetailSidebar,
+  LessonDetailHero,
+  ClosingCTA,
+} from '@/components/redesign';
+import { LessonGlassAudio } from '@/components/redesign/lesson/LessonGlassAudio';
+import { QuizRedesign } from '@/components/redesign/lesson/QuizRedesign';
+import { getRedesignMDXComponents } from '@/components/redesign/lesson/mdx-components-redesign';
+import {
+  getCourse,
+  getLessonNavContext,
+  getLessonStaticParams,
+  getQuiz,
+} from '@/lib/courses';
+import { urlToLessonId, lessonIdToUrl } from '@/lib/url-helpers';
 
-const siteUrl = 'https://greentryst.com';
-
-interface Props {
+interface PageParams {
   params: { courseId: string; lessonId: string };
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return getLessonStaticParams();
 }
 
-/** Extract the first ~155 characters of plain text from MDX content for meta description. */
-function getLessonSnippet(courseId: string, lessonId: string): string {
-  const contentPath = join(process.cwd(), 'src', 'content', courseId, 'lessons', `${lessonId}.mdx`);
-  if (!existsSync(contentPath)) return '';
-  const raw = readFileSync(contentPath, 'utf-8');
-  const plain = stripMdx(raw);
-  if (plain.length <= 155) return plain;
-  return plain.slice(0, 152).replace(/\s+\S*$/, '') + '...';
+export function generateMetadata({ params }: PageParams): Metadata {
+  try {
+    const course = getCourse(params.courseId);
+    const lessonId = urlToLessonId(params.lessonId);
+    const lesson = course.modules
+      .flatMap((m) => m.lessons)
+      .find((l) => l.id === lessonId);
+    return {
+      title: `${lesson?.title ?? lessonId} - ${course.title}`,
+    };
+  } catch {
+    return { title: 'Lesson' };
+  }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const course = getCourse(params.courseId);
-  const lessonId = urlToLessonId(params.lessonId);
-  const navCtx = getLessonNavContext(course, lessonId);
-  const lesson = course.modules.flatMap(m => m.lessons).find(l => l.id === lessonId);
-  const title = lesson?.title ?? lessonId;
+/**
+ * Detect a leading <AudioPlayer ... /> tag in the MDX source.
+ * Returns the extracted src and title plus the MDX with the tag
+ * removed, OR null if no leading audio tag is present.
+ */
+function extractLeadingAudio(mdxSource: string): {
+  src?: string;
+  title?: string;
+  spotifyId?: string;
+  remainingMdx: string;
+} | null {
+  // Look for an AudioPlayer tag within the first 600 characters of
+  // the source (after any leading comment or whitespace). Allows
+  // self-closing or paired tags.
+  const head = mdxSource.slice(0, 600);
+  const match = head.match(/<AudioPlayer\s+([^>]*?)\/?\s*>(?:[\s\S]*?<\/AudioPlayer>)?/i);
+  if (!match) return null;
 
-  const snippet = getLessonSnippet(params.courseId, lessonId);
-  const description = snippet
-    || (navCtx
-      ? `${course.title}: ${navCtx.moduleTitle}, lesson ${navCtx.lessonIndex} of ${navCtx.moduleLessonCount}. Free sustainability education.`
-      : `${course.title}: ${title}. Free sustainability education.`);
+  const attrs = match[1];
+  const srcMatch = attrs.match(/src="([^"]+)"/);
+  const titleMatch = attrs.match(/title="([^"]+)"/);
+  const spotifyMatch = attrs.match(/spotifyId="([^"]+)"/);
 
-  const pageUrl = `${siteUrl}/courses/${params.courseId}/${params.lessonId}`;
+  // Strip the matched tag from the original source (not just the
+  // 600-char head) so the MDX rendered below does not include it.
+  const remainingMdx = mdxSource.replace(match[0], '').trimStart();
 
   return {
-    title: `${title} - ${course.title}`,
-    description,
-    openGraph: {
-      title: `${title} - ${course.title}`,
-      description,
-      url: pageUrl,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary',
-      title: `${title} - ${course.title}`,
-      description,
-    },
-    alternates: {
-      canonical: pageUrl,
-    },
+    src: srcMatch?.[1],
+    title: titleMatch?.[1],
+    spotifyId: spotifyMatch?.[1],
+    remainingMdx,
   };
 }
 
-export default function LessonPage({ params }: Props) {
+export default function LessonRedesignPage({ params }: PageParams) {
   const { courseId, lessonId: urlLessonId } = params;
-  const course = getCourse(courseId);
+  let course;
+  try {
+    course = getCourse(courseId);
+  } catch {
+    notFound();
+  }
+
   const lessonId = urlToLessonId(urlLessonId);
+  const lesson = course.modules
+    .flatMap((m) => m.lessons)
+    .find((l) => l.id === lessonId);
+  if (!lesson) notFound();
 
-  const contentPath = join(process.cwd(), 'src', 'content', courseId, 'lessons', `${lessonId}.mdx`);
-  const rawContent = existsSync(contentPath) ? readFileSync(contentPath, 'utf-8') : '';
-  // Strip the MDX comment header line
-  const mdxSource = rawContent.replace(/^\{\/\*.*?\*\/\}\n\n/, '');
-
-  // Detect AudioPlayer and extract src URL for AudioObject JSON-LD
-  const audioMatch = rawContent.match(/<AudioPlayer\s+src="([^"]+)"/);
-  const audioUrl = audioMatch ? audioMatch[1] : null;
-
-  const quiz = getQuiz(courseId, lessonId);
+  const moduleForLesson = course.modules.find((m) =>
+    m.lessons.some((l) => l.id === lessonId)
+  );
   const navCtx = getLessonNavContext(course, lessonId);
-  const lesson = course.modules.flatMap(m => m.lessons).find(l => l.id === lessonId);
-  const mod = getModuleForLesson(course, lessonId);
 
-  // ── JSON-LD: LearningResource (Article) ──
-  const snippet = getLessonSnippet(courseId, lessonId);
-  const pageUrl = `${siteUrl}/courses/${courseId}/${urlLessonId}`;
-  const courseUrl = `${siteUrl}/courses/${courseId}`;
+  // Load MDX from disk
+  const contentPath = join(
+    process.cwd(),
+    'src',
+    'content',
+    courseId,
+    'lessons',
+    `${lessonId}.mdx`
+  );
+  const rawContent = existsSync(contentPath)
+    ? readFileSync(contentPath, 'utf-8')
+    : '';
+  // Strip the leading MDX comment header if present
+  let mdxSource = rawContent.replace(/^\{\/\*.*?\*\/\}\n\n/, '');
 
-  // Build keywords from course category + module title
-  const keywords = [course.category, course.title, mod?.title].filter(Boolean);
+  // Detect a leading AudioPlayer and lift it into the floating
+  // glass position above the article.
+  const leadingAudio = extractLeadingAudio(mdxSource);
+  if (leadingAudio) {
+    mdxSource = leadingAudio.remainingMdx;
+  }
 
-  const articleJsonLd: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'LearningResource',
-    name: lesson?.title ?? lessonId,
-    description: snippet || `${lesson?.title ?? lessonId} - ${course.title}`,
-    url: pageUrl,
-    isAccessibleForFree: true,
-    inLanguage: 'en',
-    learningResourceType: 'lesson',
-    educationalLevel: 'Professional',
-    teaches: lesson?.title ?? lessonId,
-    keywords: keywords.join(', '),
-    timeRequired: lesson?.readingMinutes ? `PT${lesson.readingMinutes}M` : undefined,
-    isPartOf: {
-      '@type': 'Course',
-      name: course.title,
-      description: course.description,
-      url: courseUrl,
-      provider: {
-        '@type': 'Organization',
-        name: 'Green Tryst - Sustainability Academy',
-        url: siteUrl,
-      },
-    },
-    author: {
-      '@type': 'Organization',
-      name: 'Green Tryst - Sustainability Academy',
-      url: siteUrl,
-    },
-  };
+  // Load the quiz YAML for this lesson if one exists. Returns []
+  // when the file is missing, in which case the Quiz block is not
+  // rendered at all.
+  const quizQuestions = getQuiz(courseId, lessonId);
 
-  // ── JSON-LD: AudioObject (if lesson has audio) ──
-  const audioJsonLd = audioUrl ? {
-    '@context': 'https://schema.org',
-    '@type': 'AudioObject',
-    name: `${lesson?.title ?? lessonId} - Audio Overview`,
-    description: `Podcast-style audio overview of ${lesson?.title ?? lessonId} from ${course.title}`,
-    contentUrl: audioUrl,
-    encodingFormat: 'audio/mpeg',
-    isPartOf: {
-      '@type': 'LearningResource',
-      name: lesson?.title ?? lessonId,
-      url: pageUrl,
-    },
-  } : null;
-
-  // ── JSON-LD: BreadcrumbList ──
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: siteUrl,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: course.title,
-        item: courseUrl,
-      },
-      ...(mod ? [{
-        '@type': 'ListItem',
-        position: 3,
-        name: mod.title,
-        item: `${siteUrl}/courses/${courseId}/modules/${mod.id}`,
-      }] : []),
-      {
-        '@type': 'ListItem',
-        position: mod ? 4 : 3,
-        name: lesson?.title ?? lessonId,
-        item: pageUrl,
-      },
-    ],
-  };
-
-  // ── JSON-LD: FAQPage from quiz questions ──
-  const faqJsonLd = quiz.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: quiz
-      .filter((q): q is typeof q & { explanation: string } => 'explanation' in q && typeof q.explanation === 'string' && q.explanation.length > 0)
-      .map(q => ({
-        '@type': 'Question',
-        name: q.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: q.explanation,
-        },
-      })),
-  } : null;
+  // Soft registration wall: anonymous visitors can read 3 lessons per
+  // calendar month (cookie-tracked). The 4th lesson mounts the dimmed-
+  // overlay CTA. Signed-in users bypass this entirely. See
+  // src/components/platform/LessonMeter.tsx. The slug below is what
+  // identifies the lesson for the monthly read tally — course+lesson
+  // keeps it unique across the catalog.
+  const meterSlug = `${courseId}/${lessonId}`;
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      {faqJsonLd && faqJsonLd.mainEntity.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-      )}
-      {audioJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(audioJsonLd) }}
-        />
-      )}
-      <LessonClient
-        courseId={courseId}
-        lessonId={lessonId}
-        lessonMeta={lesson ?? { id: lessonId, title: lessonId }}
-        quiz={quiz}
-        navCtx={navCtx}
-        courseColor={course.color}
-      >
-        <MDXRemote source={mdxSource} components={getMDXComponents()} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
-      </LessonClient>
+      <Nav />
+      <LessonMeter lessonSlug={meterSlug} />
+
+      <div className="lg:flex">
+        {/* Sticky sidebar (desktop only) */}
+        <div className="hidden lg:block w-[300px] flex-shrink-0 sticky top-16 h-[calc(100vh-64px)] z-10">
+          <CourseDetailSidebar
+            courseId={course.id}
+            courseTitle={course.title}
+            category={course.category}
+            modules={course.modules}
+            className="h-full"
+          />
+        </div>
+
+        {/* Main column */}
+        <main className="flex-1 min-w-0 bg-white">
+          {/* Hero + (conditional) floating glass audio */}
+          <div className="relative">
+            <LessonDetailHero
+              courseId={course.id}
+              courseTitle={course.title}
+              category={course.category}
+              moduleNumber={(moduleForLesson?.id ?? 0) + 1}
+              moduleTitle={moduleForLesson?.title ?? ''}
+              lessonNumber={navCtx?.lessonIndex ?? 1}
+              moduleLessonCount={navCtx?.moduleLessonCount ?? 1}
+              lessonId={lessonId}
+              lessonTitle={lesson.title}
+              readingMinutes={lesson.readingMinutes}
+              reserveAudioSlot={Boolean(leadingAudio)}
+            />
+
+            {/* Floating glass audio: positioned absolutely so it
+                straddles the boundary between the dark hero (above)
+                and the white reading area (below). The hero already
+                reserves a tall bottom area when an audio is present
+                so the glass card has somewhere to land. */}
+            {leadingAudio && (
+              <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 px-6 lg:px-12 z-20">
+                <LessonGlassAudio
+                  src={leadingAudio.src}
+                  title={leadingAudio.title}
+                  spotifyId={leadingAudio.spotifyId}
+                />
+              </div>
+            )}
+          </div>
+
+          <article
+            className={
+              'max-w-[760px] mx-auto px-6 lg:px-10 ' +
+              // When the floating glass audio is present, the
+              // article needs extra top padding to clear it.
+              (leadingAudio ? 'pt-28 lg:pt-32 pb-12' : 'pt-12 lg:pt-16 pb-12')
+            }
+          >
+            {/* MDX body */}
+            <div className="gt-lesson-prose">
+              <MDXRemote
+                source={mdxSource}
+                components={getRedesignMDXComponents()}
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkGfm],
+                  },
+                }}
+              />
+            </div>
+
+            {/* Knowledge check (only if a quiz YAML exists for this lesson) */}
+            {quizQuestions.length > 0 && (
+              <QuizRedesign
+                questions={quizQuestions}
+                lessonId={lessonId}
+              />
+            )}
+
+            {/* Bottom lesson nav */}
+            <div className="mt-16 pt-10 border-t border-gt-border-light grid grid-cols-1 md:grid-cols-2 gap-4">
+              {navCtx?.prevLesson ? (
+                <Link
+                  href={`/courses/${course.id}/${lessonIdToUrl(
+                    navCtx.prevLesson.id
+                  )}`}
+                  className="group flex items-start gap-4 p-5 rounded-xl border border-gt-border-light bg-white hover:bg-gt-medium/[0.04] transition-colors"
+                >
+                  <ArrowLeft
+                    className="w-5 h-5 text-gt-medium mt-0.5 flex-shrink-0 group-hover:-translate-x-0.5 transition-transform"
+                    strokeWidth={2}
+                  />
+                  <div className="min-w-0">
+                    <p
+                      className="text-[10px] font-bold uppercase text-gt-text-dim mb-1"
+                      style={{
+                        letterSpacing: '0.16em',
+                        fontFamily:
+                          'var(--font-jetbrains-mono), JetBrains Mono, monospace',
+                      }}
+                    >
+                      Previous lesson
+                    </p>
+                    <p className="text-[14px] font-semibold text-gt-text leading-snug">
+                      {navCtx.prevLesson.title}
+                    </p>
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
+
+              {navCtx?.nextLesson ? (
+                <Link
+                  href={`/courses/${course.id}/${lessonIdToUrl(
+                    navCtx.nextLesson.id
+                  )}`}
+                  className="group flex items-start gap-4 p-5 rounded-xl border border-gt-medium/30 bg-gt-medium/[0.05] hover:bg-gt-medium/[0.10] transition-colors md:text-right md:flex-row-reverse"
+                >
+                  <ArrowRight
+                    className="w-5 h-5 text-gt-medium mt-0.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform"
+                    strokeWidth={2}
+                  />
+                  <div className="min-w-0 md:text-right">
+                    <p
+                      className="text-[10px] font-bold uppercase text-gt-medium mb-1"
+                      style={{
+                        letterSpacing: '0.16em',
+                        fontFamily:
+                          'var(--font-jetbrains-mono), JetBrains Mono, monospace',
+                      }}
+                    >
+                      Next lesson
+                    </p>
+                    <p className="text-[14px] font-semibold text-gt-text leading-snug">
+                      {navCtx.nextLesson.title}
+                    </p>
+                  </div>
+                </Link>
+              ) : (
+                <Link
+                  href={`/courses/${course.id}`}
+                  className="group flex items-center justify-center gap-2 p-5 rounded-xl border border-gt-medium/30 bg-gt-medium/[0.05] hover:bg-gt-medium/[0.10] transition-colors text-[14px] font-bold text-gt-medium"
+                >
+                  Back to course overview
+                  <ArrowRight
+                    className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+                    strokeWidth={2}
+                  />
+                </Link>
+              )}
+            </div>
+          </article>
+        </main>
+      </div>
+
+      <ClosingCTA />
+      <RedesignFooter />
     </>
   );
 }

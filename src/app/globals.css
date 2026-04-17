@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    /* Always reserve space for the scrollbar so fixed-position elements
+       (like the nav) align with in-flow content centered via mx-auto. */
+    scrollbar-gutter: stable;
+  }
+
   body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     @apply bg-gray-50 text-gray-900;

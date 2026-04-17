@@ -1,0 +1,341 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Greentryst" [ref=e5] [cursor=pointer]:
+        - /url: /redesign
+      - generic [ref=e6]:
+        - link "Learn" [ref=e7] [cursor=pointer]:
+          - /url: /redesign/learn
+        - link "SustainIQ" [ref=e8] [cursor=pointer]:
+          - /url: /redesign/ask
+        - link "Career" [ref=e9] [cursor=pointer]:
+          - /url: /redesign/jobs
+        - link "Tools" [ref=e10] [cursor=pointer]:
+          - /url: /redesign/tools
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: /redesign/pricing
+      - generic [ref=e12]:
+        - link "Sign In" [ref=e13] [cursor=pointer]:
+          - /url: /redesign/sign-in
+        - link "Get Started" [ref=e14] [cursor=pointer]:
+          - /url: /redesign/sign-up
+  - generic [ref=e15]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - img [ref=e21]
+        - generic [ref=e24]:
+          - heading "Sustainability Professional" [level=1] [ref=e25]
+          - generic [ref=e26]:
+            - generic [ref=e27]: Individual
+            - link "Settings" [ref=e28] [cursor=pointer]:
+              - /url: /redesign/profile
+              - img [ref=e29]
+              - text: Settings
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - img [ref=e35]
+            - generic [ref=e38]: "2"
+          - paragraph [ref=e39]: Certificates
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - img [ref=e42]
+            - generic [ref=e44]: "74"
+          - paragraph [ref=e45]: Lessons
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - img [ref=e48]
+            - generic [ref=e56]: 4/5
+          - paragraph [ref=e57]: Queries Today
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - img [ref=e60]
+            - generic [ref=e63]: "12"
+          - paragraph [ref=e64]: Job Matches
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - heading "Continue Learning" [level=2] [ref=e70]
+            - link "Browse all courses" [ref=e71] [cursor=pointer]:
+              - /url: /redesign/courses
+              - text: Browse all courses
+              - img [ref=e72]
+          - generic [ref=e74]:
+            - generic [ref=e75]:
+              - img [ref=e77]
+              - generic [ref=e80]:
+                - link "GHG Protocol Scope 3" [ref=e81] [cursor=pointer]:
+                  - /url: /redesign/courses/ghg-scope-3
+                - generic [ref=e85]: 14/18
+              - generic [ref=e86]: Today
+              - link "Continue" [ref=e87] [cursor=pointer]:
+                - /url: /redesign/courses/ghg-scope-3/3_2
+            - generic [ref=e88]:
+              - img [ref=e90]
+              - generic [ref=e94]:
+                - link "EU Taxonomy" [ref=e95] [cursor=pointer]:
+                  - /url: /redesign/courses/eu-taxonomy
+                - generic [ref=e99]: 8/22
+              - generic [ref=e100]: Yesterday
+              - link "Continue" [ref=e101] [cursor=pointer]:
+                - /url: /redesign/courses/eu-taxonomy/2_1
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - heading "Career" [level=2] [ref=e104]
+            - link "View all jobs" [ref=e105] [cursor=pointer]:
+              - /url: /redesign/jobs
+              - text: View all jobs
+              - img [ref=e106]
+          - generic [ref=e109]:
+            - img [ref=e111]
+            - generic [ref=e114]:
+              - paragraph [ref=e115]: Upload your resume for personalized job matching
+              - paragraph [ref=e116]: We'll extract your skills and match you with relevant sustainability roles. Completing courses improves your match scores.
+              - button "Upload Resume" [ref=e117] [cursor=pointer]
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - img [ref=e121]
+              - generic [ref=e125]:
+                - paragraph [ref=e126]: Senior ESG Analyst
+                - generic [ref=e127]:
+                  - generic [ref=e128]: Sustainalytics
+                  - generic [ref=e129]: ·
+                  - generic [ref=e130]:
+                    - img [ref=e131]
+                    - text: Amsterdam
+                - paragraph [ref=e134]: "Skill gap: EU Taxonomy"
+              - generic [ref=e135]:
+                - generic [ref=e136]: 92%
+                - paragraph [ref=e137]: match
+              - img [ref=e138]
+            - generic [ref=e140]:
+              - img [ref=e142]
+              - generic [ref=e146]:
+                - paragraph [ref=e147]: Climate Risk Manager
+                - generic [ref=e148]:
+                  - generic [ref=e149]: HSBC
+                  - generic [ref=e150]: ·
+                  - generic [ref=e151]:
+                    - img [ref=e152]
+                    - text: London
+                - paragraph [ref=e155]: "Skill gap: TCFD Reporting, Scenario Analysis"
+              - generic [ref=e156]:
+                - generic [ref=e157]: 87%
+                - paragraph [ref=e158]: match
+              - img [ref=e159]
+            - generic [ref=e161]:
+              - img [ref=e163]
+              - generic [ref=e167]:
+                - paragraph [ref=e168]: Carbon Markets Specialist
+                - generic [ref=e169]:
+                  - generic [ref=e170]: South Pole
+                  - generic [ref=e171]: ·
+                  - generic [ref=e172]:
+                    - img [ref=e173]
+                    - text: Zurich
+                - paragraph [ref=e176]: "Skill gap: Article 6 Mechanisms"
+              - generic [ref=e177]:
+                - generic [ref=e178]: 84%
+                - paragraph [ref=e179]: match
+              - img [ref=e180]
+        - generic [ref=e182]:
+          - heading "Certificates" [level=2] [ref=e183]
+          - generic [ref=e184]:
+            - generic [ref=e185]:
+              - img [ref=e187]
+              - generic [ref=e190]:
+                - paragraph [ref=e191]: Climate Science 101
+                - paragraph [ref=e192]: 24 lessons completed
+              - button "Download" [ref=e193] [cursor=pointer]
+            - generic [ref=e194]:
+              - img [ref=e196]
+              - generic [ref=e199]:
+                - paragraph [ref=e200]: ESG Reporting Frameworks
+                - paragraph [ref=e201]: 28 lessons completed
+              - button "Download" [ref=e202] [cursor=pointer]
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - generic [ref=e206]: SustainIQ
+          - generic [ref=e207]:
+            - generic [ref=e208]:
+              - img [ref=e209]
+              - heading "Intelligence" [level=3] [ref=e217]
+            - generic [ref=e219]:
+              - generic [ref=e220]: Daily queries
+              - generic [ref=e221]: 4/5
+            - paragraph [ref=e224]: Recent queries
+            - generic [ref=e225]:
+              - generic [ref=e226] [cursor=pointer]:
+                - paragraph [ref=e227]: What are the Scope 3 Category 6 emission factors for business travel?
+                - paragraph [ref=e228]: 2h ago
+              - generic [ref=e229] [cursor=pointer]:
+                - paragraph [ref=e230]: How does EU Taxonomy define environmentally sustainable activities?
+                - paragraph [ref=e231]: Yesterday
+              - generic [ref=e232] [cursor=pointer]:
+                - paragraph [ref=e233]: What is the additionality requirement under VM0042?
+                - paragraph [ref=e234]: 3 days ago
+            - link "Ask SustainIQ" [ref=e235] [cursor=pointer]:
+              - /url: /redesign/ask
+              - img [ref=e236]
+              - text: Ask SustainIQ
+        - generic [ref=e239]:
+          - heading "Professional Tools" [level=3] [ref=e240]
+          - generic [ref=e241]:
+            - link "GHG Calculator Scope 1, 2, 3 emissions" [ref=e242] [cursor=pointer]:
+              - /url: /redesign/tools/ghg-calculator
+              - img [ref=e244]
+              - generic [ref=e246]:
+                - paragraph [ref=e247]: GHG Calculator
+                - paragraph [ref=e248]: Scope 1, 2, 3 emissions
+              - img [ref=e249]
+            - link "Report Drafter GRI, TCFD, BRSR templates" [ref=e252] [cursor=pointer]:
+              - /url: /redesign/tools/report-drafter
+              - img [ref=e254]
+              - generic [ref=e257]:
+                - paragraph [ref=e258]: Report Drafter
+                - paragraph [ref=e259]: GRI, TCFD, BRSR templates
+              - img [ref=e260]
+            - link "Materiality Assessment Double materiality workflow" [ref=e263] [cursor=pointer]:
+              - /url: /redesign/tools/materiality
+              - img [ref=e265]
+              - generic [ref=e269]:
+                - paragraph [ref=e270]: Materiality Assessment
+                - paragraph [ref=e271]: Double materiality workflow
+              - img [ref=e272]
+          - link "View all tools" [ref=e275] [cursor=pointer]:
+            - /url: /redesign/tools
+            - text: View all tools
+            - img [ref=e276]
+        - generic [ref=e280]:
+          - img [ref=e281]
+          - heading "Upgrade to Pro" [level=3] [ref=e283]
+          - paragraph [ref=e284]: Unlock unlimited SustainIQ queries, all professional tools, and full job matching.
+          - link "View pricing" [ref=e285] [cursor=pointer]:
+            - /url: /pricing
+            - text: View pricing
+            - img [ref=e286]
+  - contentinfo [ref=e288]:
+    - generic [ref=e289]:
+      - generic [ref=e290]:
+        - generic [ref=e291]:
+          - link "Greentryst" [ref=e292] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e293]: The professional operating system for sustainability practitioners. Learn the framework, verify the answer, execute the work.
+          - generic [ref=e294]:
+            - heading "The Briefing" [level=3] [ref=e295]
+            - paragraph [ref=e296]: Monthly note on new regulations, courses, and tools. No spam, unsubscribe any time.
+            - generic [ref=e297]:
+              - textbox "Email address" [ref=e298]:
+                - /placeholder: you@work.com
+              - button "Subscribe" [ref=e299] [cursor=pointer]:
+                - img [ref=e300]
+          - generic [ref=e302]:
+            - link "X (Twitter)" [ref=e303] [cursor=pointer]:
+              - /url: https://x.com/greentryst
+              - img [ref=e304]
+            - link "LinkedIn" [ref=e306] [cursor=pointer]:
+              - /url: https://linkedin.com/company/greentryst
+              - img [ref=e307]
+            - link "GitHub" [ref=e309] [cursor=pointer]:
+              - /url: https://github.com/questofprajjwal/sustainabilityacademy
+              - img [ref=e310]
+        - generic [ref=e312]:
+          - generic [ref=e313]:
+            - heading "Product" [level=3] [ref=e314]
+            - list [ref=e315]:
+              - listitem [ref=e316]:
+                - link "Learn" [ref=e317] [cursor=pointer]:
+                  - /url: /courses
+                  - generic [ref=e318]: Learn
+              - listitem [ref=e319]:
+                - link "SustainIQ" [ref=e320] [cursor=pointer]:
+                  - /url: /ask
+                  - generic [ref=e321]: SustainIQ
+              - listitem [ref=e322]:
+                - link "Career" [ref=e323] [cursor=pointer]:
+                  - /url: /jobs
+                  - generic [ref=e324]: Career
+              - listitem [ref=e325]:
+                - link "Tools Soon" [ref=e326] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e327]: Tools
+                  - generic [ref=e328]: Soon
+              - listitem [ref=e329]:
+                - link "Intelligence Soon" [ref=e330] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e331]: Intelligence
+                  - generic [ref=e332]: Soon
+              - listitem [ref=e333]:
+                - link "Community Soon" [ref=e334] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e335]: Community
+                  - generic [ref=e336]: Soon
+          - generic [ref=e337]:
+            - heading "Learn" [level=3] [ref=e338]
+            - list [ref=e339]:
+              - listitem [ref=e340]:
+                - link "Climate Science" [ref=e341] [cursor=pointer]:
+                  - /url: /courses/climate-science-101
+                  - generic [ref=e342]: Climate Science
+              - listitem [ref=e343]:
+                - link "Carbon Markets" [ref=e344] [cursor=pointer]:
+                  - /url: /courses/vcm-101
+                  - generic [ref=e345]: Carbon Markets
+              - listitem [ref=e346]:
+                - link "ESG Reporting" [ref=e347] [cursor=pointer]:
+                  - /url: /courses/esg-reporting
+                  - generic [ref=e348]: ESG Reporting
+              - listitem [ref=e349]:
+                - link "GHG Accounting" [ref=e350] [cursor=pointer]:
+                  - /url: /courses/ghg-scope-1-2
+                  - generic [ref=e351]: GHG Accounting
+              - listitem [ref=e352]:
+                - link "EU Taxonomy" [ref=e353] [cursor=pointer]:
+                  - /url: /courses/eu-taxonomy
+                  - generic [ref=e354]: EU Taxonomy
+              - listitem [ref=e355]:
+                - link "All courses" [ref=e356] [cursor=pointer]:
+                  - /url: /courses
+                  - generic [ref=e357]: All courses
+          - generic [ref=e358]:
+            - heading "Resources" [level=3] [ref=e359]
+            - list [ref=e360]:
+              - listitem [ref=e361]:
+                - link "Glossary" [ref=e362] [cursor=pointer]:
+                  - /url: /glossary
+                  - generic [ref=e363]: Glossary
+              - listitem [ref=e364]:
+                - link "Guides" [ref=e365] [cursor=pointer]:
+                  - /url: /guides
+                  - generic [ref=e366]: Guides
+              - listitem [ref=e367]:
+                - link "Feedback" [ref=e368] [cursor=pointer]:
+                  - /url: /feedback
+                  - generic [ref=e369]: Feedback
+              - listitem [ref=e370]:
+                - link "Disclaimer" [ref=e371] [cursor=pointer]:
+                  - /url: /disclaimer
+                  - generic [ref=e372]: Disclaimer
+          - generic [ref=e373]:
+            - heading "Company" [level=3] [ref=e374]
+            - list [ref=e375]:
+              - listitem [ref=e376]:
+                - link "About" [ref=e377] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e378]: About
+              - listitem [ref=e379]:
+                - link "Contact" [ref=e380] [cursor=pointer]:
+                  - /url: /feedback
+                  - generic [ref=e381]: Contact
+              - listitem [ref=e382]:
+                - link "Privacy" [ref=e383] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e384]: Privacy
+              - listitem [ref=e385]:
+                - link "Terms" [ref=e386] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e387]: Terms
+      - generic [ref=e388]:
+        - paragraph [ref=e389]: © 2026 Greentryst. Built for sustainability professionals.
+        - paragraph [ref=e390]: Every claim sourced. Every answer defensible.

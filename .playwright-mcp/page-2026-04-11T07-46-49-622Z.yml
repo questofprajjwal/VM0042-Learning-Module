@@ -1,0 +1,838 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Greentryst" [ref=e5] [cursor=pointer]:
+        - /url: /redesign
+      - generic [ref=e6]:
+        - link "Learn" [ref=e7] [cursor=pointer]:
+          - /url: /redesign/learn
+        - link "SustainIQ" [ref=e8] [cursor=pointer]:
+          - /url: /redesign/ask
+        - link "Career" [ref=e9] [cursor=pointer]:
+          - /url: /redesign/jobs
+        - link "Tools" [ref=e10] [cursor=pointer]:
+          - /url: /redesign/tools
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: /redesign/pricing
+      - generic [ref=e12]:
+        - link "Sign In" [ref=e13] [cursor=pointer]:
+          - /url: /redesign/sign-in
+        - link "Get Started" [ref=e14] [cursor=pointer]:
+          - /url: /redesign/sign-up
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: Course Catalogue
+      - heading "22 courses. Every sustainability domain." [level=2] [ref=e20]
+      - paragraph [ref=e21]: Structured paths through the frameworks, standards, and methodologies practitioners actually use. Every course is sourced to the original document. Every lesson has a reference you can defend.
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: "22"
+        - generic [ref=e25]: courses live
+      - generic [ref=e26]:
+        - generic [ref=e27]: 487+
+        - generic [ref=e28]: lessons
+      - generic [ref=e29]:
+        - generic [ref=e30]: 107h
+        - generic [ref=e31]: total content
+      - generic [ref=e32]:
+        - generic [ref=e33]: 80+
+        - generic [ref=e34]: source documents
+  - generic [ref=e37]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - img
+        - searchbox "Search courses by framework, standard, or topic" [ref=e41]
+      - generic [ref=e42]:
+        - button "All courses22" [ref=e43] [cursor=pointer]
+        - button "Fundamentals6" [ref=e44] [cursor=pointer]
+        - button "Carbon Markets5" [ref=e45] [cursor=pointer]
+        - button "ESG6" [ref=e46] [cursor=pointer]
+        - button "Green Finance4" [ref=e47] [cursor=pointer]
+        - button "Standards1" [ref=e48] [cursor=pointer]
+      - generic [ref=e49] [cursor=pointer]:
+        - checkbox "Hide coming soon" [ref=e50]
+        - generic [ref=e51]: Hide coming soon
+    - paragraph [ref=e53]: Showing 22 courses
+    - generic [ref=e54]:
+      - link "Carbon Markets Article 6 of the Paris Agreement International carbon markets, ITMOs, and cooperative climate action 5 modules 13 lessons 1h View course" [ref=e55] [cursor=pointer]:
+        - /url: /courses/article-6
+        - generic [ref=e56]:
+          - img [ref=e57]
+          - generic [ref=e61]: Carbon Markets
+          - generic [ref=e62]: 🌐
+        - generic [ref=e63]:
+          - heading "Article 6 of the Paris Agreement" [level=3] [ref=e64]
+          - paragraph [ref=e65]: International carbon markets, ITMOs, and cooperative climate action
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - img [ref=e68]
+              - text: 5 modules
+            - generic [ref=e72]:
+              - img [ref=e73]
+              - text: 13 lessons
+            - generic [ref=e75]:
+              - img [ref=e76]
+              - text: 1h
+          - generic [ref=e79]:
+            - generic [ref=e80]: View course
+            - img [ref=e81]
+      - link "Fundamentals Circular Economy From linear take-make-waste to regenerative systems 6 modules 24 lessons 8h View course" [ref=e83] [cursor=pointer]:
+        - /url: /courses/circular-economy
+        - generic [ref=e84]:
+          - img [ref=e85]
+          - generic [ref=e89]: Fundamentals
+          - generic [ref=e90]: ♻️
+        - generic [ref=e91]:
+          - heading "Circular Economy" [level=3] [ref=e92]
+          - paragraph [ref=e93]: From linear take-make-waste to regenerative systems
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - img [ref=e96]
+              - text: 6 modules
+            - generic [ref=e100]:
+              - img [ref=e101]
+              - text: 24 lessons
+            - generic [ref=e103]:
+              - img [ref=e104]
+              - text: 8h
+          - generic [ref=e107]:
+            - generic [ref=e108]: View course
+            - img [ref=e109]
+      - link "Fundamentals Climate Science 101 The physical science of climate change and why it matters 6 modules 24 lessons 8h View course" [ref=e111] [cursor=pointer]:
+        - /url: /courses/climate-science-101
+        - generic [ref=e112]:
+          - img [ref=e113]
+          - generic [ref=e117]: Fundamentals
+          - generic [ref=e118]: 🌡️
+        - generic [ref=e119]:
+          - heading "Climate Science 101" [level=3] [ref=e120]
+          - paragraph [ref=e121]: The physical science of climate change and why it matters
+          - generic [ref=e122]:
+            - generic [ref=e123]:
+              - img [ref=e124]
+              - text: 6 modules
+            - generic [ref=e128]:
+              - img [ref=e129]
+              - text: 24 lessons
+            - generic [ref=e131]:
+              - img [ref=e132]
+              - text: 8h
+          - generic [ref=e135]:
+            - generic [ref=e136]: View course
+            - img [ref=e137]
+      - link "ESG Double Materiality How companies identify and report what matters under CSRD and ESRS 5 modules 14 lessons 1h View course" [ref=e139] [cursor=pointer]:
+        - /url: /courses/double-materiality
+        - generic [ref=e140]:
+          - img [ref=e141]
+          - generic [ref=e145]: ESG
+          - generic [ref=e146]: ⚖️
+        - generic [ref=e147]:
+          - heading "Double Materiality" [level=3] [ref=e148]
+          - paragraph [ref=e149]: How companies identify and report what matters under CSRD and ESRS
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - img [ref=e152]
+              - text: 5 modules
+            - generic [ref=e156]:
+              - img [ref=e157]
+              - text: 14 lessons
+            - generic [ref=e159]:
+              - img [ref=e160]
+              - text: 1h
+          - generic [ref=e163]:
+            - generic [ref=e164]: View course
+            - img [ref=e165]
+      - link "ESG ESG Peer Benchmarking How consultants assess and compare ESG performance across companies 6 modules 15 lessons 2h View course" [ref=e167] [cursor=pointer]:
+        - /url: /courses/esg-benchmarking
+        - generic [ref=e168]:
+          - img [ref=e169]
+          - generic [ref=e173]: ESG
+          - generic [ref=e174]: 📊
+        - generic [ref=e175]:
+          - heading "ESG Peer Benchmarking" [level=3] [ref=e176]
+          - paragraph [ref=e177]: How consultants assess and compare ESG performance across companies
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - img [ref=e180]
+              - text: 6 modules
+            - generic [ref=e184]:
+              - img [ref=e185]
+              - text: 15 lessons
+            - generic [ref=e187]:
+              - img [ref=e188]
+              - text: 2h
+          - generic [ref=e191]:
+            - generic [ref=e192]: View course
+            - img [ref=e193]
+      - link "Green Finance ESG Investing Integrating sustainability into investment decisions 8 modules 28 lessons 6h View course" [ref=e195] [cursor=pointer]:
+        - /url: /courses/esg-investing
+        - generic [ref=e196]:
+          - img [ref=e197]
+          - generic [ref=e201]: Green Finance
+          - generic [ref=e202]: 📈
+        - generic [ref=e203]:
+          - heading "ESG Investing" [level=3] [ref=e204]
+          - paragraph [ref=e205]: Integrating sustainability into investment decisions
+          - generic [ref=e206]:
+            - generic [ref=e207]:
+              - img [ref=e208]
+              - text: 8 modules
+            - generic [ref=e212]:
+              - img [ref=e213]
+              - text: 28 lessons
+            - generic [ref=e215]:
+              - img [ref=e216]
+              - text: 6h
+          - generic [ref=e219]:
+            - generic [ref=e220]: View course
+            - img [ref=e221]
+      - link "ESG Sustainability / ESG Reporting in Practice The real-world playbook for producing an ESG or sustainability report 8 modules 33 lessons 10h View course" [ref=e223] [cursor=pointer]:
+        - /url: /courses/esg-reporting
+        - generic [ref=e224]:
+          - img [ref=e225]
+          - generic [ref=e229]: ESG
+          - generic [ref=e230]: 📋
+        - generic [ref=e231]:
+          - heading "Sustainability / ESG Reporting in Practice" [level=3] [ref=e232]
+          - paragraph [ref=e233]: The real-world playbook for producing an ESG or sustainability report
+          - generic [ref=e234]:
+            - generic [ref=e235]:
+              - img [ref=e236]
+              - text: 8 modules
+            - generic [ref=e240]:
+              - img [ref=e241]
+              - text: 33 lessons
+            - generic [ref=e243]:
+              - img [ref=e244]
+              - text: 10h
+          - generic [ref=e247]:
+            - generic [ref=e248]: View course
+            - img [ref=e249]
+      - link "Carbon Markets EU Carbon Border Adjustment Mechanism (CBAM) Understanding carbon border tariffs and their global impact 5 modules 20 lessons 6h View course" [ref=e251] [cursor=pointer]:
+        - /url: /courses/eu-cbam
+        - generic [ref=e252]:
+          - img [ref=e253]
+          - generic [ref=e257]: Carbon Markets
+          - generic [ref=e258]: 🏗️
+        - generic [ref=e259]:
+          - heading "EU Carbon Border Adjustment Mechanism (CBAM)" [level=3] [ref=e260]
+          - paragraph [ref=e261]: Understanding carbon border tariffs and their global impact
+          - generic [ref=e262]:
+            - generic [ref=e263]:
+              - img [ref=e264]
+              - text: 5 modules
+            - generic [ref=e268]:
+              - img [ref=e269]
+              - text: 20 lessons
+            - generic [ref=e271]:
+              - img [ref=e272]
+              - text: 6h
+          - generic [ref=e275]:
+            - generic [ref=e276]: View course
+            - img [ref=e277]
+      - link "Green Finance EU Sustainable Finance Disclosure Regulation (SFDR) Mastering sustainability disclosure obligations for financial market participants 7 modules 30 lessons 4h View course" [ref=e279] [cursor=pointer]:
+        - /url: /courses/eu-sfdr
+        - generic [ref=e280]:
+          - img [ref=e281]
+          - generic [ref=e285]: Green Finance
+          - generic [ref=e286]: 🇪🇺
+        - generic [ref=e287]:
+          - heading "EU Sustainable Finance Disclosure Regulation (SFDR)" [level=3] [ref=e288]
+          - paragraph [ref=e289]: Mastering sustainability disclosure obligations for financial market participants
+          - generic [ref=e290]:
+            - generic [ref=e291]:
+              - img [ref=e292]
+              - text: 7 modules
+            - generic [ref=e296]:
+              - img [ref=e297]
+              - text: 30 lessons
+            - generic [ref=e299]:
+              - img [ref=e300]
+              - text: 4h
+          - generic [ref=e303]:
+            - generic [ref=e304]: View course
+            - img [ref=e305]
+      - link "Green Finance EU Taxonomy The classification system that defines what counts as green in Europe 5 modules 17 lessons 3h View course" [ref=e307] [cursor=pointer]:
+        - /url: /courses/eu-taxonomy
+        - generic [ref=e308]:
+          - img [ref=e309]
+          - generic [ref=e313]: Green Finance
+          - generic [ref=e314]: 🌿
+        - generic [ref=e315]:
+          - heading "EU Taxonomy" [level=3] [ref=e316]
+          - paragraph [ref=e317]: The classification system that defines what counts as green in Europe
+          - generic [ref=e318]:
+            - generic [ref=e319]:
+              - img [ref=e320]
+              - text: 5 modules
+            - generic [ref=e324]:
+              - img [ref=e325]
+              - text: 17 lessons
+            - generic [ref=e327]:
+              - img [ref=e328]
+              - text: 3h
+          - generic [ref=e331]:
+            - generic [ref=e332]: View course
+            - img [ref=e333]
+      - link "Standards EU Deforestation Regulation (EUDR) Deforestation-free supply chains and due diligence obligations 6 modules 24 lessons 7h View course" [ref=e335] [cursor=pointer]:
+        - /url: /courses/eudr
+        - generic [ref=e336]:
+          - img [ref=e337]
+          - generic [ref=e341]: Standards
+          - generic [ref=e342]: 🌳
+        - generic [ref=e343]:
+          - heading "EU Deforestation Regulation (EUDR)" [level=3] [ref=e344]
+          - paragraph [ref=e345]: Deforestation-free supply chains and due diligence obligations
+          - generic [ref=e346]:
+            - generic [ref=e347]:
+              - img [ref=e348]
+              - text: 6 modules
+            - generic [ref=e352]:
+              - img [ref=e353]
+              - text: 24 lessons
+            - generic [ref=e355]:
+              - img [ref=e356]
+              - text: 7h
+          - generic [ref=e359]:
+            - generic [ref=e360]: View course
+            - img [ref=e361]
+      - link "Green Finance Financed Emissions Measuring and managing the carbon footprint of financial portfolios 6 modules 25 lessons 3h View course" [ref=e363] [cursor=pointer]:
+        - /url: /courses/financed-emissions
+        - generic [ref=e364]:
+          - img [ref=e365]
+          - generic [ref=e369]: Green Finance
+          - generic [ref=e370]: 🏦
+        - generic [ref=e371]:
+          - heading "Financed Emissions" [level=3] [ref=e372]
+          - paragraph [ref=e373]: Measuring and managing the carbon footprint of financial portfolios
+          - generic [ref=e374]:
+            - generic [ref=e375]:
+              - img [ref=e376]
+              - text: 6 modules
+            - generic [ref=e380]:
+              - img [ref=e381]
+              - text: 25 lessons
+            - generic [ref=e383]:
+              - img [ref=e384]
+              - text: 3h
+          - generic [ref=e387]:
+            - generic [ref=e388]: View course
+            - img [ref=e389]
+      - link "Fundamentals Scope 1 & 2 GHG Emissions Measuring and reporting direct and energy-related greenhouse gas emissions 4 modules 13 lessons 3h View course" [ref=e391] [cursor=pointer]:
+        - /url: /courses/ghg-scope-1-2
+        - generic [ref=e392]:
+          - img [ref=e393]
+          - generic [ref=e397]: Fundamentals
+          - generic [ref=e398]: 🏭
+        - generic [ref=e399]:
+          - heading "Scope 1 & 2 GHG Emissions" [level=3] [ref=e400]
+          - paragraph [ref=e401]: Measuring and reporting direct and energy-related greenhouse gas emissions
+          - generic [ref=e402]:
+            - generic [ref=e403]:
+              - img [ref=e404]
+              - text: 4 modules
+            - generic [ref=e408]:
+              - img [ref=e409]
+              - text: 13 lessons
+            - generic [ref=e411]:
+              - img [ref=e412]
+              - text: 3h
+          - generic [ref=e415]:
+            - generic [ref=e416]: View course
+            - img [ref=e417]
+      - link "Fundamentals Scope 3 GHG Calculations Measuring and managing value chain greenhouse gas emissions 7 modules 25 lessons 2h View course" [ref=e419] [cursor=pointer]:
+        - /url: /courses/ghg-scope-3
+        - generic [ref=e420]:
+          - img [ref=e421]
+          - generic [ref=e425]: Fundamentals
+          - generic [ref=e426]: 🔗
+        - generic [ref=e427]:
+          - heading "Scope 3 GHG Calculations" [level=3] [ref=e428]
+          - paragraph [ref=e429]: Measuring and managing value chain greenhouse gas emissions
+          - generic [ref=e430]:
+            - generic [ref=e431]:
+              - img [ref=e432]
+              - text: 7 modules
+            - generic [ref=e436]:
+              - img [ref=e437]
+              - text: 25 lessons
+            - generic [ref=e439]:
+              - img [ref=e440]
+              - text: 2h
+          - generic [ref=e443]:
+            - generic [ref=e444]: View course
+            - img [ref=e445]
+      - link "ESG Human Rights Due Diligence Identifying, preventing, and addressing human rights impacts in business 6 modules 25 lessons 10h View course" [ref=e447] [cursor=pointer]:
+        - /url: /courses/human-rights-dd
+        - generic [ref=e448]:
+          - img [ref=e449]
+          - generic [ref=e453]: ESG
+          - generic [ref=e454]: ⚖️
+        - generic [ref=e455]:
+          - heading "Human Rights Due Diligence" [level=3] [ref=e456]
+          - paragraph [ref=e457]: Identifying, preventing, and addressing human rights impacts in business
+          - generic [ref=e458]:
+            - generic [ref=e459]:
+              - img [ref=e460]
+              - text: 6 modules
+            - generic [ref=e464]:
+              - img [ref=e465]
+              - text: 25 lessons
+            - generic [ref=e467]:
+              - img [ref=e468]
+              - text: 10h
+          - generic [ref=e471]:
+            - generic [ref=e472]: View course
+            - img [ref=e473]
+      - link "ESG IFC Performance Standards Environmental and social sustainability requirements for project finance 9 modules 12 lessons 4h View course" [ref=e475] [cursor=pointer]:
+        - /url: /courses/ifc-performance-standards
+        - generic [ref=e476]:
+          - img [ref=e477]
+          - generic [ref=e481]: ESG
+          - generic [ref=e482]: 🏛️
+        - generic [ref=e483]:
+          - heading "IFC Performance Standards" [level=3] [ref=e484]
+          - paragraph [ref=e485]: Environmental and social sustainability requirements for project finance
+          - generic [ref=e486]:
+            - generic [ref=e487]:
+              - img [ref=e488]
+              - text: 9 modules
+            - generic [ref=e492]:
+              - img [ref=e493]
+              - text: 12 lessons
+            - generic [ref=e495]:
+              - img [ref=e496]
+              - text: 4h
+          - generic [ref=e499]:
+            - generic [ref=e500]: View course
+            - img [ref=e501]
+      - link "ESG IFRS S2 Climate-related Disclosures The global baseline standard for climate risk reporting 9 modules 32 lessons 3h View course" [ref=e503] [cursor=pointer]:
+        - /url: /courses/ifrs-s2
+        - generic [ref=e504]:
+          - img [ref=e505]
+          - generic [ref=e509]: ESG
+          - generic [ref=e510]: 🌡️
+        - generic [ref=e511]:
+          - heading "IFRS S2 Climate-related Disclosures" [level=3] [ref=e512]
+          - paragraph [ref=e513]: The global baseline standard for climate risk reporting
+          - generic [ref=e514]:
+            - generic [ref=e515]:
+              - img [ref=e516]
+              - text: 9 modules
+            - generic [ref=e520]:
+              - img [ref=e521]
+              - text: 32 lessons
+            - generic [ref=e523]:
+              - img [ref=e524]
+              - text: 3h
+          - generic [ref=e527]:
+            - generic [ref=e528]: View course
+            - img [ref=e529]
+      - link "Fundamentals Science-Based Targets (SBTi) Setting corporate climate targets aligned with 1.5C science 5 modules 16 lessons 1h View course" [ref=e531] [cursor=pointer]:
+        - /url: /courses/sbti
+        - generic [ref=e532]:
+          - img [ref=e533]
+          - generic [ref=e537]: Fundamentals
+          - generic [ref=e538]: 🎯
+        - generic [ref=e539]:
+          - heading "Science-Based Targets (SBTi)" [level=3] [ref=e540]
+          - paragraph [ref=e541]: Setting corporate climate targets aligned with 1.5C science
+          - generic [ref=e542]:
+            - generic [ref=e543]:
+              - img [ref=e544]
+              - text: 5 modules
+            - generic [ref=e548]:
+              - img [ref=e549]
+              - text: 16 lessons
+            - generic [ref=e551]:
+              - img [ref=e552]
+              - text: 1h
+          - generic [ref=e555]:
+            - generic [ref=e556]: View course
+            - img [ref=e557]
+      - link "Fundamentals TNFD & Biodiversity Nature-related risk assessment, disclosure, and the biodiversity crisis 6 modules 24 lessons 10h View course" [ref=e559] [cursor=pointer]:
+        - /url: /courses/tnfd-biodiversity
+        - generic [ref=e560]:
+          - img [ref=e561]
+          - generic [ref=e565]: Fundamentals
+          - generic [ref=e566]: 🦋
+        - generic [ref=e567]:
+          - heading "TNFD & Biodiversity" [level=3] [ref=e568]
+          - paragraph [ref=e569]: Nature-related risk assessment, disclosure, and the biodiversity crisis
+          - generic [ref=e570]:
+            - generic [ref=e571]:
+              - img [ref=e572]
+              - text: 6 modules
+            - generic [ref=e576]:
+              - img [ref=e577]
+              - text: 24 lessons
+            - generic [ref=e579]:
+              - img [ref=e580]
+              - text: 10h
+          - generic [ref=e583]:
+            - generic [ref=e584]: View course
+            - img [ref=e585]
+      - link "Carbon Markets Voluntary Carbon Markets 101 The ecosystem of carbon credits, registries, and market integrity 6 modules 26 lessons 10h View course" [ref=e587] [cursor=pointer]:
+        - /url: /courses/vcm-101
+        - generic [ref=e588]:
+          - img [ref=e589]
+          - generic [ref=e593]: Carbon Markets
+          - generic [ref=e594]: 🌿
+        - generic [ref=e595]:
+          - heading "Voluntary Carbon Markets 101" [level=3] [ref=e596]
+          - paragraph [ref=e597]: The ecosystem of carbon credits, registries, and market integrity
+          - generic [ref=e598]:
+            - generic [ref=e599]:
+              - img [ref=e600]
+              - text: 6 modules
+            - generic [ref=e604]:
+              - img [ref=e605]
+              - text: 26 lessons
+            - generic [ref=e607]:
+              - img [ref=e608]
+              - text: 10h
+          - generic [ref=e611]:
+            - generic [ref=e612]: View course
+            - img [ref=e613]
+      - link "Carbon Markets VM0042 Improved Agricultural Land Management Master soil carbon quantification for ALM projects 11 modules 34 lessons 3h View course" [ref=e615] [cursor=pointer]:
+        - /url: /courses/vm0042
+        - generic [ref=e616]:
+          - img [ref=e617]
+          - generic [ref=e621]: Carbon Markets
+          - generic [ref=e622]: 🌾
+        - generic [ref=e623]:
+          - heading "VM0042 Improved Agricultural Land Management" [level=3] [ref=e624]
+          - paragraph [ref=e625]: Master soil carbon quantification for ALM projects
+          - generic [ref=e626]:
+            - generic [ref=e627]:
+              - img [ref=e628]
+              - text: 11 modules
+            - generic [ref=e632]:
+              - img [ref=e633]
+              - text: 34 lessons
+            - generic [ref=e635]:
+              - img [ref=e636]
+              - text: 3h
+          - generic [ref=e639]:
+            - generic [ref=e640]: View course
+            - img [ref=e641]
+      - link "Carbon Markets VM0044 Biochar Carbon Projects How to quantify and verify carbon removal from biochar under the VCS 5 modules 13 lessons 2h View course" [ref=e643] [cursor=pointer]:
+        - /url: /courses/vm0044
+        - generic [ref=e644]:
+          - img [ref=e645]
+          - generic [ref=e649]: Carbon Markets
+          - generic [ref=e650]: 🌱
+        - generic [ref=e651]:
+          - heading "VM0044 Biochar Carbon Projects" [level=3] [ref=e652]
+          - paragraph [ref=e653]: How to quantify and verify carbon removal from biochar under the VCS
+          - generic [ref=e654]:
+            - generic [ref=e655]:
+              - img [ref=e656]
+              - text: 5 modules
+            - generic [ref=e660]:
+              - img [ref=e661]
+              - text: 13 lessons
+            - generic [ref=e663]:
+              - img [ref=e664]
+              - text: 2h
+          - generic [ref=e667]:
+            - generic [ref=e668]: View course
+            - img [ref=e669]
+  - generic [ref=e673]:
+    - generic [ref=e674]:
+      - generic [ref=e675]: Learning Paths
+      - heading "Don't know where to start? Pick your role." [level=2] [ref=e676]
+      - paragraph [ref=e677]: Each path is a curated sequence of courses, in order, designed to take a practitioner from first principles to defensible output in the shortest possible time.
+    - generic [ref=e678]:
+      - generic [ref=e679]:
+        - paragraph [ref=e680]: For the carbon analyst
+        - heading "Measure, verify, and defend a GHG number." [level=3] [ref=e681]
+        - paragraph [ref=e682]: Learn to quantify, report, and defend greenhouse gas emissions using the frameworks auditors actually accept.
+        - list [ref=e683]:
+          - listitem [ref=e684]:
+            - generic [ref=e685]: "1"
+            - generic [ref=e686]:
+              - link "Climate Science 101" [ref=e687] [cursor=pointer]:
+                - /url: /courses/climate-science-101
+              - paragraph [ref=e688]: 8h
+          - listitem [ref=e689]:
+            - generic [ref=e690]: "2"
+            - generic [ref=e691]:
+              - link "Scope 1 & 2 GHG Emissions" [ref=e692] [cursor=pointer]:
+                - /url: /courses/ghg-scope-1-2
+              - paragraph [ref=e693]: 3h
+          - listitem [ref=e694]:
+            - generic [ref=e695]: "3"
+            - generic [ref=e696]:
+              - link "Scope 3 GHG Calculations" [ref=e697] [cursor=pointer]:
+                - /url: /courses/ghg-scope-3
+              - paragraph [ref=e698]: 2h
+          - listitem [ref=e699]:
+            - generic [ref=e700]: "4"
+            - generic [ref=e701]:
+              - link "Science-Based Targets (SBTi)" [ref=e702] [cursor=pointer]:
+                - /url: /courses/sbti
+              - paragraph [ref=e703]: 1h
+          - listitem [ref=e704]:
+            - generic [ref=e705]: "5"
+            - generic [ref=e706]:
+              - link "Voluntary Carbon Markets 101" [ref=e707] [cursor=pointer]:
+                - /url: /courses/vcm-101
+              - paragraph [ref=e708]: 10h
+        - generic [ref=e709]:
+          - generic [ref=e710]:
+            - img [ref=e711]
+            - text: 24h total · 5 courses
+          - link "Start path" [ref=e714] [cursor=pointer]:
+            - /url: /courses/climate-science-101
+            - text: Start path
+            - img [ref=e715]
+      - generic [ref=e717]:
+        - paragraph [ref=e718]: For the ESG reporter
+        - heading "Publish a disclosure that holds up to scrutiny." [level=3] [ref=e719]
+        - paragraph [ref=e720]: Move from principles to a published sustainability report aligned with CSRD, ISSB, and double materiality expectations.
+        - list [ref=e721]:
+          - listitem [ref=e722]:
+            - generic [ref=e723]: "1"
+            - generic [ref=e724]:
+              - link "Sustainability / ESG Reporting in Practice" [ref=e725] [cursor=pointer]:
+                - /url: /courses/esg-reporting
+              - paragraph [ref=e726]: 10h
+          - listitem [ref=e727]:
+            - generic [ref=e728]: "2"
+            - generic [ref=e729]:
+              - link "Double Materiality" [ref=e730] [cursor=pointer]:
+                - /url: /courses/double-materiality
+              - paragraph [ref=e731]: 1h
+          - listitem [ref=e732]:
+            - generic [ref=e733]: "3"
+            - generic [ref=e734]:
+              - link "IFRS S2 Climate-related Disclosures" [ref=e735] [cursor=pointer]:
+                - /url: /courses/ifrs-s2
+              - paragraph [ref=e736]: 3h
+          - listitem [ref=e737]:
+            - generic [ref=e738]: "4"
+            - generic [ref=e739]:
+              - link "ESG Peer Benchmarking" [ref=e740] [cursor=pointer]:
+                - /url: /courses/esg-benchmarking
+              - paragraph [ref=e741]: 2h
+        - generic [ref=e742]:
+          - generic [ref=e743]:
+            - img [ref=e744]
+            - text: 16h total · 4 courses
+          - link "Start path" [ref=e747] [cursor=pointer]:
+            - /url: /courses/esg-reporting
+            - text: Start path
+            - img [ref=e748]
+      - generic [ref=e750]:
+        - paragraph [ref=e751]: For the climate risk analyst
+        - heading "Turn climate scenarios into business decisions." [level=3] [ref=e752]
+        - paragraph [ref=e753]: Connect physical and transition risk analysis to regulatory disclosure and investor-grade scenario work.
+        - list [ref=e754]:
+          - listitem [ref=e755]:
+            - generic [ref=e756]: "1"
+            - generic [ref=e757]:
+              - link "Climate Science 101" [ref=e758] [cursor=pointer]:
+                - /url: /courses/climate-science-101
+              - paragraph [ref=e759]: 8h
+          - listitem [ref=e760]:
+            - generic [ref=e761]: "2"
+            - generic [ref=e762]:
+              - link "IFRS S2 Climate-related Disclosures" [ref=e763] [cursor=pointer]:
+                - /url: /courses/ifrs-s2
+              - paragraph [ref=e764]: 3h
+          - listitem [ref=e765]:
+            - generic [ref=e766]: "3"
+            - generic [ref=e767]:
+              - link "Financed Emissions" [ref=e768] [cursor=pointer]:
+                - /url: /courses/financed-emissions
+              - paragraph [ref=e769]: 3h
+          - listitem [ref=e770]:
+            - generic [ref=e771]: "4"
+            - generic [ref=e772]:
+              - link "TNFD & Biodiversity" [ref=e773] [cursor=pointer]:
+                - /url: /courses/tnfd-biodiversity
+              - paragraph [ref=e774]: 10h
+        - generic [ref=e775]:
+          - generic [ref=e776]:
+            - img [ref=e777]
+            - text: 24h total · 4 courses
+          - link "Start path" [ref=e780] [cursor=pointer]:
+            - /url: /courses/climate-science-101
+            - text: Start path
+            - img [ref=e781]
+      - generic [ref=e783]:
+        - paragraph [ref=e784]: For the sustainable finance specialist
+        - heading "Classify, disclose, and raise capital under EU rules." [level=3] [ref=e785]
+        - paragraph [ref=e786]: Master the EU green finance stack so you can classify assets, disclose under SFDR, and build credible transition finance.
+        - list [ref=e787]:
+          - listitem [ref=e788]:
+            - generic [ref=e789]: "1"
+            - generic [ref=e790]:
+              - link "EU Taxonomy" [ref=e791] [cursor=pointer]:
+                - /url: /courses/eu-taxonomy
+              - paragraph [ref=e792]: 3h
+          - listitem [ref=e793]:
+            - generic [ref=e794]: "2"
+            - generic [ref=e795]:
+              - link "EU Sustainable Finance Disclosure Regulation (SFDR)" [ref=e796] [cursor=pointer]:
+                - /url: /courses/eu-sfdr
+              - paragraph [ref=e797]: 4h
+          - listitem [ref=e798]:
+            - generic [ref=e799]: "3"
+            - generic [ref=e800]:
+              - link "Financed Emissions" [ref=e801] [cursor=pointer]:
+                - /url: /courses/financed-emissions
+              - paragraph [ref=e802]: 3h
+          - listitem [ref=e803]:
+            - generic [ref=e804]: "4"
+            - generic [ref=e805]:
+              - link "ESG Investing" [ref=e806] [cursor=pointer]:
+                - /url: /courses/esg-investing
+              - paragraph [ref=e807]: 6h
+        - generic [ref=e808]:
+          - generic [ref=e809]:
+            - img [ref=e810]
+            - text: 16h total · 4 courses
+          - link "Start path" [ref=e813] [cursor=pointer]:
+            - /url: /courses/eu-taxonomy
+            - text: Start path
+            - img [ref=e814]
+  - generic [ref=e818]:
+    - heading "We simplify. We show you the source. We make the work easy for you." [level=2] [ref=e819]:
+      - generic [ref=e820]: We simplify.
+      - generic [ref=e821]: We show you the source.
+      - generic [ref=e822]: We make the work easy for you.
+    - paragraph [ref=e823]: This is the whole deal.
+    - paragraph [ref=e824]: — GREENTRYST
+    - generic [ref=e825]:
+      - link "Start free" [ref=e826] [cursor=pointer]:
+        - /url: /sign-up
+        - text: Start free
+        - img [ref=e827]
+      - link "See pricing" [ref=e829] [cursor=pointer]:
+        - /url: "#pricing"
+  - contentinfo [ref=e830]:
+    - generic [ref=e831]:
+      - generic [ref=e832]:
+        - generic [ref=e833]:
+          - link "Greentryst" [ref=e834] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e835]: The professional operating system for sustainability practitioners. Learn the framework, verify the answer, execute the work.
+          - generic [ref=e836]:
+            - heading "The Briefing" [level=3] [ref=e837]
+            - paragraph [ref=e838]: Monthly note on new regulations, courses, and tools. No spam, unsubscribe any time.
+            - generic [ref=e839]:
+              - textbox "Email address" [ref=e840]:
+                - /placeholder: you@work.com
+              - button "Subscribe" [ref=e841] [cursor=pointer]:
+                - img [ref=e842]
+          - generic [ref=e844]:
+            - link "X (Twitter)" [ref=e845] [cursor=pointer]:
+              - /url: https://x.com/greentryst
+              - img [ref=e846]
+            - link "LinkedIn" [ref=e848] [cursor=pointer]:
+              - /url: https://linkedin.com/company/greentryst
+              - img [ref=e849]
+            - link "GitHub" [ref=e851] [cursor=pointer]:
+              - /url: https://github.com/questofprajjwal/sustainabilityacademy
+              - img [ref=e852]
+        - generic [ref=e854]:
+          - generic [ref=e855]:
+            - heading "Product" [level=3] [ref=e856]
+            - list [ref=e857]:
+              - listitem [ref=e858]:
+                - link "Learn" [ref=e859] [cursor=pointer]:
+                  - /url: /courses
+                  - generic [ref=e860]: Learn
+              - listitem [ref=e861]:
+                - link "SustainIQ" [ref=e862] [cursor=pointer]:
+                  - /url: /ask
+                  - generic [ref=e863]: SustainIQ
+              - listitem [ref=e864]:
+                - link "Career" [ref=e865] [cursor=pointer]:
+                  - /url: /jobs
+                  - generic [ref=e866]: Career
+              - listitem [ref=e867]:
+                - link "Tools Soon" [ref=e868] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e869]: Tools
+                  - generic [ref=e870]: Soon
+              - listitem [ref=e871]:
+                - link "Intelligence Soon" [ref=e872] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e873]: Intelligence
+                  - generic [ref=e874]: Soon
+              - listitem [ref=e875]:
+                - link "Community Soon" [ref=e876] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e877]: Community
+                  - generic [ref=e878]: Soon
+          - generic [ref=e879]:
+            - heading "Learn" [level=3] [ref=e880]
+            - list [ref=e881]:
+              - listitem [ref=e882]:
+                - link "Climate Science" [ref=e883] [cursor=pointer]:
+                  - /url: /courses/climate-science-101
+                  - generic [ref=e884]: Climate Science
+              - listitem [ref=e885]:
+                - link "Carbon Markets" [ref=e886] [cursor=pointer]:
+                  - /url: /courses/vcm-101
+                  - generic [ref=e887]: Carbon Markets
+              - listitem [ref=e888]:
+                - link "ESG Reporting" [ref=e889] [cursor=pointer]:
+                  - /url: /courses/esg-reporting
+                  - generic [ref=e890]: ESG Reporting
+              - listitem [ref=e891]:
+                - link "GHG Accounting" [ref=e892] [cursor=pointer]:
+                  - /url: /courses/ghg-scope-1-2
+                  - generic [ref=e893]: GHG Accounting
+              - listitem [ref=e894]:
+                - link "EU Taxonomy" [ref=e895] [cursor=pointer]:
+                  - /url: /courses/eu-taxonomy
+                  - generic [ref=e896]: EU Taxonomy
+              - listitem [ref=e897]:
+                - link "All courses" [ref=e898] [cursor=pointer]:
+                  - /url: /courses
+                  - generic [ref=e899]: All courses
+          - generic [ref=e900]:
+            - heading "Resources" [level=3] [ref=e901]
+            - list [ref=e902]:
+              - listitem [ref=e903]:
+                - link "Glossary" [ref=e904] [cursor=pointer]:
+                  - /url: /glossary
+                  - generic [ref=e905]: Glossary
+              - listitem [ref=e906]:
+                - link "Guides" [ref=e907] [cursor=pointer]:
+                  - /url: /guides
+                  - generic [ref=e908]: Guides
+              - listitem [ref=e909]:
+                - link "Feedback" [ref=e910] [cursor=pointer]:
+                  - /url: /feedback
+                  - generic [ref=e911]: Feedback
+              - listitem [ref=e912]:
+                - link "Disclaimer" [ref=e913] [cursor=pointer]:
+                  - /url: /disclaimer
+                  - generic [ref=e914]: Disclaimer
+          - generic [ref=e915]:
+            - heading "Company" [level=3] [ref=e916]
+            - list [ref=e917]:
+              - listitem [ref=e918]:
+                - link "About" [ref=e919] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e920]: About
+              - listitem [ref=e921]:
+                - link "Contact" [ref=e922] [cursor=pointer]:
+                  - /url: /feedback
+                  - generic [ref=e923]: Contact
+              - listitem [ref=e924]:
+                - link "Privacy" [ref=e925] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e926]: Privacy
+              - listitem [ref=e927]:
+                - link "Terms" [ref=e928] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e929]: Terms
+      - generic [ref=e930]:
+        - paragraph [ref=e931]: © 2026 Greentryst. Built for sustainability professionals.
+        - paragraph [ref=e932]: Every claim sourced. Every answer defensible.

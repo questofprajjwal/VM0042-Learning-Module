@@ -25,8 +25,8 @@ const config: Config = {
         // stay readable and map 1:1 to the Design Bible.
         gt: {
           // Core brand greens (used for dark sections, cards, accents, CTAs)
-          'text-dark': '#081C15', // near-black green, primary text on light, hero bg
-          deep: '#0B3D2E',         // dark card bg (signature element)
+          'text-dark': '#18181B', // charcoal, primary dark surface (hero, footer)
+          deep: '#23232A',         // dark card bg (signature element)
           dark: '#1B4332',         // dark alt, hover states
           medium: '#2D6A4F',       // primary CTAs, active states
           forest: '#40916C',       // secondary accents, mid-tone
@@ -44,10 +44,10 @@ const config: Config = {
           // Semantic aliases
           bg: '#F8FAF9',           // neutral light section bg
           'bg-alt': '#FFFFFF',     // pure white for alternating sections
-          'bg-dark': '#081C15',    // dark hero / footer bg
+          'bg-dark': '#18181B',    // dark hero / footer bg
           card: '#FFFFFF',         // white cards on light sections
-          'card-dark': '#0B3D2E',  // dark cards (the signature accent)
-          'card-dark-alt': '#1B4332',
+          'card-dark': '#23232A',  // dark cards (the signature accent)
+          'card-dark-alt': '#2D2D35',
 
           // Text colors
           text: '#0B1F15',           // near-black with warm undertone, primary on light

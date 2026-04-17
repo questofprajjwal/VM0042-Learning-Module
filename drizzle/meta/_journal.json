@@ -8,6 +8,20 @@
       "when": 1773973679087,
       "tag": "0000_daily_prodigy",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1776177462908,
+      "tag": "0001_foamy_satana",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1776422020281,
+      "tag": "0002_wet_vargas",
+      "breakpoints": true
     }
   ]
 }

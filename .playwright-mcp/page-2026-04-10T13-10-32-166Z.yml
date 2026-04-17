@@ -1,0 +1,276 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Greentryst" [ref=e5] [cursor=pointer]:
+        - /url: /redesign
+      - generic [ref=e6]:
+        - link "Learn" [ref=e7] [cursor=pointer]:
+          - /url: /redesign/learn
+        - link "SustainIQ" [ref=e8] [cursor=pointer]:
+          - /url: /redesign/ask
+        - link "Career" [ref=e9] [cursor=pointer]:
+          - /url: /redesign/jobs
+        - link "Tools" [ref=e10] [cursor=pointer]:
+          - /url: /redesign/tools
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: /redesign/pricing
+      - generic [ref=e12]:
+        - link "Sign In" [ref=e13] [cursor=pointer]:
+          - /url: /redesign/sign-in
+        - link "Get Started" [ref=e14] [cursor=pointer]:
+          - /url: /redesign/sign-up
+  - generic [ref=e17]:
+    - generic [ref=e18]: Component Library
+    - heading "Greentryst Design System." [level=2] [ref=e19]
+    - paragraph [ref=e20]: Every component in the redesign library, rendered with example props. This page is for development reference only and will be removed at cutover.
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24]: Typography
+      - heading "Category labels and headings" [level=2] [ref=e25]
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: CategoryLabel (teal)
+        - generic [ref=e29]: The Connected Platform
+      - generic [ref=e30]:
+        - paragraph [ref=e31]: CategoryLabel (muted)
+        - generic [ref=e32]: Growth Path
+      - generic [ref=e33]:
+        - paragraph [ref=e34]: SectionHeading size="hero" tone="light"
+        - heading "The Professional Home for Sustainability." [level=2] [ref=e35]
+      - generic [ref=e36]:
+        - paragraph [ref=e37]: SectionHeading size="section" tone="light"
+        - heading "Four modes. One platform." [level=2] [ref=e38]
+      - generic [ref=e39]:
+        - paragraph [ref=e40]: SectionHeading size="sub" tone="light"
+        - heading "22 courses. Zero fluff." [level=2] [ref=e41]
+  - generic [ref=e43]:
+    - generic [ref=e44]:
+      - generic [ref=e45]: Buttons
+      - heading "Button variants" [level=2] [ref=e46]
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - button "Primary Medium" [ref=e49] [cursor=pointer]
+        - button "Primary Large" [ref=e50] [cursor=pointer]
+        - button "With Arrow" [ref=e51] [cursor=pointer]:
+          - text: With Arrow
+          - img [ref=e52]
+      - generic [ref=e54]:
+        - button "Secondary on Dark" [ref=e55] [cursor=pointer]
+        - button "Ghost on Dark" [ref=e56] [cursor=pointer]
+      - link "Link Button (renders as <a>)" [ref=e58] [cursor=pointer]:
+        - /url: /redesign
+  - generic [ref=e60]:
+    - generic [ref=e61]:
+      - generic [ref=e62]: Badges
+      - heading "Status badges" [level=2] [ref=e63]
+    - generic [ref=e64]:
+      - generic [ref=e65]: Live
+      - generic [ref=e66]: Coming Soon
+      - generic [ref=e67]: SustainIQ
+      - generic [ref=e68]: Learn
+      - generic [ref=e69]: Career
+      - generic [ref=e70]: Tools
+  - generic [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74]: Stats
+      - heading "Stats row" [level=2] [ref=e75]
+    - generic [ref=e76]:
+      - generic [ref=e77]:
+        - generic [ref=e78]: 22+
+        - generic [ref=e79]: Courses
+      - generic [ref=e80]:
+        - generic [ref=e81]: 470+
+        - generic [ref=e82]: Lessons
+      - generic [ref=e83]:
+        - generic [ref=e84]: 80+
+        - generic [ref=e85]: Source Documents
+      - generic [ref=e86]:
+        - generic [ref=e87]: 100%
+        - generic [ref=e88]: Sourced & Verified
+    - paragraph [ref=e89]: Large variant
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]: 22+
+        - generic [ref=e93]: Courses
+      - generic [ref=e94]:
+        - generic [ref=e95]: 470+
+        - generic [ref=e96]: Lessons
+      - generic [ref=e97]:
+        - generic [ref=e98]: 80+
+        - generic [ref=e99]: Source Documents
+      - generic [ref=e100]:
+        - generic [ref=e101]: 100%
+        - generic [ref=e102]: Sourced & Verified
+  - generic [ref=e104]:
+    - generic [ref=e105]:
+      - generic [ref=e106]: Signature Cards
+      - heading "DarkUICard variants" [level=2] [ref=e107]
+      - paragraph [ref=e108]: The signature visual element. Used to show real product UI previews with sourced citations.
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - generic [ref=e112]: SustainIQ
+          - img [ref=e113]
+        - generic [ref=e116]:
+          - paragraph [ref=e117]: What is the baseline period for VM0042?
+          - paragraph [ref=e118]: 10 years prior to the project start date
+        - paragraph [ref=e120]: VM0042 v2.2, Section 3.1.2, p.14
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - generic [ref=e123]: Lesson Citation
+          - img [ref=e124]
+        - generic [ref=e127]:
+          - paragraph [ref=e128]: "Scope 3 Category 6: Business Travel"
+          - paragraph [ref=e129]: Mandatory reporting including air, rail, and bus transport for business purposes under operational control.
+        - paragraph [ref=e131]: GHG Protocol Corporate Value Chain Standard, Chapter 7, Table 7.1
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e134]: Emission Factor
+          - img [ref=e135]
+        - generic [ref=e138]:
+          - paragraph [ref=e139]: Grid Emission Factor (India)
+          - paragraph [ref=e140]: 0.716 tCO2/MWh
+        - paragraph [ref=e142]: DEFRA 2024, Table 4c, Row 12
+  - generic [ref=e144]:
+    - generic [ref=e145]:
+      - generic [ref=e146]: Pricing
+      - heading "Pricing cards" [level=2] [ref=e147]
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - heading "Learn" [level=3] [ref=e151]
+          - paragraph [ref=e152]: Get started with sourced sustainability learning.
+        - generic [ref=e153]:
+          - generic [ref=e154]: $8
+          - generic [ref=e155]: /month
+        - list [ref=e157]:
+          - listitem [ref=e158]:
+            - img [ref=e159]
+            - generic [ref=e161]: Unlimited courses + certificates
+          - listitem [ref=e162]:
+            - img [ref=e163]
+            - generic [ref=e165]: 10 SustainIQ queries/month
+          - listitem [ref=e166]:
+            - img [ref=e167]
+            - generic [ref=e169]: Job board (browse only)
+          - listitem [ref=e170]:
+            - img [ref=e171]
+            - generic [ref=e173]: Community discussions (rate-limited)
+        - link "Start Learning" [ref=e174] [cursor=pointer]:
+          - /url: /redesign/pricing#learn
+      - generic [ref=e175]:
+        - generic [ref=e176]: Most Popular
+        - generic [ref=e177]:
+          - heading "Career" [level=3] [ref=e178]
+          - paragraph [ref=e179]: For practitioners advancing their career.
+        - generic [ref=e180]:
+          - generic [ref=e181]: $14
+          - generic [ref=e182]: /month
+        - list [ref=e184]:
+          - listitem [ref=e185]:
+            - img [ref=e186]
+            - generic [ref=e188]: Everything in Learn
+          - listitem [ref=e189]:
+            - img [ref=e190]
+            - generic [ref=e192]: 6 SustainIQ queries/day
+          - listitem [ref=e193]:
+            - img [ref=e194]
+            - generic [ref=e196]: Full job matching + resume analysis
+          - listitem [ref=e197]:
+            - img [ref=e198]
+            - generic [ref=e200]: Skill gap analysis linked to courses
+          - listitem [ref=e201]:
+            - img [ref=e202]
+            - generic [ref=e204]: Unlimited community posting
+        - link "Start Career" [ref=e205] [cursor=pointer]:
+          - /url: /redesign/pricing#career
+      - generic [ref=e206]:
+        - generic [ref=e207]:
+          - heading "Pro" [level=3] [ref=e208]
+          - paragraph [ref=e209]: The full professional operating system.
+        - generic [ref=e210]:
+          - generic [ref=e211]: $25
+          - generic [ref=e212]: /month
+        - list [ref=e214]:
+          - listitem [ref=e215]:
+            - img [ref=e216]
+            - generic [ref=e218]: Everything in Career
+          - listitem [ref=e219]:
+            - img [ref=e220]
+            - generic [ref=e222]: 20 SustainIQ queries/day
+          - listitem [ref=e223]:
+            - img [ref=e224]
+            - generic [ref=e226]: All professional tools
+          - listitem [ref=e227]:
+            - img [ref=e228]
+            - generic [ref=e230]: Company ESG screener
+          - listitem [ref=e231]:
+            - img [ref=e232]
+            - generic [ref=e234]: Regulation tracker + RFP aggregator
+        - link "Go Pro" [ref=e235] [cursor=pointer]:
+          - /url: /redesign/pricing#pro
+  - generic [ref=e238]:
+    - generic [ref=e239]: Navigation
+    - heading "Auth state variants" [level=2] [ref=e240]
+    - paragraph [ref=e241]:
+      - text: The live nav at the top of this page shows the signed-out state. Both variants are implemented in RedesignNav via the
+      - code [ref=e242]: signedIn
+      - text: prop.
+  - contentinfo [ref=e243]:
+    - generic [ref=e244]:
+      - generic [ref=e245]:
+        - generic [ref=e246]:
+          - link "Greentryst" [ref=e247] [cursor=pointer]:
+            - /url: /redesign
+          - paragraph [ref=e248]: The professional operating system for sustainability practitioners.
+        - generic [ref=e249]:
+          - heading "Platform" [level=3] [ref=e250]
+          - list [ref=e251]:
+            - listitem [ref=e252]:
+              - link "Learn" [ref=e253] [cursor=pointer]:
+                - /url: /redesign/learn
+            - listitem [ref=e254]:
+              - link "SustainIQ" [ref=e255] [cursor=pointer]:
+                - /url: /redesign/ask
+            - listitem [ref=e256]:
+              - link "Career" [ref=e257] [cursor=pointer]:
+                - /url: /redesign/jobs
+            - listitem [ref=e258]:
+              - link "Tools" [ref=e259] [cursor=pointer]:
+                - /url: /redesign/tools
+            - listitem [ref=e260]:
+              - link "Pricing" [ref=e261] [cursor=pointer]:
+                - /url: /redesign/pricing
+        - generic [ref=e262]:
+          - heading "Resources" [level=3] [ref=e263]
+          - list [ref=e264]:
+            - listitem [ref=e265]:
+              - link "Glossary" [ref=e266] [cursor=pointer]:
+                - /url: /redesign/glossary
+            - listitem [ref=e267]:
+              - link "Blog" [ref=e268] [cursor=pointer]:
+                - /url: /redesign/blog
+            - listitem [ref=e269]:
+              - link "Changelog" [ref=e270] [cursor=pointer]:
+                - /url: /redesign/changelog
+            - listitem [ref=e271]:
+              - link "Documentation" [ref=e272] [cursor=pointer]:
+                - /url: /redesign/docs
+        - generic [ref=e273]:
+          - heading "Company" [level=3] [ref=e274]
+          - list [ref=e275]:
+            - listitem [ref=e276]:
+              - link "About" [ref=e277] [cursor=pointer]:
+                - /url: /redesign/about
+            - listitem [ref=e278]:
+              - link "Contact" [ref=e279] [cursor=pointer]:
+                - /url: /redesign/contact
+            - listitem [ref=e280]:
+              - link "Privacy" [ref=e281] [cursor=pointer]:
+                - /url: /redesign/privacy
+            - listitem [ref=e282]:
+              - link "Terms" [ref=e283] [cursor=pointer]:
+                - /url: /redesign/terms
+      - generic [ref=e284]:
+        - paragraph [ref=e285]: 2026 Greentryst. Built for sustainability professionals.
+        - paragraph [ref=e286]: Every claim sourced. Every answer defensible.

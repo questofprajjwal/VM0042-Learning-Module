@@ -1,194 +1,194 @@
+/**
+ * GlossaryClient - Interactive glossary with search and filtering
+ */
+
 'use client';
 
 import { useState, useMemo } from 'react';
+import { Search, X } from 'lucide-react';
+import { cn } from '@/components/redesign/lib/cn';
 
-interface GlossaryEntry {
+interface GlossaryTerm {
   term: string;
   slug: string;
   definition: string;
   category: string;
-  related: string[];
+  related?: string[];
 }
 
-interface Props {
-  entries: GlossaryEntry[];
+interface Category {
+  id: string;
+  label: string;
 }
 
-const categoryLabels: Record<string, string> = {
-  'carbon-markets': 'Carbon Markets',
-  'climate-science': 'Climate Science',
-  'climate-finance': 'Climate Finance',
-  'ghg-accounting': 'GHG Accounting',
-  'esg': 'ESG',
-  'reporting-standards': 'Reporting Standards',
-  'sustainability': 'Sustainability',
-  'governance': 'Governance',
-  'biodiversity': 'Biodiversity',
-  'human-rights': 'Human Rights',
-  'social-safeguards': 'Social Safeguards',
-  'eu-taxonomy': 'EU Taxonomy',
-};
-
-const categoryColors: Record<string, string> = {
-  'carbon-markets': 'bg-green-100 text-green-700',
-  'climate-science': 'bg-blue-100 text-blue-700',
-  'climate-finance': 'bg-indigo-100 text-indigo-700',
-  'ghg-accounting': 'bg-amber-100 text-amber-700',
-  'esg': 'bg-violet-100 text-violet-700',
-  'reporting-standards': 'bg-rose-100 text-rose-700',
-  'sustainability': 'bg-teal-100 text-teal-700',
-  'governance': 'bg-orange-100 text-orange-700',
-  'biodiversity': 'bg-emerald-100 text-emerald-700',
-  'human-rights': 'bg-red-100 text-red-700',
-  'social-safeguards': 'bg-pink-100 text-pink-700',
-  'eu-taxonomy': 'bg-cyan-100 text-cyan-700',
-};
-
-export default function GlossaryClient({ entries }: Props) {
+export function GlossaryClient({
+  terms,
+  categories,
+}: {
+  terms: GlossaryTerm[];
+  categories: Category[];
+}) {
   const [search, setSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState('all');
 
-  const categories = useMemo(
-    () => [...new Set(entries.map(e => e.category))].sort(),
-    [entries]
-  );
-
-  const filtered = useMemo(() => {
-    let result = entries;
-    if (activeCategory) {
-      result = result.filter(e => e.category === activeCategory);
-    }
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      result = result.filter(
-        e =>
-          e.term.toLowerCase().includes(q) ||
-          e.definition.toLowerCase().includes(q)
-      );
-    }
-    return result.sort((a, b) => a.term.localeCompare(b.term));
-  }, [entries, search, activeCategory]);
+  const filteredTerms = useMemo(() => {
+    return terms.filter((term) => {
+      const matchesSearch =
+        search === '' ||
+        term.term.toLowerCase().includes(search.toLowerCase()) ||
+        term.definition.toLowerCase().includes(search.toLowerCase());
+      const matchesCategory = activeCategory === 'all' || term.category === activeCategory;
+      return matchesSearch && matchesCategory;
+    });
+  }, [terms, search, activeCategory]);
 
   // Group by first letter
-  const grouped = useMemo(() => {
-    const groups: Record<string, GlossaryEntry[]> = {};
-    for (const entry of filtered) {
-      const letter = entry.term[0].toUpperCase();
+  const groupedTerms = useMemo(() => {
+    const groups: Record<string, GlossaryTerm[]> = {};
+    filteredTerms.forEach((term) => {
+      const letter = term.term[0].toUpperCase();
       if (!groups[letter]) groups[letter] = [];
-      groups[letter].push(entry);
-    }
+      groups[letter].push(term);
+    });
     return groups;
-  }, [filtered]);
+  }, [filteredTerms]);
 
-  const letters = Object.keys(grouped).sort();
-
-  // Build slug->term map for related links
-  const slugToTerm = useMemo(() => {
-    const map: Record<string, string> = {};
-    for (const e of entries) map[e.slug] = e.term;
-    return map;
-  }, [entries]);
+  const letters = Object.keys(groupedTerms).sort();
 
   return (
-    <div>
-      {/* Search + filter */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
-        <input
-          type="text"
-          placeholder="Search terms..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          className="flex-1 px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
-        />
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setActiveCategory(null)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-              !activeCategory ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-          >
-            All
-          </button>
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                activeCategory === cat
-                  ? 'bg-gray-900 text-white'
-                  : `${categoryColors[cat] || 'bg-gray-100 text-gray-600'} hover:opacity-80`
-              }`}
+    <main className="bg-[#fafbfa] min-h-[60vh]">
+      <div className="max-w-[1100px] mx-auto px-8 py-8">
+        {/* Search and Filters */}
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+          {/* Search */}
+          <div className="relative flex-1">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gt-text-muted" strokeWidth={2} />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search terms..."
+              className="w-full pl-11 pr-10 py-3 border border-[#e5e7e5] rounded-lg text-[14px] focus:outline-none focus:ring-2 focus:ring-gt-medium focus:border-transparent bg-white"
+            />
+            {search && (
+              <button
+                onClick={() => setSearch('')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gt-text-muted hover:text-gt-text"
+              >
+                <X className="w-4 h-4" strokeWidth={2} />
+              </button>
+            )}
+          </div>
+
+          {/* Category filter count */}
+          <div className="text-[13px] text-gt-text-muted flex items-center">
+            <span
+              className="font-semibold text-gt-text"
+              style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
             >
-              {categoryLabels[cat] || cat}
+              {filteredTerms.length}
+            </span>
+            <span className="ml-1">terms</span>
+          </div>
+        </div>
+
+        {/* Category Pills */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={cn(
+                'px-4 py-2 text-[12px] font-semibold rounded-lg transition-colors',
+                activeCategory === cat.id
+                  ? 'bg-gt-medium text-white'
+                  : 'bg-white border border-[#e5e7e5] text-gt-text hover:border-gt-medium/50'
+              )}
+            >
+              {cat.label}
             </button>
           ))}
         </div>
-      </div>
 
-      {/* Alphabet jump links */}
-      <div className="flex flex-wrap gap-1 mb-6">
-        {letters.map(letter => (
-          <a
-            key={letter}
-            href={`#letter-${letter}`}
-            className="w-8 h-8 flex items-center justify-center text-sm font-medium text-gray-600 hover:bg-green-100 hover:text-green-700 rounded transition-colors"
-          >
-            {letter}
-          </a>
-        ))}
-      </div>
-
-      {/* Term list */}
-      {filtered.length === 0 && (
-        <p className="text-gray-500 text-sm py-8 text-center">No terms found.</p>
-      )}
-
-      {letters.map(letter => (
-        <div key={letter} id={`letter-${letter}`} className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-300 mb-3 border-b border-gray-100 pb-1">
-            {letter}
-          </h2>
-          <div className="space-y-4">
-            {grouped[letter].map(entry => (
-              <div
-                key={entry.slug}
-                id={`term-${entry.slug}`}
-                className="bg-white border border-gray-100 rounded-xl px-5 py-4 shadow-sm"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-base font-semibold text-gray-900">
-                    {entry.term}
-                  </h3>
-                  <span
-                    className={`text-xs px-2 py-0.5 rounded-full flex-shrink-0 ${
-                      categoryColors[entry.category] || 'bg-gray-100 text-gray-600'
-                    }`}
-                  >
-                    {categoryLabels[entry.category] || entry.category}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                  {entry.definition}
-                </p>
-                {entry.related.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    <span className="text-xs text-gray-400">Related:</span>
-                    {entry.related.map(slug => (
-                      <a
-                        key={slug}
-                        href={`#term-${slug}`}
-                        className="text-xs text-green-600 hover:text-green-800 hover:underline"
-                      >
-                        {slugToTerm[slug] || slug}
-                      </a>
-                    ))}
-                  </div>
+        {/* Letter Navigation */}
+        <div className="flex flex-wrap gap-1 mb-8 pb-4 border-b border-[#e5e7e5]">
+          {Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ').map((letter) => {
+            const hasTerms = groupedTerms[letter]?.length > 0;
+            return (
+              <a
+                key={letter}
+                href={hasTerms ? `#letter-${letter}` : undefined}
+                className={cn(
+                  'w-8 h-8 flex items-center justify-center text-[12px] font-semibold rounded transition-colors',
+                  hasTerms
+                    ? 'text-gt-text hover:bg-gt-leaf/10 hover:text-gt-medium'
+                    : 'text-gt-text-muted/30 cursor-default'
                 )}
+                style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+              >
+                {letter}
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Terms List */}
+        {letters.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-[15px] text-gt-text-muted">No terms found matching your search.</p>
+          </div>
+        ) : (
+          <div className="space-y-12">
+            {letters.map((letter) => (
+              <div key={letter} id={`letter-${letter}`}>
+                <h2
+                  className="text-[24px] font-bold text-gt-text mb-6 sticky top-20 bg-[#fafbfa] py-2"
+                  style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
+                >
+                  {letter}
+                </h2>
+                <div className="space-y-4">
+                  {groupedTerms[letter].map((term) => (
+                    <div
+                      key={term.slug}
+                      id={`term-${term.slug}`}
+                      className="bg-white rounded-xl border border-[#e5e7e5] p-6"
+                    >
+                      <div className="flex items-start justify-between gap-4 mb-3">
+                        <h3 className="text-[16px] font-bold text-gt-text">{term.term}</h3>
+                        <span className="px-2 py-1 bg-gt-leaf/10 text-gt-medium text-[10px] font-bold uppercase rounded shrink-0">
+                          {term.category.replace(/-/g, ' ')}
+                        </span>
+                      </div>
+                      <p className="text-[14px] text-gt-text-muted leading-relaxed">
+                        {term.definition}
+                      </p>
+                      {term.related && term.related.length > 0 && (
+                        <div className="mt-4 pt-4 border-t border-[#e5e7e5]">
+                          <p className="text-[11px] font-semibold text-gt-text-muted uppercase mb-2">
+                            Related terms
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {term.related.map((rel) => (
+                              <a
+                                key={rel}
+                                href={`#term-${rel}`}
+                                className="text-[12px] text-gt-medium hover:text-gt-dark hover:underline"
+                              >
+                                {rel.replace(/-/g, ' ')}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
-        </div>
-      ))}
-    </div>
+        )}
+      </div>
+    </main>
   );
 }

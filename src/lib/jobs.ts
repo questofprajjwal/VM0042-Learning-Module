@@ -118,6 +118,16 @@ export function extractCountry(location: string | null): string | null {
   return null;
 }
 
+/**
+ * Full job rows including the detail fields (roleSummary, skillsRequired,
+ * domainContext). Exposed for server-only callers like the embedding
+ * prebuild script; the regular page payload uses `getJobsFiltered` which
+ * strips these heavy fields.
+ */
+export function getAllJobsFull(): JobRow[] {
+  return loadAllJobs();
+}
+
 function loadAllJobs(): JobRow[] {
   const filePath = path.join(process.cwd(), 'src', 'jobs', 'jobs.xlsx');
 

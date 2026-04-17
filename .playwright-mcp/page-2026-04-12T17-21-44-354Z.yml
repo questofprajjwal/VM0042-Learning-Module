@@ -1,0 +1,19 @@
+- generic [active]:
+  - alert [ref=e1]
+  - dialog [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - heading "Build Error" [level=1] [ref=e7]
+        - paragraph [ref=e8]: Failed to compile
+        - generic [ref=e9]:
+          - text: Next.js (14.2.29) is outdated
+          - link "(learn more)" [ref=e11] [cursor=pointer]:
+            - /url: https://nextjs.org/docs/messages/version-staleness
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - link "./src/app/redesign/components/_components/HeroClient.tsx" [ref=e14] [cursor=pointer]:
+            - text: ./src/app/redesign/components/_components/HeroClient.tsx
+            - img [ref=e15]
+          - generic [ref=e20]: "Error: Failed to read source code from /Users/knowprajjwal/LearningPlatform/src/app/redesign/components/_components/HeroClient.tsx Caused by: No such file or directory (os error 2)"
+        - contentinfo [ref=e21]:
+          - paragraph [ref=e22]: This error occurred during the build process and can only be dismissed by fixing the error.

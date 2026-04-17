@@ -1,0 +1,349 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Greentryst" [ref=e5] [cursor=pointer]:
+        - /url: /redesign
+      - generic [ref=e6]:
+        - link "Learn" [ref=e7] [cursor=pointer]:
+          - /url: /redesign/learn
+        - link "SustainIQ" [ref=e8] [cursor=pointer]:
+          - /url: /redesign/ask
+        - link "Career" [ref=e9] [cursor=pointer]:
+          - /url: /redesign/jobs
+        - link "Tools" [ref=e10] [cursor=pointer]:
+          - /url: /redesign/tools
+        - link "Pricing" [ref=e11] [cursor=pointer]:
+          - /url: /redesign/pricing
+      - generic [ref=e12]:
+        - link "Sign In" [ref=e13] [cursor=pointer]:
+          - /url: /redesign/sign-in
+        - link "Get Started" [ref=e14] [cursor=pointer]:
+          - /url: /redesign/sign-up
+  - generic [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: Career Directory
+      - heading "Curated roles for sustainability practitioners." [level=1] [ref=e19]
+      - paragraph [ref=e20]: Every listing categorized by domain and matched to the skills you build on Greentryst.
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: "487"
+          - generic [ref=e24]: Jobs Live
+        - generic [ref=e25]:
+          - generic [ref=e26]: "361"
+          - generic [ref=e27]: Companies
+        - generic [ref=e28]:
+          - generic [ref=e29]: "14"
+          - generic [ref=e30]: Countries
+        - generic [ref=e31]:
+          - generic [ref=e32]: "58"
+          - generic [ref=e33]: Remote
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - img
+          - searchbox "Search jobs by title, company, or skill..." [ref=e38]
+        - generic [ref=e39]:
+          - button "Relevance" [ref=e40] [cursor=pointer]
+          - button "Latest" [ref=e41] [cursor=pointer]
+        - button "Filters" [ref=e42] [cursor=pointer]:
+          - img [ref=e43]
+          - text: Filters
+      - generic [ref=e45]:
+        - button "All487" [ref=e46] [cursor=pointer]
+        - button "Climate Risk196" [ref=e47] [cursor=pointer]
+        - button "Sustainable Finance65" [ref=e48] [cursor=pointer]
+        - button "EU Taxonomy / SFDR13" [ref=e49] [cursor=pointer]
+        - button "Carbon Markets44" [ref=e50] [cursor=pointer]
+        - button "Clean Energy71" [ref=e51] [cursor=pointer]
+    - paragraph [ref=e53]: 487 results
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]: Role
+        - generic [ref=e57]: Company
+        - generic [ref=e58]: Location
+        - generic [ref=e59]: Type
+        - generic [ref=e60]: Posted
+      - generic [ref=e62]:
+        - button "Managing Consultant - Climate Risk & Disclosure Climate South Pole Darlinghurst, New ... On-site - Apply" [ref=e64] [cursor=pointer]:
+          - generic [ref=e66]:
+            - paragraph [ref=e67]: Managing Consultant - Climate Risk & Disclosure
+            - generic [ref=e68]: Climate
+          - paragraph [ref=e69]: South Pole
+          - paragraph [ref=e70]: Darlinghurst, New ...
+          - paragraph [ref=e71]: On-site
+          - paragraph [ref=e72]: "-"
+          - generic [ref=e73]:
+            - link "Apply" [ref=e74]:
+              - /url: https://www.linkedin.com/jobs/view/4358419492
+            - img [ref=e75]
+        - button "Director, Physical Risk Climate Howden London Area, Unite... On-site 3d Apply" [ref=e78] [cursor=pointer]:
+          - generic [ref=e80]:
+            - paragraph [ref=e81]: Director, Physical Risk
+            - generic [ref=e82]: Climate
+          - paragraph [ref=e83]: Howden
+          - paragraph [ref=e84]: London Area, Unite...
+          - paragraph [ref=e85]: On-site
+          - paragraph [ref=e86]: 3d
+          - generic [ref=e87]:
+            - link "Apply" [ref=e88]:
+              - /url: https://www.linkedin.com/jobs/view/4397228456
+            - img [ref=e89]
+        - button "ESG-Assistant Manager/Manager General Pierag Consulting Gurgaon, Haryana, ... On-site 1mo Apply" [ref=e92] [cursor=pointer]:
+          - generic [ref=e94]:
+            - paragraph [ref=e95]: ESG-Assistant Manager/Manager
+            - generic [ref=e96]: General
+          - paragraph [ref=e97]: Pierag Consulting
+          - paragraph [ref=e98]: Gurgaon, Haryana, ...
+          - paragraph [ref=e99]: On-site
+          - paragraph [ref=e100]: 1mo
+          - generic [ref=e101]:
+            - link "Apply" [ref=e102]:
+              - /url: https://www.linkedin.com/jobs/view/4387964175
+            - img [ref=e103]
+        - button "Manager ( Risk Specialist - Climate Risk ) Climate State Bank of India (SBI) Mumbai On-site 1mo Apply" [ref=e106] [cursor=pointer]:
+          - generic [ref=e108]:
+            - paragraph [ref=e109]: Manager ( Risk Specialist - Climate Risk )
+            - generic [ref=e110]: Climate
+          - paragraph [ref=e111]: State Bank of India (SBI)
+          - paragraph [ref=e112]: Mumbai
+          - paragraph [ref=e113]: On-site
+          - paragraph [ref=e114]: 1mo
+          - generic [ref=e115]:
+            - link "Apply" [ref=e116]:
+              - /url: https://www.naukri.com/job-listings-manager-risk-specialist-climate-risk-state-bank-of-india-mumbai-3-to-8-years-250226913356
+            - img [ref=e117]
+        - button "Senior Consultant - Sustainability Consulting Climate Crisil Mumbai, Gurugram, ... On-site 1mo Apply" [ref=e120] [cursor=pointer]:
+          - generic [ref=e122]:
+            - paragraph [ref=e123]: Senior Consultant - Sustainability Consulting
+            - generic [ref=e124]: Climate
+          - paragraph [ref=e125]: Crisil
+          - paragraph [ref=e126]: Mumbai, Gurugram, ...
+          - paragraph [ref=e127]: On-site
+          - paragraph [ref=e128]: 1mo
+          - generic [ref=e129]:
+            - link "Apply" [ref=e130]:
+              - /url: https://www.naukri.com/job-listings-senior-consultant-sustainability-consulting-crisil-limited-mumbai-gurugram-bengaluru-3-to-7-years-180226019201
+            - img [ref=e131]
+        - button "ESG Consultant General WOCE - World of Circular Economy New Delhi, Delhi, ... On-site 1w Apply" [ref=e134] [cursor=pointer]:
+          - generic [ref=e136]:
+            - paragraph [ref=e137]: ESG Consultant
+            - generic [ref=e138]: General
+          - paragraph [ref=e139]: WOCE - World of Circular Economy
+          - paragraph [ref=e140]: New Delhi, Delhi, ...
+          - paragraph [ref=e141]: On-site
+          - paragraph [ref=e142]: 1w
+          - generic [ref=e143]:
+            - link "Apply" [ref=e144]:
+              - /url: https://www.linkedin.com/jobs/view/4392175445
+            - img [ref=e145]
+        - button "ESG Advisory - Business Development General VettaSource Gurugram, Haryana,... On-site 1w Apply" [ref=e148] [cursor=pointer]:
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: ESG Advisory - Business Development
+            - generic [ref=e152]: General
+          - paragraph [ref=e153]: VettaSource
+          - paragraph [ref=e154]: Gurugram, Haryana,...
+          - paragraph [ref=e155]: On-site
+          - paragraph [ref=e156]: 1w
+          - generic [ref=e157]:
+            - link "Apply" [ref=e158]:
+              - /url: https://www.linkedin.com/jobs/view/4393418197
+            - img [ref=e159]
+        - button "Manager General Pierag Consulting Gurgaon, Haryana, ... On-site 3+ weeks ago Apply" [ref=e162] [cursor=pointer]:
+          - generic [ref=e164]:
+            - paragraph [ref=e165]: Manager
+            - generic [ref=e166]: General
+          - paragraph [ref=e167]: Pierag Consulting
+          - paragraph [ref=e168]: Gurgaon, Haryana, ...
+          - paragraph [ref=e169]: On-site
+          - paragraph [ref=e170]: 3+ weeks ago
+          - generic [ref=e171]:
+            - link "Apply" [ref=e172]:
+              - /url: https://www.linkedin.com/jobs/view/4389288853
+            - img [ref=e173]
+        - button "Climate Data Scientist Climate ISS Sustainability Solutions Sydney, New South ... On-site 1w Apply" [ref=e176] [cursor=pointer]:
+          - generic [ref=e178]:
+            - paragraph [ref=e179]: Climate Data Scientist
+            - generic [ref=e180]: Climate
+          - paragraph [ref=e181]: ISS Sustainability Solutions
+          - paragraph [ref=e182]: Sydney, New South ...
+          - paragraph [ref=e183]: On-site
+          - paragraph [ref=e184]: 1w
+          - generic [ref=e185]:
+            - link "Apply" [ref=e186]:
+              - /url: https://www.linkedin.com/jobs/view/4358361071
+            - img [ref=e187]
+        - button "Lead Professional, Climate Change Climate WSP in Australia Sydney, New South ... On-site 3+ weeks ago Apply" [ref=e190] [cursor=pointer]:
+          - generic [ref=e192]:
+            - paragraph [ref=e193]: Lead Professional, Climate Change
+            - generic [ref=e194]: Climate
+          - paragraph [ref=e195]: WSP in Australia
+          - paragraph [ref=e196]: Sydney, New South ...
+          - paragraph [ref=e197]: On-site
+          - paragraph [ref=e198]: 3+ weeks ago
+          - generic [ref=e199]:
+            - link "Apply" [ref=e200]:
+              - /url: https://www.linkedin.com/jobs/view/4379939131
+            - img [ref=e201]
+        - button "Lead Professional, Climate Change Climate WSP in Canada Sydney, New South ... On-site 3+ weeks ago Apply" [ref=e204] [cursor=pointer]:
+          - generic [ref=e206]:
+            - paragraph [ref=e207]: Lead Professional, Climate Change
+            - generic [ref=e208]: Climate
+          - paragraph [ref=e209]: WSP in Canada
+          - paragraph [ref=e210]: Sydney, New South ...
+          - paragraph [ref=e211]: On-site
+          - paragraph [ref=e212]: 3+ weeks ago
+          - generic [ref=e213]:
+            - link "Apply" [ref=e214]:
+              - /url: https://www.linkedin.com/jobs/view/4377356650
+            - img [ref=e215]
+        - button "Manager- Sustainability Assurance Climate EY Sydney, New South ... On-site 3d Apply" [ref=e218] [cursor=pointer]:
+          - generic [ref=e220]:
+            - paragraph [ref=e221]: Manager- Sustainability Assurance
+            - generic [ref=e222]: Climate
+          - paragraph [ref=e223]: EY
+          - paragraph [ref=e224]: Sydney, New South ...
+          - paragraph [ref=e225]: On-site
+          - paragraph [ref=e226]: 3d
+          - generic [ref=e227]:
+            - link "Apply" [ref=e228]:
+              - /url: https://www.linkedin.com/jobs/view/4385092149
+            - img [ref=e229]
+        - button "Quantitative Analyst Climate Climate Rabobank Utrecht, Utrecht, ... On-site 4d Apply" [ref=e232] [cursor=pointer]:
+          - generic [ref=e234]:
+            - paragraph [ref=e235]: Quantitative Analyst Climate
+            - generic [ref=e236]: Climate
+          - paragraph [ref=e237]: Rabobank
+          - paragraph [ref=e238]: Utrecht, Utrecht, ...
+          - paragraph [ref=e239]: On-site
+          - paragraph [ref=e240]: 4d
+          - generic [ref=e241]:
+            - link "Apply" [ref=e242]:
+              - /url: https://www.linkedin.com/jobs/view/4399412000
+            - img [ref=e243]
+        - button "Associate Manager General Jindal Stainless Jajpur, Odisha, In... On-site 1w Apply" [ref=e246] [cursor=pointer]:
+          - generic [ref=e248]:
+            - paragraph [ref=e249]: Associate Manager
+            - generic [ref=e250]: General
+          - paragraph [ref=e251]: Jindal Stainless
+          - paragraph [ref=e252]: Jajpur, Odisha, In...
+          - paragraph [ref=e253]: On-site
+          - paragraph [ref=e254]: 1w
+          - generic [ref=e255]:
+            - link "Apply" [ref=e256]:
+              - /url: https://www.linkedin.com/jobs/view/4393098055
+            - img [ref=e257]
+        - button "ESG Analyst Sustainable Aditi Consulting Bengaluru East, Ka... On-site 1w Apply" [ref=e260] [cursor=pointer]:
+          - generic [ref=e262]:
+            - paragraph [ref=e263]: ESG Analyst
+            - generic [ref=e264]: Sustainable
+          - paragraph [ref=e265]: Aditi Consulting
+          - paragraph [ref=e266]: Bengaluru East, Ka...
+          - paragraph [ref=e267]: On-site
+          - paragraph [ref=e268]: 1w
+          - generic [ref=e269]:
+            - link "Apply" [ref=e270]:
+              - /url: https://www.linkedin.com/jobs/view/4394620929
+            - img [ref=e271]
+      - generic [ref=e273]:
+        - generic [ref=e274]:
+          - generic [ref=e275]: Show
+          - generic [ref=e276]:
+            - button "15" [ref=e277] [cursor=pointer]
+            - button "30" [ref=e278] [cursor=pointer]
+            - button "50" [ref=e279] [cursor=pointer]
+        - generic [ref=e280]:
+          - button [disabled] [ref=e281]:
+            - img [ref=e282]
+          - generic [ref=e284]: 1 / 33
+          - button [ref=e285] [cursor=pointer]:
+            - img [ref=e286]
+      - generic [ref=e288]:
+        - generic [ref=e289]:
+          - generic [ref=e291]: Learn
+          - generic [ref=e292]:
+            - generic [ref=e293]:
+              - img [ref=e294]
+              - heading "Start Learning" [level=3] [ref=e296]
+            - paragraph [ref=e297]: Build the skills employers are looking for. Our courses cover the frameworks, standards, and domain knowledge mentioned in these job listings.
+            - generic [ref=e298]:
+              - link "Climate Science 101" [ref=e299] [cursor=pointer]:
+                - /url: /courses/climate-science-101
+              - link "IFRS S2 Climate Disclosures" [ref=e300] [cursor=pointer]:
+                - /url: /courses/ifrs-s2
+              - link "TNFD & Biodiversity" [ref=e301] [cursor=pointer]:
+                - /url: /courses/tnfd-biodiversity
+              - link "SBTi Targets" [ref=e302] [cursor=pointer]:
+                - /url: /courses/sbti
+              - link "Double Materiality" [ref=e303] [cursor=pointer]:
+                - /url: /courses/double-materiality
+        - generic [ref=e304]:
+          - generic [ref=e305]:
+            - img [ref=e306]
+            - heading "In-Demand Skills" [level=3] [ref=e309]
+          - generic [ref=e310]:
+            - generic [ref=e313]: Climate Risk Assessment
+            - generic [ref=e316]: ESG Reporting (GRI, SASB)
+            - generic [ref=e319]: Carbon Accounting
+            - generic [ref=e322]: EU Taxonomy Alignment
+          - link "Browse all courses" [ref=e323] [cursor=pointer]:
+            - /url: /redesign/courses
+            - text: Browse all courses
+            - img [ref=e324]
+  - contentinfo [ref=e326]:
+    - generic [ref=e327]:
+      - generic [ref=e328]:
+        - generic [ref=e329]:
+          - link "Greentryst" [ref=e330] [cursor=pointer]:
+            - /url: /redesign
+          - paragraph [ref=e331]: The professional operating system for sustainability practitioners.
+        - generic [ref=e332]:
+          - heading "Platform" [level=3] [ref=e333]
+          - list [ref=e334]:
+            - listitem [ref=e335]:
+              - link "Learn" [ref=e336] [cursor=pointer]:
+                - /url: /redesign/learn
+            - listitem [ref=e337]:
+              - link "SustainIQ" [ref=e338] [cursor=pointer]:
+                - /url: /redesign/ask
+            - listitem [ref=e339]:
+              - link "Career" [ref=e340] [cursor=pointer]:
+                - /url: /redesign/jobs
+            - listitem [ref=e341]:
+              - link "Tools" [ref=e342] [cursor=pointer]:
+                - /url: /redesign/tools
+            - listitem [ref=e343]:
+              - link "Pricing" [ref=e344] [cursor=pointer]:
+                - /url: /redesign/pricing
+        - generic [ref=e345]:
+          - heading "Resources" [level=3] [ref=e346]
+          - list [ref=e347]:
+            - listitem [ref=e348]:
+              - link "Glossary" [ref=e349] [cursor=pointer]:
+                - /url: /redesign/glossary
+            - listitem [ref=e350]:
+              - link "Blog" [ref=e351] [cursor=pointer]:
+                - /url: /redesign/blog
+            - listitem [ref=e352]:
+              - link "Changelog" [ref=e353] [cursor=pointer]:
+                - /url: /redesign/changelog
+            - listitem [ref=e354]:
+              - link "Documentation" [ref=e355] [cursor=pointer]:
+                - /url: /redesign/docs
+        - generic [ref=e356]:
+          - heading "Company" [level=3] [ref=e357]
+          - list [ref=e358]:
+            - listitem [ref=e359]:
+              - link "About" [ref=e360] [cursor=pointer]:
+                - /url: /redesign/about
+            - listitem [ref=e361]:
+              - link "Contact" [ref=e362] [cursor=pointer]:
+                - /url: /redesign/contact
+            - listitem [ref=e363]:
+              - link "Privacy" [ref=e364] [cursor=pointer]:
+                - /url: /redesign/privacy
+            - listitem [ref=e365]:
+              - link "Terms" [ref=e366] [cursor=pointer]:
+                - /url: /redesign/terms
+      - generic [ref=e367]:
+        - paragraph [ref=e368]: 2026 Greentryst. Built for sustainability professionals.
+        - paragraph [ref=e369]: Every claim sourced. Every answer defensible.

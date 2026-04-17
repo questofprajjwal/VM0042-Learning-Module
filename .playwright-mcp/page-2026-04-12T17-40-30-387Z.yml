@@ -1,0 +1,15 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - img [ref=e6]
+    - heading "Something went wrong" [level=1] [ref=e8]
+    - paragraph [ref=e9]: We encountered an unexpected error. This has been logged and we'll look into it. Please try again or return to the homepage.
+    - paragraph [ref=e10]: "Error ID: 3178109303"
+    - generic [ref=e11]:
+      - button "Try Again" [ref=e12] [cursor=pointer]:
+        - img [ref=e13]
+        - text: Try Again
+      - link "Go to Homepage" [ref=e18] [cursor=pointer]:
+        - /url: /redesign
+        - img [ref=e19]
+        - text: Go to Homepage
+  - alert [ref=e22]

@@ -1,48 +1,78 @@
-import { getGlossary } from '@/lib/glossary';
-import GlossaryClient from './_components/GlossaryClient';
-import PlatformNav from '@/components/platform/PlatformNav';
-import Footer from '@/components/platform/Footer';
+/**
+ * /redesign/glossary - Glossary Page
+ *
+ * Searchable sustainability terms and definitions.
+ */
 
-const siteUrl = 'https://greentryst.com';
+import type { Metadata } from 'next';
+import { Nav } from '@/components/Nav';
+import { RedesignFooter } from '@/components/redesign';
+import { GlossaryClient } from './_components/GlossaryClient';
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
 
-export const metadata = {
-  title: 'Glossary - Green Tryst',
-  description: 'Key sustainability, carbon markets, and ESG terms defined.',
+export const metadata: Metadata = {
+  title: 'Glossary',
+  description: 'Comprehensive glossary of sustainability, ESG, carbon markets, and climate terminology.',
 };
 
-export default function GlossaryPage() {
-  const glossary = getGlossary();
+interface GlossaryTerm {
+  term: string;
+  slug: string;
+  definition: string;
+  category: string;
+  related?: string[];
+}
 
-  const definedTermsJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'DefinedTermSet',
-    name: 'Sustainability Glossary',
-    description: 'Key terms across climate science, carbon markets, GHG accounting, and ESG.',
-    url: `${siteUrl}/glossary`,
-    hasDefinedTerm: glossary.map(entry => ({
-      '@type': 'DefinedTerm',
-      name: entry.term,
-      description: entry.definition,
-      url: `${siteUrl}/glossary#term-${entry.slug}`,
-      inDefinedTermSet: `${siteUrl}/glossary`,
-    })),
-  };
+async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
+  const filePath = path.join(process.cwd(), 'src/content/glossary.yaml');
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const terms = yaml.load(fileContents) as GlossaryTerm[];
+  return terms.sort((a, b) => a.term.localeCompare(b.term));
+}
+
+const CATEGORIES = [
+  { id: 'all', label: 'All Terms' },
+  { id: 'carbon-markets', label: 'Carbon Markets' },
+  { id: 'ghg-accounting', label: 'GHG Accounting' },
+  { id: 'esg', label: 'ESG' },
+  { id: 'climate-science', label: 'Climate Science' },
+  { id: 'climate-finance', label: 'Climate Finance' },
+  { id: 'eu-taxonomy', label: 'EU Taxonomy' },
+  { id: 'reporting-standards', label: 'Reporting Standards' },
+  { id: 'biodiversity', label: 'Biodiversity' },
+  { id: 'social-safeguards', label: 'Social Safeguards' },
+];
+
+export default async function GlossaryPage() {
+  const terms = await getGlossaryTerms();
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(definedTermsJsonLd) }}
-      />
-      <PlatformNav />
-      <main id="main-content" className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Glossary</h1>
-        <p className="text-gray-500 mb-8">
-          Key terms across climate science, carbon markets, GHG accounting, and ESG.
-        </p>
-        <GlossaryClient entries={glossary} />
-      </main>
-      <Footer />
+      <Nav />
+
+      {/* Hero - pt-28 accounts for fixed nav */}
+      <section className="bg-[#fafbfa] border-b border-[#e5e7e5] pt-28 pb-12">
+        <div className="max-w-[1100px] mx-auto px-8 text-center">
+          <p
+            className="text-[11px] font-bold uppercase text-gt-medium mb-3"
+            style={{ letterSpacing: '0.25em' }}
+          >
+            Reference
+          </p>
+          <h1 className="text-[32px] font-extrabold text-gt-text mb-4">
+            Glossary
+          </h1>
+          <p className="text-[15px] text-gt-text-muted max-w-xl mx-auto">
+            Comprehensive definitions for sustainability, ESG, carbon markets, and climate terminology.
+          </p>
+        </div>
+      </section>
+
+      <GlossaryClient terms={terms} categories={CATEGORIES} />
+
+      <RedesignFooter />
     </>
   );
 }
