@@ -227,6 +227,9 @@ export default function RetirementsClient() {
                       <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim">
                         Registries
                       </th>
+                      <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim">
+                        Methodologies
+                      </th>
                       <th className="text-right px-4 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim">
                         Projects
                       </th>
@@ -283,6 +286,30 @@ export default function RetirementsClient() {
                                 </span>
                               ))}
                             </div>
+                          </td>
+                          <td className="px-4 py-3 align-top">
+                            {b.methodologies.length === 0 ? (
+                              <span className="text-[11px] text-gt-text-dim">—</span>
+                            ) : (
+                              <div
+                                className="flex flex-wrap gap-1 max-w-[260px]"
+                                title={b.methodologies.join(', ')}
+                              >
+                                {b.methodologies.slice(0, 3).map(m => (
+                                  <span
+                                    key={m}
+                                    className="px-1.5 py-0.5 rounded bg-gt-medium/10 text-gt-medium text-[10px] font-['JetBrains_Mono'] font-semibold"
+                                  >
+                                    {m}
+                                  </span>
+                                ))}
+                                {b.methodologies.length > 3 ? (
+                                  <span className="px-1.5 py-0.5 rounded bg-gt-pale text-gt-text-dim text-[10px] font-semibold">
+                                    +{b.methodologies.length - 3}
+                                  </span>
+                                ) : null}
+                              </div>
+                            )}
                           </td>
                           <td className="px-4 py-3 align-top text-right font-['JetBrains_Mono'] text-[12px] text-gt-text">
                             {b.projectCount.toLocaleString('en-US')}
