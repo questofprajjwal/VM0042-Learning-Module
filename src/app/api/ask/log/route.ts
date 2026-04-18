@@ -15,6 +15,7 @@
 import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { eq } from 'drizzle-orm';
 
 import { db } from '@/lib/db';
 import { sustainiqQueries } from '@/lib/schema';
@@ -101,6 +102,9 @@ export async function POST(req: Request) {
           status: parsed.status,
           errorMessage: parsed.errorMessage ?? null,
         },
+        // Guard: if the row somehow already belongs to a different user
+        // (collision on a client-generated UUID), never overwrite it.
+        where: eq(sustainiqQueries.userId, userId),
       });
     return NextResponse.json({ ok: true, id: parsed.id });
   } catch (err) {
