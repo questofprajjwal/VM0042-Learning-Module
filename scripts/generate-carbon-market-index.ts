@@ -573,7 +573,10 @@ function ingestGcc(): ProjectRecord[] {
       creditingPeriodStart: null,
       creditingPeriodEnd: null,
       additionalCertifications: [],
-      registryUrl: r['projectUrl'] || 'https://gcc2.globalcarboncouncil.com/search/registration',
+      // GCC per-project URL pattern: /PublicPCF/PublicPCF/<mongoObjectId>
+      registryUrl: r['id']
+        ? `https://gcc2.globalcarboncouncil.com/PublicPCF/PublicPCF/${r['id']}`
+        : 'https://gcc2.globalcarboncouncil.com/search/registration',
     };
   });
 }

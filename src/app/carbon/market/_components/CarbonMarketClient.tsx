@@ -34,12 +34,14 @@ function formatBig(n: number): string {
 
 function parseUrlState(sp: URLSearchParams): FilterState {
   const get = (k: string) => (sp.get(k) ? sp.get(k)!.split(',').filter(Boolean) : []);
+  const corsia = sp.get('corsia');
   return {
     registries: get('registry') as Registry[],
     methodologies: get('methodology'),
     countries: get('country'),
     statuses: get('status') as StatusBucket[],
     certifications: get('cert'),
+    corsia: corsia === 'eligible' || corsia === 'ineligible' ? corsia : 'any',
   };
 }
 
@@ -57,6 +59,7 @@ function stateToQuery(s: FilterState, search: string, sort: Sort, page: number):
   if (s.countries.length) p.set('country', s.countries.join(','));
   if (s.statuses.length) p.set('status', s.statuses.join(','));
   if (s.certifications.length) p.set('cert', s.certifications.join(','));
+  if (s.corsia && s.corsia !== 'any') p.set('corsia', s.corsia);
   if (search) p.set('q', search);
   if (sort.key !== DEFAULT_SORT.key || sort.dir !== DEFAULT_SORT.dir) {
     p.set('sort', `${sort.key}-${sort.dir}`);
@@ -129,6 +132,8 @@ export default function CarbonMarketClient() {
         const has = filters.certifications.some(c => p.additionalCertifications.includes(c));
         if (!has) continue;
       }
+      if (filters.corsia === 'eligible' && !p.corsiaEligible) continue;
+      if (filters.corsia === 'ineligible' && p.corsiaEligible) continue;
       if (lc) {
         const hay = `${p.name} ${p.developer ?? ''} ${p.methodology ?? ''} ${p.country ?? ''}`
           .toLowerCase();

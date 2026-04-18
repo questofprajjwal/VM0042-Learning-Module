@@ -11,6 +11,7 @@ export interface FilterState {
   countries: string[];
   statuses: StatusBucket[];
   certifications: string[];
+  corsia: 'any' | 'eligible' | 'ineligible';
 }
 
 interface Props {
@@ -19,6 +20,13 @@ interface Props {
     methodology: Record<string, number>;
     country: Record<string, number>;
     statusBucket: Record<string, number>;
+    corsia?: {
+      eligible: number;
+      pilot: number;
+      first: number;
+      second: number;
+      conditional: number;
+    };
   };
   state: FilterState;
   setState: (s: FilterState) => void;
@@ -29,11 +37,14 @@ const REGISTRIES: Registry[] = [
   'verra_vcs',
   'verra_ccb',
   'verra_pwrp',
+  'verra_jnr',
+  'verra_fcpf',
   'goldstandard',
   'acr',
   'car',
   'car_compliance',
   'art',
+  'gcc',
 ];
 
 function toggle<T>(arr: T[], v: T): T[] {
@@ -106,6 +117,7 @@ export default function FilterSidebar({ facets, state, setState, onClose }: Prop
       countries: [],
       statuses: [],
       certifications: [],
+      corsia: 'any',
     });
 
   const totalActive =
@@ -113,7 +125,8 @@ export default function FilterSidebar({ facets, state, setState, onClose }: Prop
     state.methodologies.length +
     state.countries.length +
     state.statuses.length +
-    state.certifications.length;
+    state.certifications.length +
+    (state.corsia !== 'any' ? 1 : 0);
 
   return (
     <div className="flex flex-col gap-8">
@@ -262,6 +275,49 @@ export default function FilterSidebar({ facets, state, setState, onClose }: Prop
           ))}
         </div>
       </section>
+
+      {facets.corsia ? (
+        <section>
+          <SectionHeading>CORSIA (Aviation Offsets)</SectionHeading>
+          <div className="flex flex-col">
+            {(
+              [
+                { value: 'any', label: 'All projects', count: undefined },
+                { value: 'eligible', label: 'CORSIA eligible', count: facets.corsia.eligible },
+                {
+                  value: 'ineligible',
+                  label: 'Not eligible',
+                  count: undefined,
+                },
+              ] as const
+            ).map(opt => (
+              <label
+                key={opt.value}
+                className="flex items-center gap-2 text-sm text-gt-text-muted cursor-pointer hover:text-gt-text py-1"
+              >
+                <input
+                  type="radio"
+                  name="corsia-filter"
+                  checked={state.corsia === opt.value}
+                  onChange={() => setState({ ...state, corsia: opt.value })}
+                  className="w-4 h-4 accent-gt-medium"
+                />
+                <span className="flex-1 truncate">{opt.label}</span>
+                {opt.count != null ? (
+                  <span className="font-['JetBrains_Mono'] text-[11px] text-gt-text-dim">
+                    {opt.count.toLocaleString()}
+                  </span>
+                ) : null}
+              </label>
+            ))}
+          </div>
+          <p className="mt-2 text-[11px] leading-relaxed text-gt-text-dim">
+            Eligible under ICAO's Programme Eligibility table (Apr 2026).
+            Matches registry plus crediting-period overlap with an approved
+            compliance phase.
+          </p>
+        </section>
+      ) : null}
 
       <button
         type="button"
