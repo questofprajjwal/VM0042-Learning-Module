@@ -55,7 +55,7 @@ const TOOLS: ToolCard[] = [
     id: 'carbon-market',
     title: 'Carbon Market Intelligence',
     description:
-      'Global carbon market, made traceable. 9,603 projects across Verra VCS, CCB, PWRP, and Gold Standard in one searchable index.',
+      'Global carbon market, made traceable. 12,234 projects across Verra VCS, CCB, PWRP, Gold Standard, ACR, CAR, and ART TREES in one searchable index.',
     icon: Globe2,
     href: '/carbon/market',
     cta: 'Open tool',

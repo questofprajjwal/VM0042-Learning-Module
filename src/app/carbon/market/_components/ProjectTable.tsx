@@ -10,6 +10,10 @@ const REGISTRY_CHIP: Record<ProjectRecord['registry'], string> = {
   verra_ccb: 'bg-gt-forest/15 text-gt-medium',
   verra_pwrp: 'bg-cyan-100 text-cyan-900',
   goldstandard: 'bg-amber-100 text-amber-900',
+  acr: 'bg-blue-100 text-blue-900',
+  car: 'bg-rose-100 text-rose-900',
+  car_compliance: 'bg-orange-100 text-orange-900',
+  art: 'bg-violet-100 text-violet-900',
 };
 
 const REGISTRY_SHORT: Record<ProjectRecord['registry'], string> = {
@@ -17,6 +21,10 @@ const REGISTRY_SHORT: Record<ProjectRecord['registry'], string> = {
   verra_ccb: 'CCB',
   verra_pwrp: 'PWRP',
   goldstandard: 'GS',
+  acr: 'ACR',
+  car: 'CAR',
+  car_compliance: 'CAR-C',
+  art: 'ART',
 };
 
 const STATUS_DOT: Record<ProjectRecord['statusBucket'], string> = {

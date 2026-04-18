@@ -1,4 +1,12 @@
-export type Registry = 'verra_vcs' | 'verra_ccb' | 'verra_pwrp' | 'goldstandard';
+export type Registry =
+  | 'verra_vcs'
+  | 'verra_ccb'
+  | 'verra_pwrp'
+  | 'goldstandard'
+  | 'acr'
+  | 'car'
+  | 'car_compliance'
+  | 'art';
 
 export type StatusBucket =
   | 'Registered'
@@ -49,6 +57,10 @@ export const REGISTRY_LABEL: Record<Registry, string> = {
   verra_ccb: 'Verra CCB',
   verra_pwrp: 'Verra PWRP',
   goldstandard: 'Gold Standard',
+  acr: 'American Carbon Registry',
+  car: 'Climate Action Reserve',
+  car_compliance: 'CAR Compliance (ARB / Ecology)',
+  art: 'ART TREES',
 };
 
 export const STATUS_ORDER: StatusBucket[] = [

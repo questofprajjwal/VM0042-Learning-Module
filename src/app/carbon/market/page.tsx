@@ -9,12 +9,12 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: 'Carbon Market Intelligence',
   description:
-    'Search 9,603 carbon credit projects from Verra VCS, Gold Standard, CCB, and Plastic Waste Reduction registries. Filter by methodology, country, vintage, and certification. Updated nightly.',
+    'Search 12,234 carbon credit projects from Verra VCS, CCB, PWRP, Gold Standard, American Carbon Registry (ACR), Climate Action Reserve (CAR), and ART TREES. Filter by methodology, country, vintage, and certification. Updated nightly.',
   alternates: { canonical: '/carbon/market' },
   openGraph: {
     title: 'Carbon Market Intelligence | Greentryst',
     description:
-      'A live index of 9,603 voluntary carbon market projects. Verra VCS, CCB, PWRP, and Gold Standard in one place.',
+      'A live index of 12,234 voluntary and compliance carbon market projects across Verra, Gold Standard, ACR, CAR, and ART TREES.',
     url: 'https://greentryst.com/carbon/market',
     siteName: 'Greentryst',
     type: 'website',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Carbon Market Intelligence | Greentryst',
     description:
-      'A live index of 9,603 voluntary carbon market projects from Verra and Gold Standard.',
+      'A live index of 12,234 carbon market projects across Verra, Gold Standard, ACR, CAR, and ART TREES.',
   },
 };
 
@@ -32,7 +32,7 @@ const jsonLd = {
   '@type': 'Dataset',
   name: 'Greentryst Carbon Market Index',
   description:
-    'Normalized catalogue of voluntary carbon market projects from Verra VCS, Verra CCB, Verra PWRP, and Gold Standard registries.',
+    'Normalized catalogue of voluntary and compliance carbon market projects from Verra VCS, Verra CCB, Verra PWRP, Gold Standard, American Carbon Registry (ACR), Climate Action Reserve (CAR) including CAR Compliance (ARB / Ecology), and ART TREES.',
   url: 'https://greentryst.com/carbon/market',
   creator: { '@type': 'Organization', name: 'Greentryst' },
   distribution: [

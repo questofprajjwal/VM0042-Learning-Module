@@ -162,7 +162,7 @@ export default function CarbonMarketClient() {
     statusBucket: {},
   };
   const totals = index?.totals ?? {
-    projects: 9603,
+    projects: 12234,
     vcusIssued: 1790870472,
     vcusRetired: 1169554561,
     bufferPool: 73790255,

@@ -25,7 +25,16 @@ interface Props {
   onClose?: () => void;
 }
 
-const REGISTRIES: Registry[] = ['verra_vcs', 'verra_ccb', 'verra_pwrp', 'goldstandard'];
+const REGISTRIES: Registry[] = [
+  'verra_vcs',
+  'verra_ccb',
+  'verra_pwrp',
+  'goldstandard',
+  'acr',
+  'car',
+  'car_compliance',
+  'art',
+];
 
 function toggle<T>(arr: T[], v: T): T[] {
   return arr.includes(v) ? arr.filter(x => x !== v) : [...arr, v];
