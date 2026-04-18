@@ -66,6 +66,16 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // Pre-check Content-Length so we reject oversized bodies before buffering
+  // the full multipart payload into memory (OOM / cost-amplification guard).
+  const contentLength = Number(req.headers.get('content-length') ?? 0);
+  if (contentLength > MAX_FILE_BYTES * 1.1) {
+    return NextResponse.json(
+      { error: 'file too large', max_bytes: MAX_FILE_BYTES },
+      { status: 413 },
+    );
+  }
+
   let formData: FormData;
   try {
     formData = await req.formData();
