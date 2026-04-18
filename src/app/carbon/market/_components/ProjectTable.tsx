@@ -16,6 +16,7 @@ const REGISTRY_CHIP: Record<ProjectRecord['registry'], string> = {
   car: 'bg-rose-100 text-rose-900',
   car_compliance: 'bg-orange-100 text-orange-900',
   art: 'bg-violet-100 text-violet-900',
+  gcc: 'bg-fuchsia-100 text-fuchsia-900',
 };
 
 const REGISTRY_SHORT: Record<ProjectRecord['registry'], string> = {
@@ -29,6 +30,7 @@ const REGISTRY_SHORT: Record<ProjectRecord['registry'], string> = {
   car: 'CAR',
   car_compliance: 'CAR-C',
   art: 'ART',
+  gcc: 'GCC',
 };
 
 const STATUS_DOT: Record<ProjectRecord['statusBucket'], string> = {

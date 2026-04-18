@@ -48,7 +48,8 @@ type Registry =
   | 'acr'
   | 'car'
   | 'car_compliance'
-  | 'art';
+  | 'art'
+  | 'gcc';
 type StatusBucket = 'Registered' | 'Validation' | 'Development' | 'Inactive' | 'Other';
 type CorsiaPhase = 'pilot' | 'first' | 'second';
 
@@ -546,6 +547,37 @@ function ingestCar(isCompliance: boolean): ProjectRecord[] {
   });
 }
 
+function ingestGcc(): ProjectRecord[] {
+  const path = join(DATA_DIR, 'gcc/projects.csv');
+  if (!existsSync(path)) return [];
+  const rows = readCsvDict(path);
+  return rows.map<ProjectRecord>(r => {
+    const country = r['projectCountryId'] || null;
+    return {
+      id: `gcc-${r['id']}`,
+      registry: 'gcc',
+      name: r['pcfProjectName'] || '(untitled project)',
+      developer: null, // GCC's public PCF endpoint does not expose developer
+      methodology: null, // Separate PRC endpoint has methodology; add later
+      projectType: r['projectKindsString'] || null,
+      country,
+      region: regionFor(country),
+      status: r['projectTrackTypeId'] || '',
+      // GCC PCFs are consideration forms (pre-registration); treat as Development
+      // until we ingest the PRC (Project Registration Certification) endpoint.
+      statusBucket: 'Development',
+      estAnnualReductions: null,
+      estUnit: 'tCO2e',
+      cumulativeCreditsRegistered: null,
+      registrationDate: parseDate(r['createdOn']),
+      creditingPeriodStart: null,
+      creditingPeriodEnd: null,
+      additionalCertifications: [],
+      registryUrl: r['projectUrl'] || 'https://gcc2.globalcarboncouncil.com/search/registration',
+    };
+  });
+}
+
 function ingestArt(): ProjectRecord[] {
   const path = join(DATA_DIR, 'art/projects.csv');
   if (!existsSync(path)) return [];
@@ -673,6 +705,7 @@ function main() {
   const carVol = ingestCar(false);
   const carComp = ingestCar(true);
   const art = ingestArt();
+  const gcc = ingestGcc();
 
   const all: ProjectRecord[] = [
     ...vcs,
@@ -685,6 +718,7 @@ function main() {
     ...carVol,
     ...carComp,
     ...art,
+    ...gcc,
   ];
 
   enrichCorsia(all, loadCorsia());
@@ -851,7 +885,7 @@ function main() {
     `[carbon-market] ${all.length} projects written (${sizeMb} MB). ` +
       `VCS=${vcs.length} CCB=${ccb.length} JNR=${jnr.length} FCPF=${fcpf.length} ` +
       `PWRP=${pwrp.length} GS=${gs.length} ACR=${acr.length} CAR=${carVol.length} ` +
-      `CAR-compliance=${carComp.length} ART=${art.length}  |  ` +
+      `CAR-compliance=${carComp.length} ART=${art.length} GCC=${gcc.length}  |  ` +
       `CORSIA-eligible=${corsiaCount}`,
   );
 }

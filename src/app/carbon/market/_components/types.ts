@@ -8,7 +8,8 @@ export type Registry =
   | 'acr'
   | 'car'
   | 'car_compliance'
-  | 'art';
+  | 'art'
+  | 'gcc';
 
 export type CorsiaPhase = 'pilot' | 'first' | 'second';
 
@@ -78,6 +79,7 @@ export const REGISTRY_LABEL: Record<Registry, string> = {
   car: 'Climate Action Reserve',
   car_compliance: 'CAR Compliance (ARB / Ecology)',
   art: 'ART TREES',
+  gcc: 'Global Carbon Council',
 };
 
 export const STATUS_ORDER: StatusBucket[] = [
