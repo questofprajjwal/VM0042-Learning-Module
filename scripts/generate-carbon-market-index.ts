@@ -28,8 +28,14 @@ const DATA_DIR = existsSync(DATA_ROOT)
   : resolve(ROOT, '..', 'CarbonMarket Aggregator', 'data');
 
 if (!existsSync(DATA_DIR)) {
-  console.error(`[carbon-market] Aggregator data not found at ${DATA_DIR}`);
-  process.exit(1);
+  // Aggregator CSVs live outside the repo and are only present on the
+  // machine that authors the index. In any other build environment
+  // (Vercel, clean clones) we ship the pre-generated JSON files already
+  // committed to public/ and skip regeneration.
+  console.warn(
+    `[carbon-market] Aggregator data not found at ${DATA_DIR}. Skipping regeneration; using committed public/carbon-market-index.json.`,
+  );
+  process.exit(0);
 }
 
 type Registry = 'verra_vcs' | 'verra_ccb' | 'verra_pwrp' | 'goldstandard';
