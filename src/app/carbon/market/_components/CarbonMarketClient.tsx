@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useAuth } from '@clerk/nextjs';
 import { SlidersHorizontal, Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import {
   CategoryLabel,
@@ -13,6 +14,28 @@ import ProjectTable from './ProjectTable';
 import FilterSidebar, { FilterState } from './FilterSidebar';
 import FilterDrawer from './FilterDrawer';
 import type { CarbonMarketIndex, ProjectRecord, Registry, StatusBucket } from './types';
+import CarbonAuthPrompt from '../../_components/CarbonAuthPrompt';
+import RetirementsBanner from '../../_components/RetirementsBanner';
+
+const ANON_PAGE_LIMIT = 3;
+const EMPTY_FILTERS: FilterState = {
+  registries: [],
+  methodologies: [],
+  countries: [],
+  statuses: [],
+  certifications: [],
+  corsia: 'any',
+};
+function hasActiveFilters(s: FilterState): boolean {
+  return (
+    s.registries.length > 0 ||
+    s.methodologies.length > 0 ||
+    s.countries.length > 0 ||
+    s.statuses.length > 0 ||
+    s.certifications.length > 0 ||
+    (s.corsia && s.corsia !== 'any') === true
+  );
+}
 
 const PAGE_SIZE = 25;
 
@@ -72,10 +95,11 @@ function stateToQuery(s: FilterState, search: string, sort: Sort, page: number):
 export default function CarbonMarketClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { isSignedIn, isLoaded: authLoaded } = useAuth();
 
   const [index, setIndex] = useState<CarbonMarketIndex | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const [filters, setFilters] = useState<FilterState>(() => parseUrlState(searchParams));
+  const [filtersRaw, setFiltersRaw] = useState<FilterState>(() => parseUrlState(searchParams));
   const [search, setSearch] = useState(() => searchParams.get('q') ?? '');
   const [sort, setSort] = useState<Sort>(() => parseSort(searchParams.get('sort')));
   const [page, setPage] = useState<number>(() => {
@@ -83,6 +107,21 @@ export default function CarbonMarketClient() {
     return Number.isFinite(p) && p > 0 ? p : 1;
   });
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [authPromptFor, setAuthPromptFor] =
+    useState<'filter' | 'pagination' | null>(null);
+
+  // Anonymous filter gate: if not signed in, block filter changes, but
+  // clearing filters (going back to open view) is always allowed.
+  const anonymous = authLoaded && !isSignedIn;
+  const filters = filtersRaw;
+  const setFilters = (next: FilterState) => {
+    const goingToActive = hasActiveFilters(next);
+    if (anonymous && goingToActive) {
+      setAuthPromptFor('filter');
+      return;
+    }
+    setFiltersRaw(next);
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -174,7 +213,12 @@ export default function CarbonMarketClient() {
   };
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const safePage = Math.min(page, totalPages);
+  // Anonymous users can walk up to ANON_PAGE_LIMIT pages; further pagination
+  // triggers the auth prompt. Signed-in users are unrestricted.
+  const effectiveTotalPages = anonymous
+    ? Math.min(totalPages, ANON_PAGE_LIMIT)
+    : totalPages;
+  const safePage = Math.min(page, effectiveTotalPages);
   const pageStart = (safePage - 1) * PAGE_SIZE;
   const pageSlice = filtered.slice(pageStart, pageStart + PAGE_SIZE);
 
@@ -188,6 +232,13 @@ export default function CarbonMarketClient() {
   }
 
   function goToPage(p: number) {
+    // Anonymous users get blocked trying to navigate past the free limit;
+    // a clamp would be confusing, so instead we surface the auth prompt
+    // and keep them on their current page.
+    if (anonymous && p > ANON_PAGE_LIMIT) {
+      setAuthPromptFor('pagination');
+      return;
+    }
     const target = Math.min(Math.max(1, p), totalPages);
     setPage(target);
     if (typeof window !== 'undefined') {
@@ -256,6 +307,11 @@ export default function CarbonMarketClient() {
           </div>
         </div>
       </section>
+
+      <RetirementsBanner
+        totalRetirers={index?.totals.uniqueBeneficiaries}
+        totalRetired={index?.totals.creditsRetired ?? index?.totals.vcusRetired}
+      />
 
       <LightSection variant="pale" padding="lg" maxWidth="1440" className="!pt-12 !pb-20">
         <div className="flex flex-col lg:flex-row gap-10">
@@ -339,6 +395,29 @@ export default function CarbonMarketClient() {
               <>
                 <ProjectTable projects={pageSlice} sort={sort} onSort={onHeaderSort} />
 
+                {anonymous &&
+                safePage === ANON_PAGE_LIMIT &&
+                totalPages > ANON_PAGE_LIMIT ? (
+                  <div className="mt-6 p-4 bg-gt-pale/80 border border-gt-border-light rounded-xl flex items-center justify-between gap-4 flex-wrap">
+                    <p className="text-sm text-gt-text-muted">
+                      <span className="font-semibold text-gt-text">
+                        Sign up free
+                      </span>{' '}
+                      to page through all{' '}
+                      {filtered.length.toLocaleString('en-US')} results and apply
+                      filters. No credit card.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setAuthPromptFor('pagination')}
+                      className="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-semibold bg-gt-medium text-white rounded-lg hover:bg-gt-dark"
+                    >
+                      Continue
+                      <ChevronRight className="w-4 h-4" strokeWidth={2} />
+                    </button>
+                  </div>
+                ) : null}
+
                 <nav
                   aria-label="Pagination"
                   className="mt-8 flex items-center justify-between gap-4 flex-wrap"
@@ -385,6 +464,12 @@ export default function CarbonMarketClient() {
         facets={facets}
         state={filters}
         setState={setFilters}
+      />
+
+      <CarbonAuthPrompt
+        open={authPromptFor !== null}
+        trigger={authPromptFor ?? 'filter'}
+        onClose={() => setAuthPromptFor(null)}
       />
     </>
   );

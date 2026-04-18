@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { Search, TrendingDown, ArrowUpRight, Globe, ExternalLink } from 'lucide-react';
+import { useAuth } from '@clerk/nextjs';
+import { Search, TrendingDown, ArrowUpRight, Globe, ExternalLink, ChevronRight } from 'lucide-react';
 import {
   CategoryLabel,
   SectionHeading,
@@ -10,6 +11,9 @@ import {
 } from '@/components/redesign';
 import { REGISTRY_LABEL } from '../../market/_components/types';
 import type { Registry } from '../../market/_components/types';
+import CarbonAuthPrompt from '../../_components/CarbonAuthPrompt';
+
+const ANON_PAGE_LIMIT = 3;
 
 type BeneficiaryRecord = {
   name: string;
@@ -82,10 +86,34 @@ const PAGE_SIZE = 50;
 export default function RetirementsClient() {
   const [data, setData] = useState<LeaderboardPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { isSignedIn, isLoaded: authLoaded } = useAuth();
+  const anonymous = authLoaded && !isSignedIn;
+
   const [search, setSearch] = useState('');
-  const [registryFilter, setRegistryFilter] = useState<Registry | ''>('');
-  const [methodologyFilter, setMethodologyFilter] = useState<string>('');
+  const [registryFilterRaw, setRegistryFilterRaw] = useState<Registry | ''>('');
+  const [methodologyFilterRaw, setMethodologyFilterRaw] = useState<string>('');
   const [page, setPage] = useState(1);
+  const [authPromptFor, setAuthPromptFor] =
+    useState<'filter' | 'pagination' | 'methodology-drill' | null>(null);
+
+  // Gate filter changes for anonymous visitors. Clearing a filter is
+  // always allowed (brings them back toward the open view).
+  const registryFilter = registryFilterRaw;
+  const methodologyFilter = methodologyFilterRaw;
+  const setRegistryFilter = (v: Registry | '') => {
+    if (anonymous && v !== '') {
+      setAuthPromptFor('filter');
+      return;
+    }
+    setRegistryFilterRaw(v);
+  };
+  const setMethodologyFilter = (v: string) => {
+    if (anonymous && v !== '') {
+      setAuthPromptFor('methodology-drill');
+      return;
+    }
+    setMethodologyFilterRaw(v);
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -133,8 +161,20 @@ export default function RetirementsClient() {
     setPage(1);
   }, [search, registryFilter, methodologyFilter]);
 
-  const pageSlice = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const effectiveTotalPages = anonymous
+    ? Math.min(totalPages, ANON_PAGE_LIMIT)
+    : totalPages;
+  const safePage = Math.min(page, effectiveTotalPages);
+  const pageSlice = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+
+  function goToPage(p: number) {
+    if (anonymous && p > ANON_PAGE_LIMIT) {
+      setAuthPromptFor('pagination');
+      return;
+    }
+    setPage(Math.min(Math.max(1, p), totalPages));
+  }
 
   const totalRetired = data?.totalRetiredInLeaderboard ?? 0;
   const uniqueBeneficiaries = data?.totalBeneficiaries ?? 0;
@@ -360,27 +400,47 @@ export default function RetirementsClient() {
                 </table>
               </div>
 
+              {anonymous &&
+              safePage === ANON_PAGE_LIMIT &&
+              totalPages > ANON_PAGE_LIMIT ? (
+                <div className="mt-6 p-4 bg-gt-pale/80 border border-gt-border-light rounded-xl flex items-center justify-between gap-4 flex-wrap">
+                  <p className="text-sm text-gt-text-muted">
+                    <span className="font-semibold text-gt-text">Sign up free</span> to
+                    page through the full leaderboard ({filtered.length.toLocaleString('en-US')}{' '}
+                    retirers) and drill in by methodology or registry.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setAuthPromptFor('pagination')}
+                    className="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-semibold bg-gt-medium text-white rounded-lg hover:bg-gt-dark"
+                  >
+                    Continue
+                    <ChevronRight className="w-4 h-4" strokeWidth={2} />
+                  </button>
+                </div>
+              ) : null}
+
               {totalPages > 1 ? (
                 <div className="mt-6 flex items-center justify-between">
                   <p className="text-xs text-gt-text-dim font-['JetBrains_Mono']">
-                    Page {page} of {totalPages} · Showing{' '}
-                    {((page - 1) * PAGE_SIZE + 1).toLocaleString('en-US')}–
-                    {Math.min(page * PAGE_SIZE, filtered.length).toLocaleString('en-US')} of{' '}
+                    Page {safePage} of {totalPages} · Showing{' '}
+                    {((safePage - 1) * PAGE_SIZE + 1).toLocaleString('en-US')}–
+                    {Math.min(safePage * PAGE_SIZE, filtered.length).toLocaleString('en-US')} of{' '}
                     {filtered.length.toLocaleString('en-US')}
                   </p>
                   <div className="flex gap-2">
                     <button
                       type="button"
-                      onClick={() => setPage(p => Math.max(1, p - 1))}
-                      disabled={page === 1}
+                      onClick={() => goToPage(safePage - 1)}
+                      disabled={safePage <= 1}
                       className="px-3 py-1.5 text-sm font-semibold bg-white border border-gt-border-light rounded-lg hover:border-gt-medium/40 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Previous
                     </button>
                     <button
                       type="button"
-                      onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-                      disabled={page >= totalPages}
+                      onClick={() => goToPage(safePage + 1)}
+                      disabled={safePage >= totalPages}
                       className="px-3 py-1.5 text-sm font-semibold bg-white border border-gt-border-light rounded-lg hover:border-gt-medium/40 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next
@@ -423,6 +483,12 @@ export default function RetirementsClient() {
           </div>
         </div>
       </section>
+
+      <CarbonAuthPrompt
+        open={authPromptFor !== null}
+        trigger={authPromptFor ?? 'filter'}
+        onClose={() => setAuthPromptFor(null)}
+      />
     </>
   );
 }
