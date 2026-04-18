@@ -947,6 +947,81 @@ function main() {
     `[carbon-market] ${Object.keys(creditsMerged).length} credits summaries merged`,
   );
 
+  // Global retirement leaderboard: invert the per-project top-beneficiaries
+  // into a per-beneficiary global roll-up. We only have the top 5 retirees
+  // per project, but since corporate retirers (Shell, Eni, Microsoft...)
+  // dominate across many projects, aggregating the top-5 snapshots is a
+  // strong proxy for the true leaderboard. Exposed as a separate side-file
+  // consumed by /carbon/retirements.
+  type GlobalBenef = {
+    name: string;
+    totalRetired: number;
+    projectCount: number;
+    registries: Set<Registry>;
+    methodologies: Set<string>;
+    bridge?: string;
+  };
+  const benefMap = new Map<string, GlobalBenef>();
+  // Build a quick project-id → project-record lookup for annotation
+  const projectById = new Map(all.map(p => [p.id, p]));
+  for (const [projectId, entry] of Object.entries(
+    creditsMerged as Record<string, {
+      topBeneficiaries?: { name: string; quantity: number; bridge?: string }[];
+    }>,
+  )) {
+    const proj = projectById.get(projectId);
+    for (const b of entry.topBeneficiaries ?? []) {
+      if (!b.name) continue;
+      // Normalize name to a single canonical form for dedupe (trim, collapse
+      // whitespace). Keep original-case for display on first encounter.
+      const key = b.name.trim().replace(/\s+/g, ' ');
+      let rec = benefMap.get(key.toLowerCase());
+      if (!rec) {
+        rec = {
+          name: key,
+          totalRetired: 0,
+          projectCount: 0,
+          registries: new Set(),
+          methodologies: new Set(),
+          bridge: b.bridge,
+        };
+        benefMap.set(key.toLowerCase(), rec);
+      }
+      rec.totalRetired += b.quantity || 0;
+      rec.projectCount += 1;
+      if (proj) {
+        rec.registries.add(proj.registry);
+        if (proj.methodology) rec.methodologies.add(proj.methodology);
+      }
+      if (!rec.bridge && b.bridge) rec.bridge = b.bridge;
+    }
+  }
+  // Sort by totalRetired desc, cap to top 500 for file size.
+  const leaderboard = [...benefMap.values()]
+    .sort((a, b) => b.totalRetired - a.totalRetired)
+    .slice(0, 500)
+    .map(r => ({
+      name: r.name,
+      totalRetired: r.totalRetired,
+      projectCount: r.projectCount,
+      registries: [...r.registries],
+      methodologies: [...r.methodologies].slice(0, 8),
+      ...(r.bridge ? { bridge: r.bridge } : {}),
+    }));
+  const retirementsPayload = {
+    generatedAt: new Date().toISOString(),
+    totalBeneficiaries: benefMap.size,
+    totalRetiredInLeaderboard: leaderboard.reduce((s, r) => s + r.totalRetired, 0),
+    beneficiaries: leaderboard,
+  };
+  writeFileSync(
+    join(PUBLIC_DIR, 'carbon-market-retirements.json'),
+    JSON.stringify(retirementsPayload),
+  );
+  console.log(
+    `[carbon-market] leaderboard: ${leaderboard.length} of ${benefMap.size} beneficiaries`,
+  );
+
   // Tiny methodology-count file consumed by LiveProjectsCard (inline
   // banner in carbon-markets lessons). Keeping this separate from the
   // main index so lesson pages don't pull the full ~7 MB catalogue.
