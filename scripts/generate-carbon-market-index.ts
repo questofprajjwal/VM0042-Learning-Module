@@ -423,6 +423,36 @@ function main() {
     join(PUBLIC_DIR, 'carbon-market-descriptions.json'),
     JSON.stringify(descriptions),
   );
+
+  // Tiny methodology-count file consumed by LiveProjectsCard (inline
+  // banner in carbon-markets lessons). Keeping this separate from the
+  // main index so lesson pages don't pull the full ~7 MB catalogue.
+  const methodologyStats: Record<string, { projects: number; countries: number }> = {};
+  for (const p of all) {
+    if (!p.methodology) continue;
+    const m = (methodologyStats[p.methodology] ??= { projects: 0, countries: 0 });
+    m.projects += 1;
+  }
+  // Compute country coverage per methodology in a second pass so we can
+  // dedupe by country string cleanly.
+  const byMethodologyCountries: Record<string, Set<string>> = {};
+  for (const p of all) {
+    if (!p.methodology || !p.country) continue;
+    (byMethodologyCountries[p.methodology] ??= new Set()).add(p.country);
+  }
+  for (const [m, set] of Object.entries(byMethodologyCountries)) {
+    if (methodologyStats[m]) methodologyStats[m].countries = set.size;
+  }
+  writeFileSync(
+    join(PUBLIC_DIR, 'carbon-market-methodology-counts.json'),
+    JSON.stringify({
+      totalProjects: all.length,
+      byMethodology: methodologyStats,
+    }),
+  );
+  console.log(
+    `[carbon-market] methodology counts written for ${Object.keys(methodologyStats).length} methodologies`,
+  );
   const descMb = (JSON.stringify(descriptions).length / 1024 / 1024).toFixed(2);
   console.log(
     `[carbon-market] ${Object.keys(descriptions).length} descriptions written (${descMb} MB)`,

@@ -40,6 +40,7 @@ import {
 import { LessonGlassAudio } from '@/components/redesign/lesson/LessonGlassAudio';
 import { QuizRedesign } from '@/components/redesign/lesson/QuizRedesign';
 import { getRedesignMDXComponents } from '@/components/redesign/lesson/mdx-components-redesign';
+import { injectCarbonMarketBanner } from '@/lib/carbon-market-banner';
 import {
   getCourse,
   getLessonNavContext,
@@ -147,6 +148,12 @@ export default function LessonRedesignPage({ params }: PageParams) {
   if (leadingAudio) {
     mdxSource = leadingAudio.remainingMdx;
   }
+
+  // For whitelisted carbon-markets courses (vcm-101, vm0042, vm0044),
+  // inject a LiveProjectsCard inline after the 2nd h2 so learners see
+  // a direct bridge into /carbon/market at a natural reading break.
+  // See src/lib/carbon-market-banner.ts for the placement rule.
+  mdxSource = injectCarbonMarketBanner(mdxSource, courseId, lessonId);
 
   // Load the quiz YAML for this lesson if one exists. Returns []
   // when the file is missing, in which case the Quiz block is not

@@ -41,6 +41,7 @@ import {
   RoughChartRedesign,
   FlowchartRedesign,
 } from './InteractiveBlocks';
+import { LiveProjectsCard } from './LiveProjectsCard';
 
 function extractText(node: ReactNode): string {
   if (node == null || typeof node === 'boolean') return '';
@@ -69,6 +70,7 @@ export function getRedesignMDXComponents(
     CalculationExercise: CalculationExerciseRedesign,
     Chart: ChartRedesign,
     RoughChart: RoughChartRedesign,
+    LiveProjectsCard,
 
     // Intercept fenced ```mermaid blocks and render the redesigned
     // Flowchart instead of a code block.
