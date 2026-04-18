@@ -740,6 +740,58 @@ function main() {
     (summary.PWRP?.retired ?? 0);
   const buffer = summary.VCS?.resourcesBufferCreditsDeposited ?? 0;
 
+  // Cross-registry credit tallies pulled from per-project credit summary
+  // files (VCS, ACR, CAR). Verra's program_summary.json gives us the
+  // authoritative totals for Verra programs; for everything else we sum
+  // what we've scraped. The header tiles use these combined numbers.
+  const extraRegistrySources: Array<{ file: string; registryKey: string }> = [
+    { file: 'acr/credits_summary.json', registryKey: 'acr' },
+    { file: 'car/credits_summary.json', registryKey: 'car' },
+  ];
+  let extraIssued = 0;
+  let extraRetired = 0;
+  const uniqueBeneficiaries = new Set<string>();
+  for (const src of extraRegistrySources) {
+    const p = join(DATA_DIR, src.file);
+    if (!existsSync(p)) continue;
+    try {
+      const per = JSON.parse(readFileSync(p, 'utf-8')) as Record<string, {
+        totalIssued: number;
+        totalRetired: number;
+        topBeneficiaries: { name: string }[];
+      }>;
+      for (const entry of Object.values(per)) {
+        extraIssued += entry.totalIssued || 0;
+        extraRetired += entry.totalRetired || 0;
+        for (const b of entry.topBeneficiaries || []) {
+          if (b.name) uniqueBeneficiaries.add(b.name);
+        }
+      }
+    } catch {
+      /* skip */
+    }
+  }
+  // Also count VCS beneficiaries (they go into the same summary file but
+  // we already have it loaded via creditsMerged below; duplicate a small
+  // pass here for the totals-tile correctness).
+  const vcsSumPath = join(DATA_DIR, 'verra/vcs/credits_summary.json');
+  if (existsSync(vcsSumPath)) {
+    try {
+      const per = JSON.parse(readFileSync(vcsSumPath, 'utf-8')) as Record<string, {
+        topBeneficiaries: { name: string }[];
+      }>;
+      for (const entry of Object.values(per)) {
+        for (const b of entry.topBeneficiaries || []) {
+          if (b.name) uniqueBeneficiaries.add(b.name);
+        }
+      }
+    } catch {
+      /* skip */
+    }
+  }
+  const totalIssuedAll = issued + extraIssued;
+  const totalRetiredAll = retired + extraRetired;
+
   // Pre-compute facet counts so the client can render the left rail without a
   // second pass over the full dataset.
   const countBy = (key: keyof ProjectRecord): Record<string, number> => {
@@ -755,9 +807,16 @@ function main() {
     generatedAt: new Date().toISOString(),
     totals: {
       projects: all.length,
+      registries: new Set(all.map(p => p.registry)).size,
+      // Historically "vcusIssued" was Verra-only; we now expose cross-
+      // registry totals under more honest names and keep the legacy
+      // fields populated for backwards compatibility with older UI reads.
       vcusIssued: issued,
       vcusRetired: retired,
+      creditsIssued: totalIssuedAll,
+      creditsRetired: totalRetiredAll,
       bufferPool: buffer,
+      uniqueBeneficiaries: uniqueBeneficiaries.size,
     },
     facets: {
       registry: countBy('registry'),
@@ -854,19 +913,39 @@ function main() {
     JSON.stringify(descriptions),
   );
 
-  // Credits summary side-file: produced by scraper/summarize_vcs_credits.py
-  // from the ~4,500 per-project credit CSVs. Contains totalIssued,
-  // totalRetired, outstanding, topBeneficiaries, lastRetirementDate per
-  // VCS project. Lazy-loaded when a row is expanded, same pattern as
-  // descriptions. Currently VCS only; other registries can be added as
-  // their credit datasets land.
-  const creditsSummaryPath = join(DATA_DIR, 'verra/vcs/credits_summary.json');
-  if (existsSync(creditsSummaryPath)) {
-    const raw = readFileSync(creditsSummaryPath, 'utf-8');
-    writeFileSync(join(PUBLIC_DIR, 'carbon-market-credits-summary.json'), raw);
-    const entries = Object.keys(JSON.parse(raw)).length;
-    console.log(`[carbon-market] ${entries} credits summaries copied`);
+  // Credits summary side-file: merged output from per-registry summary
+  // scripts (summarize_vcs_credits.py, summarize_apx_credits.py). Contains
+  // totalIssued, totalRetired, outstanding, topBeneficiaries, bridges,
+  // lastRetirementDate per project. Lazy-loaded when a row is expanded,
+  // same pattern as descriptions.
+  const creditsMerged: Record<string, unknown> = {};
+  for (const relPath of [
+    'verra/vcs/credits_summary.json',
+    'acr/credits_summary.json',
+    'car/credits_summary.json',
+  ]) {
+    const p = join(DATA_DIR, relPath);
+    if (!existsSync(p)) continue;
+    try {
+      Object.assign(creditsMerged, JSON.parse(readFileSync(p, 'utf-8')));
+    } catch {
+      /* skip malformed */
+    }
   }
+  // CAR-compliance rows share IDs with CAR voluntary — mirror their
+  // summaries under the carc- prefix so compliance rows expand cleanly.
+  for (const key of Object.keys(creditsMerged)) {
+    if (key.startsWith('car-')) {
+      creditsMerged[key.replace(/^car-/, 'carc-')] = creditsMerged[key];
+    }
+  }
+  writeFileSync(
+    join(PUBLIC_DIR, 'carbon-market-credits-summary.json'),
+    JSON.stringify(creditsMerged),
+  );
+  console.log(
+    `[carbon-market] ${Object.keys(creditsMerged).length} credits summaries merged`,
+  );
 
   // Tiny methodology-count file consumed by LiveProjectsCard (inline
   // banner in carbon-markets lessons). Keeping this separate from the

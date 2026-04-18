@@ -48,9 +48,13 @@ export interface CarbonMarketIndex {
   generatedAt: string;
   totals: {
     projects: number;
+    registries?: number;
     vcusIssued: number;
     vcusRetired: number;
+    creditsIssued?: number;
+    creditsRetired?: number;
     bufferPool: number;
+    uniqueBeneficiaries?: number;
   };
   facets: {
     registry: Record<string, number>;

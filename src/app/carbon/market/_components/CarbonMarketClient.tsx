@@ -218,21 +218,22 @@ export default function CarbonMarketClient() {
             </SectionHeading>
             <p className="mt-6 text-[15px] text-white/70 leading-relaxed max-w-2xl">
               The work you used to do with five browser tabs, one search box away.{' '}
-              {totals.projects.toLocaleString('en-US')} projects across all global carbon
-              registries.
+              {totals.projects.toLocaleString('en-US')} projects across{' '}
+              {totals.registries ?? 11} global carbon registries, with retirement
+              beneficiaries, vintage windows, and CORSIA eligibility surfaced inline.
             </p>
           </div>
 
           <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 max-w-4xl">
             <Stat
-              value={formatBig(totals.vcusIssued)}
-              label="VCUs issued"
+              value={formatBig(totals.creditsIssued ?? totals.vcusIssued)}
+              label="credits issued"
               tone="light"
               className="[&>div]:!text-white"
             />
             <Stat
-              value={formatBig(totals.vcusRetired)}
-              label="VCUs retired"
+              value={formatBig(totals.creditsRetired ?? totals.vcusRetired)}
+              label="credits retired"
               tone="light"
               className="[&>div]:!text-white"
             />
@@ -243,8 +244,12 @@ export default function CarbonMarketClient() {
               className="[&>div]:!text-white"
             />
             <Stat
-              value={formatBig(totals.bufferPool)}
-              label="buffer pool"
+              value={
+                totals.uniqueBeneficiaries
+                  ? totals.uniqueBeneficiaries.toLocaleString('en-US')
+                  : formatBig(totals.bufferPool)
+              }
+              label={totals.uniqueBeneficiaries ? 'corporate retirers tracked' : 'buffer pool'}
               tone="light"
               className="[&>div]:!text-white"
             />
@@ -311,6 +316,13 @@ export default function CarbonMarketClient() {
               </div>
             </div>
 
+            <ActiveFilterPills
+              filters={filters}
+              setFilters={setFilters}
+              search={search}
+              setSearch={setSearch}
+            />
+
             {!index ? (
               <div className="bg-white border border-gt-border-light rounded-2xl p-12 text-center shadow-gt-card">
                 <p className="text-base text-gt-text-muted">
@@ -375,5 +387,111 @@ export default function CarbonMarketClient() {
         setState={setFilters}
       />
     </>
+  );
+}
+
+/**
+ * ActiveFilterPills — small removable chip for every applied filter.
+ * Shown above the results so users can see and dismiss individual
+ * filters without opening the sidebar.
+ */
+function ActiveFilterPills({
+  filters,
+  setFilters,
+  search,
+  setSearch,
+}: {
+  filters: FilterState;
+  setFilters: (s: FilterState) => void;
+  search: string;
+  setSearch: (s: string) => void;
+}) {
+  type Pill = { label: string; onRemove: () => void };
+  const pills: Pill[] = [];
+
+  if (search.trim()) {
+    pills.push({ label: `Search: "${search}"`, onRemove: () => setSearch('') });
+  }
+  for (const r of filters.registries) {
+    pills.push({
+      label: `Registry: ${r.replace(/_/g, ' ')}`,
+      onRemove: () =>
+        setFilters({ ...filters, registries: filters.registries.filter(x => x !== r) }),
+    });
+  }
+  for (const m of filters.methodologies) {
+    pills.push({
+      label: `Methodology: ${m}`,
+      onRemove: () =>
+        setFilters({ ...filters, methodologies: filters.methodologies.filter(x => x !== m) }),
+    });
+  }
+  for (const c of filters.countries) {
+    pills.push({
+      label: `Country: ${c}`,
+      onRemove: () =>
+        setFilters({ ...filters, countries: filters.countries.filter(x => x !== c) }),
+    });
+  }
+  for (const s of filters.statuses) {
+    pills.push({
+      label: `Status: ${s}`,
+      onRemove: () =>
+        setFilters({ ...filters, statuses: filters.statuses.filter(x => x !== s) }),
+    });
+  }
+  for (const cert of filters.certifications) {
+    pills.push({
+      label: cert,
+      onRemove: () =>
+        setFilters({ ...filters, certifications: filters.certifications.filter(x => x !== cert) }),
+    });
+  }
+  if (filters.corsia === 'eligible') {
+    pills.push({
+      label: 'CORSIA eligible',
+      onRemove: () => setFilters({ ...filters, corsia: 'any' }),
+    });
+  }
+  if (filters.corsia === 'ineligible') {
+    pills.push({
+      label: 'CORSIA: not eligible',
+      onRemove: () => setFilters({ ...filters, corsia: 'any' }),
+    });
+  }
+
+  if (pills.length === 0) return null;
+
+  return (
+    <div className="mb-4 flex flex-wrap items-center gap-2">
+      {pills.map((p, i) => (
+        <button
+          key={i}
+          type="button"
+          onClick={p.onRemove}
+          className="group inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-gt-medium/10 text-gt-medium text-xs font-semibold hover:bg-gt-medium/20 transition-colors"
+        >
+          <span>{p.label}</span>
+          <span aria-hidden className="text-gt-medium/60 group-hover:text-gt-medium">×</span>
+        </button>
+      ))}
+      <button
+        type="button"
+        onClick={() => {
+          setSearch('');
+          setFilters({
+            registries: [],
+            methodologies: [],
+            countries: [],
+            statuses: [],
+            certifications: [],
+            corsia: 'any',
+          });
+        }}
+        className="text-xs font-semibold text-gt-text-dim hover:text-gt-medium ml-2"
+      >
+        Clear all
+      </button>
+    </div>
   );
 }
