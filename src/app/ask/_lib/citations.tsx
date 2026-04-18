@@ -7,7 +7,16 @@ import {
 } from 'react';
 import type { CitationParts } from './pipeline-types';
 
-export const CITATION_RE = /\[([^\[\]]{3,250}?)\](?!\()/g;
+// Matches `[citation-like text]` but NOT a markdown link `[text](url)`.
+//
+// The inner group allows either:
+//   - a non-bracket char, OR
+//   - one level of nested `[...]` (e.g. "Scope3 Calculation Guidance 0[1]")
+// Without the nested-pair allowance, any source title containing a
+// footnote marker like `[1]` would fail to match, leaving the whole
+// citation as raw text in the rendered answer.
+export const CITATION_RE =
+  /\[((?:[^\[\]]|\[[^\[\]]*\]){3,250}?)\](?!\()/g;
 
 export function isCitationLike(content: string): boolean {
   const trimmed = content.trim();
@@ -25,12 +34,23 @@ export function isCitationLike(content: string): boolean {
   return false;
 }
 
+// Strip footnote-style markers like "0[1]" or " [3]" that sometimes ride
+// along in LLM-emitted citation titles. They confuse both the visual
+// pill and the /api/pdfs/resolve catalog match, and they carry no
+// semantic value.
+function cleanTitle(s: string): string {
+  return s
+    .replace(/\s*\d*\[\d+\]\s*/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 export function parseCitation(raw: string): CitationParts {
   const parts = raw.split(',').map((p) => p.trim());
   const pagePart = parts.find((p) => /^p\./i.test(p)) || '';
   const titleParts = parts.filter((p) => !/^p\./i.test(p));
-  const docTitle = titleParts[0] || raw;
-  const sectionTitle = titleParts.slice(1).join(', ');
+  const docTitle = cleanTitle(titleParts[0] || raw);
+  const sectionTitle = cleanTitle(titleParts.slice(1).join(', '));
   const pageMatch = pagePart.match(/(\d+)/);
   const page = pageMatch ? pageMatch[1] : '1';
   return { raw, docTitle, sectionTitle, page, pagePart };
