@@ -275,9 +275,9 @@ export async function POST(req: NextRequest) {
     seniority: null,
     domains: [],
   };
-  // Temporary debug trail — captured when profile ends up empty so we can
-  // inspect what Groq actually returned on prod. Written to user_resumes.error
-  // alongside status='ready' (does not fail the request).
+  // Terse failure codes written to user_resumes.error when extraction
+  // comes back empty or errors. Must NEVER contain resume text — the
+  // raw Groq response often echoes PII from the input.
   let debugTrail: string | null = null;
   try {
     const res = await generate({
@@ -312,8 +312,8 @@ export async function POST(req: NextRequest) {
       let maybeObj: Record<string, unknown> | null = null;
       try {
         maybeObj = JSON.parse(jsonText) as Record<string, unknown>;
-      } catch (parseErr) {
-        debugTrail = `parse_error:${(parseErr as Error).message} | raw[0..800]=${raw.slice(0, 800)}`;
+      } catch {
+        debugTrail = 'parse_error';
         profile = { skills: [], frameworks: [], seniority: null, domains: [] };
       }
 
@@ -344,24 +344,23 @@ export async function POST(req: NextRequest) {
           domains: asStringArray(maybeObj.domains, 20),
         };
 
-        // If profile is totally empty, record the raw response so we can
-        // diagnose without needing Vercel function logs.
+        // Mark empty-profile outcomes for observability. Don't echo the
+        // raw response — it often contains resume PII.
         if (
           profile.skills.length === 0 &&
           profile.frameworks.length === 0 &&
           profile.domains.length === 0 &&
           profile.seniority === null
         ) {
-          debugTrail = `empty_after_parse | keys=${Object.keys(maybeObj).join(',')} | raw[0..600]=${raw.slice(0, 600)}`;
+          debugTrail = 'empty_after_parse';
         }
       } else {
         profile = profile ?? { skills: [], frameworks: [], seniority: null, domains: [] };
       }
     }
   } catch (err) {
-    const msg = (err as Error).message ?? String(err);
     console.error('[resume/process] Groq extract failed', err);
-    debugTrail = `throw:${msg.slice(0, 400)}`;
+    debugTrail = 'extract_threw';
     profile = { skills: [], frameworks: [], seniority: null, domains: [] };
   }
 
@@ -377,9 +376,9 @@ export async function POST(req: NextRequest) {
         embedding: JSON.stringify(embedding),
         profile: JSON.stringify(profile),
         processedAt: new Date(),
-        // Temporary: when extraction yields empty profile, stash a
-        // debug trail in error so we can diagnose without Vercel logs.
-        // Still 'ready' status — matches still work via semantic score.
+        // Terse failure code (no resume text) when extraction came
+        // back empty or threw. Still 'ready' status — matches continue
+        // to work via the semantic score.
         error: debugTrail,
       })
       .where(eq(userResumes.userId, userId));
