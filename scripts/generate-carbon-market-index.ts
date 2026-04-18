@@ -38,7 +38,15 @@ if (!existsSync(DATA_DIR)) {
   process.exit(0);
 }
 
-type Registry = 'verra_vcs' | 'verra_ccb' | 'verra_pwrp' | 'goldstandard';
+type Registry =
+  | 'verra_vcs'
+  | 'verra_ccb'
+  | 'verra_pwrp'
+  | 'goldstandard'
+  | 'acr'
+  | 'car'
+  | 'car_compliance'
+  | 'art';
 type StatusBucket = 'Registered' | 'Validation' | 'Development' | 'Inactive' | 'Other';
 
 interface ProjectRecord {
@@ -54,6 +62,11 @@ interface ProjectRecord {
   statusBucket: StatusBucket;
   estAnnualReductions: number | null;
   estUnit: 'tCO2e' | 'tonnes_plastic';
+  // APX registries (ACR, CAR, ART) expose a lifetime-cumulative total of
+  // credits issued to date rather than an annual forward estimate. Surfaced
+  // here so the UI can show it in the row detail dropdown without
+  // conflating semantics with estAnnualReductions.
+  cumulativeCreditsRegistered: number | null;
   registrationDate: string | null;
   creditingPeriodStart: string | null;
   creditingPeriodEnd: string | null;
@@ -260,6 +273,7 @@ function ingestVcs(): ProjectRecord[] {
     creditingPeriodStart: parseDate(r['Crediting Period Start Date']),
     creditingPeriodEnd: parseDate(r['Crediting Period End Date']),
     additionalCertifications: [],
+    cumulativeCreditsRegistered: null,
     registryUrl: r['Project URL'] || vcsUrl(r['ID']),
   }));
 }
@@ -289,6 +303,7 @@ function ingestCcb(): ProjectRecord[] {
       creditingPeriodStart: null,
       creditingPeriodEnd: null,
       additionalCertifications: Array.from(new Set(certs)),
+      cumulativeCreditsRegistered: null,
       registryUrl: r['Project URL'] || vcsUrl(r['ID']),
     };
   });
@@ -315,6 +330,7 @@ function ingestPwrp(): ProjectRecord[] {
     creditingPeriodStart: null,
     creditingPeriodEnd: null,
     additionalCertifications: [],
+    cumulativeCreditsRegistered: null,
     registryUrl: r['Project URL'] || vcsUrl(r['ID']),
   }));
 }
@@ -340,7 +356,164 @@ function ingestGoldStandard(): ProjectRecord[] {
       creditingPeriodStart: parseDate(r['crediting_period_start_date']),
       creditingPeriodEnd: parseDate(r['crediting_period_end_date']),
       additionalCertifications: [],
+      cumulativeCreditsRegistered: null,
       registryUrl: r['project_url'] || `https://registry.goldstandard.org/projects/details/${r['id']}`,
+    };
+  });
+}
+
+// ----------------------------------------------------------------------------
+// APX-platform registries (ACR, CAR, ART TREES)
+//
+// These three share the same APX Classic backend and the same HTML export
+// shape but ship different column names. Per-row semantics:
+//   - methodology: ACR + ART yes, CAR no (not on projects CSV)
+//   - estAnnualReductions: always null for APX (their "Total Credits
+//     Registered" is a lifetime sum, not a forward annual estimate)
+//   - cumulativeCreditsRegistered: populated from that lifetime total so
+//     the UI can surface it as an explicit, correctly labeled number
+//   - registryUrl: constructed from the project ID prefix pattern
+// ----------------------------------------------------------------------------
+
+function apxProjectUrl(host: string, rawId: string, prefix: string): string {
+  const numeric = rawId.toUpperCase().startsWith(prefix)
+    ? rawId.slice(prefix.length)
+    : rawId;
+  return `${host}/mymodule/reg/prjView.asp?id1=${numeric}`;
+}
+
+function normalizeApxStatus(s: string): StatusBucket {
+  const v = (s || '').toLowerCase();
+  if (v === 'registered') return 'Registered';
+  if (v === 'listed' || v.includes('proposed') || v === 'submitted') {
+    return 'Validation';
+  }
+  if (v === 'under development' || v === 'in development') return 'Development';
+  if (
+    v === 'completed' ||
+    v === 'terminated' ||
+    v === 'cancelled' ||
+    v === 'canceled' ||
+    v.includes('inactive') ||
+    v.includes('withdrawn')
+  ) {
+    return 'Inactive';
+  }
+  return 'Other';
+}
+
+function ingestAcr(): ProjectRecord[] {
+  const path = join(DATA_DIR, 'acr/projects.csv');
+  if (!existsSync(path)) return [];
+  const rows = readCsvDict(path);
+  return rows.map<ProjectRecord>(r => {
+    const country = r['Project Site Country'] || null;
+    const voluntary = r['Voluntary Status'] || '';
+    const compliance = r['Compliance Program Status (ARB or Ecology)'] || '';
+    const status = voluntary || compliance;
+    return {
+      id: `acr-${r['Project ID']}`,
+      registry: 'acr',
+      name: r['Project Name'] || '(untitled project)',
+      developer: r['Project Developer'] || null,
+      methodology: r['Project Methodology/Protocol'] || null,
+      projectType: r['Project Type'] || null,
+      country,
+      region: regionFor(country),
+      status,
+      statusBucket: normalizeApxStatus(status),
+      estAnnualReductions: null,
+      estUnit: 'tCO2e',
+      cumulativeCreditsRegistered: parseNumber(r['Total Number of Credits Registered']),
+      registrationDate: parseDate(r['Project Status Date']),
+      creditingPeriodStart: parseDate(r['Initial Crediting Period Start Date']),
+      creditingPeriodEnd: parseDate(r['Current Crediting Period End Date']),
+      additionalCertifications: [],
+      registryUrl: apxProjectUrl('https://acr2.apx.com', r['Project ID'], 'ACR'),
+    };
+  });
+}
+
+function splitCerts(raw: string | undefined): string[] {
+  if (!raw) return [];
+  return raw
+    .split(/[;,]/)
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
+function ingestCar(isCompliance: boolean): ProjectRecord[] {
+  const file = isCompliance ? 'compliance_projects.csv' : 'projects.csv';
+  const path = join(DATA_DIR, 'car', file);
+  if (!existsSync(path)) return [];
+  const rows = readCsvDict(path);
+  const registry: Registry = isCompliance ? 'car_compliance' : 'car';
+  const idPrefix = isCompliance ? 'carc' : 'car';
+  return rows.map<ProjectRecord>(r => {
+    const country = r['Project Site Country'] || null;
+    const status = r['Status'] || '';
+    return {
+      id: `${idPrefix}-${r['Project ID']}`,
+      registry,
+      name: r['Project Name'] || '(untitled project)',
+      developer: r['Project Developer'] || null,
+      // CAR does not expose methodology at the project level. Project Type
+      // doubles as methodology in practice (e.g. "US Forest Protocol",
+      // "Livestock Protocol"). Keep methodology null; the UI can fall
+      // back to projectType for display where needed.
+      methodology: null,
+      projectType: r['Project Type'] || null,
+      country,
+      region: regionFor(country),
+      status,
+      statusBucket: normalizeApxStatus(status),
+      estAnnualReductions: null,
+      estUnit: 'tCO2e',
+      cumulativeCreditsRegistered: parseNumber(
+        r['Total Number of Offset Credits Registered'],
+      ),
+      registrationDate: parseDate(r['Project Registered Date']),
+      creditingPeriodStart: null,
+      creditingPeriodEnd: null,
+      additionalCertifications: splitCerts(r['Additional Certification(s)']),
+      registryUrl: apxProjectUrl(
+        'https://thereserve2.apx.com',
+        r['Project ID'],
+        'CAR',
+      ),
+    };
+  });
+}
+
+function ingestArt(): ProjectRecord[] {
+  const path = join(DATA_DIR, 'art/projects.csv');
+  if (!existsSync(path)) return [];
+  const rows = readCsvDict(path);
+  return rows.map<ProjectRecord>(r => {
+    const country = r['Program  Country'] || r['Program Country'] || null;
+    const status = r['Status'] || '';
+    return {
+      id: `art-${r['Program ID']}`,
+      registry: 'art',
+      name: r['Program Name'] || '(untitled program)',
+      developer: r['Sovereign Program Developer'] || null,
+      // ART TREES programs cite their standard (TREES) rather than a
+      // methodology code; the "Crediting Program and Standard" column
+      // is usable as an informal methodology hint.
+      methodology: r['Crediting Program and Standard'] || null,
+      projectType: r['Program Type'] || null,
+      country,
+      region: regionFor(country),
+      status,
+      statusBucket: normalizeApxStatus(status),
+      estAnnualReductions: null,
+      estUnit: 'tCO2e',
+      cumulativeCreditsRegistered: null, // not on the bulk CSV; in credits_verified.csv
+      registrationDate: parseDate(r['Initial Crediting Period Start Date']),
+      creditingPeriodStart: parseDate(r['Initial Crediting Period Start Date']),
+      creditingPeriodEnd: null,
+      additionalCertifications: [],
+      registryUrl: apxProjectUrl('https://art.apx.com', r['Program ID'], 'ART'),
     };
   });
 }
@@ -350,8 +523,21 @@ function main() {
   const ccb = ingestCcb();
   const pwrp = ingestPwrp();
   const gs = ingestGoldStandard();
+  const acr = ingestAcr();
+  const carVol = ingestCar(false);
+  const carComp = ingestCar(true);
+  const art = ingestArt();
 
-  const all: ProjectRecord[] = [...vcs, ...ccb, ...pwrp, ...gs];
+  const all: ProjectRecord[] = [
+    ...vcs,
+    ...ccb,
+    ...pwrp,
+    ...gs,
+    ...acr,
+    ...carVol,
+    ...carComp,
+    ...art,
+  ];
 
   // Aggregates pulled from program_summary.json for the live stat tiles.
   const summary = JSON.parse(
@@ -403,22 +589,54 @@ function main() {
 
   // Separate description side-file, lazy-loaded by the client only when a user
   // expands a row. Keeping it out of the main index avoids a ~7 MB hit on the
-  // initial payload.
-  const detailsDir = join(DATA_DIR, 'verra/vcs/project_details');
+  // initial payload. Merges descriptions across all registries that ship
+  // project_details directories.
   const descriptions: Record<string, string> = {};
-  if (existsSync(detailsDir)) {
-    const files = readdirSync(detailsDir).filter(f => f.endsWith('.json'));
-    for (const f of files) {
+
+  // Verra VCS resourceSummary → vcs-{id}
+  const vcsDetailsDir = join(DATA_DIR, 'verra/vcs/project_details');
+  if (existsSync(vcsDetailsDir)) {
+    for (const f of readdirSync(vcsDetailsDir).filter(f => f.endsWith('.json'))) {
       try {
-        const raw = JSON.parse(readFileSync(join(detailsDir, f), 'utf-8'));
+        const raw = JSON.parse(readFileSync(join(vcsDetailsDir, f), 'utf-8'));
         const id = raw.resourceIdentifier || f.replace(/\.json$/, '');
         const desc = (raw.description || '').trim();
         if (desc) descriptions[`vcs-${id}`] = desc;
       } catch {
-        // skip malformed
+        /* skip malformed */
       }
     }
   }
+
+  // APX registries (ACR, CAR, CAR-compliance, ART) scraped via apx_details.py
+  // write one record per project at data/{registry}/project_details/{ProjectID}.json
+  // The JSON shape is { registry, projectId, description, ... }
+  const apxSources: Array<{ dir: string; prefix: string }> = [
+    { dir: join(DATA_DIR, 'acr/project_details'), prefix: 'acr' },
+    { dir: join(DATA_DIR, 'car/project_details'), prefix: 'car' }, // voluntary + compliance share dir
+    { dir: join(DATA_DIR, 'art/project_details'), prefix: 'art' },
+  ];
+  for (const { dir, prefix } of apxSources) {
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter(f => f.endsWith('.json'))) {
+      try {
+        const raw = JSON.parse(readFileSync(join(dir, f), 'utf-8'));
+        const pid = (raw.projectId || f.replace(/\.json$/, '')).toString();
+        const desc = (raw.description || '').trim();
+        if (!desc) continue;
+        // Key must match the main-index record IDs. Our ingestors use
+        // "{prefix}-{ProjectID}" (e.g. "acr-ACR586", "car-CAR1957").
+        descriptions[`${prefix}-${pid}`] = desc;
+        // CAR-compliance rows are keyed "carc-{ProjectID}" in the index but
+        // share the same project_details directory. Mirror the description
+        // under that key too so compliance rows expand correctly.
+        if (prefix === 'car') descriptions[`carc-${pid}`] = desc;
+      } catch {
+        /* skip malformed */
+      }
+    }
+  }
+
   writeFileSync(
     join(PUBLIC_DIR, 'carbon-market-descriptions.json'),
     JSON.stringify(descriptions),
@@ -464,7 +682,8 @@ function main() {
   ).toFixed(2);
   console.log(
     `[carbon-market] ${all.length} projects written (${sizeMb} MB). ` +
-      `VCS=${vcs.length} CCB=${ccb.length} PWRP=${pwrp.length} GS=${gs.length}`,
+      `VCS=${vcs.length} CCB=${ccb.length} PWRP=${pwrp.length} GS=${gs.length} ` +
+      `ACR=${acr.length} CAR=${carVol.length} CAR-compliance=${carComp.length} ART=${art.length}`,
   );
 }
 
