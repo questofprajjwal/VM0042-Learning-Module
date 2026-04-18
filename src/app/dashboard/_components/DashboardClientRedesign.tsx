@@ -608,55 +608,45 @@ function OverviewTab({
             </Link>
           </section>
 
-          {/* What's New */}
+          {/* What's New — real feed generator not yet wired (Phase 4).
+              Until course-diff and job-match backends run, show a
+              truthful placeholder rather than fabricated personalized
+              updates. */}
           <section>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <Bell className="w-4 h-4 text-gt-medium" strokeWidth={2} />
                 <h2 className="text-[16px] font-bold text-gt-text">What's New</h2>
               </div>
-              <Link
-                href="/updates"
-                className="text-[12px] font-semibold text-gt-medium hover:text-gt-dark flex items-center gap-1"
-              >
-                View all
-                <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-              </Link>
             </div>
-
-            <div className="space-y-3">
-              {MOCK_WHATS_NEW.map((item) => {
-                const iconConfig = {
-                  job: { bg: 'bg-green-50', color: 'text-green-600', icon: <Briefcase className="w-4 h-4" strokeWidth={2} /> },
-                  course: { bg: 'bg-blue-50', color: 'text-blue-600', icon: <BookOpen className="w-4 h-4" strokeWidth={2} /> },
-                  platform: { bg: 'bg-violet-50', color: 'text-violet-600', icon: <Sparkles className="w-4 h-4" strokeWidth={2} /> },
-                  regulation: { bg: 'bg-amber-50', color: 'text-amber-600', icon: <AlertCircle className="w-4 h-4" strokeWidth={2} /> },
-                }[item.type] || { bg: 'bg-gray-50', color: 'text-gray-600', icon: <Bell className="w-4 h-4" strokeWidth={2} /> };
-
-                return (
+            <div className="p-5 bg-white rounded-xl border border-[#e5e7e5] flex items-start gap-4">
+              <div className="w-9 h-9 rounded-lg bg-gt-medium/10 flex items-center justify-center flex-shrink-0">
+                <Bell className="w-4 h-4 text-gt-medium" strokeWidth={2} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[13px] font-semibold text-gt-text">
+                  Personalized updates coming soon.
+                </p>
+                <p className="text-[12px] text-gt-text-muted mt-0.5">
+                  We&apos;ll show new lessons in courses you&apos;re enrolled in, new jobs matching
+                  your profile, and platform updates here once you&apos;ve set up your learning
+                  path and upload a resume.
+                </p>
+                <div className="mt-3 flex gap-4">
                   <Link
-                    key={item.id}
-                    href={item.href}
-                    className="flex items-start gap-4 p-4 bg-white rounded-xl border border-[#e5e7e5] hover:border-gt-medium/30 transition-colors group"
+                    href="/courses"
+                    className="text-[12px] font-semibold text-gt-medium hover:text-gt-dark"
                   >
-                    <div className={cn('w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0', iconConfig.bg)}>
-                      <span className={iconConfig.color}>{iconConfig.icon}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[13px] font-semibold text-gt-text group-hover:text-gt-medium transition-colors">
-                        {item.title}
-                      </p>
-                      <p className="text-[12px] text-gt-text-muted mt-0.5">{item.description}</p>
-                    </div>
-                    <span
-                      className="text-[10px] text-gt-text-muted flex-shrink-0"
-                      style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
-                    >
-                      {item.date}
-                    </span>
+                    Browse courses →
                   </Link>
-                );
-              })}
+                  <Link
+                    href="/jobs"
+                    className="text-[12px] font-semibold text-gt-medium hover:text-gt-dark"
+                  >
+                    See open jobs →
+                  </Link>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -710,50 +700,36 @@ function OverviewTab({
 
           {/* Opportunities + Skills Side by Side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* New Opportunities */}
+            {/* New Opportunities — resume-based match scoring not yet
+                wired (Phase 5). Replaces the fabricated "Climate Risk
+                Manager at HSBC 92% match" block with a truthful
+                upload-to-match prompt + a direct link to the board. */}
             <section className="bg-white rounded-xl border border-[#e5e7e5] p-5">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-gt-medium" strokeWidth={2} />
-                  <h3 className="text-[14px] font-bold text-gt-text">New Opportunities</h3>
+                  <h3 className="text-[14px] font-bold text-gt-text">Career board</h3>
                 </div>
                 <Link
                   href="/jobs"
                   className="text-[11px] font-semibold text-gt-medium hover:text-gt-dark"
                 >
-                  View all
+                  Browse all
                 </Link>
               </div>
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gt-leaf/10 flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-gt-medium" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-[14px] font-semibold text-gt-text">
-                    {MOCK_JOB_ALERTS.newThisWeek} new jobs
-                  </p>
-                  <p className="text-[11px] text-gt-text-muted">this week</p>
-                </div>
-              </div>
+              <p className="text-[12px] text-gt-text-muted leading-relaxed mb-4">
+                Upload your resume in the Profile tab to start getting personalized match
+                scores on climate and sustainability jobs. Until then, browse the board.
+              </p>
 
-              <div className="p-3 bg-[#f8faf8] rounded-lg">
-                <p className="text-[12px] font-semibold text-gt-text">
-                  {MOCK_JOB_ALERTS.topMatch.title}
-                </p>
-                <p className="text-[11px] text-gt-text-muted flex items-center gap-1 mt-0.5">
-                  {MOCK_JOB_ALERTS.topMatch.company} · {MOCK_JOB_ALERTS.topMatch.location}
-                </p>
-                <div className="flex items-center justify-between mt-2">
-                  <span
-                    className="text-[13px] font-bold text-gt-medium"
-                    style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
-                  >
-                    {MOCK_JOB_ALERTS.topMatch.matchScore}% match
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-gt-text-muted" strokeWidth={2} />
-                </div>
-              </div>
+              <Link
+                href="/jobs"
+                className="inline-flex items-center gap-1 text-[12px] font-semibold text-gt-medium hover:text-gt-dark"
+              >
+                Open career board
+                <ChevronRight className="w-3.5 h-3.5" strokeWidth={2} />
+              </Link>
             </section>
 
             {/* Skills Coverage */}
@@ -787,66 +763,41 @@ function OverviewTab({
 
         {/* Right Column (1/3) */}
         <div className="space-y-6">
-          {/* Saved Items */}
+          {/* Saved Items — bookmark feature lands in Phase 6. For
+              now, show the empty state so users aren't misled into
+              thinking the mock Double Materiality lesson / mock
+              Sustainalytics job are theirs. */}
           <div className="bg-white rounded-xl border border-[#e5e7e5] p-5">
             <div className="flex items-center gap-2 mb-4">
               <Bookmark className="w-4 h-4 text-gt-medium" strokeWidth={2} />
-              <h3 className="text-[14px] font-bold text-gt-text">Saved Items</h3>
+              <h3 className="text-[14px] font-bold text-gt-text">Saved items</h3>
             </div>
-
-            <div className="space-y-3">
-              {MOCK_SAVED_ITEMS.map((item) => (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className="flex items-center gap-3 p-2.5 -mx-2.5 rounded-lg hover:bg-[#f5f7f5] transition-colors group"
-                >
-                  <SavedItemIcon type={item.type} />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[12px] font-medium text-gt-text group-hover:text-gt-medium transition-colors truncate">
-                      {item.title}
-                    </p>
-                    {item.type === 'lesson' && (
-                      <p className="text-[10px] text-gt-text-muted">{item.course}</p>
-                    )}
-                    {item.type === 'job' && (
-                      <p className="text-[10px] text-gt-text-muted">{item.company}</p>
-                    )}
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <p className="text-[12px] text-gt-text-muted leading-relaxed">
+              Bookmark lessons, jobs, or SustainIQ answers from anywhere on the platform
+              to see them here.
+            </p>
           </div>
 
-          {/* Recent Queries */}
+          {/* Recent Queries — real query logging lands in Phase 2.
+              Until usage_events is wired, show the launch CTA
+              rather than fabricated prior queries. */}
           <DarkUICard label="Recent">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="w-4 h-4 text-gt-leaf" strokeWidth={2} />
-              <h3 className="text-[14px] font-bold text-white">Recent Queries</h3>
+              <h3 className="text-[14px] font-bold text-white">SustainIQ</h3>
             </div>
 
-            <div className="space-y-3">
-              {MOCK_RECENT_QUERIES.map((q, i) => (
-                <Link key={i} href="/ask" className="block group">
-                  <p className="text-[12px] text-white/80 line-clamp-2 group-hover:text-white transition-colors">
-                    {q.query}
-                  </p>
-                  <p
-                    className="text-[10px] text-white/40 mt-1"
-                    style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
-                  >
-                    {q.timestamp}
-                  </p>
-                </Link>
-              ))}
-            </div>
+            <p className="text-[12px] text-white/65 leading-relaxed">
+              Verified-source answers across GHG Protocol, GRI, CSRD, TCFD, and 80+ indexed
+              methodology documents. Your recent queries will appear here.
+            </p>
 
             <Link
               href="/ask"
               className="mt-5 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gt-leaf text-gt-text-dark text-[12px] font-bold rounded-lg hover:bg-gt-mint transition-colors"
             >
               <Search className="w-4 h-4" strokeWidth={2} />
-              New Query
+              Ask SustainIQ
             </Link>
           </DarkUICard>
 
@@ -2321,6 +2272,11 @@ function SettingsTab({
             <h2 className="text-[18px] font-bold text-gt-text">Subscription & Plan</h2>
           </div>
 
+          {/* Plan status — real subscription data comes via Dodo
+              Payments once that integration lands (Phase 1). Until
+              then: show the free-tier reality + link to pricing for
+              everyone. Do NOT claim "Individual Plan Active $29/mo" —
+              that is false for anyone who hasn't actually paid. */}
           <div className="flex items-start justify-between p-5 bg-gradient-to-r from-gt-medium/5 to-gt-leaf/5 rounded-xl border border-gt-medium/20">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-gt-medium/10 flex items-center justify-center">
@@ -2328,30 +2284,29 @@ function SettingsTab({
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-[16px] font-bold text-gt-text">{planTier} Plan</h3>
-                  <span className="px-2 py-0.5 bg-gt-leaf/20 text-gt-medium text-[10px] font-bold uppercase rounded">
-                    Active
+                  <h3 className="text-[16px] font-bold text-gt-text">Free tier</h3>
+                  <span className="px-2 py-0.5 bg-gt-pale text-gt-text-muted text-[10px] font-bold uppercase rounded">
+                    Current
                   </span>
                 </div>
                 <p className="text-[13px] text-gt-text-muted mt-1">
-                  {billingInfo.price} - Renews {billingInfo.nextBilling}
+                  Paid plans launch soon. Early access users keep free access.
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button className="px-4 py-2 bg-gt-medium text-white text-[12px] font-bold rounded-lg hover:bg-gt-dark transition-colors">
-                Upgrade Plan
-              </button>
-              <button
-                onClick={() => setShowCancelModal(true)}
-                className="px-4 py-2 text-[12px] font-semibold text-gt-text-muted hover:text-red-500 transition-colors"
+              <Link
+                href="/pricing"
+                className="px-4 py-2 bg-gt-medium text-white text-[12px] font-bold rounded-lg hover:bg-gt-dark transition-colors"
               >
-                Cancel
-              </button>
+                See plans
+              </Link>
             </div>
           </div>
 
-          {/* Usage */}
+          {/* Usage — real usage logging lands in Phase 2. Showing
+              truthful placeholders until the events table + API
+              route ship. */}
           <div className="mt-6 grid grid-cols-2 gap-4">
             <div className="p-4 bg-[#f8faf8] rounded-lg">
               <div className="flex items-center gap-2 mb-2">
@@ -2359,12 +2314,14 @@ function SettingsTab({
                 <span className="text-[12px] font-semibold text-gt-text">SustainIQ Queries</span>
               </div>
               <p
-                className="text-[20px] font-bold text-gt-text"
+                className="text-[20px] font-bold text-gt-text-dim"
                 style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
               >
-                {queriesRemaining}/{queriesTotal}
+                —
               </p>
-              <p className="text-[11px] text-gt-text-muted">Resets daily at midnight</p>
+              <p className="text-[11px] text-gt-text-muted">
+                Usage tracking ships with paid plans
+              </p>
             </div>
             <div className="p-4 bg-[#f8faf8] rounded-lg">
               <div className="flex items-center gap-2 mb-2">
@@ -2372,77 +2329,56 @@ function SettingsTab({
                 <span className="text-[12px] font-semibold text-gt-text">Reports Generated</span>
               </div>
               <p
-                className="text-[20px] font-bold text-gt-text"
+                className="text-[20px] font-bold text-gt-text-dim"
                 style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
               >
-                3/10
+                —
               </p>
-              <p className="text-[11px] text-gt-text-muted">Monthly limit</p>
+              <p className="text-[11px] text-gt-text-muted">
+                Usage tracking ships with paid plans
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Billing */}
+        {/* Billing — hidden until Dodo integration lands. Showing a
+            fake "Visa ending in 4242" + fake invoice list to any user
+            would be a direct trust-breaker. The whole section is
+            conditional on having a real payment method on file. */}
         <section className="bg-white rounded-xl border border-[#e5e7e5] p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-[18px] font-bold text-gt-text">Billing</h2>
           </div>
-
-          {/* Payment Method */}
-          <div className="flex items-center justify-between p-4 bg-[#f8faf8] rounded-lg mb-4">
-            <div className="flex items-center gap-3">
-              <CreditCard className="w-5 h-5 text-gt-text-muted" strokeWidth={1.5} />
-              <div>
-                <p className="text-[13px] font-semibold text-gt-text">Visa ending in 4242</p>
-                <p className="text-[11px] text-gt-text-muted">Expires 12/2027</p>
-              </div>
-            </div>
-            <button className="text-[12px] font-semibold text-gt-medium hover:text-gt-dark">
-              Update
-            </button>
-          </div>
-
-          {/* Invoices */}
-          <div>
-            <h3 className="text-[13px] font-semibold text-gt-text mb-3">Recent Invoices</h3>
-            <div className="space-y-2">
-              {billingInfo.invoices.map((invoice) => (
-                <div
-                  key={invoice.id}
-                  className="flex items-center justify-between py-3 border-b border-[#e5e7e5] last:border-0"
-                >
-                  <div className="flex items-center gap-3">
-                    <Receipt className="w-4 h-4 text-gt-text-muted" strokeWidth={1.5} />
-                    <div>
-                      <p className="text-[12px] font-semibold text-gt-text">{invoice.id}</p>
-                      <p className="text-[11px] text-gt-text-muted">{invoice.date}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span
-                      className="text-[12px] font-semibold text-gt-text"
-                      style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
-                    >
-                      {invoice.amount}
-                    </span>
-                    <span className="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded">
-                      {invoice.status}
-                    </span>
-                    <button className="text-gt-medium hover:text-gt-dark">
-                      <Download className="w-4 h-4" strokeWidth={2} />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="p-6 text-center">
+            <CreditCard
+              className="w-8 h-8 text-gt-text-dim mx-auto mb-3"
+              strokeWidth={1.5}
+            />
+            <p className="text-[13px] font-semibold text-gt-text">
+              No payment method on file.
+            </p>
+            <p className="text-[12px] text-gt-text-muted mt-1 max-w-xs mx-auto">
+              Billing and invoices appear here once you upgrade to a paid plan.
+            </p>
+            <Link
+              href="/pricing"
+              className="inline-block mt-4 text-[12px] font-semibold text-gt-medium hover:text-gt-dark"
+            >
+              See pricing →
+            </Link>
           </div>
         </section>
 
         {/* Tools */}
         <section className="bg-white rounded-xl border border-[#e5e7e5] p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-[18px] font-bold text-gt-text">Tools</h2>
-            <p className="text-[12px] text-gt-text-muted">Enable or disable tools in your workspace</p>
+            <div>
+              <h2 className="text-[18px] font-bold text-gt-text">Tools</h2>
+              <p className="text-[12px] text-gt-text-muted">
+                Preview. Toggles do not persist across sessions yet — individual
+                tools become gated after the paid-plan launch.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-4">
@@ -2517,7 +2453,12 @@ function SettingsTab({
         {/* Notifications */}
         <section className="bg-white rounded-xl border border-[#e5e7e5] p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-[18px] font-bold text-gt-text">Notifications</h2>
+            <div>
+              <h2 className="text-[18px] font-bold text-gt-text">Notifications</h2>
+              <p className="text-[12px] text-gt-text-muted">
+                Preview. Email delivery is not yet wired; toggles store local state only.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-4">
