@@ -19,6 +19,7 @@ import {
 } from '@/lib/emission-factors/loader';
 import { findRelatedFactors } from '@/lib/emission-factors/related';
 import { buildFactorJsonLd } from '@/lib/emission-factors/jsonld';
+import { safeJsonLd } from '@/lib/json-ld';
 import { EFAltPageClient } from '../_components/EFAltPageClient';
 
 // Cap SSG to the top 200 factors; the rest render on first request via ISR.
@@ -102,7 +103,7 @@ export default function FactorPage({ params }: { params: { slug: string } }) {
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
 
       <EFAltPageClient

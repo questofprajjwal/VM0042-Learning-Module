@@ -25,6 +25,7 @@ import {
 } from 'react';
 import { ChevronDown, Microscope, Sigma } from 'lucide-react';
 import { cn } from '@/components/redesign/lib/cn';
+import { sanitizeSymbol } from '@/lib/sanitize-symbol';
 
 /* ============================================================
    DeepDive
@@ -433,7 +434,7 @@ export function EquationBreakdownRedesign({
                     fontFamily:
                       'var(--font-jetbrains-mono), JetBrains Mono, monospace',
                   }}
-                  dangerouslySetInnerHTML={{ __html: item.symbol }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeSymbol(item.symbol) }}
                 />
               </div>
               <p
@@ -487,7 +488,7 @@ function EqPill({
       onClick={() => setHovered(hovered === idx ? null : idx)}
       onMouseEnter={() => setHovered(idx)}
       onMouseLeave={() => setHovered(null)}
-      dangerouslySetInnerHTML={{ __html: part.symbol }}
+      dangerouslySetInnerHTML={{ __html: sanitizeSymbol(part.symbol) }}
     />
   );
 }

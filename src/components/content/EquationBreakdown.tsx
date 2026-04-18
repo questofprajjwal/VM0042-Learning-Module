@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { sanitizeSymbol } from '@/lib/sanitize-symbol';
 
 interface Props {
   title?: string;
@@ -67,7 +68,7 @@ export default function EquationBreakdown({ title, result, inputs, operator = 'Ã
           onClick={() => setHovered(prev => prev === 0 ? null : 0)}
           onMouseEnter={() => setHovered(0)}
           onMouseLeave={() => setHovered(null)}
-          dangerouslySetInnerHTML={{ __html: r.symbol }}
+          dangerouslySetInnerHTML={{ __html: sanitizeSymbol(r.symbol) }}
         />
         <span className={`text-xl font-light transition-opacity duration-200 ${hovered !== null ? 'text-slate-300' : 'text-slate-400'}`}>=</span>
 
@@ -88,7 +89,7 @@ export default function EquationBreakdown({ title, result, inputs, operator = 'Ã
                 onClick={() => setHovered(prev => prev === idx ? null : idx)}
                 onMouseEnter={() => setHovered(idx)}
                 onMouseLeave={() => setHovered(null)}
-                dangerouslySetInnerHTML={{ __html: part.symbol }}
+                dangerouslySetInnerHTML={{ __html: sanitizeSymbol(part.symbol) }}
               />
               {i < parts.length - 1 && (
                 <span className={`text-xl font-light transition-opacity duration-200 ${hovered !== null ? 'text-slate-300' : 'text-slate-400'}`}>{operator}</span>
@@ -135,7 +136,7 @@ export default function EquationBreakdown({ title, result, inputs, operator = 'Ã
             >
               <div className="flex items-center gap-2 mb-1.5">
                 <span className={`w-2.5 h-2.5 rounded-full transition-transform duration-200 ${c.dot} ${isActive(idx) ? 'scale-125' : ''}`} />
-                <span className={`font-mono text-sm font-bold ${c.text}`} dangerouslySetInnerHTML={{ __html: item.symbol }} />
+                <span className={`font-mono text-sm font-bold ${c.text}`} dangerouslySetInnerHTML={{ __html: sanitizeSymbol(item.symbol) }} />
               </div>
               <p className={`text-sm font-semibold ${c.text}`}>{item.label}</p>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">{item.description}</p>

@@ -17,6 +17,7 @@ import {
   getFactorsBySourceId,
 } from '@/lib/emission-factors/loader';
 import { buildSourceJsonLd } from '@/lib/emission-factors/jsonld';
+import { safeJsonLd } from '@/lib/json-ld';
 import { EFSourceFactorsExplorer } from '../../_components/EFSourceFactorsExplorer';
 import { resolvedFactorsToRows } from '@/lib/emission-factors/row-adapter';
 
@@ -101,7 +102,7 @@ export default function SourceDetailPage({ params }: { params: { slug: string } 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
 
       {/* ===== HERO ===== */}
