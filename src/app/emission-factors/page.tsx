@@ -11,6 +11,8 @@ import { EFHeroPreviewCard } from './_components/EFHeroPreviewCard';
 import { EFStatStrip } from './_components/EFStatStrip';
 import { EFMethodologyDemo } from './_components/EFMethodologyDemo';
 import { EFFaqAccordion } from './_components/EFFaqAccordion';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { dataCatalogSchema, breadcrumbList } from '@/lib/seo/schema';
 
 export const metadata: Metadata = {
   title: 'Emission Factors',
@@ -18,11 +20,24 @@ export const metadata: Metadata = {
     'Every emission factor. Sourced. Dated. Free. A reference library of greenhouse-gas emission factors with full provenance, citation formats, and vintage tracking.',
 };
 
+const EF_CATALOG = dataCatalogSchema({
+  url: 'https://greentryst.com/emission-factors',
+  name: 'Greentryst Emission Factor Database',
+  description:
+    'Reference library of greenhouse-gas emission factors with full provenance, citation formats, and vintage tracking. Sourced from DEFRA, US EPA, India CEA, IPCC, and other primary bodies. Every factor links to its source document.',
+});
+const EF_BREADCRUMBS = breadcrumbList([
+  { name: 'Home', url: '/' },
+  { name: 'Emission Factors' },
+]);
+
 export default function EmissionFactorsHomePage() {
   const sources = loadAllSources();
 
   return (
     <>
+      <JsonLd data={EF_CATALOG} />
+      <JsonLd data={EF_BREADCRUMBS} />
       <DarkSection dotGrid glow padding="sm" className="!pt-20 md:!pt-24">
         <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10">
           {/* Left: copy + search */}

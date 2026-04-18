@@ -13,8 +13,10 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import { Nav } from '@/components/Nav';
 import { RedesignFooter } from '@/components/redesign';
-import { getGuide, getGuideContent, getGuideStaticParams } from '@/lib/guides';
+import { getGuide, getGuideContent, getGuideStaticParams, extractGuideFaqs } from '@/lib/guides';
 import { getCourse } from '@/lib/courses';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { articleSchema, faqPageSchema, breadcrumbList } from '@/lib/seo/schema';
 import { getMDXComponents } from '@/components/content/mdx-components';
 import { AnimatedHero } from './_components/AnimatedHero';
 import { TableOfContents } from './_components/TableOfContents';
@@ -92,6 +94,19 @@ export default async function GuidePage({
 
   const mdxContent = getGuideContent(slug);
   const headings = extractHeadings(mdxContent);
+  const faqs = extractGuideFaqs(slug);
+  const article = articleSchema({
+    slug: guide.slug,
+    title: guide.title,
+    description: guide.description,
+    dateModified: guide.lastUpdated,
+    readingMinutes: guide.readingMinutes,
+  });
+  const breadcrumbs = breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Guides', url: '/guides' },
+    { name: guide.title },
+  ]);
 
   // Load course data for bottom cards
   const courses = guide.courses
@@ -106,6 +121,9 @@ export default async function GuidePage({
 
   return (
     <>
+      <JsonLd data={article} />
+      <JsonLd data={breadcrumbs} />
+      {faqs.length > 0 && <JsonLd data={faqPageSchema(guide.slug, faqs)} />}
       <Nav />
 
       {/* Animated Hero Header */}

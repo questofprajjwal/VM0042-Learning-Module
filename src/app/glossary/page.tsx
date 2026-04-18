@@ -11,6 +11,8 @@ import { GlossaryClient } from './_components/GlossaryClient';
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { definedTermSetSchema, breadcrumbList } from '@/lib/seo/schema';
 
 export const metadata: Metadata = {
   title: 'Glossary',
@@ -48,8 +50,22 @@ const CATEGORIES = [
 export default async function GlossaryPage() {
   const terms = await getGlossaryTerms();
 
+  const definedTermSet = definedTermSetSchema(
+    terms.map((t) => ({
+      slug: t.slug,
+      name: t.term,
+      description: t.definition,
+    }))
+  );
+  const breadcrumbs = breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Glossary' },
+  ]);
+
   return (
     <>
+      <JsonLd data={definedTermSet} />
+      <JsonLd data={breadcrumbs} />
       <Nav />
 
       {/* Hero - pt-28 accounts for fixed nav */}

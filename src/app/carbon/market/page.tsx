@@ -3,6 +3,13 @@ import type { Metadata } from 'next';
 import { Nav } from '@/components/Nav';
 import { RedesignFooter } from '@/components/redesign';
 import CarbonMarketClient from './_components/CarbonMarketClient';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { breadcrumbList } from '@/lib/seo/schema';
+
+const CARBON_MARKET_BREADCRUMBS = breadcrumbList([
+  { name: 'Home', url: '/' },
+  { name: 'Carbon Market Intelligence' },
+]);
 
 export const dynamic = 'force-static';
 
@@ -58,6 +65,7 @@ export default function CarbonMarketPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <JsonLd data={CARBON_MARKET_BREADCRUMBS} />
       <Nav tone="dark" />
       <Suspense fallback={null}>
         <CarbonMarketClient />

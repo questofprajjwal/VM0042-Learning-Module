@@ -3,6 +3,8 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import Script from 'next/script';
 import MigrationBanner from '@/components/platform/MigrationBanner';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { siteGraph } from '@/lib/seo/schema';
 import './globals.css';
 import './redesign.css';
 
@@ -33,11 +35,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Greentryst - The Professional Home for Sustainability',
-    template: '%s - Greentryst',
+    default: 'Sustainability Software for CSRD, GHG Protocol & ESG | Greentryst',
+    template: '%s | Greentryst',
   },
   description:
-    'The professional operating system for sustainability practitioners. Learn new domains, verify answers with sourced citations, execute work with professional tools, advance your career.',
+    'Sustainability professionals learn frameworks (GRI, SASB, TCFD, IFRS S2, SBTi), get AI answers sourced to regulations, and track 120+ rules across 14+ geographies.',
   keywords: [
     'sustainability', 'ESG', 'carbon markets', 'climate science', 'GHG accounting',
     'Scope 1', 'Scope 2', 'Scope 3', 'carbon credits', 'TCFD', 'IFRS S2', 'SBTi',
@@ -48,13 +50,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName: 'Greentryst',
-    title: 'Greentryst - The Professional Home for Sustainability',
+    title: 'Sustainability Software for CSRD, GHG Protocol & ESG | Greentryst',
     description:
-      'The professional operating system for sustainability practitioners. Learn new domains, verify answers with sourced citations, execute work with professional tools, advance your career.',
+      'Sustainability professionals learn frameworks (GRI, SASB, TCFD, IFRS S2, SBTi), get AI answers sourced to regulations, and track 120+ rules across 14+ geographies.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Greentryst - The Professional Home for Sustainability',
+    title: 'Sustainability Software for CSRD, GHG Protocol & ESG | Greentryst',
     description:
       'The professional operating system for sustainability practitioners.',
   },
@@ -71,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <JsonLd data={siteGraph()} id="gt-site-graph" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SGMKCB3SRY"
           strategy="afterInteractive"

@@ -20,6 +20,8 @@ import {
   CategoryLabel,
 } from '@/components/redesign';
 import { PromptDetailClient } from '../_components/PromptDetailClient';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { promptCreativeWorkSchema, breadcrumbList } from '@/lib/seo/schema';
 
 export const dynamicParams = false;
 
@@ -69,8 +71,22 @@ export default function PromptDetailPage({
   const prompt = getPromptBySlug(params.slug);
   if (!prompt) notFound();
 
+  const promptLd = promptCreativeWorkSchema({
+    slug: prompt.slug,
+    title: prompt.title,
+    description: prompt.short_description || prompt.description,
+    category: prompt.framework,
+  });
+  const breadcrumbs = breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Prompt Library', url: '/prompt-library' },
+    { name: prompt.title },
+  ]);
+
   return (
     <>
+      <JsonLd data={promptLd} />
+      <JsonLd data={breadcrumbs} />
       <Nav />
       <main className="min-h-screen bg-gt-pale text-gt-text">
         <LightSection padding="lg" variant="pale">

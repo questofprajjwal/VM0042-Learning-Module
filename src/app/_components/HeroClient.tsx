@@ -205,9 +205,9 @@ export function HeroClient() {
                         {card.leadIn}
                       </p>
                     )}
-                    <h3 className="text-[18px] font-bold text-white leading-snug mb-3">
+                    <p className="text-[18px] font-bold text-white leading-snug mb-3">
                       {card.heading}
-                    </h3>
+                    </p>
                     {card.body && (
                       <p className="text-[13px] text-white/60 leading-relaxed flex-1">
                         {card.body}
@@ -216,9 +216,9 @@ export function HeroClient() {
                   </>
                 ) : (
                   <>
-                    <h3 className="text-[24px] font-extrabold text-white leading-tight tracking-tight mb-1">
+                    <p className="text-[24px] font-extrabold text-white leading-tight tracking-tight mb-1">
                       {card.heading}
-                    </h3>
+                    </p>
                     {card.caption && (
                       <p className="text-[12px] text-white/65 leading-snug flex-1">
                         {card.caption}

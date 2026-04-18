@@ -56,3 +56,34 @@ export function getGuideContent(slug: string): string {
 export function getGuideStaticParams(): { slug: string }[] {
   return getAllGuides().map(g => ({ slug: g.slug }));
 }
+
+/**
+ * Extract FAQ Q&A pairs from a guide's MDX body. Looks for an `## FAQ` (or
+ * `## Frequently Asked Questions`) section and pulls each `### Question`
+ * along with the prose that follows up to the next `###` or `##`. Used to
+ * generate FAQPage JSON-LD for rich-result eligibility.
+ */
+export function extractGuideFaqs(slug: string): { question: string; answer: string }[] {
+  const content = getGuideContent(slug);
+  if (!content) return [];
+  const sectionMatch = content.match(/\n##\s+(?:FAQ|Frequently Asked Questions)[^\n]*\n([\s\S]*?)(?=\n##\s|$)/i);
+  if (!sectionMatch) return [];
+  const section = sectionMatch[1];
+  const out: { question: string; answer: string }[] = [];
+  const re = /\n###\s+([^\n]+)\n([\s\S]*?)(?=\n###\s|$)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec('\n' + section)) !== null) {
+    const question = m[1].trim();
+    const answer = m[2]
+      .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+      .replace(/<[^>]+>/g, '')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (question && answer) out.push({ question, answer });
+  }
+  return out;
+}

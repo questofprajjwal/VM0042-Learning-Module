@@ -6,18 +6,38 @@
 
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Target, Eye, Heart, ArrowRight, Leaf, Users, Globe } from 'lucide-react';
+import { Target, Eye, Heart, ArrowRight, Leaf, Users, Globe, Award, FileCheck, LineChart } from 'lucide-react';
 import { Nav } from '@/components/Nav';
 import { RedesignFooter } from '@/components/redesign';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { breadcrumbList, DESKS, ORG_ID, EDITORIAL_ID, SITE_URL } from '@/lib/seo/schema';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Learn about Greentryst, our mission to democratize sustainability knowledge, and the team behind the platform.',
+  description:
+    'Built by consultants from top consulting firms with 10+ years across Finance, Environmental Science, Energy Efficiency, and Renewable Energy. Every page reviewed against primary sources.',
+};
+
+const ABOUT_PAGE_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': `${SITE_URL}/about#aboutpage`,
+  url: `${SITE_URL}/about`,
+  name: 'About Greentryst',
+  mainEntity: { '@id': ORG_ID },
+  mentions: [{ '@id': EDITORIAL_ID }, ...Object.values(DESKS).map((d) => ({ '@id': d.id }))],
 };
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={ABOUT_PAGE_LD} />
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: '/' },
+          { name: 'About' },
+        ])}
+      />
       <Nav />
 
       {/* Hero - pt-32 accounts for fixed nav */}
@@ -131,6 +151,89 @@ export default function AboutPage() {
                 <p className="text-[14px] text-gt-text-muted leading-relaxed">
                   Our career directory connects practitioners with opportunities at leading organizations. Jobs are categorized by domain and matched to the skills you build on the platform.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who writes this content */}
+      <section className="py-20 bg-[#fafbfa] border-y border-[#e5e7e5]">
+        <div className="max-w-[1100px] mx-auto px-8">
+          <div className="max-w-[720px] mb-12">
+            <p
+              className="text-[11px] font-bold uppercase text-gt-medium mb-3"
+              style={{ letterSpacing: '0.25em' }}
+            >
+              Who writes this content
+            </p>
+            <h2 className="text-[28px] font-extrabold text-gt-text mb-4 leading-tight">
+              Topical desks, not anonymous copy.
+            </h2>
+            <p className="text-[15px] text-gt-text-muted leading-relaxed">
+              Every guide, course, and reference entry on Greentryst is produced by a named topical desk and reviewed by the Greentryst Editorial Board against the primary source document before publication. Our team brings more than a decade of experience from top management consulting firms across Finance, Environmental Science, Energy Efficiency, and Renewable Energy.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="p-6 bg-white rounded-xl border border-[#e5e7e5]">
+              <h3 className="text-[15px] font-bold text-gt-text mb-2">Carbon Markets Desk</h3>
+              <p className="text-[13px] text-gt-text-muted leading-relaxed">
+                CBAM, EU ETS, voluntary carbon markets, Article 6, Verra and Gold Standard methodologies (VM0042, VM0044), registry retirements.
+              </p>
+            </div>
+            <div className="p-6 bg-white rounded-xl border border-[#e5e7e5]">
+              <h3 className="text-[15px] font-bold text-gt-text mb-2">Climate Disclosure Desk</h3>
+              <p className="text-[13px] text-gt-text-muted leading-relaxed">
+                IFRS S1/S2, TCFD, CDP, SFDR, CSRD and ESRS, double materiality assessments.
+              </p>
+            </div>
+            <div className="p-6 bg-white rounded-xl border border-[#e5e7e5]">
+              <h3 className="text-[15px] font-bold text-gt-text mb-2">GHG Accounting Desk</h3>
+              <p className="text-[13px] text-gt-text-muted leading-relaxed">
+                GHG Protocol Corporate Standard, Scope 1/2/3, financed emissions (PCAF), emission factors, ISO 14064, SBTi target setting.
+              </p>
+            </div>
+            <div className="p-6 bg-white rounded-xl border border-[#e5e7e5]">
+              <h3 className="text-[15px] font-bold text-gt-text mb-2">Nature & Supply Chain Desk</h3>
+              <p className="text-[13px] text-gt-text-muted leading-relaxed">
+                EUDR, TNFD, biodiversity accounting, human rights due diligence, IFC Performance Standards.
+              </p>
+            </div>
+            <div className="p-6 bg-white rounded-xl border border-[#e5e7e5]">
+              <h3 className="text-[15px] font-bold text-gt-text mb-2">Sustainable Finance Desk</h3>
+              <p className="text-[13px] text-gt-text-muted leading-relaxed">
+                EU Taxonomy, green and sustainability-linked bonds, ESG investing, PRI integration.
+              </p>
+            </div>
+            <div className="p-6 bg-white rounded-xl border border-[#e5e7e5]">
+              <h3 className="text-[15px] font-bold text-gt-text mb-2">Editorial Board</h3>
+              <p className="text-[13px] text-gt-text-muted leading-relaxed">
+                Reviews every published page against the primary source document. Verifies citations, dates, thresholds, and worked examples before release.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[900px]">
+            <div className="flex items-start gap-3">
+              <Award className="w-5 h-5 text-gt-medium flex-shrink-0 mt-0.5" strokeWidth={1.75} />
+              <div>
+                <div className="text-[14px] font-bold text-gt-text">10+ years experience</div>
+                <div className="text-[13px] text-gt-text-muted">Top management consulting firms.</div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <FileCheck className="w-5 h-5 text-gt-medium flex-shrink-0 mt-0.5" strokeWidth={1.75} />
+              <div>
+                <div className="text-[14px] font-bold text-gt-text">Source-checked</div>
+                <div className="text-[13px] text-gt-text-muted">Every figure traced to a primary document.</div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <LineChart className="w-5 h-5 text-gt-medium flex-shrink-0 mt-0.5" strokeWidth={1.75} />
+              <div>
+                <div className="text-[14px] font-bold text-gt-text">Cross-disciplinary</div>
+                <div className="text-[13px] text-gt-text-muted">Finance, Environmental Science, Energy Efficiency, Renewable Energy.</div>
               </div>
             </div>
           </div>

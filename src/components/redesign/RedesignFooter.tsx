@@ -70,6 +70,45 @@ const COMPANY_COLUMN: FooterColumn = {
   ],
 };
 
+/**
+ * Outbound authority links. Every answer on Greentryst is traceable to one
+ * of these primary sources. Linking to them from the sitewide footer gives
+ * search engines and AI models a concrete E-E-A-T trust signal and gives
+ * practitioners a one-click path to the primary document.
+ */
+const PRIMARY_SOURCES: { label: string; href: string; description: string }[] = [
+  {
+    label: 'IPCC AR6',
+    href: 'https://www.ipcc.ch/assessment-report/ar6-syr/',
+    description: 'IPCC Sixth Assessment Report',
+  },
+  {
+    label: 'GHG Protocol',
+    href: 'https://ghgprotocol.org/standards',
+    description: 'Corporate Standard & Scope 3',
+  },
+  {
+    label: 'SBTi',
+    href: 'https://sciencebasedtargets.org/',
+    description: 'Science Based Targets initiative',
+  },
+  {
+    label: 'IFRS Foundation (ISSB)',
+    href: 'https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/',
+    description: 'IFRS S1 & S2',
+  },
+  {
+    label: 'EFRAG (ESRS)',
+    href: 'https://www.efrag.org/lab6',
+    description: 'European Sustainability Reporting Standards',
+  },
+  {
+    label: 'PCAF',
+    href: 'https://carbonaccountingfinancials.com/standard',
+    description: 'Financed emissions standard',
+  },
+];
+
 export interface RedesignFooterProps {
   className?: string;
 }
@@ -136,6 +175,51 @@ export function RedesignFooter({ className }: RedesignFooterProps) {
             column={COMPANY_COLUMN}
             className="col-span-2 md:col-span-2"
           />
+        </div>
+
+        {/* Primary sources strip — outbound authority links for E-E-A-T */}
+        <div className="pt-8 pb-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-8">
+            <div className="md:w-48 flex-shrink-0">
+              <div className="h-px w-8 bg-gt-leaf/60 mb-3" aria-hidden />
+              <p
+                className="text-[11px] font-bold uppercase text-gt-leaf"
+                style={{
+                  letterSpacing: '0.22em',
+                  fontFamily: 'var(--font-jetbrains-mono), JetBrains Mono, monospace',
+                }}
+              >
+                Primary sources
+              </p>
+              <p className="mt-3 text-[12px] text-white/55 leading-relaxed">
+                Every answer on Greentryst traces back to one of these primary bodies.
+              </p>
+            </div>
+            <ul className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3">
+              {PRIMARY_SOURCES.map((s) => (
+                <li key={s.href}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-start gap-1.5 text-sm text-white/75 hover:text-white transition-colors"
+                  >
+                    <span>
+                      <span className="border-b border-transparent group-hover:border-white/40 transition-colors">
+                        {s.label}
+                      </span>
+                      <span className="block text-[11px] text-white/45 leading-snug mt-0.5">
+                        {s.description}
+                      </span>
+                    </span>
+                    <ArrowUpRight
+                      className="w-3 h-3 text-white/40 flex-shrink-0 mt-0.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar */}

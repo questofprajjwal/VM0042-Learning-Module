@@ -31,6 +31,8 @@ import {
 } from '@/lib/courses';
 import { BookOpen, Check } from 'lucide-react';
 import CourseProgressSummary from './_components/CourseProgressSummary';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { courseSchema, breadcrumbList } from '@/lib/seo/schema';
 
 interface PageParams {
   params: { courseId: string };
@@ -70,8 +72,23 @@ export default function CourseDetailPage({ params }: PageParams) {
   const outcomes =
     COURSE_OUTCOMES_MAP[course.id] ?? DEFAULT_COURSE_OUTCOMES;
 
+  const courseLd = courseSchema({
+    id: course.id,
+    title: course.title,
+    description: course.description ?? course.subtitle ?? course.title,
+    totalLessons,
+    estimatedHours: course.estimatedHours,
+  });
+  const breadcrumbs = breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Courses', url: '/courses' },
+    { name: course.title },
+  ]);
+
   return (
     <>
+      <JsonLd data={courseLd} />
+      <JsonLd data={breadcrumbs} />
       <Nav />
 
       {/* ============================================================

@@ -49,6 +49,8 @@ import {
   getQuiz,
 } from '@/lib/courses';
 import { urlToLessonId, lessonIdToUrl } from '@/lib/url-helpers';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { learningResourceSchema, breadcrumbList } from '@/lib/seo/schema';
 
 interface PageParams {
   params: { courseId: string; lessonId: string };
@@ -169,8 +171,24 @@ export default function LessonRedesignPage({ params }: PageParams) {
   // keeps it unique across the catalog.
   const meterSlug = `${courseId}/${lessonId}`;
 
+  const lessonLd = learningResourceSchema({
+    courseId,
+    lessonId,
+    title: lesson.title,
+    description: `Lesson from ${course.title}: ${lesson.title}.`,
+    courseTitle: course.title,
+  });
+  const breadcrumbs = breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Courses', url: '/courses' },
+    { name: course.title, url: `/courses/${courseId}` },
+    { name: lesson.title },
+  ]);
+
   return (
     <>
+      <JsonLd data={lessonLd} />
+      <JsonLd data={breadcrumbs} />
       <Nav />
       <LessonMeter lessonSlug={meterSlug} />
 
