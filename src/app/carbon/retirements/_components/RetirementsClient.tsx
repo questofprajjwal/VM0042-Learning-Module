@@ -202,7 +202,7 @@ export default function RetirementsClient() {
               buying into specific methodologies.
             </p>
           </div>
-          <div className="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6 max-w-3xl">
+          <div className="mt-10 md:mt-12 grid grid-cols-3 gap-3 sm:gap-5 md:gap-6 max-w-3xl">
             <Stat
               value={formatBig(totalRetired)}
               label="credits retired (top 500)"
@@ -227,50 +227,52 @@ export default function RetirementsClient() {
 
       <section className="py-10 md:py-14">
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-center gap-3 mb-6">
-            <div className="relative flex-1 max-w-md">
+          <div className="flex flex-col md:flex-row md:items-end gap-3 md:gap-4 mb-6">
+            <div className="relative flex-1 md:max-w-md">
               <Search
-                className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gt-text-dim"
+                className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gt-text-dim pointer-events-none"
                 strokeWidth={2}
               />
               <input
                 type="text"
-                placeholder="Search by beneficiary (e.g. Shell, Microsoft, Delta)"
+                placeholder="Search beneficiary (Shell, Microsoft…)"
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-gt-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-gt-medium/20 focus:border-gt-medium"
+                className="w-full pl-9 pr-3 py-2.5 text-[15px] md:text-sm bg-white border border-gt-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-gt-medium/20 focus:border-gt-medium"
               />
             </div>
-            <label className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim">
-              Registry
-              <select
-                value={registryFilter}
-                onChange={e => setRegistryFilter(e.target.value as Registry | '')}
-                className="text-sm font-medium normal-case tracking-normal bg-white border border-gt-border-light rounded-lg px-3 py-1.5 text-gt-text focus:outline-none focus:ring-2 focus:ring-gt-medium/20 focus:border-gt-medium"
-              >
-                <option value="">Any registry</option>
-                {(Object.keys(REGISTRY_LABEL) as Registry[]).map(r => (
-                  <option key={r} value={r}>
-                    {REGISTRY_LABEL[r]}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim">
-              Methodology
-              <select
-                value={methodologyFilter}
-                onChange={e => setMethodologyFilter(e.target.value)}
-                className="text-sm font-medium normal-case tracking-normal bg-white border border-gt-border-light rounded-lg px-3 py-1.5 text-gt-text focus:outline-none focus:ring-2 focus:ring-gt-medium/20 focus:border-gt-medium"
-              >
-                <option value="">Any methodology</option>
-                {methodologyOptions.map(m => (
-                  <option key={m.code} value={m.code}>
-                    {m.code} ({m.retirerCount})
-                  </option>
-                ))}
-              </select>
-            </label>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <label className="flex flex-col gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim md:flex-row md:items-center md:gap-2 min-w-0">
+                Registry
+                <select
+                  value={registryFilter}
+                  onChange={e => setRegistryFilter(e.target.value as Registry | '')}
+                  className="w-full sm:w-auto text-[15px] md:text-sm font-medium normal-case tracking-normal bg-white border border-gt-border-light rounded-lg px-3 py-2 md:py-1.5 text-gt-text focus:outline-none focus:ring-2 focus:ring-gt-medium/20 focus:border-gt-medium"
+                >
+                  <option value="">Any registry</option>
+                  {(Object.keys(REGISTRY_LABEL) as Registry[]).map(r => (
+                    <option key={r} value={r}>
+                      {REGISTRY_LABEL[r]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex flex-col gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim md:flex-row md:items-center md:gap-2 min-w-0">
+                Methodology
+                <select
+                  value={methodologyFilter}
+                  onChange={e => setMethodologyFilter(e.target.value)}
+                  className="w-full sm:w-auto max-w-full text-[15px] md:text-sm font-medium normal-case tracking-normal bg-white border border-gt-border-light rounded-lg px-3 py-2 md:py-1.5 text-gt-text focus:outline-none focus:ring-2 focus:ring-gt-medium/20 focus:border-gt-medium"
+                >
+                  <option value="">Any methodology</option>
+                  {methodologyOptions.map(m => (
+                    <option key={m.code} value={m.code}>
+                      {m.code} ({m.retirerCount})
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
           </div>
 
           {error ? (
@@ -287,8 +289,99 @@ export default function RetirementsClient() {
             </div>
           ) : (
             <>
-              <div className="bg-white border border-gt-border-light rounded-2xl shadow-gt-card overflow-hidden">
-                <table className="w-full text-sm">
+              {/* Mobile card list — single column, stacked, touch-friendly */}
+              <ul className="md:hidden flex flex-col gap-3">
+                {pageSlice.map((b, i) => {
+                  const rank = (safePage - 1) * PAGE_SIZE + i + 1;
+                  return (
+                    <li
+                      key={b.name}
+                      className="bg-white border border-gt-border-light rounded-2xl shadow-gt-card p-4"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="font-['JetBrains_Mono'] text-[13px] font-semibold text-gt-text-dim shrink-0 w-8 pt-0.5">
+                          #{rank}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span
+                              className={`font-semibold text-gt-text break-words ${HEX_ADDRESS.test(b.name) ? "font-['JetBrains_Mono'] text-[13px]" : 'text-[15px]'}`}
+                            >
+                              {displayName(b.name)}
+                            </span>
+                            {b.bridge ? (
+                              <span
+                                className={`px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase tracking-wider ${BRIDGE_CHIP[b.bridge] ?? 'bg-gt-text-dim/20 text-gt-text-muted'}`}
+                              >
+                                via {b.bridge}
+                              </span>
+                            ) : null}
+                          </div>
+
+                          <div className="mt-2 flex flex-wrap gap-1">
+                            {b.registries.map(r => (
+                              <span
+                                key={r}
+                                title={REGISTRY_LABEL[r]}
+                                className={`px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${REGISTRY_CHIP[r]}`}
+                              >
+                                {REGISTRY_SHORT[r]}
+                              </span>
+                            ))}
+                          </div>
+
+                          {b.methodologies.length ? (
+                            <div className="mt-2 flex flex-wrap gap-1">
+                              {b.methodologies.slice(0, 3).map(m => (
+                                <button
+                                  key={m}
+                                  type="button"
+                                  onClick={() => setMethodologyFilter(m)}
+                                  className="px-1.5 py-0.5 rounded bg-gt-medium/10 text-gt-medium text-[10px] font-['JetBrains_Mono'] font-semibold"
+                                >
+                                  {m}
+                                </button>
+                              ))}
+                              {b.methodologies.length > 3 ? (
+                                <span className="px-1.5 py-0.5 rounded bg-gt-pale text-gt-text-dim text-[10px] font-semibold">
+                                  +{b.methodologies.length - 3}
+                                </span>
+                              ) : null}
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+
+                      <div className="mt-3 pt-3 border-t border-gt-border-light/60 flex items-center justify-between gap-3">
+                        <div>
+                          <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim">
+                            Retired
+                          </div>
+                          <div className="mt-0.5 font-['JetBrains_Mono'] text-[15px] font-semibold text-gt-text">
+                            {b.totalRetired.toLocaleString('en-US')}
+                          </div>
+                          <div className="text-[11px] text-gt-text-dim">
+                            {b.projectCount.toLocaleString('en-US')}{' '}
+                            project{b.projectCount === 1 ? '' : 's'}
+                          </div>
+                        </div>
+                        <Link
+                          href={`/carbon/market?q=${encodeURIComponent(b.name)}`}
+                          className="inline-flex items-center gap-1 text-[12px] font-semibold text-gt-medium hover:text-gt-dark shrink-0"
+                        >
+                          View projects
+                          <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                        </Link>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* Desktop / tablet table */}
+              <div className="hidden md:block bg-white border border-gt-border-light rounded-2xl shadow-gt-card overflow-hidden">
+                <div className="overflow-x-auto">
+                <table className="w-full text-sm min-w-[720px]">
                   <thead className="bg-gt-pale/60">
                     <tr>
                       <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim w-10">
@@ -313,7 +406,7 @@ export default function RetirementsClient() {
                   </thead>
                   <tbody>
                     {pageSlice.map((b, i) => {
-                      const rank = (page - 1) * PAGE_SIZE + i + 1;
+                      const rank = (safePage - 1) * PAGE_SIZE + i + 1;
                       return (
                         <tr
                           key={b.name}
@@ -398,6 +491,7 @@ export default function RetirementsClient() {
                     })}
                   </tbody>
                 </table>
+                </div>
               </div>
 
               {anonymous &&
