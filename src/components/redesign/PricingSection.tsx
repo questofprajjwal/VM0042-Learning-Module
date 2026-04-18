@@ -485,13 +485,6 @@ export function PricingSection({ className }: PricingSectionProps) {
         <div className="flex items-start gap-2.5">
           <Check className="w-4 h-4 text-gt-medium flex-shrink-0 mt-0.5" strokeWidth={2.5} />
           <span>
-            <span className="text-gt-text font-semibold">India pricing applied automatically</span>{' '}
-            at checkout via Stripe PPP.
-          </span>
-        </div>
-        <div className="flex items-start gap-2.5">
-          <Check className="w-4 h-4 text-gt-medium flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-          <span>
             <span className="text-gt-text font-semibold">Cancel anytime.</span>{' '}
             No long-term contracts on any paid tier.
           </span>
