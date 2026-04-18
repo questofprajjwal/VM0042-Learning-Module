@@ -41,6 +41,7 @@ import { LessonGlassAudio } from '@/components/redesign/lesson/LessonGlassAudio'
 import { QuizRedesign } from '@/components/redesign/lesson/QuizRedesign';
 import { getRedesignMDXComponents } from '@/components/redesign/lesson/mdx-components-redesign';
 import { injectCarbonMarketBanner } from '@/lib/carbon-market-banner';
+import LessonProgressClient from '@/components/redesign/lesson/LessonProgressClient';
 import {
   getCourse,
   getLessonNavContext,
@@ -281,45 +282,11 @@ export default function LessonRedesignPage({ params }: PageParams) {
                 <div />
               )}
 
-              {navCtx?.nextLesson ? (
-                <Link
-                  href={`/courses/${course.id}/${lessonIdToUrl(
-                    navCtx.nextLesson.id
-                  )}`}
-                  className="group flex items-start gap-4 p-5 rounded-xl border border-gt-medium/30 bg-gt-medium/[0.05] hover:bg-gt-medium/[0.10] transition-colors md:text-right md:flex-row-reverse"
-                >
-                  <ArrowRight
-                    className="w-5 h-5 text-gt-medium mt-0.5 flex-shrink-0 group-hover:translate-x-0.5 transition-transform"
-                    strokeWidth={2}
-                  />
-                  <div className="min-w-0 md:text-right">
-                    <p
-                      className="text-[10px] font-bold uppercase text-gt-medium mb-1"
-                      style={{
-                        letterSpacing: '0.16em',
-                        fontFamily:
-                          'var(--font-jetbrains-mono), JetBrains Mono, monospace',
-                      }}
-                    >
-                      Next lesson
-                    </p>
-                    <p className="text-[14px] font-semibold text-gt-text leading-snug">
-                      {navCtx.nextLesson.title}
-                    </p>
-                  </div>
-                </Link>
-              ) : (
-                <Link
-                  href={`/courses/${course.id}`}
-                  className="group flex items-center justify-center gap-2 p-5 rounded-xl border border-gt-medium/30 bg-gt-medium/[0.05] hover:bg-gt-medium/[0.10] transition-colors text-[14px] font-bold text-gt-medium"
-                >
-                  Back to course overview
-                  <ArrowRight
-                    className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-                    strokeWidth={2}
-                  />
-                </Link>
-              )}
+              <LessonProgressClient
+                courseId={course.id}
+                lessonId={lessonId}
+                nextLesson={navCtx?.nextLesson ?? null}
+              />
             </div>
           </article>
         </main>

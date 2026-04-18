@@ -20,11 +20,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, BookOpen } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { ChevronRight, BookOpen, Check, PlayCircle } from 'lucide-react';
 import type { Module } from '@/lib/types';
-import { lessonIdToUrl } from '@/lib/url-helpers';
+import { lessonIdToUrl, urlToLessonId } from '@/lib/url-helpers';
 import { COURSE_ICON_MAP } from '@/components/redesign/CourseRow';
 import { cn } from '@/components/redesign/lib/cn';
+import { useProgress } from '@/lib/progress-cloud';
 
 export interface CourseDetailSidebarProps {
   courseId: string;
@@ -51,6 +53,17 @@ export function CourseDetailSidebar({
   className,
 }: CourseDetailSidebarProps) {
   const Icon = COURSE_ICON_MAP[courseId] ?? BookOpen;
+  const progress = useProgress(courseId);
+  const pathname = usePathname();
+
+  // Derive the currently-open lesson from the URL so we can render a
+  // "play" indicator distinct from completed ones.
+  const currentLessonId = (() => {
+    if (!pathname) return null;
+    const m = pathname.match(/\/courses\/[^/]+\/([^/?#]+)/);
+    return m ? urlToLessonId(m[1]) : null;
+  })();
+
   // First module expanded by default; subsequent modules collapsed
   // so courses with many modules do not overwhelm the rail.
   const [expandedIds, setExpandedIds] = useState<Set<number>>(
@@ -149,29 +162,56 @@ export function CourseDetailSidebar({
 
               {isExpanded && (
                 <ul className="pl-8 pr-2 pt-1 pb-2 space-y-0.5">
-                  {module.lessons.map((lesson) => (
-                    <li key={lesson.id}>
-                      <Link
-                        href={`/courses/${courseId}/${lessonIdToUrl(
-                          lesson.id
-                        )}`}
-                        className="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[12px] text-gt-text-muted hover:text-gt-text hover:bg-gt-medium/[0.04] transition-colors"
-                      >
-                        <span
-                          className="text-gt-text-dim w-7 shrink-0 text-[10px]"
-                          style={{
-                            fontFamily:
-                              'var(--font-jetbrains-mono), JetBrains Mono, monospace',
-                          }}
+                  {module.lessons.map((lesson) => {
+                    const done = progress.isCompleted(lesson.id);
+                    const current = currentLessonId === lesson.id;
+                    return (
+                      <li key={lesson.id}>
+                        <Link
+                          href={`/courses/${courseId}/${lessonIdToUrl(
+                            lesson.id
+                          )}`}
+                          aria-current={current ? 'page' : undefined}
+                          className={cn(
+                            'flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[12px] transition-colors',
+                            current
+                              ? 'bg-gt-medium/[0.08] text-gt-medium font-semibold'
+                              : done
+                                ? 'text-gt-text hover:text-gt-text hover:bg-gt-medium/[0.04]'
+                                : 'text-gt-text-muted hover:text-gt-text hover:bg-gt-medium/[0.04]'
+                          )}
                         >
-                          {lesson.id}
-                        </span>
-                        <span className="leading-snug line-clamp-2">
-                          {lesson.title}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
+                          <span className="w-4 h-4 shrink-0 flex items-center justify-center">
+                            {done ? (
+                              <Check
+                                className="w-3.5 h-3.5 text-gt-medium"
+                                strokeWidth={2.5}
+                              />
+                            ) : current ? (
+                              <PlayCircle
+                                className="w-3.5 h-3.5 text-gt-medium"
+                                strokeWidth={2}
+                              />
+                            ) : (
+                              <span className="w-1.5 h-1.5 rounded-full bg-gt-text-dim/40" aria-hidden />
+                            )}
+                          </span>
+                          <span
+                            className="text-gt-text-dim w-7 shrink-0 text-[10px]"
+                            style={{
+                              fontFamily:
+                                'var(--font-jetbrains-mono), JetBrains Mono, monospace',
+                            }}
+                          >
+                            {lesson.id}
+                          </span>
+                          <span className="leading-snug line-clamp-2">
+                            {lesson.title}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>

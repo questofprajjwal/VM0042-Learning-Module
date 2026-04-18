@@ -30,6 +30,7 @@ import {
   getAllCourseIds,
 } from '@/lib/courses';
 import { BookOpen, Check } from 'lucide-react';
+import CourseProgressSummary from './_components/CourseProgressSummary';
 
 interface PageParams {
   params: { courseId: string };
@@ -101,6 +102,11 @@ export default function CourseDetailPage({ params }: PageParams) {
             totalLessons={totalLessons}
             estimatedHours={course.estimatedHours}
             Icon={Icon}
+          />
+
+          <CourseProgressSummary
+            courseId={course.id}
+            modules={course.modules}
           />
 
           {/* Body sections */}
