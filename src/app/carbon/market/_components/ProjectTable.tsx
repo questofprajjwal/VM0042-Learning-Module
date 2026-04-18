@@ -61,6 +61,19 @@ function th(extra = ''): string {
 
 type DescriptionMap = Record<string, string>;
 
+type CreditsSummary = {
+  totalIssued: number;
+  totalRetired: number;
+  totalCancelled: number;
+  outstanding: number;
+  topBeneficiaries: { name: string; quantity: number }[];
+  lastRetirementDate: string | null;
+  vintageYearStart: number | null;
+  vintageYearEnd: number | null;
+  batchCount: number;
+};
+type CreditsMap = Record<string, CreditsSummary>;
+
 let descCache: Promise<DescriptionMap> | null = null;
 function loadDescriptions(): Promise<DescriptionMap> {
   if (!descCache) {
@@ -69,6 +82,22 @@ function loadDescriptions(): Promise<DescriptionMap> {
       .catch(() => ({}));
   }
   return descCache;
+}
+
+let creditsCache: Promise<CreditsMap> | null = null;
+function loadCredits(): Promise<CreditsMap> {
+  if (!creditsCache) {
+    creditsCache = fetch('/carbon-market-credits-summary.json')
+      .then(r => (r.ok ? r.json() : {}))
+      .catch(() => ({}));
+  }
+  return creditsCache;
+}
+
+function fmtNum(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(2)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+  return n.toLocaleString();
 }
 
 interface Props {
@@ -107,10 +136,14 @@ function SortButton({
 export default function ProjectTable({ projects, sort, onSort }: Props) {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [descriptions, setDescriptions] = useState<DescriptionMap | null>(null);
+  const [credits, setCredits] = useState<CreditsMap | null>(null);
 
   useEffect(() => {
     if (expanded.size > 0 && !descriptions) {
       loadDescriptions().then(setDescriptions);
+    }
+    if (expanded.size > 0 && !credits) {
+      loadCredits().then(setCredits);
     }
   }, [expanded, descriptions]);
 
@@ -129,7 +162,9 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
       <div className="md:hidden flex flex-col gap-3">
         {projects.map(p => {
           const courseSlug = p.methodology ? COURSE_METHODOLOGIES[p.methodology] : null;
-          const hasDescription = p.registry === 'verra_vcs';
+          // Most registries now have descriptions and/or credit summaries
+          // available; let any row expand and show whatever is on file.
+          const hasDescription = true;
           const isOpen = expanded.has(p.id);
           const desc = hasDescription && descriptions ? descriptions[p.id] : null;
           return (
@@ -247,16 +282,20 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
               ) : null}
 
               {isOpen ? (
-                <div className="mt-3 pt-3 border-t border-gt-border-light">
+                <div className="mt-3 pt-3 border-t border-gt-border-light space-y-4">
                   {descriptions === null ? (
                     <p className="text-xs text-gt-text-dim">Loading description…</p>
                   ) : desc ? (
                     <p className="text-[13px] leading-relaxed text-gt-text-muted whitespace-pre-line">
                       {desc.length > 500 ? `${desc.slice(0, 500).trimEnd()}…` : desc}
                     </p>
-                  ) : (
-                    <p className="text-xs text-gt-text-dim">No description available.</p>
-                  )}
+                  ) : null}
+
+                  <CreditsBlock id={p.id} credits={credits} />
+
+                  {!desc && descriptions !== null && !credits?.[p.id] ? (
+                    <p className="text-xs text-gt-text-dim">No additional details on file.</p>
+                  ) : null}
                 </div>
               ) : null}
             </article>
@@ -308,7 +347,9 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
         <tbody>
           {projects.map(p => {
             const courseSlug = p.methodology ? COURSE_METHODOLOGIES[p.methodology] : null;
-            const hasDescription = p.registry === 'verra_vcs';
+            // Most registries now have descriptions and/or credit summaries
+          // available; let any row expand and show whatever is on file.
+          const hasDescription = true;
             const isOpen = expanded.has(p.id);
             const desc = hasDescription && descriptions ? descriptions[p.id] : null;
 
@@ -438,31 +479,38 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
                 {isOpen ? (
                   <tr className="border-b border-gt-border-light/60 bg-gt-pale/40">
                     <td colSpan={7} className="px-8 py-5">
-                      {descriptions === null ? (
-                        <p className="text-xs text-gt-text-dim">Loading description…</p>
-                      ) : desc ? (
-                        <div className="max-w-3xl">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-gt-text-dim">
-                            Project summary
-                          </span>
-                          <p className="mt-2 text-[13px] leading-relaxed text-gt-text-muted whitespace-pre-line">
-                            {desc.length > 500 ? `${desc.slice(0, 500).trimEnd()}…` : desc}
+                      <div className="max-w-3xl space-y-5">
+                        {descriptions === null ? (
+                          <p className="text-xs text-gt-text-dim">Loading details…</p>
+                        ) : desc ? (
+                          <div>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-gt-text-dim">
+                              Project summary
+                            </span>
+                            <p className="mt-2 text-[13px] leading-relaxed text-gt-text-muted whitespace-pre-line">
+                              {desc.length > 500 ? `${desc.slice(0, 500).trimEnd()}…` : desc}
+                            </p>
+                          </div>
+                        ) : null}
+
+                        <CreditsBlock id={p.id} credits={credits} />
+
+                        <a
+                          href={p.registryUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-gt-medium hover:text-gt-dark"
+                        >
+                          View full project on {REGISTRY_LABEL[p.registry]}
+                          <ExternalLink className="w-3 h-3" strokeWidth={2} />
+                        </a>
+
+                        {!desc && descriptions !== null && !credits?.[p.id] ? (
+                          <p className="text-xs text-gt-text-dim">
+                            No additional details on file for this project.
                           </p>
-                          <a
-                            href={p.registryUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-gt-medium hover:text-gt-dark"
-                          >
-                            View full project on {REGISTRY_LABEL[p.registry]}
-                            <ExternalLink className="w-3 h-3" strokeWidth={2} />
-                          </a>
-                        </div>
-                      ) : (
-                        <p className="text-xs text-gt-text-dim">
-                          No description available for this project.
-                        </p>
-                      )}
+                        ) : null}
+                      </div>
                     </td>
                   </tr>
                 ) : null}
@@ -473,5 +521,89 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
       </table>
       </div>
     </>
+  );
+}
+
+/**
+ * CreditsBlock — retirement & issuance summary shown inline in the
+ * project detail dropdown. Renders only when we have credit data for
+ * the project (currently VCS only; other registries can be wired as
+ * their credit datasets land).
+ */
+function CreditsBlock({ id, credits }: { id: string; credits: CreditsMap | null }) {
+  if (!credits) return null;
+  const s = credits[id];
+  if (!s) return null;
+  const vintageRange =
+    s.vintageYearStart && s.vintageYearEnd
+      ? s.vintageYearStart === s.vintageYearEnd
+        ? String(s.vintageYearStart)
+        : `${s.vintageYearStart}–${s.vintageYearEnd}`
+      : null;
+  return (
+    <div>
+      <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-gt-text-dim">
+        Credits & retirements
+      </span>
+      <dl className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3">
+        <div>
+          <dt className="text-[10px] font-bold uppercase tracking-wider text-gt-text-dim">
+            Issued
+          </dt>
+          <dd className="mt-0.5 font-['JetBrains_Mono'] text-[13px] text-gt-text">
+            {fmtNum(s.totalIssued)}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-[10px] font-bold uppercase tracking-wider text-gt-text-dim">
+            Retired
+          </dt>
+          <dd className="mt-0.5 font-['JetBrains_Mono'] text-[13px] text-gt-text">
+            {fmtNum(s.totalRetired)}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-[10px] font-bold uppercase tracking-wider text-gt-text-dim">
+            Outstanding
+          </dt>
+          <dd className="mt-0.5 font-['JetBrains_Mono'] text-[13px] text-gt-medium font-semibold">
+            {fmtNum(s.outstanding)}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-[10px] font-bold uppercase tracking-wider text-gt-text-dim">
+            Vintages
+          </dt>
+          <dd className="mt-0.5 font-['JetBrains_Mono'] text-[13px] text-gt-text">
+            {vintageRange ?? '—'}
+          </dd>
+        </div>
+      </dl>
+      {s.topBeneficiaries.length ? (
+        <div className="mt-4">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-gt-text-dim">
+            Top retirement beneficiaries
+          </span>
+          <ul className="mt-1 space-y-0.5">
+            {s.topBeneficiaries.slice(0, 5).map(b => (
+              <li
+                key={b.name}
+                className="flex items-baseline justify-between gap-4 text-[12px]"
+              >
+                <span className="text-gt-text truncate">{b.name}</span>
+                <span className="font-['JetBrains_Mono'] text-gt-text-dim shrink-0">
+                  {fmtNum(b.quantity)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+      {s.lastRetirementDate ? (
+        <p className="mt-3 text-[11px] text-gt-text-dim">
+          Last retirement recorded {s.lastRetirementDate.slice(0, 10)} · {s.batchCount.toLocaleString()} credit batch{s.batchCount !== 1 ? 'es' : ''} on file.
+        </p>
+      ) : null}
+    </div>
   );
 }

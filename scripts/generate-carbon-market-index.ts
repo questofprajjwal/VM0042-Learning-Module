@@ -796,15 +796,24 @@ function main() {
   // project_details directories.
   const descriptions: Record<string, string> = {};
 
-  // Verra VCS resourceSummary → vcs-{id}
-  const vcsDetailsDir = join(DATA_DIR, 'verra/vcs/project_details');
-  if (existsSync(vcsDetailsDir)) {
-    for (const f of readdirSync(vcsDetailsDir).filter(f => f.endsWith('.json'))) {
+  // Verra programs (VCS, CCB, PWRP, JNR, FCPF) all share the same
+  // resourceSummary endpoint; their descriptions live in per-program
+  // directories written by `verra_api.py details --program X`.
+  const verraDetailSources: Array<{ dir: string; prefix: string }> = [
+    { dir: join(DATA_DIR, 'verra/vcs/project_details'), prefix: 'vcs' },
+    { dir: join(DATA_DIR, 'verra/ccb/project_details'), prefix: 'ccb' },
+    { dir: join(DATA_DIR, 'verra/pwrp/project_details'), prefix: 'pwrp' },
+    { dir: join(DATA_DIR, 'verra/jnr/project_details'), prefix: 'jnr' },
+    { dir: join(DATA_DIR, 'verra/fcpf/project_details'), prefix: 'fcpf' },
+  ];
+  for (const { dir, prefix } of verraDetailSources) {
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter(f => f.endsWith('.json'))) {
       try {
-        const raw = JSON.parse(readFileSync(join(vcsDetailsDir, f), 'utf-8'));
+        const raw = JSON.parse(readFileSync(join(dir, f), 'utf-8'));
         const id = raw.resourceIdentifier || f.replace(/\.json$/, '');
         const desc = (raw.description || '').trim();
-        if (desc) descriptions[`vcs-${id}`] = desc;
+        if (desc) descriptions[`${prefix}-${id}`] = desc;
       } catch {
         /* skip malformed */
       }
@@ -844,6 +853,20 @@ function main() {
     join(PUBLIC_DIR, 'carbon-market-descriptions.json'),
     JSON.stringify(descriptions),
   );
+
+  // Credits summary side-file: produced by scraper/summarize_vcs_credits.py
+  // from the ~4,500 per-project credit CSVs. Contains totalIssued,
+  // totalRetired, outstanding, topBeneficiaries, lastRetirementDate per
+  // VCS project. Lazy-loaded when a row is expanded, same pattern as
+  // descriptions. Currently VCS only; other registries can be added as
+  // their credit datasets land.
+  const creditsSummaryPath = join(DATA_DIR, 'verra/vcs/credits_summary.json');
+  if (existsSync(creditsSummaryPath)) {
+    const raw = readFileSync(creditsSummaryPath, 'utf-8');
+    writeFileSync(join(PUBLIC_DIR, 'carbon-market-credits-summary.json'), raw);
+    const entries = Object.keys(JSON.parse(raw)).length;
+    console.log(`[carbon-market] ${entries} credits summaries copied`);
+  }
 
   // Tiny methodology-count file consumed by LiveProjectsCard (inline
   // banner in carbon-markets lessons). Keeping this separate from the
