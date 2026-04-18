@@ -84,6 +84,7 @@ export default function RetirementsClient() {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [registryFilter, setRegistryFilter] = useState<Registry | ''>('');
+  const [methodologyFilter, setMethodologyFilter] = useState<string>('');
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -106,14 +107,31 @@ export default function RetirementsClient() {
     const lc = search.trim().toLowerCase();
     return data.beneficiaries.filter(b => {
       if (registryFilter && !b.registries.includes(registryFilter)) return false;
+      if (methodologyFilter && !b.methodologies.includes(methodologyFilter)) return false;
       if (lc && !b.name.toLowerCase().includes(lc)) return false;
       return true;
     });
-  }, [data, search, registryFilter]);
+  }, [data, search, registryFilter, methodologyFilter]);
+
+  // Unique methodologies across the leaderboard with retirer counts. Sorted
+  // by count desc so the most common methodologies surface first in the
+  // dropdown.
+  const methodologyOptions = useMemo(() => {
+    if (!data) return [] as { code: string; retirerCount: number }[];
+    const counts = new Map<string, number>();
+    for (const b of data.beneficiaries) {
+      for (const m of b.methodologies) {
+        counts.set(m, (counts.get(m) ?? 0) + 1);
+      }
+    }
+    return [...counts.entries()]
+      .map(([code, retirerCount]) => ({ code, retirerCount }))
+      .sort((a, b) => b.retirerCount - a.retirerCount);
+  }, [data]);
 
   useEffect(() => {
     setPage(1);
-  }, [search, registryFilter]);
+  }, [search, registryFilter, methodologyFilter]);
 
   const pageSlice = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -194,6 +212,21 @@ export default function RetirementsClient() {
                 {(Object.keys(REGISTRY_LABEL) as Registry[]).map(r => (
                   <option key={r} value={r}>
                     {REGISTRY_LABEL[r]}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gt-text-dim">
+              Methodology
+              <select
+                value={methodologyFilter}
+                onChange={e => setMethodologyFilter(e.target.value)}
+                className="text-sm font-medium normal-case tracking-normal bg-white border border-gt-border-light rounded-lg px-3 py-1.5 text-gt-text focus:outline-none focus:ring-2 focus:ring-gt-medium/20 focus:border-gt-medium"
+              >
+                <option value="">Any methodology</option>
+                {methodologyOptions.map(m => (
+                  <option key={m.code} value={m.code}>
+                    {m.code} ({m.retirerCount})
                   </option>
                 ))}
               </select>
@@ -296,12 +329,15 @@ export default function RetirementsClient() {
                                 title={b.methodologies.join(', ')}
                               >
                                 {b.methodologies.slice(0, 3).map(m => (
-                                  <span
+                                  <button
                                     key={m}
-                                    className="px-1.5 py-0.5 rounded bg-gt-medium/10 text-gt-medium text-[10px] font-['JetBrains_Mono'] font-semibold"
+                                    type="button"
+                                    onClick={() => setMethodologyFilter(m)}
+                                    title={`Filter to retirers using ${m}`}
+                                    className="px-1.5 py-0.5 rounded bg-gt-medium/10 text-gt-medium text-[10px] font-['JetBrains_Mono'] font-semibold hover:bg-gt-medium/20 transition-colors"
                                   >
                                     {m}
-                                  </span>
+                                  </button>
                                 ))}
                                 {b.methodologies.length > 3 ? (
                                   <span className="px-1.5 py-0.5 rounded bg-gt-pale text-gt-text-dim text-[10px] font-semibold">
