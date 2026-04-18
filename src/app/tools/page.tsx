@@ -5,7 +5,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Library, Calculator, FileText, ClipboardCheck, Sparkles, ArrowRight, type LucideIcon } from 'lucide-react';
+import { Library, Calculator, FileText, ClipboardCheck, Sparkles, Globe2, ArrowRight, type LucideIcon } from 'lucide-react';
 import { Nav } from '@/components/Nav';
 import {
   RedesignFooter,
@@ -48,6 +48,16 @@ const TOOLS: ToolCard[] = [
     description: 'Every emission factor. Sourced, dated, and free.',
     icon: Library,
     href: '/emission-factors',
+    cta: 'Open tool',
+    status: 'live',
+  },
+  {
+    id: 'carbon-market',
+    title: 'Carbon Market Intelligence',
+    description:
+      'Global carbon market, made traceable. 9,603 projects across Verra VCS, CCB, PWRP, and Gold Standard in one searchable index.',
+    icon: Globe2,
+    href: '/carbon/market',
     cta: 'Open tool',
     status: 'live',
   },

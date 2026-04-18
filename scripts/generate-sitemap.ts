@@ -25,6 +25,7 @@ const urls: UrlEntry[] = [];
 // Static pages
 urls.push({ loc: '/', priority: '1.0', changefreq: 'weekly' });
 urls.push({ loc: '/glossary', priority: '0.6', changefreq: 'monthly' });
+urls.push({ loc: '/carbon/market', priority: '0.9', changefreq: 'daily' });
 urls.push({ loc: '/disclaimer', priority: '0.3', changefreq: 'yearly' });
 
 // Course pages + lessons
