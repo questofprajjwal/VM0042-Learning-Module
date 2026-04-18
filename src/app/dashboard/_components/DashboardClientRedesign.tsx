@@ -317,9 +317,34 @@ export function DashboardClientRedesign({
   const profileImageUrl = user?.imageUrl;
   const email = user?.primaryEmailAddress?.emailAddress ?? '';
 
-  const planTier = 'Individual';
-  const queriesRemaining = 4;
-  const queriesTotal = 5;
+  // Phase 1: planTier becomes dynamic once Dodo subscription state is
+  // wired. For now every account is the preview free tier.
+  const planTier = 'Free';
+
+  // Phase 2: live usage counters from /api/usage. `usage` is null
+  // while the initial fetch is in flight and also for anonymous users
+  // (the API returns 401; we handle that silently).
+  const [usage, setUsage] = useState<{
+    today: Record<string, number>;
+    month: Record<string, number>;
+    limits: Record<string, number>;
+  } | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/api/usage')
+      .then(r => (r.ok ? r.json() : null))
+      .then(d => {
+        if (!cancelled && d) setUsage(d);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const sustainiqQueriesToday = usage?.today?.sustainiq_query ?? 0;
+  const sustainiqDailyLimit = usage?.limits?.sustainiq_query_daily ?? 5;
+  const reportsThisMonth = usage?.month?.report_generated ?? 0;
+  const reportsMonthlyLimit = usage?.limits?.report_generated_monthly ?? 10;
 
   const userSkillScores = useMemo(() => {
     return MARKET_SKILLS.map((ms) => {
@@ -406,7 +431,7 @@ export function DashboardClientRedesign({
               />
               <QuickStatDark
                 icon={<Brain className="w-4 h-4" />}
-                value={`${queriesRemaining}/${queriesTotal}`}
+                value={`${sustainiqQueriesToday}/${sustainiqDailyLimit}`}
                 label="Queries Today"
               />
             </div>
@@ -483,8 +508,10 @@ export function DashboardClientRedesign({
       {activeTab === 'settings' && (
         <SettingsTab
           planTier={planTier}
-          queriesRemaining={queriesRemaining}
-          queriesTotal={queriesTotal}
+          sustainiqQueriesToday={sustainiqQueriesToday}
+          sustainiqDailyLimit={sustainiqDailyLimit}
+          reportsThisMonth={reportsThisMonth}
+          reportsMonthlyLimit={reportsMonthlyLimit}
           email={email}
         />
       )}
@@ -2215,13 +2242,17 @@ interface ToolSetting {
 
 function SettingsTab({
   planTier,
-  queriesRemaining,
-  queriesTotal,
+  sustainiqQueriesToday,
+  sustainiqDailyLimit,
+  reportsThisMonth,
+  reportsMonthlyLimit,
   email,
 }: {
   planTier: string;
-  queriesRemaining: number;
-  queriesTotal: number;
+  sustainiqQueriesToday: number;
+  sustainiqDailyLimit: number;
+  reportsThisMonth: number;
+  reportsMonthlyLimit: number;
   email: string;
 }) {
   // Tool toggles (SustainIQ is a service, not a tool - managed separately)
@@ -2242,12 +2273,55 @@ function SettingsTab({
   // Billing state
   const [showCancelModal, setShowCancelModal] = useState(false);
 
+  // Phase 3: load persisted preferences on mount, save on change.
+  // Errors are silent — if Turso is unreachable we fall back to the
+  // defaults and let the user re-toggle once the API recovers.
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/api/preferences')
+      .then(r => (r.ok ? r.json() : null))
+      .then((d: { toolsEnabled?: Record<string, boolean>; notificationPrefs?: Record<string, boolean> } | null) => {
+        if (cancelled || !d) return;
+        if (d.toolsEnabled) {
+          setTools(prev =>
+            prev.map(t =>
+              t.id in d.toolsEnabled! ? { ...t, enabled: Boolean(d.toolsEnabled![t.id]) } : t,
+            ),
+          );
+        }
+        if (d.notificationPrefs) {
+          setNotifications(prev => ({ ...prev, ...d.notificationPrefs }));
+        }
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  function persistPreferences(patch: {
+    toolsEnabled?: Record<string, boolean>;
+    notificationPrefs?: Record<string, boolean>;
+  }) {
+    fetch('/api/preferences', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(patch),
+    }).catch(() => {});
+  }
+
   const toggleTool = (toolId: string) => {
-    setTools(tools.map(t => t.id === toolId ? { ...t, enabled: !t.enabled } : t));
+    const next = tools.map(t => (t.id === toolId ? { ...t, enabled: !t.enabled } : t));
+    setTools(next);
+    persistPreferences({
+      toolsEnabled: Object.fromEntries(next.map(t => [t.id, t.enabled])),
+    });
   };
 
   const toggleNotification = (key: keyof typeof notifications) => {
-    setNotifications({ ...notifications, [key]: !notifications[key] });
+    const next = { ...notifications, [key]: !notifications[key] };
+    setNotifications(next);
+    persistPreferences({ notificationPrefs: next });
   };
 
   // Mock billing data
@@ -2304,9 +2378,10 @@ function SettingsTab({
             </div>
           </div>
 
-          {/* Usage — real usage logging lands in Phase 2. Showing
-              truthful placeholders until the events table + API
-              route ship. */}
+          {/* Usage — live counters from /api/usage. Anonymous users
+              (unreachable here since the dashboard is Clerk-gated)
+              see zeros; signed-in users see their daily/monthly use
+              against the preview-era limits. */}
           <div className="mt-6 grid grid-cols-2 gap-4">
             <div className="p-4 bg-[#f8faf8] rounded-lg">
               <div className="flex items-center gap-2 mb-2">
@@ -2314,14 +2389,12 @@ function SettingsTab({
                 <span className="text-[12px] font-semibold text-gt-text">SustainIQ Queries</span>
               </div>
               <p
-                className="text-[20px] font-bold text-gt-text-dim"
+                className="text-[20px] font-bold text-gt-text"
                 style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
               >
-                —
+                {sustainiqQueriesToday}/{sustainiqDailyLimit}
               </p>
-              <p className="text-[11px] text-gt-text-muted">
-                Usage tracking ships with paid plans
-              </p>
+              <p className="text-[11px] text-gt-text-muted">Resets daily at midnight</p>
             </div>
             <div className="p-4 bg-[#f8faf8] rounded-lg">
               <div className="flex items-center gap-2 mb-2">
@@ -2329,14 +2402,12 @@ function SettingsTab({
                 <span className="text-[12px] font-semibold text-gt-text">Reports Generated</span>
               </div>
               <p
-                className="text-[20px] font-bold text-gt-text-dim"
+                className="text-[20px] font-bold text-gt-text"
                 style={{ fontFamily: 'var(--font-jetbrains-mono), monospace' }}
               >
-                —
+                {reportsThisMonth}/{reportsMonthlyLimit}
               </p>
-              <p className="text-[11px] text-gt-text-muted">
-                Usage tracking ships with paid plans
-              </p>
+              <p className="text-[11px] text-gt-text-muted">Monthly limit</p>
             </div>
           </div>
         </section>
@@ -2375,8 +2446,8 @@ function SettingsTab({
             <div>
               <h2 className="text-[18px] font-bold text-gt-text">Tools</h2>
               <p className="text-[12px] text-gt-text-muted">
-                Preview. Toggles do not persist across sessions yet — individual
-                tools become gated after the paid-plan launch.
+                Enable or disable tools in your workspace. Preferences are saved
+                to your account.
               </p>
             </div>
           </div>
@@ -2456,7 +2527,8 @@ function SettingsTab({
             <div>
               <h2 className="text-[18px] font-bold text-gt-text">Notifications</h2>
               <p className="text-[12px] text-gt-text-muted">
-                Preview. Email delivery is not yet wired; toggles store local state only.
+                Preferences are saved to your account. Email delivery turns on
+                as each channel ships.
               </p>
             </div>
           </div>

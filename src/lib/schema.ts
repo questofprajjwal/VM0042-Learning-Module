@@ -289,6 +289,50 @@ export const llmUsage = sqliteTable(
   ],
 );
 
+// ─── Phase 3: User preferences ─────────────────────────────────────────────
+// One row per Clerk user, holding workspace-scoped toggles (which tools
+// are enabled, which email notifications to send). Read from the
+// dashboard Settings tab; written through /api/preferences.
+export const userPreferences = sqliteTable(
+  'user_preferences',
+  {
+    userId: text('user_id').primaryKey(),
+    // JSON string: { "ghg-calculator": true, "report-drafter": false, ... }
+    toolsEnabled: text('tools_enabled').notNull().default('{}'),
+    // JSON string: { jobAlerts: bool, courseUpdates: bool, weeklyDigest: bool, productNews: bool }
+    notificationPrefs: text('notification_prefs').notNull().default('{}'),
+    updatedAt: integer('updated_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+);
+
+// ─── Phase 2: Usage events ─────────────────────────────────────────────────
+// Append-only log of metered actions. Dashboard tile reads today/month
+// counts. SustainIQ / Report endpoints check quota before proceeding.
+// Kind values:
+//   'sustainiq_query'   — one SustainIQ question answered
+//   'report_generated'  — one Report Drafter export completed
+//   'export_csv'        — a CSV download from /carbon/market or similar
+//   'watchlist_created' — a saved filter/retirer in the carbon market
+// metadata JSON carries kind-specific details (e.g., query text, report type).
+export const usageEvents = sqliteTable(
+  'usage_events',
+  {
+    id: integer('id').primaryKey({ autoIncrement: true }),
+    userId: text('user_id').notNull(),
+    kind: text('kind').notNull(),
+    metadata: text('metadata'),
+    ts: integer('ts', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [
+    index('usage_user_ts_idx').on(t.userId, t.ts),
+    index('usage_kind_ts_idx').on(t.kind, t.ts),
+  ],
+);
+
 export const userResumes = sqliteTable(
   'user_resumes',
   {

@@ -52,6 +52,23 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    // Phase 2: log the query as a usage event for dashboard counters.
+    // Fire-and-forget; a logging hiccup should not break the user's
+    // actual response. The existing checkAndReserveCap above still
+    // enforces the monthly cap, so this is purely telemetry.
+    try {
+      const { db } = await import("@/lib/db");
+      const { usageEvents } = await import("@/lib/schema");
+      await db.insert(usageEvents).values({
+        userId,
+        kind: "sustainiq_query",
+        metadata: JSON.stringify({ query: query.slice(0, 240) }),
+        ts: new Date(),
+      });
+    } catch {
+      /* telemetry hiccup; ignore */
+    }
+
     const upstream = await fetch(`${ASK_SERVER_URL}/ask/stream`, {
       method: "POST",
       headers: {
