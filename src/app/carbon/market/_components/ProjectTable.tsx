@@ -66,13 +66,30 @@ type CreditsSummary = {
   totalRetired: number;
   totalCancelled: number;
   outstanding: number;
-  topBeneficiaries: { name: string; quantity: number }[];
+  topBeneficiaries: { name: string; quantity: number; bridge?: string }[];
+  bridges?: { label: string; quantity: number }[];
   lastRetirementDate: string | null;
   vintageYearStart: number | null;
   vintageYearEnd: number | null;
   batchCount: number;
 };
 type CreditsMap = Record<string, CreditsSummary>;
+
+const HEX_ADDRESS = /^0x[a-fA-F0-9]{40}$/;
+function formatBeneficiaryName(raw: string): string {
+  if (HEX_ADDRESS.test(raw)) return `${raw.slice(0, 6)}…${raw.slice(-4)}`;
+  return raw;
+}
+
+const BRIDGE_CHIP: Record<string, string> = {
+  Toucan: 'bg-emerald-100 text-emerald-900',
+  KlimaDAO: 'bg-sky-100 text-sky-900',
+  Moss: 'bg-indigo-100 text-indigo-900',
+  C3: 'bg-amber-100 text-amber-900',
+  Senken: 'bg-violet-100 text-violet-900',
+  Flowcarbon: 'bg-rose-100 text-rose-900',
+  'On-chain': 'bg-gt-text-dim/20 text-gt-text-muted',
+};
 
 let descCache: Promise<DescriptionMap> | null = null;
 function loadDescriptions(): Promise<DescriptionMap> {
@@ -253,7 +270,7 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
                       }
                       className="px-1.5 py-0.5 rounded bg-gt-accent/15 text-gt-accent text-[10px] font-semibold"
                     >
-                      CORSIA
+                      CORSIA eligible
                     </span>
                   ) : null}
                   {p.additionalCertifications.slice(0, 3).map(c => (
@@ -399,7 +416,7 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
                                 }
                                 className="px-1.5 py-0.5 rounded bg-gt-accent/15 text-gt-accent text-[10px] font-semibold"
                               >
-                                CORSIA
+                                CORSIA eligible
                               </span>
                             ) : null}
                             {p.additionalCertifications.slice(0, 3).map(c => (
@@ -588,15 +605,42 @@ function CreditsBlock({ id, credits }: { id: string; credits: CreditsMap | null 
             {s.topBeneficiaries.slice(0, 5).map(b => (
               <li
                 key={b.name}
-                className="flex items-baseline justify-between gap-4 text-[12px]"
+                className="flex items-baseline justify-between gap-3 text-[12px]"
               >
-                <span className="text-gt-text truncate">{b.name}</span>
+                <span className="flex items-center gap-2 min-w-0">
+                  <span
+                    title={b.name}
+                    className={`truncate text-gt-text ${HEX_ADDRESS.test(b.name) ? "font-['JetBrains_Mono']" : ''}`}
+                  >
+                    {formatBeneficiaryName(b.name)}
+                  </span>
+                  {b.bridge ? (
+                    <span
+                      title={`Blockchain retirement via ${b.bridge}`}
+                      className={`shrink-0 px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase tracking-wider ${BRIDGE_CHIP[b.bridge] ?? 'bg-gt-text-dim/20 text-gt-text-muted'}`}
+                    >
+                      via {b.bridge}
+                    </span>
+                  ) : null}
+                </span>
                 <span className="font-['JetBrains_Mono'] text-gt-text-dim shrink-0">
                   {fmtNum(b.quantity)}
                 </span>
               </li>
             ))}
           </ul>
+          {s.bridges && s.bridges.length ? (
+            <p className="mt-2 text-[11px] text-gt-text-dim">
+              On-chain rollup:{' '}
+              {s.bridges.map((b, i) => (
+                <span key={b.label}>
+                  {i > 0 ? ' · ' : ''}
+                  <span className="font-semibold text-gt-text-muted">{b.label}</span>{' '}
+                  <span className="font-['JetBrains_Mono']">{fmtNum(b.quantity)}</span>
+                </span>
+              ))}
+            </p>
+          ) : null}
         </div>
       ) : null}
       {s.lastRetirementDate ? (
