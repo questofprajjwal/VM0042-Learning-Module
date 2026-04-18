@@ -222,7 +222,13 @@ export default function LessonRedesignPage({ params }: PageParams) {
 
           <article
             className={
-              'max-w-[760px] mx-auto px-6 lg:px-10 ' +
+              // Reading column sizing:
+              // 760px on tablet keeps an ideal 65-ch prose line; desktop
+              // gets 920px so the page doesn't feel thin next to the
+              // 300px sidebar + generous whitespace. Tables, charts, and
+              // diagrams breathe; plain prose still lands close to
+              // 75-80 characters per line.
+              'max-w-[760px] xl:max-w-[920px] mx-auto px-6 lg:px-10 xl:px-12 ' +
               // When the floating glass audio is present, the
               // article needs extra top padding to clear it.
               (leadingAudio ? 'pt-28 lg:pt-32 pb-12' : 'pt-12 lg:pt-16 pb-12')
