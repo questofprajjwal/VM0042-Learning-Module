@@ -15,16 +15,24 @@ interface RouteContext {
 export async function GET(req: NextRequest, ctx: RouteContext) {
   const { course, filename } = await ctx.params;
 
-  // Sanitize - prevent directory traversal
+  const decodedCourse = decodeURIComponent(course);
+  const decoded = decodeURIComponent(filename);
+
+  // Sanitize - prevent directory traversal (check AFTER decoding)
   if (
-    course.includes("..") || course.includes("/") || course.includes("\\") ||
-    filename.includes("..") || filename.includes("/") || filename.includes("\\")
+    /[\\/]|\.\./.test(decodedCourse) ||
+    /[\\/]|\.\./.test(decoded)
   ) {
     return new Response("Invalid path", { status: 400 });
   }
 
-  const decoded = decodeURIComponent(filename);
-  const fullPath = path.join(process.cwd(), "src/content", course, "sources", decoded);
+  const baseDir = path.resolve(process.cwd(), "src/content", decodedCourse, "sources");
+  const fullPath = path.resolve(baseDir, decoded);
+
+  // Assert resolved path stays within the intended base directory
+  if (fullPath !== baseDir && !fullPath.startsWith(baseDir + path.sep)) {
+    return new Response("Invalid path", { status: 400 });
+  }
 
   if (!fs.existsSync(fullPath)) {
     return new Response(`Not found: ${decoded}`, { status: 404 });
@@ -67,7 +75,7 @@ export async function GET(req: NextRequest, ctx: RouteContext) {
       "Content-Length": String(stat.size),
       "Accept-Ranges": "bytes",
       "Cache-Control": "public, max-age=3600",
-      "Content-Disposition": `inline; filename="${decoded}"`,
+      "Content-Disposition": `inline; filename="${decoded.replace(/[^\w.\- ]+/g, "_")}"`,
     },
   });
 }
