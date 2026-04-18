@@ -66,7 +66,13 @@ export async function getCiteListById(userId: string, id: string) {
   return rows[0] ?? null;
 }
 
-export async function getCiteListItems(citeListId: string) {
+export async function getCiteListItems(userId: string, citeListId: string) {
+  // Verify the parent list belongs to the caller before returning items.
+  // efCiteListItems has no userId column; ownership is enforced via the
+  // list's userId. Making the check mandatory here so a future caller
+  // can't accidentally read another user's items.
+  const list = await getCiteListById(userId, citeListId);
+  if (!list) return [];
   return db
     .select()
     .from(efCiteListItems)
