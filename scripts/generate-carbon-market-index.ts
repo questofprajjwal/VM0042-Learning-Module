@@ -42,12 +42,15 @@ type Registry =
   | 'verra_vcs'
   | 'verra_ccb'
   | 'verra_pwrp'
+  | 'verra_jnr'
+  | 'verra_fcpf'
   | 'goldstandard'
   | 'acr'
   | 'car'
   | 'car_compliance'
   | 'art';
 type StatusBucket = 'Registered' | 'Validation' | 'Development' | 'Inactive' | 'Other';
+type CorsiaPhase = 'pilot' | 'first' | 'second';
 
 interface ProjectRecord {
   id: string;
@@ -72,6 +75,12 @@ interface ProjectRecord {
   creditingPeriodEnd: string | null;
   additionalCertifications: string[];
   registryUrl: string;
+  // Derived fields (not in source CSVs; computed in enrichCorsia() at
+  // build time). Optional here so individual ingestors don't have to
+  // repeat the boilerplate; they get populated by the single pass below.
+  corsiaEligible?: boolean;
+  corsiaPhases?: CorsiaPhase[];
+  corsiaConditional?: boolean;
 }
 
 // Tiny CSV parser that handles quoted fields with embedded commas and doubled
@@ -309,6 +318,58 @@ function ingestCcb(): ProjectRecord[] {
   });
 }
 
+function ingestJnr(): ProjectRecord[] {
+  const path = join(DATA_DIR, 'verra/jnr/projects.csv');
+  if (!existsSync(path)) return [];
+  const rows = readCsvDict(path);
+  return rows.map<ProjectRecord>(r => ({
+    id: `jnr-${r['ID']}`,
+    registry: 'verra_jnr',
+    name: r['Name'] || '(untitled program)',
+    developer: r['Proponent'] || null,
+    methodology: null,
+    projectType: r['Scenario'] || null,
+    country: r['Country/Area'] || null,
+    region: r['Region'] || null,
+    status: r['Status'] || '',
+    statusBucket: normalizeVerraStatus(r['Status'] || ''),
+    estAnnualReductions: parseNumber(r['Estimated Annual Emission Reductions']),
+    estUnit: 'tCO2e',
+    cumulativeCreditsRegistered: null,
+    registrationDate: parseDate(r['Project Registration Date']),
+    creditingPeriodStart: null,
+    creditingPeriodEnd: null,
+    additionalCertifications: [],
+    registryUrl: r['Project URL'] || vcsUrl(r['ID']),
+  }));
+}
+
+function ingestFcpf(): ProjectRecord[] {
+  const path = join(DATA_DIR, 'verra/fcpf/projects.csv');
+  if (!existsSync(path)) return [];
+  const rows = readCsvDict(path);
+  return rows.map<ProjectRecord>(r => ({
+    id: `fcpf-${r['ID']}`,
+    registry: 'verra_fcpf',
+    name: r['Name'] || '(untitled project)',
+    developer: r['Proponent'] || null,
+    methodology: r['Methodology'] || null,
+    projectType: r['Project Type'] || null,
+    country: r['Country/Area'] || null,
+    region: r['Region'] || null,
+    status: r['Status'] || '',
+    statusBucket: normalizeVerraStatus(r['Status'] || ''),
+    estAnnualReductions: parseNumber(r['Estimated Annual Emission Reductions']),
+    estUnit: 'tCO2e',
+    cumulativeCreditsRegistered: null,
+    registrationDate: parseDate(r['Project Registration Date']),
+    creditingPeriodStart: parseDate(r['Crediting Period Start Date']),
+    creditingPeriodEnd: parseDate(r['Crediting Period End Date']),
+    additionalCertifications: [],
+    registryUrl: r['Project URL'] || vcsUrl(r['ID']),
+  }));
+}
+
 function ingestPwrp(): ProjectRecord[] {
   const rows = readCsvDict(join(DATA_DIR, 'verra/pwrp/projects.csv'));
   return rows.map<ProjectRecord>(r => ({
@@ -518,9 +579,94 @@ function ingestArt(): ProjectRecord[] {
   });
 }
 
+// --- CORSIA enrichment ---------------------------------------------------
+// Reads data/corsia/eligibility.json (emitted by scraper/corsia.py) and
+// annotates every ProjectRecord with CORSIA flags based on its registry
+// and crediting-period window. A project is considered eligible for a
+// given phase if (a) its registry is approved for that phase and (b) its
+// crediting period overlaps the phase's vintage window. Projects from
+// conditionally-approved programmes (e.g. Cercarbono) carry the flag on
+// `corsiaConditional` rather than strict phase membership.
+
+interface CorsiaPhaseEntry {
+  vintageStart: number;
+  vintageEnd: number;
+  phaseYears: string;
+  phaseLabel: string;
+}
+interface CorsiaRegistryEntry {
+  programme: string;
+  conditional: boolean;
+  vintages: Partial<Record<CorsiaPhase, CorsiaPhaseEntry | null>>;
+}
+
+function loadCorsia(): Record<string, CorsiaRegistryEntry[]> {
+  const p = join(DATA_DIR, 'corsia/eligibility.json');
+  if (!existsSync(p)) return {};
+  try {
+    const parsed = JSON.parse(readFileSync(p, 'utf-8'));
+    return (parsed.byRegistry as Record<string, CorsiaRegistryEntry[]>) ?? {};
+  } catch {
+    return {};
+  }
+}
+
+function yearOf(iso: string | null): number | null {
+  if (!iso) return null;
+  const n = Number(iso.slice(0, 4));
+  return Number.isFinite(n) ? n : null;
+}
+
+function enrichCorsia(
+  records: ProjectRecord[],
+  byRegistry: Record<string, CorsiaRegistryEntry[]>,
+): void {
+  const PHASE_CODES: CorsiaPhase[] = ['pilot', 'first', 'second'];
+  for (const r of records) {
+    const entries = byRegistry[r.registry];
+    if (!entries || entries.length === 0) {
+      r.corsiaEligible = false;
+      r.corsiaPhases = [];
+      r.corsiaConditional = false;
+      continue;
+    }
+    // Collapse multiple programme entries for the same registry (e.g.
+    // Verra VCS + JNR share a programme line) by union of phases.
+    const phases = new Set<CorsiaPhase>();
+    let conditional = false;
+    const start = yearOf(r.creditingPeriodStart);
+    const end = yearOf(r.creditingPeriodEnd);
+    for (const entry of entries) {
+      if (entry.conditional) conditional = true;
+      for (const code of PHASE_CODES) {
+        const v = entry.vintages[code];
+        if (!v) continue;
+        // If we don't know the project's period, be permissive: any
+        // phase the programme supports counts. This keeps the chip
+        // useful for projects (e.g. CCB, PWRP) without explicit dates.
+        if (start == null && end == null) {
+          phases.add(code);
+          continue;
+        }
+        // Overlap test: project-period [start, end] ∩ phase-window
+        const ps = start ?? end!;
+        const pe = end ?? start!;
+        if (pe >= v.vintageStart && ps <= v.vintageEnd) {
+          phases.add(code);
+        }
+      }
+    }
+    r.corsiaPhases = PHASE_CODES.filter(p => phases.has(p));
+    r.corsiaEligible = r.corsiaPhases.length > 0 || conditional;
+    r.corsiaConditional = conditional;
+  }
+}
+
 function main() {
   const vcs = ingestVcs();
   const ccb = ingestCcb();
+  const jnr = ingestJnr();
+  const fcpf = ingestFcpf();
   const pwrp = ingestPwrp();
   const gs = ingestGoldStandard();
   const acr = ingestAcr();
@@ -531,6 +677,8 @@ function main() {
   const all: ProjectRecord[] = [
     ...vcs,
     ...ccb,
+    ...jnr,
+    ...fcpf,
     ...pwrp,
     ...gs,
     ...acr,
@@ -538,6 +686,8 @@ function main() {
     ...carComp,
     ...art,
   ];
+
+  enrichCorsia(all, loadCorsia());
 
   // Aggregates pulled from program_summary.json for the live stat tiles.
   const summary = JSON.parse(
@@ -577,6 +727,22 @@ function main() {
       methodology: countBy('methodology'),
       country: countBy('country'),
       statusBucket: countBy('statusBucket'),
+      corsia: {
+        eligible: all.reduce((n, p) => n + (p.corsiaEligible ? 1 : 0), 0),
+        pilot: all.reduce(
+          (n, p) => n + ((p.corsiaPhases ?? []).includes('pilot') ? 1 : 0),
+          0,
+        ),
+        first: all.reduce(
+          (n, p) => n + ((p.corsiaPhases ?? []).includes('first') ? 1 : 0),
+          0,
+        ),
+        second: all.reduce(
+          (n, p) => n + ((p.corsiaPhases ?? []).includes('second') ? 1 : 0),
+          0,
+        ),
+        conditional: all.reduce((n, p) => n + (p.corsiaConditional ? 1 : 0), 0),
+      },
     },
     projects: all,
   };
@@ -680,10 +846,13 @@ function main() {
     1024 /
     1024
   ).toFixed(2);
+  const corsiaCount = all.reduce((n, p) => n + (p.corsiaEligible ? 1 : 0), 0);
   console.log(
     `[carbon-market] ${all.length} projects written (${sizeMb} MB). ` +
-      `VCS=${vcs.length} CCB=${ccb.length} PWRP=${pwrp.length} GS=${gs.length} ` +
-      `ACR=${acr.length} CAR=${carVol.length} CAR-compliance=${carComp.length} ART=${art.length}`,
+      `VCS=${vcs.length} CCB=${ccb.length} JNR=${jnr.length} FCPF=${fcpf.length} ` +
+      `PWRP=${pwrp.length} GS=${gs.length} ACR=${acr.length} CAR=${carVol.length} ` +
+      `CAR-compliance=${carComp.length} ART=${art.length}  |  ` +
+      `CORSIA-eligible=${corsiaCount}`,
   );
 }
 
