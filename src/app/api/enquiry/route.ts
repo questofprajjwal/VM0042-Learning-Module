@@ -18,6 +18,7 @@ import { Resend } from 'resend';
 import { z } from 'zod';
 import { db } from '@/lib/db';
 import { serviceEnquiries } from '@/lib/schema';
+import { rateLimit, ipFromRequest } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -78,6 +79,14 @@ const BodySchema = z.object({
 });
 
 export async function POST(request: Request) {
+  const gate = rateLimit('enquiry', ipFromRequest(request), 5, 60 * 60 * 1000);
+  if (!gate.ok) {
+    return NextResponse.json(
+      { ok: false, error: 'Too many submissions. Please try again later.', retryAfterMs: gate.retryAfterMs },
+      { status: 429 },
+    );
+  }
+
   let parsed;
   try {
     const body = await request.json();
