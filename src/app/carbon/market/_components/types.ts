@@ -2,11 +2,15 @@ export type Registry =
   | 'verra_vcs'
   | 'verra_ccb'
   | 'verra_pwrp'
+  | 'verra_jnr'
+  | 'verra_fcpf'
   | 'goldstandard'
   | 'acr'
   | 'car'
   | 'car_compliance'
   | 'art';
+
+export type CorsiaPhase = 'pilot' | 'first' | 'second';
 
 export type StatusBucket =
   | 'Registered'
@@ -33,6 +37,10 @@ export interface ProjectRecord {
   creditingPeriodEnd: string | null;
   additionalCertifications: string[];
   registryUrl: string;
+  cumulativeCreditsRegistered?: number | null;
+  corsiaEligible?: boolean;
+  corsiaPhases?: CorsiaPhase[];
+  corsiaConditional?: boolean;
 }
 
 export interface CarbonMarketIndex {
@@ -48,6 +56,13 @@ export interface CarbonMarketIndex {
     methodology: Record<string, number>;
     country: Record<string, number>;
     statusBucket: Record<string, number>;
+    corsia?: {
+      eligible: number;
+      pilot: number;
+      first: number;
+      second: number;
+      conditional: number;
+    };
   };
   projects: ProjectRecord[];
 }
@@ -56,6 +71,8 @@ export const REGISTRY_LABEL: Record<Registry, string> = {
   verra_vcs: 'Verra VCS',
   verra_ccb: 'Verra CCB',
   verra_pwrp: 'Verra PWRP',
+  verra_jnr: 'Verra JNR',
+  verra_fcpf: 'Verra FCPF',
   goldstandard: 'Gold Standard',
   acr: 'American Carbon Registry',
   car: 'Climate Action Reserve',

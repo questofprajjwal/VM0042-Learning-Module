@@ -9,6 +9,8 @@ const REGISTRY_CHIP: Record<ProjectRecord['registry'], string> = {
   verra_vcs: 'bg-gt-leaf/15 text-gt-medium',
   verra_ccb: 'bg-gt-forest/15 text-gt-medium',
   verra_pwrp: 'bg-cyan-100 text-cyan-900',
+  verra_jnr: 'bg-emerald-100 text-emerald-900',
+  verra_fcpf: 'bg-teal-100 text-teal-900',
   goldstandard: 'bg-amber-100 text-amber-900',
   acr: 'bg-blue-100 text-blue-900',
   car: 'bg-rose-100 text-rose-900',
@@ -20,6 +22,8 @@ const REGISTRY_SHORT: Record<ProjectRecord['registry'], string> = {
   verra_vcs: 'VCS',
   verra_ccb: 'CCB',
   verra_pwrp: 'PWRP',
+  verra_jnr: 'JNR',
+  verra_fcpf: 'FCPF',
   goldstandard: 'GS',
   acr: 'ACR',
   car: 'CAR',
@@ -201,8 +205,20 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
                 </div>
               </div>
 
-              {p.additionalCertifications.length ? (
+              {(p.additionalCertifications.length || p.corsiaEligible) ? (
                 <div className="flex flex-wrap gap-1 mt-3">
+                  {p.corsiaEligible ? (
+                    <span
+                      title={
+                        p.corsiaConditional
+                          ? 'Conditionally eligible under CORSIA'
+                          : `CORSIA eligible${p.corsiaPhases?.length ? ' (' + p.corsiaPhases.join(', ') + ' phases)' : ''}`
+                      }
+                      className="px-1.5 py-0.5 rounded bg-gt-accent/15 text-gt-accent text-[10px] font-semibold"
+                    >
+                      CORSIA
+                    </span>
+                  ) : null}
                   {p.additionalCertifications.slice(0, 3).map(c => (
                     <span
                       key={c}
@@ -329,8 +345,20 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
                             {p.developer}
                           </div>
                         ) : null}
-                        {p.additionalCertifications.length ? (
+                        {(p.additionalCertifications.length || p.corsiaEligible) ? (
                           <div className="flex flex-wrap gap-1 mt-1.5">
+                            {p.corsiaEligible ? (
+                              <span
+                                title={
+                                  p.corsiaConditional
+                                    ? 'Conditionally eligible under CORSIA'
+                                    : `CORSIA eligible${p.corsiaPhases?.length ? ' (' + p.corsiaPhases.join(', ') + ' phases)' : ''}`
+                                }
+                                className="px-1.5 py-0.5 rounded bg-gt-accent/15 text-gt-accent text-[10px] font-semibold"
+                              >
+                                CORSIA
+                              </span>
+                            ) : null}
                             {p.additionalCertifications.slice(0, 3).map(c => (
                               <span
                                 key={c}
@@ -387,7 +415,19 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
                     </span>
                   </td>
                   <td className="px-3 py-3 align-top text-right font-['JetBrains_Mono'] text-[11px] text-gt-text whitespace-nowrap">
-                    {formatReductions(p.estAnnualReductions, p.estUnit)}
+                    {p.estAnnualReductions != null
+                      ? formatReductions(p.estAnnualReductions, p.estUnit)
+                      : p.cumulativeCreditsRegistered != null
+                        ? (
+                            <span
+                              title="Total credits registered to date (lifetime cumulative). APX registries do not publish a forward annual estimate."
+                              className="text-gt-text-dim"
+                            >
+                              {p.cumulativeCreditsRegistered.toLocaleString()}{' '}
+                              <span className="text-[9px] font-normal">lifetime</span>
+                            </span>
+                          )
+                        : '—'}
                   </td>
                   <td className="px-3 py-3 align-top text-right font-['JetBrains_Mono'] text-[11px] text-gt-text-dim whitespace-nowrap">
                     {p.registrationDate ? p.registrationDate.slice(0, 7) : '—'}
@@ -412,7 +452,7 @@ export default function ProjectTable({ projects, sort, onSort }: Props) {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-gt-medium hover:text-gt-dark"
                           >
-                            View full project on Verra
+                            View full project on {REGISTRY_LABEL[p.registry]}
                             <ExternalLink className="w-3 h-3" strokeWidth={2} />
                           </a>
                         </div>
