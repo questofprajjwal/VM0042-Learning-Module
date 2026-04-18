@@ -28,6 +28,7 @@ const PLATFORM_COLUMN: FooterColumn = {
     { label: 'Learn', href: '/courses' },
     { label: 'SustainIQ', href: '/ask' },
     { label: 'Tools', href: '/tools' },
+    { label: 'Frameworks', href: '/frameworks' },
     { label: 'Regulations', href: '/guides', badge: 'Soon' },
     { label: 'Jobs', href: '/jobs' },
     { label: 'Pricing', href: '/pricing' },
