@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
 
     // Freemium cap. Every signed-in user is "free" tier until Stripe
     // ships; upgrade this lookup when subscriptions land.
-    const gate = checkAndReserveCap("sustainiq", userId, "free");
+    const gate = await checkAndReserveCap("sustainiq", userId, "free");
     if (!gate.allowed) {
       return json(429, {
         error: "monthly limit reached",

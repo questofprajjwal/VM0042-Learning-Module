@@ -19,15 +19,17 @@
  *     through `governor.generate()` or `governor.generateStream()`.
  *   - Adding a new feature means adding a line to MODEL_ROUTING and
  *     a row to CAPS. Nothing else.
- *   - Scope of this file intentionally stops before persistence.
- *     Caps and cache live in-memory for v1. When the
- *     `sustainiq_queries` table ships (see
- *     `DATA_ARCHITECTURE_PLAN.md` Section 2.7) both move there.
- *
- * This file does not touch `src/lib/groq-keys.ts` or the existing
- * `/api/ask-test` route; those will be migrated onto the Governor
- * as part of a later pass, not now.
+ *   - Caps are persisted in Turso (`llm_usage` table). The in-memory
+ *     Map was reset on every Vercel cold start and not shared across
+ *     instances, so free-tier caps were effectively unenforceable.
+ *     The cache remains in-memory; it's a performance optimization,
+ *     not a security boundary.
  */
+
+import { sql } from 'drizzle-orm';
+
+import { db } from './db';
+import { llmUsage } from './schema';
 
 /* ========================================================================
    Types (public)
@@ -230,15 +232,8 @@ function markKeyCooldown(key: string): void {
 }
 
 /* ========================================================================
-   Internal: per-subject usage caps
+   Internal: per-subject usage caps (Turso-backed, atomic)
    ======================================================================== */
-
-interface CapBucket {
-  used: number;
-  periodKey: string;
-}
-
-const subjectUsage = new Map<string, CapBucket>();
 
 function periodKey(period: 'daily' | 'monthly', d: Date = new Date()): string {
   const iso = d.toISOString();
@@ -263,44 +258,72 @@ function periodResetsAt(period: 'daily' | 'monthly'): number {
   return next.getTime();
 }
 
-function bucketKey(feature: Feature, subject: string, period: string): string {
-  return `${feature}|${subject}|${period}`;
-}
-
-function getBucket(
-  feature: Feature,
-  subject: string,
-  period: 'daily' | 'monthly'
-): CapBucket {
-  const pkey = periodKey(period);
-  const key = bucketKey(feature, subject, pkey);
-  let bucket = subjectUsage.get(key);
-  if (!bucket || bucket.periodKey !== pkey) {
-    bucket = { used: 0, periodKey: pkey };
-    subjectUsage.set(key, bucket);
-  }
-  return bucket;
-}
-
-function readCapState(
+/** Read the current usage for (feature, subject, period) from Turso.
+ *  Unlimited tiers skip the round-trip and report used=0. */
+async function readCapState(
   feature: Feature,
   subject: string,
   tier: Tier
-): CapState {
+): Promise<CapState> {
   const cfg = CAPS[feature][tier];
-  const bucket = getBucket(feature, subject, cfg.period);
+  const period = cfg.period;
+  const resetsAt = periodResetsAt(period);
+  if (!Number.isFinite(cfg.limit)) {
+    return { used: 0, limit: cfg.limit, period, resetsAt };
+  }
+  const pkey = periodKey(period);
+  const rows = (await db.all(sql`
+    SELECT used FROM llm_usage
+    WHERE feature = ${feature}
+      AND subject = ${subject}
+      AND period_key = ${pkey}
+  `)) as Array<{ used: number }>;
   return {
-    used: bucket.used,
+    used: rows[0]?.used ?? 0,
     limit: cfg.limit,
-    period: cfg.period,
-    resetsAt: periodResetsAt(cfg.period),
+    period,
+    resetsAt,
   };
 }
 
-function incrementCap(feature: Feature, subject: string, tier: Tier): void {
+/** Atomic "reserve a slot" — either inserts a fresh row at used=1, or
+ *  increments an existing row BY 1 iff it's still under the limit.
+ *  Returns the new `used` value on success, or null if the cap is full.
+ *
+ *  Safe against parallel instances and cold-start races: the whole
+ *  check-then-increment happens in one SQL statement. */
+async function reserveSlot(
+  feature: Feature,
+  subject: string,
+  tier: Tier
+): Promise<{ used: number } | null> {
   const cfg = CAPS[feature][tier];
-  const bucket = getBucket(feature, subject, cfg.period);
-  bucket.used += 1;
+  if (!Number.isFinite(cfg.limit)) {
+    // Unlimited tier: no persistence needed.
+    return { used: 0 };
+  }
+  const pkey = periodKey(cfg.period);
+  const now = new Date();
+  const rows = await db
+    .insert(llmUsage)
+    .values({
+      feature,
+      subject,
+      periodKey: pkey,
+      used: 1,
+      updatedAt: now,
+    })
+    .onConflictDoUpdate({
+      target: [llmUsage.feature, llmUsage.subject, llmUsage.periodKey],
+      set: {
+        used: sql`${llmUsage.used} + 1`,
+        updatedAt: now,
+      },
+      where: sql`${llmUsage.used} < ${cfg.limit}`,
+    })
+    .returning({ used: llmUsage.used });
+  if (rows.length === 0) return null;
+  return { used: rows[0].used };
 }
 
 /* ========================================================================
@@ -448,13 +471,12 @@ export async function generate(
     };
   }
 
-  // 2. Cap check (read first; only increment after successful call).
-  // Internal service-to-service calls pass bypassCap when a slot was
-  // already reserved upstream (e.g. /api/resume/process running behind
-  // the RESUME_PROCESS_TOKEN bearer, after /api/resume/upload already
-  // called checkAndReserveCap). In that case we skip the gate entirely
-  // so one upload = one cap slot, not two.
-  const capStateBefore = readCapState(
+  // 2. Cap check. Internal service-to-service calls pass bypassCap when
+  // a slot was already reserved upstream (e.g. /api/resume/process running
+  // behind the RESUME_PROCESS_TOKEN bearer, after /api/resume/upload
+  // already called checkAndReserveCap). In that case we skip the gate
+  // entirely so one upload = one cap slot, not two.
+  const capStateBefore = await readCapState(
     payload.feature,
     payload.subject,
     payload.tier
@@ -576,7 +598,7 @@ export async function generate(
   // Do not double-charge the cap when the caller has already reserved
   // a slot via checkAndReserveCap (see the bypassCap check above).
   if (!payload.bypassCap) {
-    incrementCap(payload.feature, payload.subject, payload.tier);
+    await reserveSlot(payload.feature, payload.subject, payload.tier);
   }
   if (cacheKey && text) {
     cachePut(cacheKey, {
@@ -588,7 +610,7 @@ export async function generate(
     });
   }
 
-  const capStateAfter = readCapState(
+  const capStateAfter = await readCapState(
     payload.feature,
     payload.subject,
     payload.tier
@@ -648,7 +670,7 @@ export async function generateStream(
     };
   }
 
-  const capStateBefore = readCapState(
+  const capStateBefore = await readCapState(
     payload.feature,
     payload.subject,
     payload.tier
@@ -710,7 +732,7 @@ export async function generateStream(
 
   // Increment cap now — streams cannot be cached, and we charge the
   // call the moment the provider accepts it.
-  incrementCap(payload.feature, payload.subject, payload.tier);
+  await reserveSlot(payload.feature, payload.subject, payload.tier);
 
   recordUsage({
     feature: payload.feature,
@@ -721,7 +743,7 @@ export async function generateStream(
     latencyMs: 0,
   });
 
-  const capStateAfter = readCapState(
+  const capStateAfter = await readCapState(
     payload.feature,
     payload.subject,
     payload.tier
@@ -743,38 +765,40 @@ export async function generateStream(
    ======================================================================== */
 
 /** Return the current cap state for a subject without making a call. */
-export function capStateFor(
+export async function capStateFor(
   feature: Feature,
   subject: string,
   tier: Tier
-): CapState {
+): Promise<CapState> {
   return readCapState(feature, subject, tier);
 }
 
-/** Check the cap and, if still under, reserve one slot.
+/** Check the cap and, if still under, reserve one slot atomically.
  *
  * Intended for features whose LLM work happens *outside* the Governor
  * (e.g. SustainIQ's streaming pipeline runs on a separate ASK server).
  * The Vercel-side proxy calls this before forwarding the request, so
  * the freemium contract is enforced without moving the pipeline itself.
  *
+ * The reservation is a single atomic SQL statement against Turso:
+ * two parallel requests at the boundary can't both "see used < limit"
+ * and both succeed — exactly one will win. Cold-start Vercel instances
+ * no longer reset the counter.
+ *
  * - Returns `{ allowed: true, cap }` and increments usage on success.
  * - Returns `{ allowed: false, cap }` without mutation when capped.
  */
-export function checkAndReserveCap(
+export async function checkAndReserveCap(
   feature: Feature,
   subject: string,
   tier: Tier
-): { allowed: boolean; cap: CapState } {
+): Promise<{ allowed: boolean; cap: CapState }> {
   if (!CAPS[feature][tier]) {
     throw new Error(`Unknown tier "${tier}" for feature "${feature}"`);
   }
-  const before = readCapState(feature, subject, tier);
-  if (before.used >= before.limit) {
-    return { allowed: false, cap: before };
-  }
-  incrementCap(feature, subject, tier);
-  return { allowed: true, cap: readCapState(feature, subject, tier) };
+  const reserved = await reserveSlot(feature, subject, tier);
+  const cap = await readCapState(feature, subject, tier);
+  return { allowed: reserved !== null, cap };
 }
 
 /** Debug snapshot of the provider key pool. Masked for safety. */

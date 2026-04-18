@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Freemium cap. Every signed-in user is "free" tier until Stripe ships.
-  const gate = checkAndReserveCap('resumeUpload', userId, 'free');
+  const gate = await checkAndReserveCap('resumeUpload', userId, 'free');
   if (!gate.allowed) {
     return NextResponse.json(
       {

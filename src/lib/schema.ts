@@ -257,6 +257,38 @@ export const sustainiqQueries = sqliteTable(
   ],
 );
 
+/**
+ * LLM Governor usage counters.
+ *
+ * One row per (feature, subject, period). `used` is incremented
+ * atomically via INSERT ... ON CONFLICT DO UPDATE so parallel requests
+ * and cold-start instances cannot both pass a cap that has been hit.
+ * This is the durable source of truth for freemium caps; the previous
+ * in-memory Map was effectively unenforceable on Vercel.
+ *
+ * period_key format:
+ *   monthly -> YYYY-MM
+ *   daily   -> YYYY-MM-DD
+ * Old rows stay in the table (historical counts); they're simply ignored
+ * once the period_key rolls over.
+ */
+export const llmUsage = sqliteTable(
+  'llm_usage',
+  {
+    feature: text('feature').notNull(),
+    subject: text('subject').notNull(),
+    periodKey: text('period_key').notNull(),
+    used: integer('used').notNull().default(0),
+    updatedAt: integer('updated_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [
+    primaryKey({ columns: [t.feature, t.subject, t.periodKey] }),
+    index('llm_usage_subject_idx').on(t.subject),
+  ],
+);
+
 export const userResumes = sqliteTable(
   'user_resumes',
   {
