@@ -286,6 +286,7 @@ export default function LessonRedesignPage({ params }: PageParams) {
                 courseId={course.id}
                 lessonId={lessonId}
                 nextLesson={navCtx?.nextLesson ?? null}
+                quizQuestionCount={quizQuestions.length}
               />
             </div>
           </article>

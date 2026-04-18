@@ -31,9 +31,21 @@ interface Props {
   courseId: string;
   lessonId: string;
   nextLesson?: { id: string; title: string } | null;
+  /**
+   * Number of quiz questions for this lesson (0 if the lesson has no
+   * quiz YAML). When > 0, markComplete only fires once every question
+   * has been submitted. Reading without engaging the check shouldn't
+   * count as completion.
+   */
+  quizQuestionCount?: number;
 }
 
-export default function LessonProgressClient({ courseId, lessonId, nextLesson }: Props) {
+export default function LessonProgressClient({
+  courseId,
+  lessonId,
+  nextLesson,
+  quizQuestionCount = 0,
+}: Props) {
   const progress = useProgress(courseId);
 
   // Record visit → resume pointer stays accurate.
@@ -42,7 +54,16 @@ export default function LessonProgressClient({ courseId, lessonId, nextLesson }:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [courseId, lessonId]);
 
+  // Live quiz completion check: a lesson is "ready to be marked complete"
+  // when it has no quiz, or every question has been submitted. Reading
+  // React state from the hook each render is fine — this component
+  // re-renders when progress state changes (Next button enabled/disabled).
+  const quizState = progress.getQuizState(lessonId);
+  const submittedCount = Object.values(quizState.submitted ?? {}).filter(Boolean).length;
+  const quizDone = quizQuestionCount === 0 || submittedCount >= quizQuestionCount;
+
   const complete = () => {
+    if (!quizDone) return; // skip mark-complete; quiz still pending
     try {
       progress.markComplete(lessonId);
     } catch {
