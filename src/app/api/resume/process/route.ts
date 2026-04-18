@@ -20,6 +20,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
+import { timingSafeEqual } from 'node:crypto';
 
 import { db } from '@/lib/db';
 import { userResumes } from '@/lib/schema';
@@ -120,13 +121,13 @@ function requireAuth(req: NextRequest): boolean {
   const header = req.headers.get('authorization') ?? '';
   if (!header.startsWith('Bearer ')) return false;
   const token = header.slice(7).trim();
-  // Constant-time-ish compare
-  if (token.length !== expected.length) return false;
-  let diff = 0;
-  for (let i = 0; i < token.length; i++) {
-    diff |= token.charCodeAt(i) ^ expected.charCodeAt(i);
-  }
-  return diff === 0;
+  // Constant-time compare. Pad the shorter buffer to the expected
+  // length before calling timingSafeEqual so the comparison itself
+  // doesn't short-circuit on length mismatch.
+  const expectedBuf = Buffer.from(expected, 'utf8');
+  const tokenBuf = Buffer.alloc(expectedBuf.length);
+  Buffer.from(token, 'utf8').copy(tokenBuf);
+  return timingSafeEqual(tokenBuf, expectedBuf) && token.length === expected.length;
 }
 
 async function markError(userId: string, message: string): Promise<void> {
