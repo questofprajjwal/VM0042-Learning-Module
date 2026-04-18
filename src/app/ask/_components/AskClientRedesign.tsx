@@ -222,9 +222,32 @@ export function AskClientRedesign() {
   const showText = revised ?? draft;
   const isProvisional = revised === null && draft.length > 0;
 
-  // Load history on mount
+  // Load history on mount. Start with localStorage (instant render), then
+  // try to hydrate from the cloud (covers cross-device + cache-clear). The
+  // cloud response is merged by id so anything newer on the server wins.
   useEffect(() => {
-    setHistory(loadHistory());
+    const local = loadHistory();
+    setHistory(local);
+    (async () => {
+      try {
+        const resp = await fetch('/api/ask/history?limit=100', {
+          method: 'GET',
+          cache: 'no-store',
+        });
+        if (!resp.ok) return;
+        const { entries } = (await resp.json()) as { entries: HistoryEntry[] };
+        if (!Array.isArray(entries)) return;
+        const byId = new Map<string, HistoryEntry>();
+        for (const e of local) byId.set(e.id, e);
+        for (const e of entries) byId.set(e.id, e);
+        const merged = Array.from(byId.values()).sort(
+          (a, b) => b.timestamp - a.timestamp,
+        );
+        setHistory(merged);
+      } catch {
+        // silent — localStorage already rendered
+      }
+    })();
   }, []);
 
   // Health check on mount
@@ -414,6 +437,22 @@ export function AskClientRedesign() {
           feedback: null,
         };
         setHistory(addHistoryEntry(entry));
+        // Persist to cloud for cross-device history + admin observability.
+        // Fire-and-forget; localStorage is the fast path, DB is durable.
+        void fetch('/api/ask/log', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: entry.id,
+            query: entry.query,
+            answer: entry.answer,
+            sources: entry.sources,
+            lessons: entry.lessons,
+            status: 'success',
+          }),
+        }).catch(() => {
+          // Silent — user still has localStorage. Retry on next query.
+        });
       }
     } catch (e) {
       const msg =
@@ -496,6 +535,15 @@ export function AskClientRedesign() {
     const next = updateHistoryEntry(id, { feedback });
     setHistory(next);
     setToast(feedback === 'up' ? 'Thanks for the thumbs up' : 'Feedback noted');
+    // Mirror the thumb into the cloud log. Fire-and-forget; localStorage
+    // already carries the user-visible change.
+    void fetch(`/api/ask/log/${encodeURIComponent(id)}/feedback`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ feedback }),
+    }).catch(() => {
+      // Silent — next time the feedback lands the /log POST covers the row.
+    });
   }
 
   async function handleCopy(text: string) {

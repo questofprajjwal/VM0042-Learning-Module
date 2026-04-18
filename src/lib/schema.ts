@@ -206,6 +206,57 @@ export const efSearchHistory = sqliteTable(
   (t) => [index('ef_search_user_idx').on(t.userId)],
 );
 
+/**
+ * SustainIQ query log. One row per successfully streamed answer.
+ *
+ * Dual purpose:
+ *   1. User-visible history — replaces / mirrors the localStorage store at
+ *      src/app/ask/_lib/history.ts so chat history is cross-device and
+ *      survives cache clears.
+ *   2. Admin observability — question trends, answer quality, latency,
+ *      token consumption, thumbs feedback. Feeds a future analytics page.
+ *
+ * Populated by the client: POST /api/ask/log after the stream closes. The
+ * Vercel stream route is a pure passthrough to the HF ask-server and
+ * cannot see the final text, so the browser (which assembled the full
+ * answer) is the only place with the complete record.
+ */
+export const sustainiqQueries = sqliteTable(
+  'sustainiq_queries',
+  {
+    // Client-generated UUID — same id as the HistoryEntry.id in
+    // localStorage, so the two stores stay in lockstep.
+    id: text('id').primaryKey(),
+    userId: text('user_id').notNull(),
+    query: text('query').notNull(),
+    answer: text('answer').notNull(),
+    // JSON-stringified arrays of {document, section, pages, course} and
+    // {courseId, courseTitle, lessonId, lessonTitle, url}.
+    sources: text('sources'),
+    lessons: text('lessons'),
+    // Generation metadata.
+    model: text('model'),
+    reviseCount: integer('revise_count').default(0),
+    latencyMs: integer('latency_ms'),
+    tokensIn: integer('tokens_in'),
+    tokensOut: integer('tokens_out'),
+    // Cap / tier snapshot at query time.
+    tier: text('tier'),
+    // 'success' | 'error' | 'aborted' (client stopped the stream early).
+    status: text('status').notNull().default('success'),
+    errorMessage: text('error_message'),
+    // 'up' | 'down' | null. Mutable after insert via PATCH.
+    feedback: text('feedback'),
+    createdAt: integer('created_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [
+    index('sustainiq_user_idx').on(t.userId, t.createdAt),
+    index('sustainiq_created_idx').on(t.createdAt),
+  ],
+);
+
 export const userResumes = sqliteTable(
   'user_resumes',
   {
