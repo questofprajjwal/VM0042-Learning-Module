@@ -26,6 +26,8 @@ modules:
       title: "Carbon Credits & VCS"
       duration: "45 min"
       vmRef: "Background context"
+      seoTitle: "Carbon Credits & Verra VCS for VM0042 Projects"
+      seoDescription: "How carbon credits work under Verra's VCS: what one VCU represents, registration, issuance, buffer pools, and how VM0042 ALM projects generate credits."
     - id: "0.4"
       title: "The Big Picture: Workflow, Business Model & Who Benefits"
       duration: "50 min"
@@ -126,6 +128,8 @@ modules:
       title: "Economics & Decision-Making"
       duration: "60 min"
       vmRef: "Practical context"
+      seoTitle: "VM0042 Project Economics & Decision-Making"
+      seoDescription: "VM0042 ALM project economics: revenue modelling, cost drivers, sampling intensity trade-offs, discount rates, and go/no-go decision criteria."
 
   - id: 5
     title: "Monitoring & Verification"

@@ -28,6 +28,8 @@ export interface LessonMeta {
   duration?: string;
   vmRef?: string;
   readingMinutes?: number;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 interface BaseQuestion {

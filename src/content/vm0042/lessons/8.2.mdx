@@ -2,7 +2,7 @@
 
 <AudioPlayer src="https://pub-033ee478bfa542229216e3781c99cb96.r2.dev/vm0042/8_2.mp3" title="Listen to this lesson (podcast-style overview)" />
 
-<h2 class="text-2xl font-bold text-gray-800 mb-4">VMD0053: Bias Tests, Prediction Error & the Model Validation Report</h2>
+## VMD0053: Bias Tests, Prediction Error & the Model Validation Report
 
 <HighlightBox>
   <p class="font-semibold text-green-800">The core of model validation</p>
@@ -14,7 +14,7 @@
   <p class="mt-2 text-blue-900">A bias test is like checking whether a rifle consistently shoots left of target (systematic bias). A prediction error test checks how scattered the shots are around where they land (precision). A scope that always shoots left by 5 cm can be corrected, you know the offset. A scope with completely scattered shots is unusable because you cannot predict where the next shot lands. VMD0053's two tests mirror this: bias tells you the systematic offset; prediction error tells you the scatter.</p>
 </AnalogyBox>
 
-<h3 class="text-xl font-bold mt-6 mb-3">The Bias Test (Section 5.2.4)</h3>
+### The Bias Test (Section 5.2.4)
 <p class="mb-3 text-sm">Bias is the systematic tendency of a model to overestimate or underestimate effects. Even a biased model can still be used, but large biases produce large prediction errors, which result in larger credit deductions.</p>
 
 <EquationBreakdown
@@ -55,7 +55,7 @@
   <p class="mt-1 text-slate-700">Large model biases, whether positive (overestimation) or negative (underestimation), produce large residuals when computing prediction error. Large prediction error means fewer credits survive the uncertainty deduction. So even a positively biased model that overestimates benefits is <em>penalized through the credit deduction system</em>. There is no "free lunch" from inflating model outputs.</p>
 </div>
 
-<h3 class="text-xl font-bold mt-6 mb-3">The Prediction Error Test (Section 5.2.5)</h3>
+### The Prediction Error Test (Section 5.2.5)
 <p class="mb-3 text-sm">Even an unbiased model may be imprecise, its predictions scatter widely around observed values. VMD0053 quantifies this as <strong>model prediction error</strong>, which is used to deduct credits under VM0042's uncertainty framework.</p>
 
 <EquationBreakdown
@@ -91,7 +91,7 @@
   <p class="mt-1 text-blue-900">VM0042 uses a probability-of-exceedance framework for uncertainty. The model prediction error (σ_model) becomes one of the uncertainty inputs to the 95% confidence lower-bound calculation. A larger σ_model means the lower-bound estimate of carbon benefits is further from the central estimate, and fewer VCUs are issued. This is why improving model precision directly increases project revenue.</p>
 </div>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Two Options for Calculating Prediction Error</h3>
+### Two Options for Calculating Prediction Error
 <ResponsiveTable>
 <table class="mb-6 text-sm">
   <tr><th>Option</th><th>When Used</th><th>Method</th></tr>
@@ -100,12 +100,12 @@
 </table>
 </ResponsiveTable>
 
-<h3 class="text-xl font-bold mt-6 mb-3">The Model Validation Report (MVR) and IME Review</h3>
+### The Model Validation Report (MVR) and IME Review
 <p class="mb-3 text-sm">All validation work is documented in a <strong>Model Validation Report (MVR)</strong>, which must be reviewed by an <strong>Independent Modeling Expert (IME)</strong> contracted by the VVB.</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
   <div class="bg-slate-50 border border-slate-200 rounded p-4 text-sm">
-    <h4 class="font-bold text-slate-800 mb-2">What the MVR Must Contain</h4>
+    #### What the MVR Must Contain
     <ul class="space-y-1 text-slate-700">
       <li>- Model version and calibration process description</li>
       <li>- All internal model parameter sets with proof of climate-zone-level resolution</li>
@@ -118,7 +118,7 @@
     </ul>
   </div>
   <div class="bg-indigo-50 border border-indigo-200 rounded p-4 text-sm">
-    <h4 class="font-bold text-indigo-800 mb-2">IME Assessment Steps</h4>
+    #### IME Assessment Steps
     <ol class="list-decimal ml-4 space-y-1 text-indigo-900">
       <li>Project proponent submits MVR to VVB</li>
       <li>VVB selects and contracts an IME meeting Verra's minimum qualifications</li>
@@ -159,7 +159,7 @@
   <p class="mt-1 text-slate-700">Many legacy soil studies do not report standard errors for their measurements, making it impossible to compute PMU directly. In these cases, VMD0053 allows a <em>default replacement PMU value</em> based on typical measurement error for the specific measurement technique (e.g., the combined measurement error of the SOC content and bulk density measurement techniques used). PMU may also be defined as a function of cumulative sampling depth based on observed measurement uncertainty in validation datasets. These default values must be justified and are subject to IME approval and VVB review. The North American Proficiency Testing Program (NAPT) is suggested as a reference for instrument-specific measurement error rates.</p>
 </div>
 
-<h3 class="text-xl font-bold mt-6 mb-3">When Must the MVR Be Updated?</h3>
+### When Must the MVR Be Updated?
 <ul class="list-disc ml-6 text-sm space-y-1 mb-4">
   <li>Project area expands to include new PCs, CFGs, or emission sources not covered in the original MVR</li>
   <li>Model is changed in a way that substantially affects model runs and estimated emission reductions/removals</li>

@@ -42,6 +42,8 @@ export const LessonMetaSchema = z.object({
   title: z.string().min(1),
   duration: z.string().optional(),
   vmRef: z.string().optional(),
+  seoTitle: z.string().max(70).optional(),
+  seoDescription: z.string().max(170).optional(),
 });
 
 export const ModuleSchema = z.object({

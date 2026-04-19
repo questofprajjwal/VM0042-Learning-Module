@@ -28,6 +28,8 @@ import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Nav } from '@/components/Nav';
 import LessonMeter from '@/components/platform/LessonMeter';
@@ -67,11 +69,33 @@ export function generateMetadata({ params }: PageParams): Metadata {
     const lesson = course.modules
       .flatMap((m) => m.lessons)
       .find((l) => l.id === lessonId);
+
+    const headline = lesson?.seoTitle ?? lesson?.title ?? lessonId;
+    const title = `${headline} | Greentryst`;
+    const description =
+      lesson?.seoDescription ??
+      `${lesson?.title ?? 'Lesson'} - a lesson from the Greentryst course "${course.title}".`;
+    const canonicalPath = `/courses/${params.courseId}/${params.lessonId}`;
+
     return {
-      title: `${lesson?.title ?? lessonId} - ${course.title}`,
+      title,
+      description,
+      alternates: { canonical: canonicalPath },
+      openGraph: {
+        title,
+        description,
+        type: 'article',
+        url: canonicalPath,
+        siteName: 'Greentryst',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+      },
     };
   } catch {
-    return { title: 'Lesson' };
+    return { title: 'Lesson | Greentryst' };
   }
 }
 
@@ -174,8 +198,10 @@ export default function LessonRedesignPage({ params }: PageParams) {
   const lessonLd = learningResourceSchema({
     courseId,
     lessonId,
-    title: lesson.title,
-    description: `Lesson from ${course.title}: ${lesson.title}.`,
+    title: lesson.seoTitle ?? lesson.title,
+    description:
+      lesson.seoDescription ??
+      `Lesson from ${course.title}: ${lesson.title}.`,
     courseTitle: course.title,
   });
   const breadcrumbs = breadcrumbList([
@@ -260,6 +286,13 @@ export default function LessonRedesignPage({ params }: PageParams) {
                 options={{
                   mdxOptions: {
                     remarkPlugins: [remarkGfm],
+                    rehypePlugins: [
+                      rehypeSlug,
+                      [
+                        rehypeAutolinkHeadings,
+                        { behavior: 'wrap', properties: { className: ['heading-anchor'] } },
+                      ],
+                    ],
                   },
                 }}
               />

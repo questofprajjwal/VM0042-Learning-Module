@@ -5,14 +5,27 @@
  * to `public/jobs-embeddings.json`. The resume matcher cosine-matches a
  * user's resume vector against this file at query time.
  *
- * Runs in the prebuild step (see package.json) so every Vercel deploy
- * regenerates the file against the current jobs.xlsx. Also runnable
- * manually via:
+ * Runs in the prebuild step (see package.json). A content hash over the
+ * (jobUrl + embed text) of every job is stored alongside the vectors;
+ * if the next build sees the same hash, model and dim, it skips the
+ * Voyage API call entirely. So the API is only hit when jobs.xlsx
+ * actually changes. Also runnable manually via:
  *
  *   npx tsx scripts/embed-jobs.ts
  *
- * Cost: ~400 jobs * ~800 tokens/job ≈ 320k tokens on voyage-3-large.
- * Voyage free tier is 200M tokens/model - a rounding error.
+ * The output is written to TWO locations:
+ *   - public/jobs-embeddings.json   (served at runtime)
+ *   - .next/cache/embed-jobs/...   (Vercel persists this across builds;
+ *                                   local machines usually do too)
+ * On build start we check both. public/ is wiped by Vercel between
+ * deploys, but .next/cache/ survives, so the hash match still triggers.
+ *
+ * Force a re-embed by deleting public/jobs-embeddings.json AND
+ * .next/cache/embed-jobs/jobs-embeddings.json (or clearing the Vercel
+ * build cache from the dashboard).
+ *
+ * Cost: ~400 jobs * ~800 tokens/job ≈ 320k tokens on voyage-3-large,
+ * but only when inputs change. Voyage free tier is 200M tokens/model.
  *
  * Shape of the output file:
  *
@@ -30,6 +43,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 // Load .env.local so VOYAGE_API_KEY is available when running locally.
 const envPath = path.join(process.cwd(), ".env.local");
@@ -48,6 +62,17 @@ import { getAllJobsFull, type JobRow } from "../src/lib/jobs";
 import { embedTexts, EMBED_MODEL, EMBED_DIM } from "../src/lib/voyage";
 
 const OUT_PATH = path.join(process.cwd(), "public", "jobs-embeddings.json");
+// Vercel persists .next/cache/ across builds, but wipes public/. Mirror
+// the output into the cache so the hash check can short-circuit on the
+// NEXT deploy: if the cached file's hash matches the current inputs, we
+// copy it back to public/ and skip the Voyage API call entirely.
+const CACHE_PATH = path.join(
+  process.cwd(),
+  ".next",
+  "cache",
+  "embed-jobs",
+  "jobs-embeddings.json"
+);
 const BATCH_SIZE = 32; // well under Voyage's 128-input cap, easier on the network
 const MAX_CHARS = 6000; // clipping is fine; the long tail of JDs is boilerplate
 
@@ -56,6 +81,9 @@ interface OutputFile {
   dim: number;
   generated_at: string;
   job_count: number;
+  // sha256 over (jobUrl + embed text) for every job, so a subsequent
+  // build can skip the Voyage API call when the input is unchanged.
+  inputs_hash: string;
   embeddings: Record<string, number[]>;
 }
 
@@ -103,6 +131,52 @@ async function main() {
   );
   console.log(`[embed-jobs] model=${EMBED_MODEL} dim=${EMBED_DIM}`);
 
+  // Compute a content hash over the exact inputs Voyage would see.
+  // If an existing output file has the same hash, model, and dim, we
+  // can skip the API call entirely — nothing has changed.
+  const hasher = crypto.createHash("sha256");
+  for (const j of uniqueJobs) {
+    hasher.update(j.jobUrl);
+    hasher.update("\x1f"); // unit separator; avoids collision across fields
+    hasher.update(buildJobText(j));
+    hasher.update("\x1e"); // record separator
+  }
+  const inputsHash = hasher.digest("hex");
+
+  // Try both locations. Check the Vercel-persisted cache first (survives
+  // across deploys); fall back to the public file (survives on local
+  // machines where nothing wipes public/).
+  for (const candidate of [CACHE_PATH, OUT_PATH]) {
+    if (!fs.existsSync(candidate)) continue;
+    try {
+      const prev = JSON.parse(fs.readFileSync(candidate, "utf8")) as Partial<OutputFile>;
+      if (
+        prev.inputs_hash === inputsHash &&
+        prev.model === EMBED_MODEL &&
+        prev.dim === EMBED_DIM &&
+        prev.job_count === uniqueJobs.length
+      ) {
+        // Ensure BOTH locations have the file on the way out, so the
+        // runtime (which reads from public/) always finds it even when
+        // we restored from cache.
+        if (candidate !== OUT_PATH) {
+          fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
+          fs.copyFileSync(candidate, OUT_PATH);
+        }
+        if (candidate !== CACHE_PATH) {
+          fs.mkdirSync(path.dirname(CACHE_PATH), { recursive: true });
+          fs.copyFileSync(candidate, CACHE_PATH);
+        }
+        console.log(
+          `[embed-jobs] inputs unchanged (hash ${inputsHash.slice(0, 12)}...); restored from ${path.relative(process.cwd(), candidate)}, skipping re-embed.`
+        );
+        return;
+      }
+    } catch {
+      // Corrupt/old file - try the next candidate, else fall through.
+    }
+  }
+
   const embeddings: Record<string, number[]> = {};
   let totalTokens = 0;
 
@@ -145,18 +219,24 @@ async function main() {
     dim: EMBED_DIM,
     generated_at: new Date().toISOString(),
     job_count: Object.keys(embeddings).length,
+    inputs_hash: inputsHash,
     embeddings,
   };
 
   fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
   fs.writeFileSync(OUT_PATH, JSON.stringify(output));
+  // Mirror into the Vercel-persisted build cache so the next deploy can
+  // short-circuit without hitting Voyage. No-op on local if .next/cache
+  // is cleaned between builds.
+  fs.mkdirSync(path.dirname(CACHE_PATH), { recursive: true });
+  fs.copyFileSync(OUT_PATH, CACHE_PATH);
 
   const elapsedMs = Date.now() - t0;
   const sizeBytes = fs.statSync(OUT_PATH).size;
   const sizeMB = (sizeBytes / 1024 / 1024).toFixed(2);
 
   console.log(
-    `[embed-jobs] wrote ${output.job_count} embeddings to ${OUT_PATH} (${sizeMB} MB)`
+    `[embed-jobs] wrote ${output.job_count} embeddings to ${OUT_PATH} and cache (${sizeMB} MB)`
   );
   console.log(
     `[embed-jobs] ${elapsedMs} ms, ~${totalTokens} tokens used`

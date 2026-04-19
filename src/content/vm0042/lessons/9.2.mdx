@@ -2,7 +2,7 @@
 
 <AudioPlayer src="https://pub-033ee478bfa542229216e3781c99cb96.r2.dev/vm0042/9_2.mp3" title="Listen to this lesson (podcast-style overview)" />
 
-<h2 class="text-2xl font-bold text-gray-800 mb-4">AFOLU Risk Tool: Natural Risks, Climate Change & Final Buffer</h2>
+## AFOLU Risk Tool: Natural Risks, Climate Change & Final Buffer
 
 <HighlightBox>
   <p class="font-semibold text-green-800">This lesson covers</p>
@@ -14,7 +14,7 @@
   <p class="mt-2 text-blue-900">Natural risk scoring works like an insurer calculating your home insurance premium. They ask: how often does this area flood? (Likelihood) How much would a flood damage? (Significance) Do you have flood barriers installed? (Mitigation). High likelihood x high damage x no mitigation = high premium. In VM0042, the "premium" is the buffer percentage you contribute before any VCU can be sold.</p>
 </AnalogyBox>
 
-<h3 class="text-xl font-bold mt-6 mb-3">How Natural Risk Scoring Works</h3>
+### How Natural Risk Scoring Works
 <p class="mb-3 text-sm">For each natural risk factor, calculate a <strong>sub-total risk score</strong> using three inputs:</p>
 
 <EquationBreakdown
@@ -23,7 +23,7 @@
   inputs="LS | Likelihood x Significance | Score from Table 10 combining how often the risk occurs (historical frequency over 100 years) with how much carbon is lost per event (% of stocks) | green ;; M | Mitigation Factor | Reduction multiplier: 1.0 (no mitigation), 0.50 (one mitigation measure), 0.25 (both prevention and containment history) | amber"
 />
 
-<h3 class="text-xl font-bold mt-6 mb-3">Table 10: Historic Natural Risk Scores (LS Values)</h3>
+### Table 10: Historic Natural Risk Scores (LS Values)
 <ResponsiveTable>
 <table class="mb-6 text-sm">
   <tr><th>Significance (loss per event)</th><th>&gt;once/10yr</th><th>10-&lt;25yr</th><th>25-&lt;50yr</th><th>50-&lt;100yr</th><th>Once per 100yr or less / Not applicable</th></tr>
@@ -37,7 +37,7 @@
 </ResponsiveTable>
 <p class="text-sm text-slate-600 mb-4"><em>Transient = full recovery within 10 years (e.g., drought that briefly reduces SOC but soil recovers)</em></p>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Mitigation Scores (M)</h3>
+### Mitigation Scores (M)
 <ResponsiveTable>
 <table class="mb-6 text-sm">
   <tr><th>Mitigation Condition</th><th>M Value</th><th>Effect</th></tr>
@@ -71,7 +71,7 @@
   <p class="mt-2 text-sm">Sum of natural risk sub-totals before climate factor = 2.0 + 3.0 + 2.5 + 0 = <strong>7.5</strong></p>
 </ExampleBox>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Climate Change Amplification (CIDs), New in v4.2</h3>
+### Climate Change Amplification (CIDs), New in v4.2
 <p class="mb-3 text-sm">Version 4.2 added a <strong>Climatic Impact Driver (CID)</strong> amplification factor based on IPCC AR6. Risks affected by climate change (fire, pest/disease, extreme weather) are multiplied by a factor between <strong>1.0 and 1.4</strong>, reflecting projections that these risks will intensify over the 100-year assessment horizon.</p>
 
 <EquationBreakdown
@@ -106,7 +106,7 @@
   <p class="text-sm font-bold text-amber-800 mt-2">Total Natural Risk = 8.63 + 0 (SLR not applicable) = <strong>8.63</strong></p>
 </ExampleBox>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Sea-Level Rise (SLR) Risk</h3>
+### Sea-Level Rise (SLR) Risk
 <p class="mb-3 text-sm">Applies only to coastal projects (wetland restoration, mangrove ALM, etc.). Uses a separate table based on the overall SLR impact level (High/Major/Minor/Low/Insignificant) rather than historical frequency.</p>
 <p class="mb-3 text-sm">SLR adaptation measures reduce the score:</p>
 <ResponsiveTable>
@@ -120,7 +120,7 @@
 </table>
 </ResponsiveTable>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Calculating the Final Buffer Contribution</h3>
+### Calculating the Final Buffer Contribution
 
 <EquationBreakdown
   title="Overall Non-Permanence Risk Rating"
@@ -152,7 +152,7 @@
   <p class="text-sm mt-2 text-amber-800">The 2,800 buffer VCUs sit in the AFOLU Pooled Buffer Account for the life of the project. Every 5 years, 15% of the accumulated buffer is released back to the project if no reversal events have occurred.</p>
 </ExampleBox>
 
-<h3 class="text-xl font-bold mt-6 mb-3">The Buffer Release Mechanism</h3>
+### The Buffer Release Mechanism
 <p class="mb-3 text-sm">Buffer credits are not locked away forever. The VCS Program releases them over time if no reversal events occur:</p>
 <ul class="list-disc ml-6 text-sm space-y-1 mb-4">
   <li>Every 5 years of monitoring without a reversal event: <strong>15% of the project's cumulative buffer</strong> is released back to the project proponent as marketable VCUs</li>

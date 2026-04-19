@@ -18,6 +18,8 @@ modules:
         title: "What Are Science-Based Targets?"
         duration: "35 min"
         vmRef: "Net-Zero Standard V1.3, Section 1"
+        seoTitle: "What Are Science-Based Targets (SBTi)?"
+        seoDescription: "Science-Based Targets explained: corporate emission reduction goals aligned with 1.5°C pathways, SBTi framework, near-term and net-zero targets."
       - id: "0.2"
         title: "The SBTi Framework and Key Documents"
         duration: "30 min"
@@ -26,6 +28,8 @@ modules:
         title: "The Target-Setting Process"
         duration: "35 min"
         vmRef: "Getting Started Guide V1.2; Net-Zero Standard V1.3, Section 4"
+        seoTitle: "SBTi Target-Setting Process: Commit to Validation"
+        seoDescription: "SBTi target-setting process: commit, develop targets, submit for validation, announce, and disclose. Timeline, the target-setting tool, and required docs."
 
   - id: 1
     title: "The Net-Zero Standard Framework"
@@ -64,6 +68,8 @@ modules:
         title: "Timeframe and Ambition"
         duration: "45 min"
         vmRef: "Near-Term Criteria V5.3, C13-C21"
+        seoTitle: "SBTi Near-Term Target Timeframe & Ambition Criteria"
+        seoDescription: "SBTi near-term target criteria: 5-10 year horizon, 1.5°C alignment (4.2% linear annual reduction), minimum ambition, base year rules, and Scope 3 thresholds."
       - id: "2.4"
         title: "Scope 3 and Supplier Engagement Targets"
         duration: "40 min"

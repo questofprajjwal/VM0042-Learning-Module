@@ -2,7 +2,7 @@
 
 <AudioPlayer src="https://pub-033ee478bfa542229216e3781c99cb96.r2.dev/vm0042/8_1.mp3" title="Listen to this lesson (podcast-style overview)" />
 
-<h2 class="text-2xl font-bold text-gray-800 mb-4">VMD0053: Model Eligibility, Calibration & the Project Domain</h2>
+## VMD0053: Model Eligibility, Calibration & the Project Domain
 
 <HighlightBox>
   <p class="font-semibold text-green-800">When does VMD0053 apply?</p>
@@ -23,7 +23,7 @@
   </ul>
 </ExampleBox>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Four Criteria a Model Must Meet (Section 4)</h3>
+### Four Criteria a Model Must Meet (Section 4)
 <p class="mb-3 text-sm">Any model used under VMD0053 must satisfy ALL FOUR of these criteria:</p>
 
 <ResponsiveTable>
@@ -41,12 +41,12 @@
   <p class="mt-1 text-amber-900">A carbon credit is only credible if a verifier can run the model with the same inputs and get the same result. VMD0053 therefore requires: (1) a stable, version-controlled model, (2) the same version used in baseline and project scenarios, and (3) all internal parameters fully reported. For stochastic models that include randomness, the random seed sequence must be documented so the VVB can replicate exact outputs.</p>
 </div>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Key Vocabulary: PC, CFG, and ES Combinations</h3>
+### Key Vocabulary: PC, CFG, and ES Combinations
 <p class="mb-3 text-sm">VMD0053 validation must be demonstrated separately for every unique combination of:</p>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
   <div class="bg-blue-50 border border-blue-200 rounded p-4 text-sm">
-    <h4 class="font-bold text-blue-800 mb-2">Practice Category (PC)</h4>
+    #### Practice Category (PC)
     <p class="text-blue-900 mb-2">The type of agricultural management change. Six PCs defined in Table 1:</p>
     <ol class="list-decimal ml-4 space-y-1 text-blue-900">
       <li>Inorganic nitrogen fertilizer application</li>
@@ -59,7 +59,7 @@
     <p class="text-blue-800 text-xs mt-2"><strong>Domain of Practice Effects:</strong> Each PC must also be validated across its full "domain", e.g., for Inorganic N Fertilizer, validation must cover variations in magnitude, form, timing, and application method. Simply validating one rate of urea does not validate the full PC.</p>
   </div>
   <div class="bg-purple-50 border border-purple-200 rounded p-4 text-sm">
-    <h4 class="font-bold text-purple-800 mb-2">Crop Functional Group (CFG)</h4>
+    #### Crop Functional Group (CFG)
     <p class="text-purple-900 mb-2">Groups crops by shared biological characteristics:</p>
     <ul class="space-y-1 text-purple-900">
       <li>• N-fixation (Y/N)</li>
@@ -72,7 +72,7 @@
     <p class="text-purple-800 text-xs mt-2">Example: Maize = C4, annual, herbaceous, non-fixing, not flooded</p>
   </div>
   <div class="bg-green-50 border border-green-200 rounded p-4 text-sm">
-    <h4 class="font-bold text-green-800 mb-2">Emission Source (ES)</h4>
+    #### Emission Source (ES)
     <p class="text-green-900 mb-2">The specific GHG flux being modeled:</p>
     <ul class="space-y-1 text-green-900">
       <li>• SOC stock change (CO₂)</li>
@@ -99,12 +99,12 @@
   <p class="mt-2 text-sm text-amber-800"><strong>Result:</strong> 5 separate PC/CFG/ES combinations must be validated before any credits can be issued from this model.</p>
 </ExampleBox>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Model Calibration (Section 5.1)</h3>
+### Model Calibration (Section 5.1)
 <p class="mb-3 text-sm">Calibration adjusts model parameters to improve performance using a <em>training dataset</em>. VMD0053 does not prescribe a single calibration method but imposes strict requirements:</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
   <div class="bg-slate-50 border border-slate-200 rounded p-4 text-sm">
-    <h4 class="font-bold text-slate-800 mb-2">Frequentist Calibration</h4>
+    #### Frequentist Calibration
     <ul class="space-y-1 text-slate-700">
       <li>• Adjust parameters using model sensitivities and overall performance</li>
       <li>• May use direct measurements (leaf area index, harvest index)</li>
@@ -114,7 +114,7 @@
     </ul>
   </div>
   <div class="bg-indigo-50 border border-indigo-200 rounded p-4 text-sm">
-    <h4 class="font-bold text-indigo-800 mb-2">Bayesian Calibration</h4>
+    #### Bayesian Calibration
     <ul class="space-y-1 text-indigo-900">
       <li>• Integrates prior knowledge + observed data via MCMC sampling</li>
       <li>• Uninformative priors: used when little prior knowledge exists → posterior driven by data</li>
@@ -130,7 +130,7 @@
   <p class="mt-1 text-amber-900">The parameter sets used in calibration (and confirmed in validation) must be the SAME sets used when calculating baseline and project GHG estimates. You cannot "tune" the model for better performance in validation and then use different parameters in the actual project calculations. This ensures what was tested is what is used.</p>
 </div>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Defining the Project Domain (Section 5.2.1–5.2.3)</h3>
+### Defining the Project Domain (Section 5.2.1–5.2.3)
 <p class="mb-3 text-sm">The project domain is the biophysical space within which the model has been validated. It has three dimensions:</p>
 
 <ResponsiveTable>
@@ -151,7 +151,7 @@
   <li>Studies must report location, management, starting soil conditions, and all model inputs</li>
 </ul>
 
-<h3 class="text-xl font-bold mt-6 mb-3">Substitution for Missing Crop Types (Section 5.3)</h3>
+### Substitution for Missing Crop Types (Section 5.3)
 <p class="mb-3 text-sm">What if no validation data exist for a specific crop in the project? VMD0053 permits substitution under a two-tier hierarchy:</p>
 <div class="bg-amber-50 border border-amber-200 rounded p-3 mb-3 text-sm">
   <p class="font-semibold text-amber-800">Hierarchy: Same CFG first, then different CFG</p>
@@ -159,11 +159,11 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
   <div class="bg-blue-50 border border-blue-200 rounded p-3 text-sm">
-    <h4 class="font-bold text-blue-800 mb-1">Baseline Substitution</h4>
+    #### Baseline Substitution
     <p class="text-blue-900">Replace missing crop with a validated CFG that emits <em>FEWER</em> GHGs than the missing crop. This is conservative because it underestimates the baseline → fewer credits claimed.</p>
   </div>
   <div class="bg-green-50 border border-green-200 rounded p-3 text-sm">
-    <h4 class="font-bold text-green-800 mb-1">Project Substitution</h4>
+    #### Project Substitution
     <p class="text-green-900">Replace missing crop with a validated CFG that emits <em>MORE</em> GHGs than the missing crop. This is conservative because it underestimates the project benefit → fewer credits claimed.</p>
   </div>
 </div>

@@ -53,6 +53,8 @@ modules:
         title: "Attribution: How We Know It Is Human-Caused"
         duration: "35 min"
         vmRef: "IPCC AR6 WGI, Chapter 3"
+        seoTitle: "Climate Attribution: IPCC AR6 Evidence Humans Caused Warming"
+        seoDescription: "How we know warming is human-caused: IPCC AR6 attribution evidence, fingerprinting, why natural factors cannot explain observed warming since 1850."
 
   - id: 2
     title: "Greenhouse Gases in Detail"
@@ -76,6 +78,8 @@ modules:
         title: "The Carbon Budget"
         duration: "45 min"
         vmRef: "IPCC AR6 WGI, Chapter 5.5; SPM"
+        seoTitle: "The Carbon Budget: 1.5°C & 2°C Emission Pathways"
+        seoDescription: "The remaining carbon budget for 1.5°C and 2°C: cumulative CO2 since 1850 (~2400 GtCO2), IPCC AR6 estimates, and how fast we are using what remains."
 
   - id: 3
     title: "Climate Impacts and Risks"
@@ -91,6 +95,8 @@ modules:
         title: "Extreme Weather and Attribution"
         duration: "40 min"
         vmRef: "IPCC AR6 WGI, Chapter 11; WGII Chapter 16"
+        seoTitle: "Extreme Weather Attribution Science Explained"
+        seoDescription: "Extreme weather attribution: how climate scientists quantify how much climate change made a heatwave, flood or hurricane more likely or more intense."
       - id: "3.3"
         title: "Regional Impacts"
         duration: "35 min"
@@ -118,6 +124,8 @@ modules:
         title: "Mitigation Pathways and Technology"
         duration: "40 min"
         vmRef: "IPCC AR6 WGIII, Chapter 3-4"
+        seoTitle: "Climate Mitigation Pathways & Technology Explained"
+        seoDescription: "IPCC mitigation pathways: energy efficiency, renewables, electrification, hydrogen, CCS, and negative emissions — the tech wedge to 1.5°C and 2°C."
       - id: "4.4"
         title: "Adaptation: Living with Climate Change"
         duration: "35 min"
