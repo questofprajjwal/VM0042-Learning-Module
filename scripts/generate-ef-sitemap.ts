@@ -71,9 +71,16 @@ function main() {
     });
   }
 
+  const seen = new Set<string>();
+  const uniqueUrls = urls.filter((u) => {
+    if (seen.has(u.loc)) return false;
+    seen.add(u.loc);
+    return true;
+  });
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
+${uniqueUrls
   .map(
     (u) => `  <url>
     <loc>${SITE_URL}${u.loc}</loc>
@@ -89,7 +96,9 @@ ${urls
   mkdirSync(join(process.cwd(), 'public'), { recursive: true });
   writeFileSync(OUT_FILE, xml, 'utf8');
   // eslint-disable-next-line no-console
-  console.log(`[ef-sitemap] wrote ${urls.length} URLs to ${OUT_FILE}`);
+  console.log(
+    `[ef-sitemap] wrote ${uniqueUrls.length} unique URLs (from ${urls.length} candidates) to ${OUT_FILE}`
+  );
 }
 
 main();
