@@ -58,6 +58,14 @@ export interface DisclosureEntry {
   related_tools: string[];
 }
 
+export interface JurisdictionRow {
+  name: string;
+  regulator: string;
+  status: string;
+  period: string;
+  notes: string;
+}
+
 export interface FrameworkMeta {
   id: string;
   name: string;
@@ -70,6 +78,16 @@ export interface FrameworkMeta {
   jurisdictions: string[];
   summary: string;
   long_summary?: string;
+  /** Hand-authored SEO title. Falls back to `${name}: Practitioner Guide` if absent. */
+  seo_title?: string;
+  /** Hand-authored meta description. Falls back to a slice of summary. */
+  seo_description?: string;
+  /** ISO date (YYYY-MM-DD) of the last Editorial Board review. Drives dateModified. */
+  last_reviewed?: string;
+  /** Canonical external URL for the standard itself (e.g. the issuer's official page for the document). */
+  issuer_url?: string;
+  /** Jurisdiction-by-jurisdiction adoption rows. Powers the on-page adoption table. */
+  jurisdictions_detailed?: JurisdictionRow[];
   related_courses: string[];
   related_tools: string[];
   pillars: PillarMeta[];

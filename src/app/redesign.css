@@ -166,6 +166,174 @@
   filter: blur(80px);
 }
 
+/* Demo-panel subtle float-in + drift used on the practitioner's lens */
+@keyframes gt-float-in {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes gt-glow-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+  50% { transform: translate(8px, -6px) scale(1.06); opacity: 0.75; }
+}
+.gt-demo-panel {
+  animation: gt-float-in 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transition: transform 320ms ease, box-shadow 320ms ease;
+  will-change: transform;
+}
+.gt-demo-panel:hover {
+  transform: translateY(-3px);
+}
+.gt-demo-glow {
+  animation: gt-glow-drift 8s ease-in-out infinite;
+}
+
+/* Hero morph triptych — spotlight cycles 1 -> 2 -> 3 over 9s */
+@keyframes gt-morph-spot-1 {
+  0%, 28% { opacity: 1; }
+  35%, 100% { opacity: 0; }
+}
+@keyframes gt-morph-spot-2 {
+  0%, 28% { opacity: 0; }
+  35%, 61% { opacity: 1; }
+  68%, 100% { opacity: 0; }
+}
+@keyframes gt-morph-spot-3 {
+  0%, 61% { opacity: 0; }
+  68%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes gt-morph-arrow-1 {
+  0%, 28% { opacity: 0.85; }
+  35%, 100% { opacity: 0.18; }
+}
+@keyframes gt-morph-arrow-2 {
+  0%, 35% { opacity: 0.18; }
+  42%, 65% { opacity: 0.85; }
+  72%, 100% { opacity: 0.18; }
+}
+.gt-morph-spot-1 { animation: gt-morph-spot-1 9s ease-in-out infinite; }
+.gt-morph-spot-2 { animation: gt-morph-spot-2 9s ease-in-out infinite; }
+.gt-morph-spot-3 { animation: gt-morph-spot-3 9s ease-in-out infinite; }
+.gt-morph-arrow-1 { animation: gt-morph-arrow-1 9s ease-in-out infinite; }
+.gt-morph-arrow-2 { animation: gt-morph-arrow-2 9s ease-in-out infinite; }
+
+/* Single-card morph — three layered states cross-fade with a soft scale */
+@keyframes gt-morph-state-1 {
+  0%, 28% { opacity: 1; transform: translateY(0) scale(1); }
+  33%, 100% { opacity: 0; transform: translateY(-6px) scale(0.985); }
+}
+@keyframes gt-morph-state-2 {
+  0%, 28% { opacity: 0; transform: translateY(6px) scale(0.985); }
+  33%, 61% { opacity: 1; transform: translateY(0) scale(1); }
+  66%, 100% { opacity: 0; transform: translateY(-6px) scale(0.985); }
+}
+@keyframes gt-morph-state-3 {
+  0%, 61% { opacity: 0; transform: translateY(6px) scale(0.985); }
+  66%, 95% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-6px) scale(0.985); }
+}
+.gt-morph-state-1 { animation: gt-morph-state-1 9s ease-in-out infinite; }
+.gt-morph-state-2 { animation: gt-morph-state-2 9s ease-in-out infinite; }
+.gt-morph-state-3 { animation: gt-morph-state-3 9s ease-in-out infinite; }
+
+@keyframes gt-morph-dot-1 {
+  0%, 28% { background-color: rgba(140, 212, 202, 0.95); transform: scale(1.15); }
+  33%, 100% { background-color: rgba(255, 255, 255, 0.25); transform: scale(1); }
+}
+@keyframes gt-morph-dot-2 {
+  0%, 28% { background-color: rgba(255, 255, 255, 0.25); transform: scale(1); }
+  33%, 61% { background-color: rgba(140, 212, 202, 0.95); transform: scale(1.15); }
+  66%, 100% { background-color: rgba(255, 255, 255, 0.25); transform: scale(1); }
+}
+@keyframes gt-morph-dot-3 {
+  0%, 61% { background-color: rgba(255, 255, 255, 0.25); transform: scale(1); }
+  66%, 95% { background-color: rgba(140, 212, 202, 0.95); transform: scale(1.15); }
+  100% { background-color: rgba(255, 255, 255, 0.25); transform: scale(1); }
+}
+.gt-morph-dot-1 { animation: gt-morph-dot-1 9s ease-in-out infinite; }
+.gt-morph-dot-2 { animation: gt-morph-dot-2 9s ease-in-out infinite; }
+.gt-morph-dot-3 { animation: gt-morph-dot-3 9s ease-in-out infinite; }
+
+/* Text-morph hero — same timing/motion as the stage label shuffle so
+   they enter and exit together. */
+@keyframes gt-text-morph-1 {
+  0%   { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+  4%   { opacity: 0.4; }
+  8%   { opacity: 1; transform: translateY(0); filter: blur(0); }
+  28%  { opacity: 1; transform: translateY(0); filter: blur(0); }
+  33%  { opacity: 0; transform: translateY(-20px); filter: blur(10px); }
+  100% { opacity: 0; transform: translateY(-20px); filter: blur(10px); }
+}
+@keyframes gt-text-morph-2 {
+  0%, 30% { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+  37%  { opacity: 0.4; }
+  41%  { opacity: 1; transform: translateY(0); filter: blur(0); }
+  61%  { opacity: 1; transform: translateY(0); filter: blur(0); }
+  66%  { opacity: 0; transform: translateY(-20px); filter: blur(10px); }
+  100% { opacity: 0; transform: translateY(-20px); filter: blur(10px); }
+}
+@keyframes gt-text-morph-3 {
+  0%, 63% { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+  70%  { opacity: 0.4; }
+  74%  { opacity: 1; transform: translateY(0); filter: blur(0); }
+  94%  { opacity: 1; transform: translateY(0); filter: blur(0); }
+  100% { opacity: 0; transform: translateY(-20px); filter: blur(10px); }
+}
+.gt-text-morph-1 { animation: gt-text-morph-1 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.gt-text-morph-2 { animation: gt-text-morph-2 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.gt-text-morph-3 { animation: gt-text-morph-3 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+/* Per-word reveal — each word gets a quick rise+sharpen on entry */
+@keyframes gt-word-in {
+  0% { opacity: 0; transform: translateY(10px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.gt-word {
+  display: inline-block;
+  opacity: 0;
+  animation-name: gt-word-in;
+  animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+/* Background: drifting ghost letters that suggest a "type pool" */
+@keyframes gt-glyph-drift {
+  0%, 100% { transform: translate(0, 0); opacity: 0.06; }
+  50% { transform: translate(8px, -6px); opacity: 0.10; }
+}
+.gt-glyph-drift { animation: gt-glyph-drift 14s ease-in-out infinite; }
+
+/* Stage label shuffle — rises in from below with blur, holds, rises out
+   upward into blur. Mirrors the homepage tagline shuffle. */
+@keyframes gt-label-shuffle-1 {
+  0%   { opacity: 0; transform: translateY(20px); filter: blur(10px); color: rgba(207, 214, 210, 0); }
+  4%   { opacity: 0.4; }
+  8%   { opacity: 1; transform: translateY(0); filter: blur(0); color: rgba(207, 214, 210, 0.95); }
+  28%  { opacity: 1; transform: translateY(0); filter: blur(0); color: rgba(207, 214, 210, 0.95); }
+  33%  { opacity: 0; transform: translateY(-20px); filter: blur(10px); color: rgba(207, 214, 210, 0); }
+  100% { opacity: 0; transform: translateY(-20px); filter: blur(10px); color: rgba(207, 214, 210, 0); }
+}
+@keyframes gt-label-shuffle-2 {
+  0%, 30% { opacity: 0; transform: translateY(20px); filter: blur(10px); color: rgba(140, 212, 202, 0); }
+  37%  { opacity: 0.4; }
+  41%  { opacity: 1; transform: translateY(0); filter: blur(0); color: rgba(140, 212, 202, 0.95); }
+  61%  { opacity: 1; transform: translateY(0); filter: blur(0); color: rgba(140, 212, 202, 0.95); }
+  66%  { opacity: 0; transform: translateY(-20px); filter: blur(10px); color: rgba(140, 212, 202, 0); }
+  100% { opacity: 0; transform: translateY(-20px); filter: blur(10px); color: rgba(140, 212, 202, 0); }
+}
+@keyframes gt-label-shuffle-3 {
+  0%, 63% { opacity: 0; transform: translateY(20px); filter: blur(10px); color: rgba(82, 183, 136, 0); }
+  70%  { opacity: 0.4; }
+  74%  { opacity: 1; transform: translateY(0); filter: blur(0); color: rgba(82, 183, 136, 0.95); }
+  94%  { opacity: 1; transform: translateY(0); filter: blur(0); color: rgba(82, 183, 136, 0.95); }
+  100% { opacity: 0; transform: translateY(-20px); filter: blur(10px); color: rgba(82, 183, 136, 0); }
+}
+.gt-label-shift-1 { animation: gt-label-shuffle-1 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.gt-label-shift-2 { animation: gt-label-shuffle-2 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.gt-label-shift-3 { animation: gt-label-shuffle-3 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
 .gt-ambient-glow-light {
   position: absolute;
   pointer-events: none;

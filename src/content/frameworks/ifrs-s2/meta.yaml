@@ -12,6 +12,48 @@ issuer_short: ISSB
 type: Standard
 status: final
 effective_from: "2024-01-01"
+seo_title: "IFRS S2 Standard: Clauses Explained with Illustrative Disclosures | Greentryst"
+seo_description: "IFRS S2 broken down pillar by pillar and clause by clause. For every requirement: the verbatim text, plain English, and an illustrative disclosure."
+last_reviewed: "2026-04-19"
+issuer_url: "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/"
+
+jurisdictions_detailed:
+  - name: United Kingdom
+    regulator: FCA / FRC
+    status: Endorsement underway
+    period: TBD
+    notes: Endorsement decision via the FRC. Will apply to large listed entities first.
+  - name: Australia
+    regulator: AASB / ASIC
+    status: Adopted (AASB S2)
+    period: Phase-in from FY 2025
+    notes: Tiered phase-in by entity size.
+  - name: Canada
+    regulator: CSSB
+    status: Adopted (CSDS 2)
+    period: Voluntary now; regulator-led mandatory timing
+    notes: Aligned with IFRS S2 with limited modifications.
+  - name: Brazil
+    regulator: CVM
+    status: Adopted
+    period: Phase-in for listed issuers
+    notes: Voluntary period during phase-in.
+  - name: Japan
+    regulator: SSBJ
+    status: Adopted (SSBJ S2)
+    period: Phase-in for Prime Market issuers
+    notes: SSBJ standards released March 2025.
+  - name: Singapore
+    regulator: ACRA / SGX
+    status: Adopted
+    period: Phase-in for listed issuers
+    notes: Climate-only initially.
+  - name: Nigeria
+    regulator: FRC
+    status: Adopted
+    period: Voluntary now; staged toward mandatory
+    notes: First African adopter.
+
 jurisdictions:
   - global
   - "UK"
@@ -21,12 +63,14 @@ jurisdictions:
   - "Singapore"
   - "Nigeria"
 summary: >
-  IFRS S2 is the global baseline for climate-related financial disclosures.
-  It extends the requirements of IFRS S1 and builds directly on the four
-  pillars of TCFD: Governance, Strategy, Risk Management, and Metrics
-  and Targets. Entities apply IFRS S2 to report the climate-related risks
-  and opportunities that could reasonably be expected to affect their
-  prospects over the short, medium, and long term.
+  IFRS S2 Climate-related Disclosures is the global baseline standard for
+  corporate climate reporting. Issued by the International Sustainability
+  Standards Board (ISSB) under the IFRS Foundation in June 2023 and
+  effective for annual reporting periods beginning on or after 1 January
+  2024, it has since been adopted or formally referenced by regulators
+  in the United Kingdom, Australia, Canada, Brazil, Japan, Singapore,
+  and Nigeria. With that global footprint, IFRS S2 is now the de facto
+  successor to the TCFD recommendations.
 
 long_summary: >
   The International Sustainability Standards Board issued IFRS S2 in

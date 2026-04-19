@@ -350,7 +350,7 @@ function DisclosureBlock({
                 strokeWidth={1.75}
               />
             </span>
-            <p className={`${monoLabel} text-gt-leaf`}>Exemplar</p>
+            <p className={`${monoLabel} text-gt-leaf`}>Illustrative Disclosure</p>
           </div>
           {d.example_disclosure ? (
             <div className="relative flex-1">
@@ -364,7 +364,7 @@ function DisclosureBlock({
             </div>
           ) : (
             <p className="text-[13px] text-gt-text-on-dark-muted italic flex-1">
-              Exemplar in preparation.
+              Illustrative disclosure in preparation.
             </p>
           )}
           <p
