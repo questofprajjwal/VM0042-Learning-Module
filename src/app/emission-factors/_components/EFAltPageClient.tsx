@@ -9,6 +9,7 @@ import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, AlertTriangle, Flame } from 'lucide-react';
 import type { ResolvedFactor, Methodology } from '@/lib/emission-factors/types';
+import { licenseUrl } from '@/lib/emission-factors/license';
 import { EFAltCitationBlock } from './EFAltCitationBlock';
 // Save/cite-list deferred to v1.1 (see EFFactorPageClient).
 // import { EFSaveActions } from './EFSaveActions';
@@ -282,7 +283,24 @@ export function EFAltPageClient({
                   </Link>
                 }
               />
-              <Row label="License" value={factor.source.license} />
+              <Row
+                label="License"
+                value={(() => {
+                  const url = licenseUrl(factor.source.license);
+                  return url ? (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-white/30 hover:decoration-[#95D5B2] hover:text-[#95D5B2] transition-colors"
+                    >
+                      {factor.source.license}
+                    </a>
+                  ) : (
+                    factor.source.license
+                  );
+                })()}
+              />
               <Row
                 label="Verified"
                 value={`${factor.last_verified_date} · ${factor.verifier_initials.join(' · ')}`}
@@ -397,7 +415,22 @@ export function EFAltPageClient({
       <section className="border-t border-white/5">
         <div className="mx-auto max-w-6xl px-6 py-10 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-white/40">
           <span>
-            {factor.source.publisher} · {factor.source.vintage_year} · {factor.source.license}
+            {factor.source.publisher} · {factor.source.vintage_year} ·{' '}
+            {(() => {
+              const url = licenseUrl(factor.source.license);
+              return url ? (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-white/20 hover:text-white/70 transition-colors"
+                >
+                  {factor.source.license}
+                </a>
+              ) : (
+                factor.source.license
+              );
+            })()}
           </span>
           <Link
             href="/emission-factors"

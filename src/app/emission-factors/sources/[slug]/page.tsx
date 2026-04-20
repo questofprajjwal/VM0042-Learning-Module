@@ -17,6 +17,7 @@ import {
   getFactorsBySourceId,
 } from '@/lib/emission-factors/loader';
 import { buildSourceJsonLd } from '@/lib/emission-factors/jsonld';
+import { licenseUrl } from '@/lib/emission-factors/license';
 import { safeJsonLd } from '@/lib/json-ld';
 import { EFSourceFactorsExplorer } from '../../_components/EFSourceFactorsExplorer';
 import { resolvedFactorsToRows } from '@/lib/emission-factors/row-adapter';
@@ -206,7 +207,23 @@ export default function SourceDetailPage({ params }: { params: { slug: string } 
                   <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-white/40">
                     License
                   </div>
-                  <div className="mt-1 text-sm text-white">{source.license}</div>
+                  <div className="mt-1 text-sm text-white">
+                    {(() => {
+                      const url = licenseUrl(source.license);
+                      return url ? (
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline decoration-white/30 hover:decoration-[#95D5B2] hover:text-[#95D5B2] transition-colors"
+                        >
+                          {source.license}
+                        </a>
+                      ) : (
+                        source.license
+                      );
+                    })()}
+                  </div>
                   {source.attribution_required && (
                     <div className="mt-3 flex items-center gap-1.5 text-[12px] text-white/60">
                       <CheckCircle2 className="h-3.5 w-3.5 text-[#95D5B2]" strokeWidth={2} />

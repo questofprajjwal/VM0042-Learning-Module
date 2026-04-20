@@ -8,6 +8,7 @@
 import Link from 'next/link';
 import { ExternalLink, FileText, Scale } from 'lucide-react';
 import type { Source } from '@/lib/emission-factors/types';
+import { licenseUrl } from '@/lib/emission-factors/license';
 
 export interface EFSourceCardProps {
   source: Source;
@@ -44,7 +45,23 @@ export function EFSourceCard({ source, linkToSource = true }: EFSourceCardProps)
           <Scale className="h-4 w-4 mt-0.5 text-[#2D6A4F]" aria-hidden />
           <div>
             <dt className="sr-only">License</dt>
-            <dd className="text-sm text-gt-text">{source.license}</dd>
+            <dd className="text-sm text-gt-text">
+              {(() => {
+                const url = licenseUrl(source.license);
+                return url ? (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-gt-border-light hover:decoration-[#2D6A4F] hover:text-[#2D6A4F] transition-colors"
+                  >
+                    {source.license}
+                  </a>
+                ) : (
+                  source.license
+                );
+              })()}
+            </dd>
           </div>
         </div>
       </dl>
