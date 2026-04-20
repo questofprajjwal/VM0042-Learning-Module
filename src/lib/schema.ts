@@ -344,7 +344,11 @@ export const userResumes = sqliteTable(
     // their resume) so we can re-parse, let the user re-download, or
     // diagnose failures without re-upload.
     fileR2Key: text('file_r2_key').notNull(),
-    // 'uploading' | 'parsing' | 'ready' | 'error'
+    // 'uploading' | 'scanning' | 'parsing' | 'ready' | 'error' | 'infected'
+    // 'infected' is a terminal state set by the ClamAV scan step in
+    // /api/resume/process. Infected rows are never promoted to 'ready',
+    // and /api/resume/file refuses to serve anything that isn't 'ready'.
+    // No schema migration needed (text column, no enum constraint).
     status: text('status').notNull().default('uploading'),
     extractedText: text('extracted_text'),
     embedding: text('embedding'), // JSON stringified Float32Array
@@ -356,4 +360,141 @@ export const userResumes = sqliteTable(
     processedAt: integer('processed_at', { mode: 'timestamp' }),
   },
   (t) => [index('resumes_uploaded_idx').on(t.uploadedAt)],
+);
+
+// ─── Assessor (Gap Assessment tools) ─────────────────────────────────────
+// Product: Greentryst Assessor. Per-clause structured self-check with a
+// deterministic slot-filled draft disclosure. One org per account in v1.
+// Tool identity is carried as a slug (e.g. 'ifrs-s2-gap-assessment') that
+// matches the authored YAML file; no DB-level tool registry in v1.
+// Full spec: brainstorming/ASSESSOR_PRODUCT_DEFINITION.md.
+
+export const assessments = sqliteTable(
+  'assessments',
+  {
+    id: text('id').primaryKey(),
+    userId: text('user_id').notNull(),
+    // Slug of the Assessor tool (e.g. 'ifrs-s2-gap-assessment'). Matches
+    // the key used to load authored YAML content.
+    toolSlug: text('tool_slug').notNull(),
+    reportingYear: integer('reporting_year').notNull(),
+    // ISO dates (YYYY-MM-DD) for reporting period bounds.
+    reportingPeriodStart: text('reporting_period_start'),
+    reportingPeriodEnd: text('reporting_period_end'),
+    // Assessment-level metadata, captured once at bootstrap.
+    companyName: text('company_name').notNull(),
+    sector: text('sector'),
+    createdAt: integer('created_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+    updatedAt: integer('updated_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [
+    index('assessments_user_idx').on(t.userId),
+    index('assessments_user_tool_year_idx').on(t.userId, t.toolSlug, t.reportingYear),
+  ],
+);
+
+// One row per question per assessment. Keyed on questionId (not clauseId)
+// so the shape stays forward-compatible with a future CanonicalQuestion
+// layer enabling cross-framework answer reuse.
+// value shape by question type:
+//   yes_no            -> text: 'yes' | 'no'
+//   year              -> integer stored as text
+//   named_entity      -> free text
+//   number_with_unit  -> number stored as text
+//   multi_select      -> JSON array of option keys
+//   qualitative_verdict -> verdict + rationaleText (see columns below)
+export const assessmentResponses = sqliteTable(
+  'assessment_responses',
+  {
+    assessmentId: text('assessment_id').notNull(),
+    questionId: text('question_id').notNull(),
+    clauseRef: text('clause_ref').notNull(),
+    value: text('value'),
+    // Only set on qualitative_verdict questions or user-chosen clause verdicts.
+    // One of: 'met' | 'not_met' | 'partially_met' | 'not_applicable'.
+    verdict: text('verdict'),
+    rationaleText: text('rationale_text'),
+    // Optional per-answer document reference. JSON:
+    //   { label: string, pageOrSection: string, fileRef?: string }
+    documentReference: text('document_reference'),
+    updatedAt: integer('updated_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [
+    primaryKey({ columns: [t.assessmentId, t.questionId] }),
+    index('assessment_responses_assessment_idx').on(t.assessmentId),
+    index('assessment_responses_clause_idx').on(t.assessmentId, t.clauseRef),
+  ],
+);
+
+// Derived cache. One row per (assessment, clause). Recomputed server-side
+// whenever any response under the clause changes. Verdict values:
+//   'met' | 'not_met' | 'auto_not_met' | 'partially_met' | 'not_applicable' | 'empty'
+export const clauseVerdictRollups = sqliteTable(
+  'clause_verdict_rollups',
+  {
+    assessmentId: text('assessment_id').notNull(),
+    clauseRef: text('clause_ref').notNull(),
+    verdict: text('verdict').notNull(),
+    // Question id of the gateway that blocked the clause, if verdict is
+    // 'auto_not_met'. Powers the "Blocked by" tag in the gap list.
+    blockedByQuestionId: text('blocked_by_question_id'),
+    lastComputedAt: integer('last_computed_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [
+    primaryKey({ columns: [t.assessmentId, t.clauseRef] }),
+    index('clause_rollups_assessment_idx').on(t.assessmentId),
+  ],
+);
+
+// Derived cache. One row per (assessment, clause) that has a rendered
+// draft. Suppressed for clauses where verdict is not 'met' -- those render
+// the illustrative fallback from disclosures.yaml instead.
+export const draftDisclosures = sqliteTable(
+  'draft_disclosures',
+  {
+    assessmentId: text('assessment_id').notNull(),
+    clauseRef: text('clause_ref').notNull(),
+    // 'draft_available' | 'blocked_illustrative_only'.
+    status: text('status').notNull(),
+    renderedText: text('rendered_text'),
+    renderedAt: integer('rendered_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+  },
+  (t) => [
+    primaryKey({ columns: [t.assessmentId, t.clauseRef] }),
+    index('draft_disclosures_assessment_idx').on(t.assessmentId),
+  ],
+);
+
+// Stub. Buttons are wired in v1 but the export format is TBD; rows
+// record that a user requested an export so demand can be measured.
+export const assessmentExportJobs = sqliteTable(
+  'assessment_export_jobs',
+  {
+    id: text('id').primaryKey(),
+    assessmentId: text('assessment_id').notNull(),
+    // 'csv' | 'pdf'.
+    format: text('format').notNull(),
+    // 'requested' | 'processing' | 'ready' | 'error'.
+    status: text('status').notNull().default('requested'),
+    requestedAt: integer('requested_at', { mode: 'timestamp' })
+      .notNull()
+      .$defaultFn(() => new Date()),
+    completedAt: integer('completed_at', { mode: 'timestamp' }),
+    // R2 object key for the generated file, once export format is locked.
+    fileR2Key: text('file_r2_key'),
+  },
+  (t) => [
+    index('export_jobs_assessment_idx').on(t.assessmentId),
+    index('export_jobs_requested_idx').on(t.requestedAt),
+  ],
 );

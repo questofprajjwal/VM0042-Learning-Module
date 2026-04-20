@@ -4,9 +4,8 @@
  * Public endpoint for reporting an issue with a factor. Inserts into
  * ef_issue_reports after validating the factor exists.
  *
- * Rate limit: 5/hour per IP via an in-memory Map. This is deliberately
- * weak for v1 - it resets on serverless cold starts. Production should
- * move to Upstash / KV / Turso-backed counters before public launch.
+ * Rate limit: 5/hour per IP, durable via Upstash when configured,
+ * falling back to in-memory in dev.
  */
 
 import { NextResponse } from 'next/server';
@@ -16,6 +15,7 @@ import { db } from '@/lib/db';
 import { efIssueReports } from '@/lib/schema';
 import { getResolvedFactorBySlug } from '@/lib/emission-factors/loader';
 import { loadAllFactors } from '@/lib/emission-factors/loader';
+import { ipFromRequest, rateLimitDurable } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -28,32 +28,10 @@ const BodySchema = z.object({
   email: z.string().email().max(320).optional(),
 });
 
-type RateBucket = { count: number; resetAt: number };
-const BUCKETS = new Map<string, RateBucket>();
-const LIMIT = 5;
-const WINDOW_MS = 60 * 60 * 1000;
-
-function rateLimit(ip: string): { ok: boolean; retryAfterMs?: number } {
-  const now = Date.now();
-  const existing = BUCKETS.get(ip);
-  if (!existing || existing.resetAt < now) {
-    BUCKETS.set(ip, { count: 1, resetAt: now + WINDOW_MS });
-    return { ok: true };
-  }
-  if (existing.count >= LIMIT) {
-    return { ok: false, retryAfterMs: existing.resetAt - now };
-  }
-  existing.count += 1;
-  return { ok: true };
-}
-
 export async function POST(request: Request) {
-  const ip =
-    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
-    request.headers.get('x-real-ip') ??
-    'unknown';
+  const ip = ipFromRequest(request);
 
-  const gate = rateLimit(ip);
+  const gate = await rateLimitDurable('ef-issues', ip, 5, 60 * 60 * 1000);
   if (!gate.ok) {
     return NextResponse.json(
       {

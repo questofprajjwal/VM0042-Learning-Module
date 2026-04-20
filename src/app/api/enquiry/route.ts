@@ -18,7 +18,7 @@ import { Resend } from 'resend';
 import { z } from 'zod';
 import { db } from '@/lib/db';
 import { serviceEnquiries } from '@/lib/schema';
-import { rateLimit, ipFromRequest } from '@/lib/rate-limit';
+import { rateLimitDurable, ipFromRequest } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -27,6 +27,7 @@ const FROM = 'Greentryst Services <services@greentryst.com>';
 const LEAD_TO = 'prajjwalkaushik08@gmail.com';
 
 const ENGAGEMENTS: Record<string, string> = {
+  'ifrs-gap-assessment': 'IFRS Gap Assessment and Reporting',
   'climate-risk': 'Climate Risk Assessment',
   'diagnostic': 'Sustainability Readiness Diagnostic',
   'net-zero-plan': 'Net Zero Transition Plan',
@@ -47,6 +48,7 @@ const ENGAGEMENTS: Record<string, string> = {
   'custom-tool': 'Custom Tool or Template Build',
   'ma-due-diligence': 'M&A Sustainability Due Diligence',
   'enterprise-implementation': 'Enterprise Implementation',
+  'cohort-ai-climate': 'AI for Climate Work Cohort (6-week program)',
   'unsure': 'Not sure yet',
 };
 
@@ -79,7 +81,7 @@ const BodySchema = z.object({
 });
 
 export async function POST(request: Request) {
-  const gate = rateLimit('enquiry', ipFromRequest(request), 5, 60 * 60 * 1000);
+  const gate = await rateLimitDurable('enquiry', ipFromRequest(request), 5, 60 * 60 * 1000);
   if (!gate.ok) {
     return NextResponse.json(
       { ok: false, error: 'Too many submissions. Please try again later.', retryAfterMs: gate.retryAfterMs },

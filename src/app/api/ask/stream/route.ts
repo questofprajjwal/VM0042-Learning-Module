@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { checkAndReserveCap } from "@/lib/llm-governor";
+import { rateLimitDurable } from "@/lib/rate-limit";
 
 const ASK_SERVER_URL =
   process.env.ASK_SERVER_URL || "http://127.0.0.1:5100";
@@ -40,6 +41,13 @@ export async function POST(req: NextRequest) {
     const query = (body.query || "").trim();
     if (!query) {
       return json(400, { error: "query is required" });
+    }
+
+    // Per-user per-minute cap. Shared bucket with /api/ask so switching
+    // endpoint can't bypass the burst gate.
+    const burst = await rateLimitDurable("ask", userId, 10, 60 * 1000);
+    if (!burst.ok) {
+      return json(429, { error: "slow down", retryAfterMs: burst.retryAfterMs });
     }
 
     // Freemium cap. Every signed-in user is "free" tier until Stripe

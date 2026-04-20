@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { checkAndReserveCap } from "@/lib/llm-governor";
+import { rateLimitDurable } from "@/lib/rate-limit";
 
 // ---------------------------------------------------------------------------
 // Blocking proxy to the SustainIQ ASK server.
@@ -56,6 +57,17 @@ export async function POST(req: NextRequest) {
 
     if (!query) {
       return Response.json({ error: "query is required" }, { status: 400 });
+    }
+
+    // Per-user per-minute cap. Shared bucket across /ask and /ask/stream
+    // so switching endpoint can't bypass. Sits in front of the monthly
+    // governor cap so burst abuse is rejected cheaply.
+    const burst = await rateLimitDurable("ask", userId, 10, 60 * 1000);
+    if (!burst.ok) {
+      return Response.json(
+        { error: "slow down", retryAfterMs: burst.retryAfterMs },
+        { status: 429 }
+      );
     }
 
     // Freemium cap via Governor. Every signed-in user is "free" tier

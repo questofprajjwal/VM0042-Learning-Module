@@ -24,7 +24,7 @@ import { timingSafeEqual } from 'node:crypto';
 
 import { db } from '@/lib/db';
 import { userResumes } from '@/lib/schema';
-import { getResume } from '@/lib/r2-resumes';
+import { getResume, deleteResume } from '@/lib/r2-resumes';
 import { embedOne, EMBED_DIM } from '@/lib/voyage';
 import { generate } from '@/lib/llm-governor';
 
@@ -171,10 +171,12 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Move to 'parsing' so the front-end poller shows progress.
+  // Move to 'scanning' so the front-end poller shows progress. ClamAV
+  // runs before Docling parsing so a malicious file never reaches the
+  // parser (which is an arbitrary-code surface).
   await db
     .update(userResumes)
-    .set({ status: 'parsing' })
+    .set({ status: 'scanning' })
     .where(eq(userResumes.userId, userId));
 
   // ========================================================================
@@ -191,6 +193,82 @@ export async function POST(req: NextRequest) {
     await markError(userId, "couldn't read uploaded file; please re-upload");
     return NextResponse.json({ ok: false, stage: 'r2' }, { status: 500 });
   }
+
+  // ========================================================================
+  // 1b. ClamAV scan. Fail-closed: if the scanner env vars are missing or
+  //     the scanner is unreachable, we do NOT promote the row to parsing.
+  //     The quarantine invariant is "no unscanned file is ever retrievable".
+  // ========================================================================
+  const scannerUrl = process.env.RESUME_SCANNER_URL;
+  const scannerToken = process.env.RESUME_SCANNER_TOKEN;
+  if (!scannerUrl || !scannerToken) {
+    console.error('[resume/process] scanner env missing');
+    await markError(userId, 'server misconfigured; please try again later');
+    return NextResponse.json({ ok: false, stage: 'scan-config' }, { status: 503 });
+  }
+
+  try {
+    const scanForm = new FormData();
+    const scanAb = new ArrayBuffer(fileBytes.byteLength);
+    new Uint8Array(scanAb).set(fileBytes);
+    const scanBlob = new Blob([scanAb], {
+      type: contentType ?? 'application/octet-stream',
+    });
+    scanForm.append('file', scanBlob, row.fileName);
+    const scanResp = await fetch(`${scannerUrl}/scan`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${scannerToken}` },
+      body: scanForm,
+    });
+    if (!scanResp.ok) {
+      const detail = await scanResp.text().catch(() => '');
+      console.error(
+        `[resume/process] scanner returned ${scanResp.status}: ${detail.slice(0, 200)}`,
+      );
+      await markError(userId, 'scan unavailable; please try again later');
+      return NextResponse.json(
+        { ok: false, stage: 'scan', upstream: scanResp.status },
+        { status: 502 },
+      );
+    }
+    const scanResult = (await scanResp.json()) as {
+      clean?: boolean;
+      signature?: string | null;
+    };
+    if (scanResult.clean !== true) {
+      // Terminal state: quarantine by marking 'infected' and deleting the
+      // R2 object so nothing serves it. The row is kept for audit.
+      console.warn(
+        `[resume/process] infected file rejected for user=${userId} sig=${scanResult.signature ?? 'unknown'}`,
+      );
+      try {
+        await deleteResume(row.fileR2Key);
+      } catch (delErr) {
+        console.error('[resume/process] deleteResume after infection failed', delErr);
+      }
+      await db
+        .update(userResumes)
+        .set({
+          status: 'infected',
+          error: `flagged by antivirus: ${scanResult.signature ?? 'unknown'}`,
+        })
+        .where(eq(userResumes.userId, userId));
+      return NextResponse.json(
+        { ok: false, stage: 'scan', reason: 'infected' },
+        { status: 422 },
+      );
+    }
+  } catch (err) {
+    console.error('[resume/process] scanner fetch failed', err);
+    await markError(userId, 'scan unavailable; please try again later');
+    return NextResponse.json({ ok: false, stage: 'scan' }, { status: 502 });
+  }
+
+  // Scan passed — promote to 'parsing'.
+  await db
+    .update(userResumes)
+    .set({ status: 'parsing' })
+    .where(eq(userResumes.userId, userId));
 
   // ========================================================================
   // 2. Forward to the parser HF Space

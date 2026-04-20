@@ -33,6 +33,7 @@ export async function GET() {
       fileR2Key: userResumes.fileR2Key,
       fileName: userResumes.fileName,
       mimeType: userResumes.mimeType,
+      status: userResumes.status,
     })
     .from(userResumes)
     .where(eq(userResumes.userId, userId))
@@ -43,6 +44,17 @@ export async function GET() {
     return NextResponse.json({ error: 'no resume' }, { status: 404 });
   }
 
+  // Only serve files that have completed the scan + parse pipeline.
+  // Any other status (uploading, scanning, parsing, infected, error)
+  // means the file is either not yet cleared by AV or was flagged.
+  // The quarantine invariant: no unscanned / unclean file is ever retrievable.
+  if (row.status !== 'ready') {
+    return NextResponse.json(
+      { error: 'resume not ready', status: row.status },
+      { status: 409 },
+    );
+  }
+
   try {
     const { bytes, contentType } = await getResume(row.fileR2Key);
     // Defensive: Buffer → ArrayBuffer copy so the Response body type is
@@ -50,18 +62,19 @@ export async function GET() {
     const ab = new ArrayBuffer(bytes.byteLength);
     new Uint8Array(ab).set(bytes);
 
-    // Use inline disposition so browsers open the file in-tab where
-    // possible (PDF viewer) rather than forcing a download. Filename
-    // is sanitized with a simple regex.
+    // Serve as an attachment. This is user-supplied content, and we
+    // don't want the browser attempting to render any polyglot payload.
     const safeName = (row.fileName || 'resume').replace(/[^\w.\- ]+/g, '_');
 
     return new NextResponse(ab, {
       status: 200,
       headers: {
         'Content-Type': contentType ?? row.mimeType,
-        'Content-Disposition': `inline; filename="${safeName}"`,
+        'Content-Disposition': `attachment; filename="${safeName}"`,
         'Cache-Control': 'private, no-store',
+        'X-Content-Type-Options': 'nosniff',
         'X-Robots-Tag': 'noindex, nofollow',
+        'Content-Security-Policy': "default-src 'none'; sandbox",
       },
     });
   } catch (err) {

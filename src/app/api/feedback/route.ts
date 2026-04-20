@@ -19,7 +19,7 @@ import { Resend } from 'resend';
 import { z } from 'zod';
 import { db } from '@/lib/db';
 import { feedbackSubmissions } from '@/lib/schema';
-import { rateLimit, ipFromRequest } from '@/lib/rate-limit';
+import { rateLimitDurable, ipFromRequest } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -36,7 +36,7 @@ const BodySchema = z.object({
 });
 
 export async function POST(request: Request) {
-  const gate = rateLimit('feedback', ipFromRequest(request), 10, 60 * 60 * 1000);
+  const gate = await rateLimitDurable('feedback', ipFromRequest(request), 10, 60 * 60 * 1000);
   if (!gate.ok) {
     return NextResponse.json(
       { ok: false, error: 'Too many submissions. Please try again later.', retryAfterMs: gate.retryAfterMs },
