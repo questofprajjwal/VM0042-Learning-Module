@@ -113,8 +113,12 @@ export function CitationButton({
     }
   };
 
+  // max-w on the pill itself caps how wide a single citation can ever
+  // get on a narrow viewport. Without this the pill (with its two 140/120
+  // inner truncations) can hit ~300px and overflow a 375px phone. The
+  // pill's internal truncation still handles longer texts by …ellipsing.
   const base =
-    'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold mx-0.5 align-baseline whitespace-nowrap transition-colors cursor-pointer border';
+    'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold mx-0.5 align-baseline whitespace-nowrap transition-colors cursor-pointer border max-w-full';
   const styles =
     variant === 'emerald'
       ? 'border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-800'
@@ -145,17 +149,17 @@ export function CitationButton({
       }}
     >
       <span className={`inline-block w-1.5 h-1.5 rounded-full shrink-0 ${dot}`} />
-      <span className="font-bold max-w-[140px] truncate">{cit.docTitle}</span>
+      <span className="font-bold truncate max-w-[90px] sm:max-w-[140px]">{cit.docTitle}</span>
       {cit.sectionTitle && (
         <>
-          <span className={divider}>·</span>
-          <span className="max-w-[120px] truncate">{cit.sectionTitle}</span>
+          <span className={`${divider} shrink-0`}>·</span>
+          <span className="truncate max-w-[70px] sm:max-w-[120px]">{cit.sectionTitle}</span>
         </>
       )}
       {cit.pagePart && (
         <>
-          <span className={divider}>·</span>
-          <span className={`${pageColor} font-mono`}>{cit.pagePart}</span>
+          <span className={`${divider} shrink-0`}>·</span>
+          <span className={`${pageColor} font-mono shrink-0`}>{cit.pagePart}</span>
         </>
       )}
     </button>
