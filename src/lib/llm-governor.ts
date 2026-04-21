@@ -139,7 +139,7 @@ const CAPS: Record<
   Record<Tier, { period: 'daily' | 'monthly'; limit: number }>
 > = {
   sustainiq: {
-    free: { period: 'monthly', limit: 5 },
+    free: { period: 'monthly', limit: 25 },
     individual: { period: 'daily', limit: 5 },
     pro: { period: 'daily', limit: 25 },
     team: { period: 'daily', limit: Number.POSITIVE_INFINITY },
