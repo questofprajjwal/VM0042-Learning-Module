@@ -45,9 +45,23 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: PageParams): Metadata {
   try {
     const course = getCourse(params.courseId);
+    const path = `/courses/${params.courseId}`;
+    const description = course.subtitle ?? course.description ?? course.title;
     return {
       title: course.title,
-      description: course.subtitle,
+      description,
+      alternates: { canonical: path },
+      openGraph: {
+        type: 'website',
+        url: path,
+        title: course.title,
+        description,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: course.title,
+        description,
+      },
     };
   } catch {
     return { title: 'Course' };

@@ -13,15 +13,24 @@ import { EFMethodologyDemo } from './_components/EFMethodologyDemo';
 import { EFFaqAccordion } from './_components/EFFaqAccordion';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { dataCatalogSchema, breadcrumbList } from '@/lib/seo/schema';
+import { SITE_ORIGIN } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Emission Factors',
   description:
     'Every emission factor. Sourced. Dated. Free. A reference library of greenhouse-gas emission factors with full provenance, citation formats, and vintage tracking.',
+  alternates: { canonical: '/emission-factors' },
+  openGraph: {
+    type: 'website',
+    url: '/emission-factors',
+    title: 'Emission Factors',
+    description:
+      'A reference library of greenhouse-gas emission factors with full provenance, citation formats, and vintage tracking.',
+  },
 };
 
 const EF_CATALOG = dataCatalogSchema({
-  url: 'https://greentryst.com/emission-factors',
+  url: `${SITE_ORIGIN}/emission-factors`,
   name: 'Greentryst Emission Factor Database',
   description:
     'Reference library of greenhouse-gas emission factors with full provenance, citation formats, and vintage tracking. Sourced from DEFRA, US EPA, India CEA, IPCC, and other primary bodies. Every factor links to its source document.',

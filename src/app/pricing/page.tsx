@@ -54,6 +54,14 @@ export const metadata: Metadata = {
   title: 'Pricing',
   description:
     'Transparent, fixed pricing for the professional operating system for sustainability. Free for individuals, scale to enterprise. Cancel any time.',
+  alternates: { canonical: '/pricing' },
+  openGraph: {
+    type: 'website',
+    url: '/pricing',
+    title: 'Pricing',
+    description:
+      'Transparent, fixed pricing for the professional operating system for sustainability.',
+  },
 };
 
 // ============================================================================

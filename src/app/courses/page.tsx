@@ -42,6 +42,14 @@ export const metadata: Metadata = {
   title: 'Course Catalogue',
   description:
     '23 courses across climate science, carbon markets, ESG reporting, green finance, and regulations. Structured paths to the frameworks sustainability practitioners actually use.',
+  alternates: { canonical: '/courses' },
+  openGraph: {
+    type: 'website',
+    url: '/courses',
+    title: 'Course Catalogue',
+    description:
+      '23 courses across climate science, carbon markets, ESG reporting, green finance, and regulations.',
+  },
 };
 
 // Learning path definitions live in the shared module so the

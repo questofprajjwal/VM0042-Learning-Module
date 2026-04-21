@@ -61,9 +61,22 @@ export async function generateMetadata({
   if (!guide) {
     return { title: 'Guide Not Found' };
   }
+  const path = `/guides/${slug}`;
   return {
     title: guide.title,
     description: guide.description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: 'article',
+      url: path,
+      title: guide.title,
+      description: guide.description,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: guide.title,
+      description: guide.description,
+    },
   };
 }
 

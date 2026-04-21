@@ -1,410 +1,410 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://greentryst.com/emission-factors</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/sources</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/sources</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/search</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/search</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/compare</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/compare</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/butane-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/butane-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/cng-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/cng-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/lng-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/lng-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/lpg-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/lpg-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/natural-gas-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/natural-gas-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/natural-gas-100-mineral-blend-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/natural-gas-100-mineral-blend-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/other-petroleum-gas-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/other-petroleum-gas-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/propane-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/propane-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/aviation-spirit-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/aviation-spirit-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/aviation-turbine-fuel-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/aviation-turbine-fuel-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/burning-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/burning-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/diesel-average-biofuel-blend-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/diesel-average-biofuel-blend-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/diesel-100-mineral-diesel-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/diesel-100-mineral-diesel-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/fuel-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/fuel-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/gas-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/gas-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/lubricants-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/lubricants-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/naphtha-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/naphtha-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/petrol-average-biofuel-blend-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/petrol-average-biofuel-blend-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/petrol-100-mineral-petrol-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/petrol-100-mineral-petrol-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/processed-fuel-oils-residual-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/processed-fuel-oils-residual-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/processed-fuel-oils-distillate-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/processed-fuel-oils-distillate-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/refinery-miscellaneous-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/refinery-miscellaneous-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/waste-oils-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/waste-oils-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/marine-gas-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/marine-gas-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/marine-fuel-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/marine-fuel-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/coal-industrial-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/coal-industrial-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/coal-electricity-generation-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/coal-electricity-generation-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/coal-domestic-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/coal-domestic-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/coking-coal-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/coking-coal-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/petroleum-coke-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/petroleum-coke-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/coal-electricity-generation-home-produced-coal-only-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/coal-electricity-generation-home-produced-coal-only-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/bioethanol-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/bioethanol-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biodiesel-me-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biodiesel-me-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biomethane-compressed-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biomethane-compressed-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biodiesel-me-from-used-cooking-oil-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biodiesel-me-from-used-cooking-oil-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biodiesel-me-from-tallow-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biodiesel-me-from-tallow-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biodiesel-hvo-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biodiesel-hvo-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biopropane-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biopropane-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/development-diesel-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/development-diesel-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/development-petrol-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/development-petrol-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/off-road-biodiesel-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/off-road-biodiesel-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biomethane-liquified-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biomethane-liquified-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/methanol-bio-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/methanol-bio-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/avtur-renewable-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/avtur-renewable-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/wood-logs-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/wood-logs-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/wood-chips-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/wood-chips-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/wood-pellets-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/wood-pellets-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/grass-straw-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/grass-straw-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/biogas-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/biogas-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/landfill-gas-scope-1-defra-2025</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/landfill-gas-scope-1-defra-2025</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/sources/defra</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/sources/defra</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/electricity</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://greentryst.com/emission-factors/category/fuels</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/electricity</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/transport</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/fuels</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/refrigerants</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/transport</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/waste</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/refrigerants</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/water</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/waste</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/agriculture</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/water</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/lulucf</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/agriculture</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/construction</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/lulucf</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/materials</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/construction</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/sector_spend</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/materials</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/gwp</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/sector_spend</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://greentryst.com/emission-factors/category/other</loc>
-    <lastmod>2026-04-19</lastmod>
+    <loc>https://www.greentryst.com/emission-factors/category/gwp</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.greentryst.com/emission-factors/category/other</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

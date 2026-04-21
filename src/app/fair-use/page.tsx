@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   title: 'Fair Use',
   description:
     'The numbers behind every Greentryst tier. Query caps, tool caps, seats, exports, and retention: up front, no fine print.',
+  alternates: { canonical: '/fair-use' },
+  openGraph: {
+    type: 'website',
+    url: '/fair-use',
+    title: 'Fair Use',
+    description:
+      'Query caps, tool caps, seats, exports, and retention across every Greentryst tier.',
+  },
 };
 
 const USAGE_LIMITS = [

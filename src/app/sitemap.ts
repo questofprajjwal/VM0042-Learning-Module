@@ -2,8 +2,9 @@ import { MetadataRoute } from 'next';
 import { getAllCourses, getAllLessons } from '@/lib/courses';
 import { lessonIdToUrl } from '@/lib/url-helpers';
 import { getAllGuides } from '@/lib/guides';
+import { SITE_ORIGIN } from '@/lib/site';
 
-const siteUrl = 'https://greentryst.com';
+const siteUrl = SITE_ORIGIN;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const courses = getAllCourses();

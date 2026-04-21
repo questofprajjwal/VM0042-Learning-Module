@@ -11,6 +11,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Sign Up',
   description: 'Create your Greentryst account and start learning.',
+  alternates: { canonical: '/sign-up' },
+  robots: { index: false, follow: true },
 };
 
 export default function SignUpPage() {

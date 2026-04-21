@@ -69,6 +69,14 @@ export const metadata: Metadata = {
   title: 'Services',
   description:
     'Premium custom engagements for sustainability teams. Climate risk at global-leading spatial resolution, double materiality, ratings support, training, and enterprise implementations. Fixed scope, fixed fee, every claim sourced.',
+  alternates: { canonical: '/services' },
+  openGraph: {
+    type: 'website',
+    url: '/services',
+    title: 'Services',
+    description:
+      'Premium custom engagements for sustainability teams. Fixed scope, fixed fee, every claim sourced.',
+  },
 };
 
 // ============================================================================

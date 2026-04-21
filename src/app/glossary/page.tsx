@@ -16,7 +16,16 @@ import { definedTermSetSchema, breadcrumbList } from '@/lib/seo/schema';
 
 export const metadata: Metadata = {
   title: 'Glossary',
-  description: 'Comprehensive glossary of sustainability, ESG, carbon markets, and climate terminology.',
+  description:
+    'Comprehensive glossary of sustainability, ESG, carbon markets, and climate terminology.',
+  alternates: { canonical: '/glossary' },
+  openGraph: {
+    type: 'website',
+    url: '/glossary',
+    title: 'Glossary',
+    description:
+      'Comprehensive glossary of sustainability, ESG, carbon markets, and climate terminology.',
+  },
 };
 
 interface GlossaryTerm {

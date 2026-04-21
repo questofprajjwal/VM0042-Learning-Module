@@ -23,6 +23,8 @@ import { DashboardClientRedesign } from './_components/DashboardClientRedesign';
 export const metadata: Metadata = {
   title: 'Dashboard',
   description: 'Track your learning progress, streaks, and achievements.',
+  // Auth-gated user surface, not public content. Do not index.
+  robots: { index: false, follow: true, nocache: true },
 };
 
 export default async function DashboardRedesignPage() {

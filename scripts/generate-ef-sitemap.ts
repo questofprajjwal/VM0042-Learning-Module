@@ -21,8 +21,9 @@ import {
   loadAllSources,
 } from '../src/lib/emission-factors/loader';
 import { ALL_CATEGORIES } from '../src/lib/emission-factors/categories';
+import { SITE_ORIGIN } from '../src/lib/site';
 
-const SITE_URL = 'https://greentryst.com';
+const SITE_URL = SITE_ORIGIN;
 const OUT_FILE = join(process.cwd(), 'public', 'sitemap-emission-factors.xml');
 
 interface UrlEntry {

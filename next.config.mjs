@@ -60,6 +60,23 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Canonical host is https://www.greentryst.com. Every request that
+      // arrives on the apex domain is permanently redirected to its www
+      // equivalent. `permanent: true` emits HTTP 308 (permanent,
+      // method-preserving) which Google treats as equivalent to 301 for
+      // SEO purposes and which consolidates link equity onto www.
+      //
+      // Vercel's platform-level domain redirect may short-circuit this
+      // rule (the edge issues its own response before the Lambda runs).
+      // If production still returns 307 from apex after this deploys,
+      // remove the apex-level redirect in Vercel → Project → Domains
+      // so this code path takes over, OR flip that setting to permanent.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'greentryst.com' }],
+        destination: 'https://www.greentryst.com/:path*',
+        permanent: true,
+      },
       // Legacy module landing URLs had no redesign equivalent; collapse to the
       // course overview, where the same modules are now surfaced inline.
       {

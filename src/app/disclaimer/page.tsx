@@ -11,6 +11,13 @@ import { RedesignFooter } from '@/components/redesign';
 export const metadata: Metadata = {
   title: 'Disclaimer',
   description: 'Legal disclaimer and terms of use for Greentryst.',
+  alternates: { canonical: '/disclaimer' },
+  openGraph: {
+    type: 'website',
+    url: '/disclaimer',
+    title: 'Disclaimer',
+    description: 'Legal disclaimer and terms of use for Greentryst.',
+  },
 };
 
 export default function DisclaimerPage() {

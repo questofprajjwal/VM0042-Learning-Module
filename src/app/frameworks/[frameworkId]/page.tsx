@@ -13,7 +13,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { Nav } from '@/components/Nav';
-import { RedesignFooter } from '@/components/redesign';
+import { RedesignFooter, ServiceBanner } from '@/components/redesign';
 import { JsonLd } from '@/components/seo/JsonLd';
 import {
   breadcrumbList,
@@ -44,22 +44,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const fw = getFramework(params.frameworkId);
   if (!fw) return { title: 'Framework not found' };
-  const title = fw.seo_title ?? `${fw.name}: Practitioner Guide | Greentryst`;
+  // Bare title. Root layout's title.template appends ' | Greentryst'.
+  // Strip any legacy manual suffix from seo_title if present in YAML.
+  const rawTitle = fw.seo_title ?? `${fw.name}: Practitioner Guide`;
+  const title = rawTitle
+    .replace(/\s*[|\-–]\s*Greentryst\s*$/i, '')
+    .trim();
   const description =
     fw.seo_description ??
     fw.summary.replace(/\s+/g, ' ').trim().slice(0, 160);
   const canonical = `/frameworks/${fw.id}`;
-  const url = `${SITE_URL}${canonical}`;
   return {
-    title: { absolute: title },
+    title,
     description,
     alternates: { canonical },
     openGraph: {
       title,
       description,
-      url,
+      url: canonical,
       type: 'article',
-      siteName: 'Greentryst',
     },
     twitter: {
       card: 'summary_large_image',
@@ -161,9 +164,9 @@ const PILLAR_KEY_POINTS: Record<string, string[]> = {
 };
 
 const MONO =
-  'font-redesign-mono text-[10px] font-bold uppercase tracking-[0.22em]';
+  'font-redesign-mono text-[13px] font-bold uppercase tracking-[0.18em]';
 const MONO_SM =
-  'font-redesign-mono text-[11px] font-bold uppercase tracking-[0.2em]';
+  'font-redesign-mono text-[14px] font-bold uppercase tracking-[0.16em]';
 
 export default function FrameworkOverviewPage({
   params,
@@ -718,6 +721,22 @@ export default function FrameworkOverviewPage({
       {/* ==================================================================
           COLOPHON — thick rule, mono credits
           ================================================================== */}
+      {/* Premium service banner — full-engagement offering */}
+      <section className="bg-[#fafbfa] pt-6 pb-16">
+        <div className="max-w-[1280px] mx-auto px-10">
+          <ServiceBanner
+            label={`Done-for-you · ${fw.short_name}`}
+            headline={`Let Greentryst help you prepare your ${fw.short_name} disclosure`}
+            headlineHighlight="end to end."
+            body={`The Climate Disclosure Desk runs the full ${fw.short_name} assessment against your documents, populates every clause, and delivers a board-ready disclosure draft with provenance for every sentence. Assurance-grade, signed off, audit-ready.`}
+            ctaLabel="Talk to the Desk"
+            ctaHref="/services/enquire?engagement=ifrs-gap-assessment"
+            secondaryLabel="See all service packages"
+            secondaryHref="/services"
+          />
+        </div>
+      </section>
+
       <section className="bg-black text-white">
         <div className="max-w-[1280px] mx-auto px-10 py-10">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">

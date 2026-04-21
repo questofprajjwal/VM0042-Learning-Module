@@ -17,19 +17,17 @@ import {
 } from '@/components/redesign';
 
 export const metadata: Metadata = {
-  title: 'Sustainability Prompt Library - Greentryst',
+  title: 'Sustainability Prompt Library',
   description:
     'Free, detailed prompts for drafting ESG reports, CDP responses, DJSI CSA answers, BRSR indicators. Professional voice, no AI tells, every prompt reviewed by a practitioner.',
-  alternates: { canonical: 'https://greentryst.com/prompt-library' },
+  alternates: { canonical: '/prompt-library' },
   openGraph: {
     type: 'website',
-    url: 'https://greentryst.com/prompt-library',
-    title: 'Sustainability Prompt Library - Greentryst',
-    siteName: 'Greentryst',
+    url: '/prompt-library',
+    title: 'Sustainability Prompt Library',
     description:
       'Detailed, practitioner-reviewed prompts for ESG, CDP, DJSI, and BRSR work. Free to copy.',
   },
-  twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
 };
 

@@ -42,21 +42,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const prompt = getPromptBySlug(params.slug);
   if (!prompt) return { title: 'Prompt not found' };
-  const title = `${prompt.title} - Greentryst Prompt Library`;
+  // Bare title. Root template appends ' | Greentryst'. Do NOT append it here.
+  const title = `${prompt.title} — Prompt Library`;
   const description = truncate(
     prompt.short_description || prompt.description,
   );
-  const canonical = `https://greentryst.com/prompt-library/${prompt.slug}`;
+  const path = `/prompt-library/${prompt.slug}`;
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: { canonical: path },
     openGraph: {
       type: 'article',
-      url: canonical,
+      url: path,
       title,
       description,
-      siteName: 'Greentryst',
     },
     twitter: { card: 'summary_large_image', title, description },
     robots: { index: true, follow: true },

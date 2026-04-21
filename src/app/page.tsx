@@ -37,11 +37,24 @@ import { getAllCourses, getAllLessons } from '@/lib/courses';
 import { HeroClient } from './_components/HeroClient';
 
 export const metadata = {
-  // Title intentionally empty so the root layout's default "Greentryst - The
-  // Professional Home for Sustainability" is used (template suppresses on root).
+  // Title intentionally omitted so the root layout's default is used verbatim
+  // (the template does not apply to the default title).
   description:
     'The professional operating system for sustainability practitioners. Learn new domains, verify answers with sourced citations, execute work with professional tools, advance your career.',
   alternates: { canonical: '/' },
+  // Homepage owns its own OG url/title/description. Root layout only sets
+  // siteName and locale, which are the same on every page.
+  openGraph: {
+    url: '/',
+    title: 'Sustainability Software for CSRD, GHG Protocol & ESG',
+    description:
+      'Sustainability professionals learn frameworks (GRI, SASB, TCFD, IFRS S2, SBTi), get AI answers sourced to regulations, and track 120+ rules across 14+ geographies.',
+  },
+  twitter: {
+    title: 'Sustainability Software for CSRD, GHG Protocol & ESG',
+    description:
+      'The professional operating system for sustainability practitioners.',
+  },
 };
 
 export default function HomePage() {

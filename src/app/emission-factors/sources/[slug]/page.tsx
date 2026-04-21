@@ -62,17 +62,16 @@ export async function generateMetadata({
   if (!source) return { title: 'Source not found' };
   const title = `${source.publisher_short} ${source.vintage_year} - ${source.name}`;
   const description = truncate(source.description);
-  const canonical = `https://greentryst.com/emission-factors/sources/${source.id}`;
+  const path = `/emission-factors/sources/${source.id}`;
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: { canonical: path },
     openGraph: {
       type: 'article',
-      url: canonical,
+      url: path,
       title,
       description,
-      siteName: 'Greentryst',
     },
     twitter: { card: 'summary_large_image', title, description },
     robots: {

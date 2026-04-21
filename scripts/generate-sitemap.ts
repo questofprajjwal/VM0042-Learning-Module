@@ -7,8 +7,9 @@
 
 import { writeFileSync } from 'fs';
 import { join } from 'path';
+import { SITE_ORIGIN } from '../src/lib/site';
 
-const SITE_URL = 'https://greentryst.com';
+const SITE_URL = SITE_ORIGIN;
 const PUBLIC_DIR = join(__dirname, '..', 'public');
 
 // Import course data

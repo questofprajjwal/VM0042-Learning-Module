@@ -49,17 +49,16 @@ export async function generateMetadata({
       ? factor.notes
       : `${factor.value} ${factor.unit_numerator}/${factor.unit_denominator} for ${factor.activity} in ${factor.region_display}, from ${factor.source.publisher_short} ${factor.vintage_year}.`,
   );
-  const canonical = `https://greentryst.com/emission-factors/${factor.slug}`;
+  const path = `/emission-factors/${factor.slug}`;
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: { canonical: path },
     openGraph: {
       type: 'article',
-      url: canonical,
+      url: path,
       title,
       description,
-      siteName: 'Greentryst',
     },
     twitter: { card: 'summary_large_image', title, description },
     robots: {

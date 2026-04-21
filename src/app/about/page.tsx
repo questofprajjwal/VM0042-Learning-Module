@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   title: 'About',
   description:
     'Built by consultants from top consulting firms with 10+ years across Finance, Environmental Science, Energy Efficiency, and Renewable Energy. Every page reviewed against primary sources.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    type: 'website',
+    url: '/about',
+    title: 'About Greentryst',
+    description:
+      'Built by consultants from top consulting firms with 10+ years across Finance, Environmental Science, Energy Efficiency, and Renewable Energy.',
+  },
 };
 
 const ABOUT_PAGE_LD = {

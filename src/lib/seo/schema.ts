@@ -8,7 +8,9 @@
  * page-specific schemas can reference them without duplication.
  */
 
-export const SITE_URL = 'https://greentryst.com';
+import { SITE_ORIGIN } from '@/lib/site';
+
+export const SITE_URL = SITE_ORIGIN;
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 export const SAAS_ID = `${SITE_URL}/#saas`;

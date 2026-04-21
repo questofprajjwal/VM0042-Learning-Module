@@ -20,18 +20,14 @@ export const metadata: Metadata = {
   title: 'Search emission factors',
   description:
     'Search the Greentryst emission factor library by activity, region, source, scope, and vintage.',
-  alternates: {
-    canonical: 'https://greentryst.com/emission-factors/search',
-  },
+  alternates: { canonical: '/emission-factors/search' },
   openGraph: {
     type: 'website',
-    url: 'https://greentryst.com/emission-factors/search',
-    title: 'Search emission factors - Greentryst',
-    siteName: 'Greentryst',
+    url: '/emission-factors/search',
+    title: 'Search emission factors',
     description:
       'Search verified emission factors by activity, region, source, scope, and vintage.',
   },
-  twitter: { card: 'summary_large_image' },
   robots: {
     index: true,
     follow: true,

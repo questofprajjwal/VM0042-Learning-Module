@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   title: 'Sources',
   description:
     'Every publisher, standard, and reference document that feeds the Greentryst emission factor library.',
+  alternates: { canonical: '/emission-factors/sources' },
+  openGraph: {
+    type: 'website',
+    url: '/emission-factors/sources',
+    title: 'Emission factor sources',
+    description:
+      'Every publisher, standard, and reference document that feeds the Greentryst emission factor library.',
+  },
 };
 
 export default function SourcesIndexPage() {

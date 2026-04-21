@@ -23,6 +23,14 @@ export const metadata: Metadata = {
   title: 'SustainIQ',
   description:
     'Ask anything about sustainability frameworks, standards, and methodologies. Every answer is sourced to its primary document. No hallucinations, no plausible-sounding guesses.',
+  alternates: { canonical: '/ask' },
+  openGraph: {
+    type: 'website',
+    url: '/ask',
+    title: 'SustainIQ',
+    description:
+      'Ask anything about sustainability frameworks. Every answer is sourced to its primary document.',
+  },
 };
 
 export default function SustainIQPage() {

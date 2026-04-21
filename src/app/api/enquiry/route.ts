@@ -19,6 +19,7 @@ import { z } from 'zod';
 import { db } from '@/lib/db';
 import { serviceEnquiries } from '@/lib/schema';
 import { rateLimitDurable, ipFromRequest } from '@/lib/rate-limit';
+import { SITE_ORIGIN } from '@/lib/site';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -226,7 +227,7 @@ function receiptBody({
     '',
     `Warm regards,`,
     `The Greentryst team`,
-    `https://greentryst.com`,
+    SITE_ORIGIN,
   ]
     .filter((line) => line !== null)
     .join('\n');

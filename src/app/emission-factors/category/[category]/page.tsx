@@ -30,9 +30,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   if (!isCategory(params.category)) return { title: 'Category not found' };
   const meta = CATEGORY_META[params.category];
+  const title = `${meta.label} emission factors`;
+  const path = `/emission-factors/category/${params.category}`;
   return {
-    title: `${meta.label} emission factors`,
+    title,
     description: meta.description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: 'website',
+      url: path,
+      title,
+      description: meta.description,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: meta.description,
+    },
   };
 }
 

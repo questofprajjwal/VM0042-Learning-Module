@@ -15,7 +15,16 @@ import { AnimatedGuidesHero } from './_components/AnimatedGuidesHero';
 
 export const metadata: Metadata = {
   title: 'Guides',
-  description: 'Practitioner guides answering the most common sustainability, ESG, and carbon markets questions.',
+  description:
+    'Practitioner guides answering the most common sustainability, ESG, and carbon markets questions.',
+  alternates: { canonical: '/guides' },
+  openGraph: {
+    type: 'website',
+    url: '/guides',
+    title: 'Guides',
+    description:
+      'Practitioner guides answering the most common sustainability, ESG, and carbon markets questions.',
+  },
 };
 
 // Topic categories for filtering

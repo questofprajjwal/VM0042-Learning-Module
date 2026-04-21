@@ -5,10 +5,9 @@ import Script from 'next/script';
 import MigrationBanner from '@/components/platform/MigrationBanner';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { siteGraph } from '@/lib/seo/schema';
+import { SITE_ORIGIN } from '@/lib/site';
 import './globals.css';
 import './redesign.css';
-
-const siteUrl = 'https://greentryst.com';
 
 // Fonts for the redesign. CSS variables are referenced in tailwind.config.ts
 // under fontFamily.redesign-sans and redesign-mono.
@@ -33,9 +32,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_ORIGIN),
+  // default is the homepage title. Leaf pages override via generateMetadata
+  // or export const metadata = { title: '...' }, and title.template wraps
+  // their bare title with ' | Greentryst'. Do NOT append the suffix
+  // manually in leaf pages — that produces ' | Greentryst | Greentryst'.
   title: {
-    default: 'Sustainability Software for CSRD, GHG Protocol & ESG | Greentryst',
+    default: 'Sustainability Software for CSRD, GHG Protocol & ESG',
     template: '%s | Greentryst',
   },
   description:
@@ -45,28 +48,26 @@ export const metadata: Metadata = {
     'Scope 1', 'Scope 2', 'Scope 3', 'carbon credits', 'TCFD', 'IFRS S2', 'SBTi',
     'net zero', 'green finance', 'SFDR', 'EU Taxonomy', 'CSRD', 'PCAF',
   ],
+  // openGraph.siteName and locale are fine to set at root because they're
+  // the same for every page. url, title, and description must be owned
+  // by each page (see src/app/page.tsx for the homepage's own OG block).
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteUrl,
     siteName: 'Greentryst',
-    title: 'Sustainability Software for CSRD, GHG Protocol & ESG | Greentryst',
-    description:
-      'Sustainability professionals learn frameworks (GRI, SASB, TCFD, IFRS S2, SBTi), get AI answers sourced to regulations, and track 120+ rules across 14+ geographies.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sustainability Software for CSRD, GHG Protocol & ESG | Greentryst',
-    description:
-      'The professional operating system for sustainability practitioners.',
   },
   robots: {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: siteUrl,
-  },
+  // NO root-level alternates.canonical. The root-level canonical leaked
+  // into every child route that did not explicitly set its own, causing
+  // 61 pages to canonicalise to the homepage. Every indexable page sets
+  // its own canonical via buildPageMetadata({ path }) or an explicit
+  // alternates: { canonical: '/its/path' } block.
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -87,10 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body
-        className="gt-redesign-root min-h-screen flex flex-col bg-gray-50"
-        style={{ fontFamily: 'var(--font-inter), Inter, system-ui, sans-serif' }}
-      >
+      <body className="gt-redesign-root min-h-screen flex flex-col bg-gray-50">
         <ClerkProvider>
           <MigrationBanner />
           {children}

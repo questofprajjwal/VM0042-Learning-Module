@@ -74,3 +74,8 @@ data/page-indexes/
 data/page-indexes-docling-test/*
 !data/page-indexes-docling-test/catalog.json
 data/page-indexes-docling-backup/
+
+# Private SEO research and audit folder — vendor repo clones, GSC exports,
+# Screaming Frog CSVs, internal audit findings. Never commit.
+# Root-anchored so it does NOT match src/lib/seo/ on case-insensitive file systems.
+/SEO/

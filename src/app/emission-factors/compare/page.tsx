@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   title: 'Compare factors',
   description:
     'Place 2 to 4 emission factors side by side to compare values, methodology, vintage, and source.',
+  alternates: { canonical: '/emission-factors/compare' },
+  openGraph: {
+    type: 'website',
+    url: '/emission-factors/compare',
+    title: 'Compare emission factors',
+    description:
+      'Place 2 to 4 emission factors side by side to compare values, methodology, vintage, and source.',
+  },
 };
 
 export default function ComparePage() {

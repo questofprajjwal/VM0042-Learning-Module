@@ -20,6 +20,7 @@ import { z } from 'zod';
 import { db } from '@/lib/db';
 import { feedbackSubmissions } from '@/lib/schema';
 import { rateLimitDurable, ipFromRequest } from '@/lib/rate-limit';
+import { SITE_ORIGIN } from '@/lib/site';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -172,6 +173,6 @@ function receiptBody({ type, message }: { type: string; message: string }) {
     `If you remembered one more thing the second after you hit send (always happens), just reply to this email and it lands in the same thread.`,
     '',
     `The Greentryst team`,
-    `https://greentryst.com`,
+    SITE_ORIGIN,
   ].join('\n');
 }

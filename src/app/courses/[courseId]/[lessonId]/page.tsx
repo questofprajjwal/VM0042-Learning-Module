@@ -70,11 +70,12 @@ export function generateMetadata({ params }: PageParams): Metadata {
       .flatMap((m) => m.lessons)
       .find((l) => l.id === lessonId);
 
-    const headline = lesson?.seoTitle ?? lesson?.title ?? lessonId;
-    const title = `${headline} | Greentryst`;
+    // Bare title. Root layout's title.template appends ' | Greentryst'.
+    // Do NOT manually append it here — that produces ' | Greentryst | Greentryst'.
+    const title = lesson?.seoTitle ?? lesson?.title ?? lessonId;
     const description =
       lesson?.seoDescription ??
-      `${lesson?.title ?? 'Lesson'} - a lesson from the Greentryst course "${course.title}".`;
+      `${lesson?.title ?? 'Lesson'} — a lesson from the Greentryst course "${course.title}".`;
     const canonicalPath = `/courses/${params.courseId}/${params.lessonId}`;
 
     return {
@@ -86,7 +87,6 @@ export function generateMetadata({ params }: PageParams): Metadata {
         description,
         type: 'article',
         url: canonicalPath,
-        siteName: 'Greentryst',
       },
       twitter: {
         card: 'summary_large_image',
@@ -95,7 +95,7 @@ export function generateMetadata({ params }: PageParams): Metadata {
       },
     };
   } catch {
-    return { title: 'Lesson | Greentryst' };
+    return { title: 'Lesson' };
   }
 }
 

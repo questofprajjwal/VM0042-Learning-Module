@@ -4,9 +4,10 @@ import { RedesignFooter } from '@/components/redesign';
 import RetirementsClient from './_components/RetirementsClient';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { datasetSchema, breadcrumbList } from '@/lib/seo/schema';
+import { SITE_ORIGIN } from '@/lib/site';
 
 const RETIREMENTS_DATASET = datasetSchema({
-  url: 'https://greentryst.com/carbon/retirements',
+  url: `${SITE_ORIGIN}/carbon/retirements`,
   name: 'Greentryst Carbon Retirement Leaderboard',
   description:
     'Aggregated carbon credit retirement volumes by beneficiary across Verra, Gold Standard, ACR, CAR, ART TREES, and other major registries. Updated nightly. Use to verify corporate net-zero claims against the public record.',
@@ -26,9 +27,9 @@ const RETIREMENTS_DATASET = datasetSchema({
     'Retirements by methodology',
     'Retirements by vintage',
   ],
-  distributionUrl: 'https://greentryst.com/carbon-market-retirements.json',
+  distributionUrl: `${SITE_ORIGIN}/carbon-market-retirements.json`,
   distributionFormat: 'application/json',
-  license: 'https://greentryst.com/fair-use',
+  license: `${SITE_ORIGIN}/fair-use`,
 });
 const RETIREMENTS_BREADCRUMBS = breadcrumbList([
   { name: 'Home', url: '/' },
@@ -37,14 +38,15 @@ const RETIREMENTS_BREADCRUMBS = breadcrumbList([
 ]);
 
 export const metadata: Metadata = {
-  title: 'Carbon Retirement Leaderboard | Greentryst',
+  title: 'Carbon Retirement Leaderboard',
   description:
     'Who retired the most carbon credits across Verra, Gold Standard, ACR, CAR, and other registries. Search by beneficiary, filter by registry, and verify corporate net zero claims against the public record.',
+  alternates: { canonical: '/carbon/retirements' },
   openGraph: {
     title: 'Carbon Retirement Leaderboard',
     description:
       'Corporate retirement intelligence across 11 carbon registries. Search 2,700+ beneficiaries, see verified retirement volumes.',
-    url: 'https://greentryst.com/carbon/retirements',
+    url: '/carbon/retirements',
   },
 };
 
