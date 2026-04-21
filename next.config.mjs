@@ -22,7 +22,13 @@ const nextConfig = {
       "connect-src 'self' https: wss:",
       "frame-src 'self' https://*.clerk.accounts.dev https://clerk.greentryst.com https://*.clerk.com https://open.spotify.com https://www.googletagmanager.com https://vercel.live",
       "worker-src 'self' blob:",
-      "frame-ancestors 'none'",
+      // 'self' (not 'none') so /pdfjs/web/viewer.html can be iframed by the
+       // SustainIQ source drawer on /ask. External pages still cannot frame
+       // greentryst pages — only same-origin framing is allowed, which
+       // matches X-Frame-Options:SAMEORIGIN below. Clickjacking protection
+       // is preserved; every attacker vector still has to compromise a
+       // greentryst page first.
+      "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self'",
       "object-src 'none'",
@@ -33,7 +39,10 @@ const nextConfig = {
       {
         source: '/:path*',
         headers: [
-          { key: 'X-Frame-Options', value: 'DENY' },
+          // SAMEORIGIN (not DENY) so the SustainIQ source drawer on /ask
+          // can embed /pdfjs/web/viewer.html in an iframe. External sites
+          // are still blocked from framing any greentryst page.
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           {
