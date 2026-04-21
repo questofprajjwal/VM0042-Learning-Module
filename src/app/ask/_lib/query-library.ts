@@ -77,8 +77,10 @@ export const QUERY_LIBRARY: LibraryCategory[] = [
   },
 ];
 
-/** The six featured queries shown in the default empty state,
- *  picked to cover a breadth of categories. */
+/** The six featured queries shown in the default empty state on first
+ *  (server-rendered) paint. Deterministic so server and client match on
+ *  hydration. The client swaps in a shuffled set once mounted (see
+ *  `pickFeaturedQueries`) so returning visitors see variety. */
 export const FEATURED_QUERY_IDS: string[] = [
   'What does IPCC AR6 say about climate sensitivity?',
   'How do I choose between location-based and market-based Scope 2 reporting?',
@@ -87,3 +89,21 @@ export const FEATURED_QUERY_IDS: string[] = [
   'How does SBTi validate a near-term emissions reduction target?',
   'When does EU CBAM move from the transitional to the definitive period?',
 ];
+
+/**
+ * Pick a fresh set of featured queries for the empty state.
+ *
+ * Shape stays the same — one query per category, six total — but each
+ * category's slot rotates through its 4 variants, and the category
+ * order itself shuffles. Call on mount from a client component so SSR
+ * hydration uses the deterministic FEATURED_QUERY_IDS first and the
+ * shuffle replaces it on the client only (no mismatch warning).
+ */
+export function pickFeaturedQueries(): string[] {
+  const randomItem = <T,>(arr: readonly T[]): T =>
+    arr[Math.floor(Math.random() * arr.length)];
+
+  // Shuffle a copy of QUERY_LIBRARY so category order rotates too.
+  const cats = [...QUERY_LIBRARY].sort(() => Math.random() - 0.5);
+  return cats.map((cat) => randomItem(cat.queries));
+}

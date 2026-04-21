@@ -68,6 +68,7 @@ import {
 import {
   QUERY_LIBRARY,
   FEATURED_QUERY_IDS,
+  pickFeaturedQueries,
 } from '../_lib/query-library';
 import { cn } from '@/components/redesign/lib/cn';
 import type {
@@ -138,30 +139,27 @@ function pipelineSourceToHistory(s: PipelineSource): Source {
    Example query icons (for the empty state featured cards)
    ============================================================ */
 
-const FEATURED_META: Record<string, { Icon: LucideIcon; category: string }> = {
-  'What does IPCC AR6 say about climate sensitivity?': {
-    Icon: Thermometer,
-    category: 'Climate Science',
-  },
-  'How do I choose between location-based and market-based Scope 2 reporting?':
-    { Icon: Factory, category: 'GHG Accounting' },
-  'What is double materiality under CSRD and how is it assessed?': {
-    Icon: FileText,
-    category: 'ESG Reporting',
-  },
-  'What are the three quantification approaches in VM0042?': {
-    Icon: Coins,
-    category: 'Carbon Markets',
-  },
-  'How does SBTi validate a near-term emissions reduction target?': {
-    Icon: Target,
-    category: 'Targets',
-  },
-  'When does EU CBAM move from the transitional to the definitive period?': {
-    Icon: Landmark,
-    category: 'EU Regulation',
-  },
+// Icon + label per QUERY_LIBRARY category. The shuffled featured queries
+// look up their tile style from here, so any query from any category
+// renders with the right icon and heading — not just the original six.
+const CATEGORY_META: Record<string, { Icon: LucideIcon; label: string }> = {
+  'climate-science': { Icon: Thermometer, label: 'Climate Science' },
+  'ghg-accounting': { Icon: Factory, label: 'GHG Accounting' },
+  'esg-reporting': { Icon: FileText, label: 'ESG Reporting' },
+  'carbon-markets': { Icon: Coins, label: 'Carbon Markets' },
+  targets: { Icon: Target, label: 'Targets' },
+  'eu-regulation': { Icon: Landmark, label: 'EU Regulation' },
 };
+
+// Reverse index so we can find the right CATEGORY_META entry for any
+// query string — used by the featured tiles below.
+const QUERY_TO_CATEGORY_ID: Record<string, string> = (() => {
+  const out: Record<string, string> = {};
+  for (const cat of QUERY_LIBRARY) {
+    for (const q of cat.queries) out[q] = cat.id;
+  }
+  return out;
+})();
 
 /* ============================================================
    Loading step labels (map phases -> user-facing label).
@@ -208,6 +206,16 @@ export function AskClientRedesign() {
   const [activeHistoryId, setActiveHistoryId] = useState<string | null>(null);
   const [historyQuery, setHistoryQuery] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Featured query tiles on the empty state. Start with the deterministic
+  // FEATURED_QUERY_IDS so SSR and the first client render match (no
+  // hydration warning), then swap in a shuffled pick on mount so each
+  // page open shows a different mix pulled from QUERY_LIBRARY.
+  const [featuredQueries, setFeaturedQueries] =
+    useState<string[]>(FEATURED_QUERY_IDS);
+  useEffect(() => {
+    setFeaturedQueries(pickFeaturedQueries());
+  }, []);
 
   // Toast
   const [toast, setToast] = useState<string | null>(null);
@@ -730,6 +738,7 @@ export function AskClientRedesign() {
                   setInput(q);
                   inputRef.current?.focus();
                 }}
+                featuredQueries={featuredQueries}
               />
             ) : (
               <MessageStream
@@ -1091,7 +1100,13 @@ function HistoryItem({
    Empty state
    ============================================================ */
 
-function EmptyState({ onPickQuery }: { onPickQuery: (q: string) => void }) {
+function EmptyState({
+  onPickQuery,
+  featuredQueries,
+}: {
+  onPickQuery: (q: string) => void;
+  featuredQueries: string[];
+}) {
   const [showLibrary, setShowLibrary] = useState(false);
 
   return (
@@ -1142,8 +1157,9 @@ function EmptyState({ onPickQuery }: { onPickQuery: (q: string) => void }) {
           Try a question
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {FEATURED_QUERY_IDS.map((q) => {
-            const meta = FEATURED_META[q];
+          {featuredQueries.map((q) => {
+            const catId = QUERY_TO_CATEGORY_ID[q];
+            const meta = catId ? CATEGORY_META[catId] : undefined;
             if (!meta) return null;
             const Icon = meta.Icon;
             return (
@@ -1175,7 +1191,7 @@ function EmptyState({ onPickQuery }: { onPickQuery: (q: string) => void }) {
                         'var(--font-jetbrains-mono), JetBrains Mono, monospace',
                     }}
                   >
-                    {meta.category}
+                    {meta.label}
                   </p>
                   <p className="text-[14px] font-semibold text-gt-text leading-snug group-hover:text-gt-deepest transition-colors">
                     {q}
