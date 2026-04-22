@@ -67,8 +67,9 @@ export default function CarbonMarketPage() {
       />
       <JsonLd data={CARBON_MARKET_BREADCRUMBS} />
       <Nav tone="dark" />
+      <h1 className="sr-only">Carbon Market Intelligence</h1>
       <Suspense fallback={null}>
-        <CarbonMarketClient />
+      <CarbonMarketClient />
       </Suspense>
       <RedesignFooter />
     </>

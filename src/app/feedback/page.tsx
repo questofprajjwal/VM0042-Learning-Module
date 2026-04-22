@@ -210,7 +210,14 @@ function FeedbackForm() {
 export default function FeedbackPage() {
   // useSearchParams must be in a Suspense boundary for SSG.
   return (
-    <Suspense fallback={null}>
+    <Suspense
+      fallback={
+        <main className="min-h-[80vh] bg-[#fafbfa] flex items-center justify-center">
+          <h1 className="sr-only">Send us feedback</h1>
+          <p className="text-[13px] text-gt-text-muted">Loading…</p>
+        </main>
+      }
+    >
       <FeedbackForm />
     </Suspense>
   );

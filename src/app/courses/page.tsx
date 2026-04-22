@@ -135,7 +135,7 @@ export default function CoursesPage() {
         <div className="relative max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
           <div>
             <CategoryLabel tone="dark">Course Catalogue</CategoryLabel>
-            <SectionHeading size="section" tone="light" className="mt-5">
+            <SectionHeading size="section" as="h1" tone="light" className="mt-5">
               Simplified for the practitioner.
               <br />
               Faithful to the source.

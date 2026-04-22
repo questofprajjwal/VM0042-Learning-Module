@@ -39,7 +39,7 @@ export default function ToolsHubPage() {
         <LightSection padding="lg" variant="pale">
           <div className="max-w-3xl">
             <CategoryLabel>Tools</CategoryLabel>
-            <SectionHeading size="hero" className="mt-3">
+            <SectionHeading size="hero" as="h1" className="mt-3">
               Tools for sustainability practitioners
             </SectionHeading>
             <p className="mt-4 text-lg text-gt-text-muted">

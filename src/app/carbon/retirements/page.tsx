@@ -58,6 +58,7 @@ export default function Page() {
       <JsonLd data={RETIREMENTS_DATASET} />
       <JsonLd data={RETIREMENTS_BREADCRUMBS} />
       <Nav />
+      <h1 className="sr-only">Carbon Retirement Leaderboard</h1>
       <RetirementsClient />
       <RedesignFooter />
     </>

@@ -41,7 +41,7 @@ export default function PromptLibraryIndex() {
         <LightSection padding="lg" variant="pale">
           <div className="max-w-3xl">
             <CategoryLabel>Prompt library</CategoryLabel>
-            <SectionHeading size="hero" className="mt-3">
+            <SectionHeading size="hero" as="h1" className="mt-3">
               Prompts that do the work
             </SectionHeading>
             <p className="mt-4 text-lg text-gt-text-muted">

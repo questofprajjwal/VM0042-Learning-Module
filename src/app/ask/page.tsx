@@ -37,7 +37,14 @@ export default function SustainIQPage() {
   return (
     <>
       <Nav />
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <main className="min-h-[60vh] flex items-center justify-center">
+            <h1 className="sr-only">SustainIQ</h1>
+            <p className="text-[13px] text-gt-text-muted">Loading…</p>
+          </main>
+        }
+      >
         <AskClientRedesign />
       </Suspense>
       <RedesignFooter />
