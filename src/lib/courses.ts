@@ -58,8 +58,10 @@ export function getAllCourses(): Course[] {
   return getAllCourseIds().reduce<Course[]>((acc, id) => {
     try {
       acc.push(getCourse(id));
-    } catch {
-      // Skip courses that fail validation (e.g. incomplete drafts)
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      console.error(`❌ COURSE VALIDATION FAILED: ${id}`);
+      console.error(`   ${message}`);
     }
     return acc;
   }, []);
