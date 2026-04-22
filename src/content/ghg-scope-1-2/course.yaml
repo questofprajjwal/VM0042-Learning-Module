@@ -53,7 +53,7 @@ modules:
     color: emerald
     lessons:
       - id: "2.1"
-        title: "Scope 2: What Counts, What Doesn't, and the Dual Reporting Rule"
+        title: "Scope 2: What Counts & the Dual Reporting Rule"
         duration: "18 min"
         vmRef: "Scope 2 Guidance.pdf, Chapters 1-2 (pp. 4-19); Chapter 4 (pp. 24-31); Chapter 5 (pp. 32-41)"
       - id: "2.2"

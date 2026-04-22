@@ -19,7 +19,7 @@ modules:
         duration: "30 min"
         vmRef: "VM0044 v1.2 Section 1 (Summary Description); Section 3 (Definitions)"
       - id: "0.2"
-        title: "The Biochar Value Chain: Sourcing, Production and Application"
+        title: "Biochar Value Chain: Sourcing to Application"
         duration: "30 min"
         vmRef: "VM0044 v1.2 Section 1 (Summary Description); Section 5 (Project Boundary)"
 

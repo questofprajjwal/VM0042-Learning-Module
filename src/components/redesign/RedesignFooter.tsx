@@ -15,7 +15,11 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/components/redesign/lib/cn';
 import { Logo } from '@/components/redesign/Logo';
 
-type FooterLink = { label: string; href: string; badge?: string };
+// A footer entry is either a real destination (href + optional badge) or a
+// placeholder with no href. Placeholder entries render as non-clickable
+// labels with a "Soon" badge so the footer never redirects visitors to
+// pages that don't cover what the label promises.
+type FooterLink = { label: string; href?: string; badge?: string };
 
 interface FooterColumn {
   title: string;
@@ -29,8 +33,7 @@ const PLATFORM_COLUMN: FooterColumn = {
     { label: 'SustainIQ', href: '/ask' },
     { label: 'Tools', href: '/tools' },
     { label: 'Frameworks', href: '/frameworks' },
-    { label: 'Regulations', href: '/guides', badge: 'Soon' },
-    { label: 'Jobs', href: '/jobs' },
+    { label: 'Regulations', badge: 'Soon' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Services', href: '/services' },
   ],
@@ -56,7 +59,7 @@ const RESOURCES_COLUMN: FooterColumn = {
     { label: 'Audio lessons', href: '/courses' },
     { label: 'Dashboard', href: '/dashboard' },
     { label: 'Fair Use', href: '/fair-use' },
-    { label: 'Changelog', href: '/about' },
+    { label: 'Changelog', badge: 'Soon' },
   ],
 };
 
@@ -66,8 +69,9 @@ const COMPANY_COLUMN: FooterColumn = {
     { label: 'About', href: '/about' },
     { label: 'Feedback', href: '/feedback' },
     { label: 'Disclaimer', href: '/disclaimer' },
-    { label: 'Privacy', href: '/disclaimer' },
-    { label: 'Terms', href: '/disclaimer' },
+    { label: 'Privacy', href: '/privacy' },
+    { label: 'Terms', href: '/terms' },
+    { label: 'Contact', href: '/contact' },
   ],
 };
 
@@ -185,30 +189,44 @@ function FooterColumnBlock({
       </h3>
       <ul className="space-y-3">
         {column.links.map((link) => (
-          // Key on label, not href — several links (Disclaimer/Privacy/Terms)
-          // share a single /disclaimer destination until dedicated pages
-          // ship, which collides when href is the key.
           <li key={link.label}>
-            <Link
-              href={link.href}
-              className="group inline-flex items-center gap-2 text-sm text-white/75 hover:text-white transition-colors"
-            >
-              <span className="border-b border-transparent group-hover:border-white/40 transition-colors">
-                {link.label}
-              </span>
-              {link.badge && (
-                <span
-                  className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10"
-                  style={{ letterSpacing: '0.15em' }}
-                >
-                  {link.badge}
+            {link.href ? (
+              <Link
+                href={link.href}
+                className="group inline-flex items-center gap-2 text-sm text-white/75 hover:text-white transition-colors"
+              >
+                <span className="border-b border-transparent group-hover:border-white/40 transition-colors">
+                  {link.label}
                 </span>
-              )}
-            </Link>
+                {link.badge && <Badge>{link.badge}</Badge>}
+              </Link>
+            ) : (
+              // Non-clickable placeholder. We'd rather show "Soon" honestly
+              // than route to a page that doesn't cover what the label
+              // promises.
+              <span
+                className="inline-flex items-center gap-2 text-sm text-white/40 cursor-default"
+                aria-disabled="true"
+              >
+                <span>{link.label}</span>
+                {link.badge && <Badge>{link.badge}</Badge>}
+              </span>
+            )}
           </li>
         ))}
       </ul>
       {trailing}
     </div>
+  );
+}
+
+function Badge({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10"
+      style={{ letterSpacing: '0.15em' }}
+    >
+      {children}
+    </span>
   );
 }

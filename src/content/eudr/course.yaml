@@ -45,11 +45,11 @@ modules:
   color: emerald
   lessons:
   - id: '1.1'
-    title: 'Seven Commodities: Cattle, Cocoa, Coffee, Oil Palm, Rubber, Soya, Wood'
+    title: 'Seven Commodities: Cattle, Cocoa, Coffee, Oil Palm & More'
     duration: 45 min
     vmRef: EUDR Regulation (EU) 2023/1115, Art. 1, Annex I; EC EUDR Guidance Documents
   - id: '1.2'
-    title: 'Key Definitions: Deforestation, Forest Degradation, and the Cut-Off Date'
+    title: 'Deforestation, Forest Degradation & the Cut-Off Date'
     duration: 40 min
     vmRef: EUDR Regulation (EU) 2023/1115, Art. 2; FAO Global Forest Resources Assessment 2020
   - id: '1.3'

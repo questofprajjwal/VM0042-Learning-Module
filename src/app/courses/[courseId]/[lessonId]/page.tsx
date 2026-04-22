@@ -52,7 +52,7 @@ import {
 } from '@/lib/courses';
 import { urlToLessonId, lessonIdToUrl } from '@/lib/url-helpers';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { learningResourceSchema, breadcrumbList } from '@/lib/seo/schema';
+import { learningResourceSchema, breadcrumbList, lessonFaqPageSchema } from '@/lib/seo/schema';
 
 interface PageParams {
   params: { courseId: string; lessonId: string };
@@ -186,6 +186,7 @@ export default function LessonRedesignPage({ params }: PageParams) {
   // when the file is missing, in which case the Quiz block is not
   // rendered at all.
   const quizQuestions = getQuiz(courseId, lessonId);
+  const faqLd = lessonFaqPageSchema(courseId, lessonId, quizQuestions);
 
   // Soft registration wall: anonymous visitors can read 3 lessons per
   // calendar month (cookie-tracked). The 4th lesson mounts the dimmed-
@@ -215,6 +216,7 @@ export default function LessonRedesignPage({ params }: PageParams) {
     <>
       <JsonLd data={lessonLd} />
       <JsonLd data={breadcrumbs} />
+      {faqLd && <JsonLd data={faqLd} />}
       <Nav />
       <LessonMeter lessonSlug={meterSlug} />
 

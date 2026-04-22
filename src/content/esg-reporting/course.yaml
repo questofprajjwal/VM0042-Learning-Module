@@ -157,7 +157,7 @@ modules:
     color: cyan
     lessons:
       - id: "7.1"
-        title: "Design Principles: Brand Language, Visuals & Common Mistakes"
+        title: "Design Principles: Brand Language, Visuals & Mistakes"
         duration: "12 min"
       - id: "7.2"
         title: "Deliverable Formats: PDF, Microsite & Beyond"

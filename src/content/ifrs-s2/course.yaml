@@ -197,7 +197,7 @@ modules:
     color: teal
     lessons:
       - id: "8.1"
-        title: "Effective Dates, Transition Reliefs and First-Year Reporting"
+        title: "Effective Dates, Transition Reliefs & First Reporting"
         duration: "40 min"
         vmRef: "IFRS S2 Appendix C, Basis for Conclusions BC157-BC177"
       - id: "8.2"

@@ -368,6 +368,37 @@ export function faqPageSchema(slug: string, entries: FaqEntry[]) {
   };
 }
 
+export interface QuizQuestionInput {
+  question: string;
+  explanation?: string;
+}
+
+export function lessonFaqPageSchema(
+  courseId: string,
+  lessonId: string,
+  questions: QuizQuestionInput[],
+) {
+  const url = `${SITE_URL}/courses/${courseId}/${lessonId.replace(/\./g, '_')}`;
+  const entries = questions
+    .filter((q) => q.explanation && q.explanation.trim().length > 0)
+    .map((q) => ({
+      '@type': 'Question' as const,
+      name: q.question,
+      acceptedAnswer: {
+        '@type': 'Answer' as const,
+        text: q.explanation!.trim(),
+      },
+    }));
+  if (entries.length === 0) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    isPartOf: { '@id': `${url}#lesson` },
+    mainEntity: entries,
+  };
+}
+
 export interface DefinedTermInput {
   slug: string;
   name: string;
