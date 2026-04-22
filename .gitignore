@@ -79,3 +79,7 @@ data/page-indexes-docling-backup/
 # Screaming Frog CSVs, internal audit findings. Never commit.
 # Root-anchored so it does NOT match src/lib/seo/ on case-insensitive file systems.
 /SEO/
+
+# Generated sitemaps (rebuilt automatically during prebuild)
+public/sitemap.xml
+public/sitemap-emission-factors.xml
